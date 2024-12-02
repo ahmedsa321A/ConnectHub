@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Back__end;
+package Back_end;
+
+
 import com.google.gson.annotations.SerializedName;
 
 public class User {
@@ -23,7 +21,7 @@ public class User {
     
     @SerializedName("status")
     private String status;
-
+    
     public User(String userId, String email, String username, String password, String dateOfBirth, String status) {
         this.userId = userId;
         this.email = email;
@@ -32,8 +30,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.status = status;
     }
-
-    public String getUserId() {
+     public String getUserId() {
         return userId;
     }
 
@@ -56,7 +53,6 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-
     public String getPassword() {
         return password;
     }
@@ -76,9 +72,7 @@ public class User {
     public String getStatus() {
         return status;
     }
-
-    public void setStatus(String status) {
+     public void setStatus(String status) {
         this.status = status;
     }
 }
-
