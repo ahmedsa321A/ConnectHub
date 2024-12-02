@@ -124,22 +124,20 @@ private FriendUser you;
        suggestions.setVisible(true);
     }//GEN-LAST:event_SuggestionButtonActionPerformed
 public static void main(String[] args) {
-         FriendUser user = new FriendUser("1", "john@example.com", "JohnDoe", "123456", "01/01/1992", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
+    FriendUser user = new FriendUser("1", "john@example.com", "JohnDoe", "123456", "01/01/1992", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
     FriendUser currentUser = new FriendUser("2", "Hazem@example.com", "Hazem", "7891011", "01/01/1990", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\a3452e2f5910a0e59fbee3762c65061a.jpg");
+    user.addFriend(currentUser);
     List<FriendUser> friendList = new ArrayList<>();
     friendList.add(user);
     friendList.add(currentUser);
     
     java.lang.reflect.Type friendListType = new TypeToken<List<FriendUser>>() {}.getType();
     FriendsHandler<List<FriendUser>> handler = new FriendsHandler<>(friendListType);
-
     String filePath = "FriendUser.json";
     handler.save(friendList, filePath);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                 String filePath = "FriendUser.json";
-                 handler.save(friendList, filePath);
+ 
                 new FriendsCenter(user).setVisible(true);
             }
         });
