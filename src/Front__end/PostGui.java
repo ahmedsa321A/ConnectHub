@@ -152,10 +152,10 @@ public class PostGui extends javax.swing.JFrame {
         ContentDatabase db = new ContentDatabase();
         String text = posttext.getText();
         if (text.equals("Write Here...")) {
-            JOptionPane.showMessageDialog(this, "Please Write Post text", "Invalid File", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please Write Post text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Content post = new Content(UUID.randomUUID().toString(), "Postowner", text, photopath, false);
+        Content post = new Content(UUID.randomUUID().toString(), "UserID", text, photopath, false);
         db.addContent(post);
         db.saveContent();
         JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);

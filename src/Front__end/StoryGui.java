@@ -153,7 +153,11 @@ public class StoryGui extends javax.swing.JFrame {
     private void publishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publishActionPerformed
        ContentDatabase db = new ContentDatabase();
        String text=posttext.getText();
-       Content post = new Content(UUID.randomUUID().toString(),"Storyowner",text,photopath,true);
+       if (text.equals("Write Here...")) {
+            JOptionPane.showMessageDialog(this, "Please Write Story text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+       Content post = new Content(UUID.randomUUID().toString(),"UserID",text,photopath,true);
        db.addContent(post);
        db.saveContent();
        JOptionPane.showMessageDialog(this, "Story Published Successfully","Successfully", JOptionPane.INFORMATION_MESSAGE);
