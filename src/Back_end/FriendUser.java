@@ -1,47 +1,20 @@
 
 package Back_end;
-import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FriendUser extends User {
    
-    @SerializedName("photoPath")
-    private String photoPath;
     
  private List<FriendUser>friends=new ArrayList<>();
- private List<FriendUser> requestsSent = new ArrayList<>();
  private List<FriendUser> requestsReceived = new ArrayList<>();
  private List<FriendUser>suggestions=new ArrayList<>();
 
-    public FriendUser(String userId,String username,String photoPath) {
-        super();
-       
+    public FriendUser(String userId, String email, String username, String password, String dateOfBirth, String status,String photoPath) {
+       super(userId, email, username, password, dateOfBirth, status,photoPath);
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    
-    public String getPhotoPath() {
-        return photoPath;
-    }
-
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
     public void addFriend(FriendUser user) {
          friends.add(user);
     }
@@ -50,15 +23,6 @@ public class FriendUser extends User {
     }
     public List<FriendUser> getFriends() {
         return friends;
-    }
-    public void sentRequest(FriendUser user){
-        requestsSent.add(user);
-    }
-    public void removeSentRequest(FriendUser user) {
-        requestsSent.remove(user);
-    }
-    public List<FriendUser> getSentRequests(){
-        return requestsSent;
     }
      public void receivedRequest(FriendUser user){
         requestsReceived.add(user);
@@ -75,22 +39,30 @@ public class FriendUser extends User {
         suggestions.add(user);
     }
 
-    // Remove a suggestion
     public void removeSuggestion(FriendUser user) {
         suggestions.remove(user);
     }
 
-    // Get the list of suggestions
     public List<FriendUser> getSuggestions() {
         return suggestions;
     }
    @Override
-     public String toString() {
-        return "FriendUser{" +
-               "userId='" + userId + '\'' +
-               ", username='" + username + '\'' +
-               ", photoPath='" + photoPath + '\'' +
-               '}';
+    public String toString() {
+        //  list of userIds for each list (friends, suggestions, requestsReceived)
+        String friendsIds = friends.stream()
+                                   .map(friend -> friend.getUserId())
+                                   .collect(Collectors.joining(", "));
+        String suggestionsIds = suggestions.stream()
+                                           .map(suggestion -> suggestion.getUserId())
+                                           .collect(Collectors.joining(", "));
+        String receivedRequestsIds = requestsReceived.stream()
+                                                     .map(request -> request.getUserId())
+                                                     .collect(Collectors.joining(", "));
+
+        return super.toString() +
+               ", friendsIds=[" + friendsIds + "]" +
+               ", suggestionsIds=[" + suggestionsIds + "]" +
+               ", receivedRequestsIds=[" + receivedRequestsIds + "]";
     }
 }
 

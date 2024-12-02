@@ -16,6 +16,7 @@ public class Relationship {
 public Relationship(FriendUser user1, FriendUser user2) {
         this.user1 = user1;
         this.user2 = user2;
+        this.status = RelationshipStatus.NOT_FRIENDS; //default
     }
 
     public FriendUser getUser1() {

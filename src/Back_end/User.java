@@ -22,13 +22,17 @@ public class User {
     @SerializedName("status")
     private String status;
     
-    public User(String userId, String email, String username, String password, String dateOfBirth, String status) {
+    @SerializedName("photoPath")
+    private String photoPath;
+    
+    public User(String userId, String email, String username, String password, String dateOfBirth, String status,String photoPath) {
         this.userId = userId;
         this.email = email;
         this.username = username;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.status = status;
+        this.photoPath=photoPath;
     }
      public String getUserId() {
         return userId;
@@ -74,5 +78,22 @@ public class User {
     }
      public void setStatus(String status) {
         this.status = status;
+    }
+      public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+    public String toString() {
+        return "User{" +
+               "userId='" + userId + '\'' +
+               ", email='" + email + '\'' +
+               ", username='" + username + '\'' +
+               ", dateOfBirth='" + dateOfBirth + '\'' +
+               ", status='" + status + '\'' +
+               ", photoPath='" + photoPath + '\'' +
+               '}';
     }
 }
