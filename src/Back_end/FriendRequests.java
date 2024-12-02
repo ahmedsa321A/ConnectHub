@@ -15,7 +15,7 @@ public class FriendRequests {
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.FRIENDS);
         user1.addFriend(user2);
         user2.addFriend(user1);
-        user2.removeReceivedRequest(user1);
+        user1.removeReceivedRequest(user2);
     }
     public void declineRequest(FriendUser user1,FriendUser user2)
     {

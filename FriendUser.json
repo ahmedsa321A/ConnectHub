@@ -1,0 +1,26 @@
+[
+  {
+    "friends": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "userId": "1",
+    "email": "john@example.com",
+    "username": "JohnDoe",
+    "password": "123456",
+    "dateOfBirth": "01/01/1992",
+    "status": "active",
+    "photoPath": "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png"
+  },
+  {
+    "friends": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "userId": "2",
+    "email": "Hazem@example.com",
+    "username": "Hazem",
+    "password": "7891011",
+    "dateOfBirth": "01/01/1990",
+    "status": "active",
+    "photoPath": "C:\\Users\\ghane\\OneDrive\\Pictures\\a3452e2f5910a0e59fbee3762c65061a.jpg"
+  }
+]
