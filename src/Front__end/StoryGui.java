@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class StoryGui extends javax.swing.JFrame {
     private static String photopath="";
+    private static String userid;
     /**
      * Creates new form PostGui
      */
@@ -157,7 +158,12 @@ public class StoryGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please Write Story text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
         }
-       Content post = new Content(UUID.randomUUID().toString(),"UserID",text,photopath,true);
+       else if(text.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Can't Write Story Without text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+       Content post = new Content(UUID.randomUUID().toString(),"userid",text,photopath,true);
        db.addContent(post);
        db.saveContent();
        JOptionPane.showMessageDialog(this, "Story Published Successfully","Successfully", JOptionPane.INFORMATION_MESSAGE);
