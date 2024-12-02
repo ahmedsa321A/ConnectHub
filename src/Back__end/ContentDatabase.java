@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-class ContentDatabase {
+public class ContentDatabase {
     private static final String DATABASE_FILE = "content_db.json";
     private static final long STORY_EXPIRY_HOURS = 24;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
