@@ -13,7 +13,7 @@ public class ContentDatabase {
     private static final String DATABASE_FILE = "content_db.json";
     private static final long STORY_EXPIRY_HOURS = 24;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private ArrayList<Content> contents;
+    private static ArrayList<Content> contents;
     
     public ContentDatabase() {
         loadContent(); // Load content from JSON file
@@ -23,6 +23,9 @@ public class ContentDatabase {
         try (Reader reader = new FileReader(DATABASE_FILE)) {
             Type listType = new TypeToken<List<Content>>() {}.getType();
             this.contents=gson.fromJson(reader, listType);
+            if (this.contents == null) {
+            this.contents = new ArrayList<>();
+        }
         } catch (FileNotFoundException e) {
             this.contents= new ArrayList<>(); // Return an empty list if the file doesn't exist
         } catch (IOException e) {

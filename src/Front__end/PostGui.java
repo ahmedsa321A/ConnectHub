@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Front__end;
+
 import Back__end.Content;
 import Back__end.ContentDatabase;
 import java.awt.Image;
@@ -17,7 +18,9 @@ import javax.swing.JOptionPane;
  * @author hazembarakat
  */
 public class PostGui extends javax.swing.JFrame {
-    private static String photopath="";
+
+    private static String photopath = "";
+
     /**
      * Creates new form PostGui
      */
@@ -25,7 +28,7 @@ public class PostGui extends javax.swing.JFrame {
         initComponents();
     }
 
-  
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -146,12 +149,16 @@ public class PostGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void publishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publishActionPerformed
-       ContentDatabase db = new ContentDatabase();
-       String text=posttext.getText();
-       Content post = new Content(UUID.randomUUID().toString(),"Postowner",text,photopath,false);
-       db.addContent(post);
-       db.saveContent();
-       JOptionPane.showMessageDialog(this, "Post Published Successfully","Successfully", JOptionPane.INFORMATION_MESSAGE);
+        ContentDatabase db = new ContentDatabase();
+        String text = posttext.getText();
+        if (text.equals("Write Here...")) {
+            JOptionPane.showMessageDialog(this, "Please Write Post text", "Invalid File", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Content post = new Content(UUID.randomUUID().toString(), "Postowner", text, photopath, false);
+        db.addContent(post);
+        db.saveContent();
+        JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_publishActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -163,26 +170,26 @@ public class PostGui extends javax.swing.JFrame {
     }//GEN-LAST:event_addphotoActionPerformed
 
     private void addPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoActionPerformed
-         if (evt.getSource() == addPhoto) {
+        if (evt.getSource() == addPhoto) {
             JFileChooser filechooser = new JFileChooser();
             int response = filechooser.showOpenDialog(null);
-            File f=filechooser.getSelectedFile();
-            if(f!=null)
-            {
-            if(f.getAbsolutePath()!=null)
-            if (!f.getAbsolutePath().endsWith(".png")) {
-                JOptionPane.showMessageDialog(this, "Extension Should be .png", "Invalid File", JOptionPane.ERROR_MESSAGE);
-                return;
+            File f = filechooser.getSelectedFile();
+            if (f != null) {
+                if (f.getAbsolutePath() != null) {
+                    if (!f.getAbsolutePath().endsWith(".png")) {
+                        JOptionPane.showMessageDialog(this, "Extension Should be .png", "Invalid File", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+                if (response == JFileChooser.APPROVE_OPTION) {
+                    photopath = filechooser.getSelectedFile().getAbsolutePath();
+                    ImageIcon image = new ImageIcon(photopath);
+                    Image scaledImage = image.getImage().getScaledInstance(352, 190, Image.SCALE_SMOOTH);
+                    ImageIcon scaledimage = new ImageIcon(scaledImage);
+                    pic.setIcon(scaledimage);
+                }
             }
-            if (response == JFileChooser.APPROVE_OPTION) {
-                photopath = filechooser.getSelectedFile().getAbsolutePath();
-                ImageIcon image=new ImageIcon(photopath);
-                Image scaledImage = image.getImage().getScaledInstance(352, 190, Image.SCALE_SMOOTH);
-                ImageIcon scaledimage =  new ImageIcon(scaledImage);
-                pic.setIcon( scaledimage);
-            }  
-         }
-         }
+        }
     }//GEN-LAST:event_addPhotoActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
