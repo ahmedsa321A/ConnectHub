@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
+//save to file implementation 
 public class FriendSaver<T> implements SaveToFile<T> {
     
 private final Gson gson = new GsonBuilder().setPrettyPrinting().create();

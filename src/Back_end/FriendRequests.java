@@ -4,10 +4,22 @@
  */
 package Back_end;
 
-/**
- *
- * @author ghane
- */
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+//add and get friend requests
 public class FriendRequests {
-    
+    private List<User> requests = new ArrayList<>();
+
+    public void addRequest(User user) {
+        requests.add(user);
+    }
+
+    public List<User> getRequests() {
+        return requests;
+    }
+
 }
+

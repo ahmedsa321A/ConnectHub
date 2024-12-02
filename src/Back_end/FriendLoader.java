@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
-
+//load from file implementation
 public class FriendLoader<T> implements LoadFromFile<T> {
 
 private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
