@@ -21,8 +21,12 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
         this.newPhotoPath = this.profile.getProfilePhotoPath();
         this.newCoverPath = this.profile.getCoverPhotoPath();
         this.newPassword = this.profile.getPassword();
+        if(!profile.getProfilePhotoPath().equals("")){
         Photo.setPhoto(profilePictureLabel, profile.getProfilePhotoPath());
+        }
+        if(!profile.getCoverPhotoPath().equals("")){
         Photo.setPhoto(coverPhotoLabel, profile.getCoverPhotoPath());
+        }
         bioTextArea.setText(profile.getBio());
         this.setVisible(modal);
     }
@@ -89,6 +93,10 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Password");
+
+        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noimage.png"))); // NOI18N
+
+        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noprofile.png"))); // NOI18N
 
         bioTextArea.setColumns(20);
         bioTextArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -160,7 +168,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
     private void changePictureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePictureButtonActionPerformed
         try {
-            String newPhotoPath = Photo.changePhoto(profilePictureLabel, this);
+            String newPhotoPath = Photo.selectPhoto(profilePictureLabel, this);            
             if (!newPhotoPath.equals(null)) {
                 Photo.setPhoto(profilePictureLabel, newPhotoPath);
                 this.newPhotoPath = newPhotoPath;
@@ -171,7 +179,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
     private void changePhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePhotoButtonActionPerformed
         try {
-            String newCoverPath = Photo.changePhoto(coverPhotoLabel, this);
+            String newCoverPath = Photo.selectPhoto(coverPhotoLabel, this);
             if (!newCoverPath.equals(null)) {
                 Photo.setPhoto(coverPhotoLabel, newCoverPath);
                 this.newCoverPath = newCoverPath;

@@ -5,6 +5,7 @@
 package Front__end;
 import Back__end.Content;
 import Back__end.ContentDatabase;
+import Back__end.Photo;
 import java.awt.Image;
 import java.io.File;
 import java.util.UUID;
@@ -195,36 +196,13 @@ public class StoryGui extends javax.swing.JFrame {
     }//GEN-LAST:event_addphotoActionPerformed
 
     private void addPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoActionPerformed
-        if (evt.getSource() == addPhoto) {
-            JFileChooser filechooser = new JFileChooser();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files (JPG, PNG, JPEG)", "jpg", "jpeg", "png");
-            filechooser.setFileFilter(filter);
-            int response = filechooser.showOpenDialog(null);
 
-    if (response == JFileChooser.APPROVE_OPTION) {
-        File selectedFile = filechooser.getSelectedFile();
-
-        String filePath = selectedFile.getAbsolutePath().toLowerCase();
-        if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
-            JOptionPane.showMessageDialog(
-                this, 
-                "Please select a valid image file (JPG, JPEG, or PNG).", 
-                "Invalid File", 
-                JOptionPane.ERROR_MESSAGE
-            );
-            return;
-        }
-
-        photopath = filePath;
-        ImageIcon image = new ImageIcon(photopath);
-
-        Image scaledImage = image.getImage().getScaledInstance(352, 190, Image.SCALE_SMOOTH);
-        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
-
-        pic.setIcon(scaledImageIcon);
+        photopath =Photo.selectPhoto(pic,this);
+        Photo.setPhoto(pic, photopath);
+        if(!photopath.equals(null)){
          removeButton1.setVisible(true);
-    }
-    }
+        }  
+
     }//GEN-LAST:event_addPhotoActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
