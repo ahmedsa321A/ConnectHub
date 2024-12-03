@@ -6,6 +6,7 @@ package Back__end;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import java.awt.Image;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,11 +16,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class userService {
     private static final String DATABASE_FILE = "signup_data.json"; 
     
     static ArrayList<User> userList = new ArrayList<>();
+    static ContentDatabase content=new ContentDatabase();
         public static boolean checkIfUserExists(String email) {
 
         loadUsersFromJson();
@@ -30,6 +35,36 @@ public class userService {
             }
         }
         return false;  
+    }
+    public static ArrayList<JLabel> post(User user){
+      content.loadContent();
+      ArrayList<JLabel> posts=new ArrayList<>();
+       for(Content c:content.getContents()){
+          if(c.getAuthorId().equals(user.getUserId()))
+          {
+            JLabel label = new JLabel();
+
+
+            String text = "<html><strong>" + user.getUsername() + "</strong>" +
+                    " <em>(" + c.getTimestamp() + ")</em><br>" +
+                    c.getContentText() + "</html>";
+
+
+            label.setText(text);
+
+
+            if (c.getImagePath() != null && !c.getImagePath().isEmpty()) {
+                ImageIcon imageIcon = new ImageIcon(c.getImagePath());
+                Image scaledImage = imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                label.setIcon(new ImageIcon(scaledImage));
+                label.setHorizontalTextPosition(SwingConstants.RIGHT); 
+            }
+
+
+            posts.add(label);
+          }
+       }
+       return posts;    
     }
         
     public static String getStatusofUser(String name){
