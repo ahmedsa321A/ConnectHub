@@ -1,0 +1,18 @@
+[
+  {
+    "userId": "fe75fe6f-fbc9-41e4-be0d-66c919859bb9",
+    "email": "ahmed@gmail.com",
+    "username": "ahmed",
+    "password": "f10e2821bbbea527ea02200352313bc059445190",
+    "dateOfBirth": "2024-12-05",
+    "status": "offline"
+  },
+  {
+    "userId": "20a06e9f-a77a-475d-b941-78bb28501795",
+    "email": "omar@gmail.com",
+    "username": "omar",
+    "password": "ad9c015ed1de5e4189f8644d2860809e1307734e",
+    "dateOfBirth": "2024-12-05",
+    "status": "offline"
+  }
+]

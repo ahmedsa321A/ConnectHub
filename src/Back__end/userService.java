@@ -3,6 +3,7 @@ package Back__end;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,13 +11,17 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class userService {
@@ -38,33 +43,56 @@ public class userService {
         return false;
     }
 
-    public static ArrayList<JLabel> getPosts(User user) {
+    public static ArrayList<JPanel> getPosts(User user) {
         content.loadContent();
-        ArrayList<JLabel> posts = new ArrayList<>();
+        ArrayList<JPanel> posts = new ArrayList<>();
         for (Content c : content.getContents()) {
-            if (c.getAuthorId().equals("userid") && !c.isStory()) {
-//                user.getUserId()
-                JLabel label = new JLabel();
-                String timestamp = c.getTimestamp();
-                DateTimeFormatter inputFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME; // Handles the 'T' and fractional seconds
-                LocalDateTime dateTime = LocalDateTime.parse(timestamp, inputFormatter);
-                DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy @ HH");
-                String formattedDate = dateTime.format(outputFormatter);
-                String text = "<html><strong>" + user.getUsername() + "</strong>"
-                        + " <em>(" + formattedDate + ")</em><br>"
-                        + c.getContentText() + "</html>";
-                label.setText(text);
-                if (c.getImagePath() != null && !c.getImagePath().isEmpty()) {
-                    ImageIcon imageIcon = new ImageIcon(c.getImagePath());
-                    Image scaledImage = imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-                    label.setIcon(new ImageIcon(scaledImage));
-                    label.setHorizontalTextPosition(SwingConstants.RIGHT);
-                }
-
-                posts.add(label);
+            if (c.getAuthorId().equals("userid") && !c.isStory()) { //change userid
+                posts.add(createContentPanel(c));
+    
             }
         }
         return posts;
+    }
+
+    public static JPanel createContentPanel(Content content) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Text content
+        JLabel authorId = new JLabel("Author: " + content.getAuthorId());
+        JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
+        String[] date=content.getTimestamp().split("T");
+        String Date= date[0];
+        LocalDate D = LocalDate.parse(Date, DateTimeFormatter.ISO_DATE);
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
+        String formattedDate = D.format(outputFormatter);
+        JLabel timestamp = new JLabel(formattedDate);
+        
+        // Arrange text in a vertical panel
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
+        textPanel.add(authorId);
+        textPanel.add(contentText);
+        textPanel.add(timestamp);
+
+        // Image content
+        ImageIcon icon = new ImageIcon(content.getImagePath());
+        Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
+        ImageIcon scaledimage = new ImageIcon(scaledImage);
+        JLabel imageLabel = new JLabel(scaledimage);
+
+        // Combine text and image in a single panel
+        JPanel contentPanel = new JPanel();
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.add(textPanel, BorderLayout.NORTH);
+        contentPanel.add(imageLabel, BorderLayout.CENTER);
+
+        // Add combined panel to the main panel
+        panel.add(contentPanel, BorderLayout.CENTER);
+
+        return panel;
     }
 
     public static String getStatusofUser(String name) {

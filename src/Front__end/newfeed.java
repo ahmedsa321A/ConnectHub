@@ -29,9 +29,9 @@ public class newfeed {
             
             // Load content from JSON
             // Add each content as a panel
-            for (Content content : dp.getContents()) {
-                mainPanel.add(createContentPanel(content));
-            }
+          //  for (Content content : dp.getContents()) {
+           //     mainPanel.add(createContentPanel(content));
+          // }
             // Button panel
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -95,53 +95,4 @@ public class newfeed {
         });
     }
 
-    // Load content from JSON file using Gson
-    private static List<Content> loadContentFromJson(String filePath) throws IOException {
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader(filePath)) {
-            Type contentListType = new TypeToken<List<Content>>() {}.getType();
-            return gson.fromJson(reader, contentListType);
-        }
-    }
-
-    // Create a JPanel for a single content
-    private static JPanel createContentPanel(Content content) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Text content
-        JLabel authorId = new JLabel("Author: " + content.getAuthorId());
-        JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
-        String[] date=content.getTimestamp().split("T");
-        String Date= date[0];
-        LocalDate D = LocalDate.parse(Date, DateTimeFormatter.ISO_DATE);
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
-        String formattedDate = D.format(outputFormatter);
-        JLabel timestamp = new JLabel(formattedDate);
-        
-        // Arrange text in a vertical panel
-        JPanel textPanel = new JPanel();
-        textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
-        textPanel.add(authorId);
-        textPanel.add(contentText);
-        textPanel.add(timestamp);
-
-        // Image content
-        ImageIcon icon = new ImageIcon(content.getImagePath());
-        Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
-        ImageIcon scaledimage = new ImageIcon(scaledImage);
-        JLabel imageLabel = new JLabel(scaledimage);
-
-        // Combine text and image in a single panel
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new BorderLayout());
-        contentPanel.add(textPanel, BorderLayout.NORTH);
-        contentPanel.add(imageLabel, BorderLayout.CENTER);
-
-        // Add combined panel to the main panel
-        panel.add(contentPanel, BorderLayout.CENTER);
-
-        return panel;
-    }
 }
