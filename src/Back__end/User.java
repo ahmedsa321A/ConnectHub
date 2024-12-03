@@ -32,8 +32,8 @@ public class User {
     @SerializedName("bio")
     private String bio;
 
-    @SerializedName("friends")
-    ArrayList<String> friends = new ArrayList<>();
+    @SerializedName("FriendsId")
+    ArrayList<String> FriendsId = new ArrayList<>();
 
     @SerializedName("contentId")
     ArrayList<String> contentId = new ArrayList<>();
@@ -125,11 +125,11 @@ public class User {
     }
 
     public void addFriend(String name) {
-        this.friends.add(name);
+        this.FriendsId.add(name);
     }
 
-    public ArrayList<String> getFriendsArray() {
-        return this.friends;
+    public ArrayList<String> getFriendsIdArray() {
+        return this.FriendsId;
     }
 
     public void addContentId(String id) {

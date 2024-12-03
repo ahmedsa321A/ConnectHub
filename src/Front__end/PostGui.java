@@ -3,6 +3,8 @@ package Front__end;
 import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
+import Back__end.User;
+import Back__end.userService;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
@@ -159,11 +161,17 @@ public class PostGui extends javax.swing.JFrame {
         } else if (text.equals("")) {
             JOptionPane.showMessageDialog(this, "Can't Write Post Without text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        } else{
         Content post = new Content(UUID.randomUUID().toString(), "userid", text, photopath, false);
         db.addContent(post);
         db.saveContent();
         JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);
+        for(User u : userService.userList){
+            if(u.getUserId().equals(this.userid)){
+                u.addContentId(post.getContentId());
+            }
+        }
+        }
     }//GEN-LAST:event_publishActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed

@@ -12,7 +12,6 @@ import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +21,12 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class userService {
 
     private static final String DATABASE_FILE = "signup_data.json";
 
-    static ArrayList<User> userList = new ArrayList<>();
+    public static ArrayList<User> userList = new ArrayList<>();
     static ContentDatabase content = new ContentDatabase();
 
     public static boolean checkIfUserExists(String email) {
@@ -49,7 +47,23 @@ public class userService {
         for (Content c : content.getContents()) {
             if (c.getAuthorId().equals("userid") && !c.isStory()) { //change userid
                 posts.add(createContentPanel(c));
-    
+
+            }
+        }
+        return posts;
+    }
+
+    public static ArrayList<JPanel> getPostsOfFriends(User user) {
+        ArrayList<JPanel> posts = new ArrayList<>();
+        content.loadContent();
+        loadUsersFromJson();
+        for (String id : user.getFriendsIdArray()) {
+            for (User u : userList) {
+                if (u.getUserId().equals(id)) {
+                    for (Content c : content.getContents()) {
+                        posts.add(createContentPanel(c));
+                    }
+                }
             }
         }
         return posts;
@@ -63,13 +77,13 @@ public class userService {
         // Text content
         JLabel authorId = new JLabel("Author: " + content.getAuthorId());
         JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
-        String[] date=content.getTimestamp().split("T");
-        String Date= date[0];
+        String[] date = content.getTimestamp().split("T");
+        String Date = date[0];
         LocalDate D = LocalDate.parse(Date, DateTimeFormatter.ISO_DATE);
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         String formattedDate = D.format(outputFormatter);
         JLabel timestamp = new JLabel(formattedDate);
-        
+
         // Arrange text in a vertical panel
         JPanel textPanel = new JPanel();
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
@@ -106,7 +120,7 @@ public class userService {
         return state;
     }
 
-    private static void loadUsersFromJson() {
+    public static void loadUsersFromJson() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(DATABASE_FILE)) {
             Type userListType = new TypeToken<List<User>>() {
