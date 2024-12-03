@@ -4,6 +4,7 @@
  */
 package Back__end;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -62,18 +63,21 @@ private static void loadUsersFromJson() {
     
     
 public static void saveSignupDataToJson(User user) {
-    loadUsersFromJson(); 
-    userList.add(user); 
+    loadUsersFromJson(); // Load existing users
 
-    Gson gson = new Gson();
-    String json = gson.toJson(userList); 
+    userList.add(user); // Add the new user to the list
+
+    Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
+
+    String json = gson.toJson(userList); // Convert the list to JSON
 
     try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
-        writer.write(json); 
+        writer.write(json); // Save the JSON to the file
     } catch (IOException e) {
         e.printStackTrace();
     }
 }
+
         
         
        public static boolean signup(String email, String username, String password, String dateOfBirth) throws NoSuchAlgorithmException {
