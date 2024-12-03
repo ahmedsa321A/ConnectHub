@@ -92,9 +92,9 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Password");
 
-        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Front__end/noimage.png"))); // NOI18N
+        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noimage.png"))); // NOI18N
 
-        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Front__end/noprofile.png"))); // NOI18N
+        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noprofile.png"))); // NOI18N
 
         bioTextArea.setColumns(20);
         bioTextArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
