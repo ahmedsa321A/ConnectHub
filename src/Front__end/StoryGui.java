@@ -41,7 +41,6 @@ public class StoryGui extends javax.swing.JFrame {
         posttext = new javax.swing.JTextArea();
         cancel = new javax.swing.JButton();
         addphoto = new javax.swing.JButton();
-        addPhoto = new javax.swing.JButton();
         back = new javax.swing.JButton();
         pic = new javax.swing.JLabel();
 
@@ -73,23 +72,15 @@ public class StoryGui extends javax.swing.JFrame {
 
         addphoto.setBackground(new java.awt.Color(242, 242, 242));
         addphoto.setBorder(null);
+        addphoto.setIcon(new javax.swing.ImageIcon("addphoto.png"));
         addphoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addphotoActionPerformed(evt);
             }
         });
 
-        addPhoto.setBackground(new java.awt.Color(242, 242, 242));
-        addPhoto.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/addphoto.png")); // NOI18N
-        addPhoto.setBorder(null);
-        addPhoto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPhotoActionPerformed(evt);
-            }
-        });
-
         back.setBackground(new java.awt.Color(242, 242, 242));
-        back.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/1103738-200-2.png")); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon("back.png"));
         back.setBorder(null);
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +98,7 @@ public class StoryGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancel)
                         .addGap(18, 18, 18)
@@ -120,8 +111,7 @@ public class StoryGui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
-                        .addGap(53, 53, 53)))
-                .addComponent(addphoto))
+                        .addGap(53, 53, 53))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,12 +129,9 @@ public class StoryGui extends javax.swing.JFrame {
                             .addComponent(publish))
                         .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addphoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
-                        .addComponent(addPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16))))
         );
 
@@ -174,11 +161,7 @@ public class StoryGui extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void addphotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addphotoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addphotoActionPerformed
-
-    private void addPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoActionPerformed
-         if (evt.getSource() == addPhoto) {
+         if (evt.getSource() == addphoto) {
             JFileChooser filechooser = new JFileChooser();
             int response = filechooser.showOpenDialog(null);
             File f=filechooser.getSelectedFile();
@@ -198,7 +181,7 @@ public class StoryGui extends javax.swing.JFrame {
             }  
          }
          }
-    }//GEN-LAST:event_addPhotoActionPerformed
+    }//GEN-LAST:event_addphotoActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
@@ -240,7 +223,6 @@ public class StoryGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addPhoto;
     private javax.swing.JButton addphoto;
     private javax.swing.JButton back;
     private javax.swing.JButton cancel;

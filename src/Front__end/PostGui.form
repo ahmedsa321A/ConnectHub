@@ -35,7 +35,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="addPhoto" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="addphoto" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -53,7 +53,6 @@
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="addphoto" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,13 +74,9 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="addphoto" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Component id="back" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
-                      <Component id="addPhoto" min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="addphoto" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -138,23 +133,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addphotoActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="addPhoto">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f2" green="f2" red="f2" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPhotoActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="addphoto.setIcon(new javax.swing.ImageIcon(&quot;addphoto.png&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="back">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor" postCode="back.setIcon(new javax.swing.ImageIcon(&quot;back.png&quot;));">
           <Color blue="f2" green="f2" red="f2" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
