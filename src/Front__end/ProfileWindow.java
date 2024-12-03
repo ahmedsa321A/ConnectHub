@@ -71,7 +71,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         friendsLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         friendsLabel.setText("Friends");
 
-        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noprofile.png"))); // NOI18N
+        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Front__end/noprofile.png"))); // NOI18N
 
         javax.swing.GroupLayout postsPanelLayout = new javax.swing.GroupLayout(postsPanel);
         postsPanel.setLayout(postsPanelLayout);
@@ -105,7 +105,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Bio");
 
-        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/connecthub/noimage.png"))); // NOI18N
+        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Front__end/noimage.png"))); // NOI18N
 
         friendsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
