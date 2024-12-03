@@ -19,7 +19,7 @@ import java.util.UUID;
 public class userService {
     private static final String DATABASE_FILE = "signup_data.json"; 
     
-    private static ArrayList<User> userList = new ArrayList<>();
+    static ArrayList<User> userList = new ArrayList<>();
         public static boolean checkIfUserExists(String email) {
 
         loadUsersFromJson();

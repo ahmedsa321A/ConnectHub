@@ -1,13 +1,13 @@
-
 package Back__end;
 
 import java.awt.Image;
 import java.io.File;
 import javax.swing.*;
 
-public class ChangePhoto {
-    public static String changePhoto(JLabel Label, JFrame frame){
-    JFileChooser fileChooser = new JFileChooser();
+public class Photo {
+
+    public static String changePhoto(JLabel Label, JFrame frame) {
+        JFileChooser fileChooser = new JFileChooser();
         int response = fileChooser.showOpenDialog(frame);
         if (response == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
@@ -25,5 +25,15 @@ public class ChangePhoto {
             return file.getAbsolutePath();
         }
         return null;
+    }
+
+    public static void setPhoto(JLabel Label, String imagePath) {
+        ImageIcon imgIcon = new ImageIcon(imagePath);
+        Image image = imgIcon.getImage();
+        Image scaledImage = image.getScaledInstance(Label.getWidth(), Label.getHeight(), Image.SCALE_SMOOTH);
+        imgIcon = new ImageIcon(scaledImage);
+        Label.setIcon(imgIcon);
+        Label.setHorizontalAlignment(SwingConstants.CENTER);
+        Label.setVerticalAlignment(SwingConstants.CENTER);
     }
 }

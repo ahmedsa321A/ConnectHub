@@ -1,18 +1,18 @@
 package connectHub;
 
-import Back__end.ChangePhoto;
-import Back__end.Profile;
+import Back__end.Photo;
+import Back__end.User;
 import javax.swing.ImageIcon;
 
 public class ProfileManagementPage extends javax.swing.JFrame {
 
-    private Profile profile;
+    private User profile;
 
-    public ProfileManagementPage(Profile profile) {
+    public ProfileManagementPage(User profile) {
         this.profile = profile;
         initComponents();
-        profilePictureLabel.setIcon(new ImageIcon(profile.getProfilePhotoPath()));
-        coverPhotoLabel.setIcon(new ImageIcon(profile.getCoverPhotoPath()));
+        Photo.setPhoto(profilePictureLabel, profile.getProfilePhotoPath());
+        Photo.setPhoto(coverPhotoLabel, profile.getCoverPhotoPath());
         bioTextArea.setText(profile.getBio());
     }
 
@@ -90,7 +90,15 @@ public class ProfileManagementPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(173, 173, 173)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel4)
+                        .addComponent(changePasswordButton)
+                        .addComponent(jLabel3)
+                        .addComponent(changeBioButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(changePictureButton)
@@ -100,12 +108,7 @@ public class ProfileManagementPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(profilePictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(coverPhotoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel4)
-                    .addComponent(changePasswordButton)
-                    .addComponent(jLabel3)
-                    .addComponent(changeBioButton))
+                            .addComponent(coverPhotoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,18 +128,18 @@ public class ProfileManagementPage extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(changePhotoButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(24, 24, 24)
                         .addComponent(changeBioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(changePasswordButton)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,7 +147,7 @@ public class ProfileManagementPage extends javax.swing.JFrame {
 
     private void changePictureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePictureButtonActionPerformed
         try {
-            String newPhotoPath = ChangePhoto.changePhoto(profilePictureLabel, this);
+            String newPhotoPath = Photo.changePhoto(profilePictureLabel, this);
             if (!newPhotoPath.equals(null)) {
                 profile.setProfilePhotoPath(newPhotoPath);
             }
@@ -155,7 +158,7 @@ public class ProfileManagementPage extends javax.swing.JFrame {
 
     private void changePhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePhotoButtonActionPerformed
         try {
-            String newPhotoPath = ChangePhoto.changePhoto(coverPhotoLabel, this);
+            String newPhotoPath = Photo.changePhoto(coverPhotoLabel, this);
             if (!newPhotoPath.equals(null)) {
                 profile.setCoverPhotoPath(newPhotoPath);
             }
@@ -204,11 +207,15 @@ public class ProfileManagementPage extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Profile profile = new Profile();
-                profile.setBio("hello iam adham and i hate saied");
+                User profile = new User("1","s","a","f","g","h");
+                profile.setBio("hello iam adham and i hate bananas");
                 profile.setProfilePhotoPath("C:\\Users\\adham\\Desktop\\noprofile.png");
                 profile.setCoverPhotoPath("C:\\Users\\adham\\Desktop\\noimage.png");
                 profile.setPassword("531");
+                profile.addFriend("adham");
+                profile.addFriend("ahmed");
+                profile.addFriend("mohamed");
+                profile.addFriend("bigad");
                 new ProfileManagementPage(profile).setVisible(true);
             }
         });

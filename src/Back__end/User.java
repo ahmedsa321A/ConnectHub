@@ -132,7 +132,11 @@ public class User {
         this.friends.add(name);
     }
 
-    public void addContentId(String id) {
+    public ArrayList<String> getFriendsArray(){
+        return this.friends;
+    }
+    
+    public void addContentId(String id){
         this.contentId.add(id);
     }
 
