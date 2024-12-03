@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Photo {
 
-    public static String changePhoto(JLabel Label, JFrame frame) {
+    public static String changePhoto(JLabel Label, JDialog frame) {
         JFileChooser fileChooser = new JFileChooser();
         int response = fileChooser.showOpenDialog(frame);
         if (response == JFileChooser.APPROVE_OPTION) {

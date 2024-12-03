@@ -9,7 +9,7 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
     private String newPassword;
     private String oldPassword;
 
-    public ChangePasswordWindow(java.awt.Frame parent, String oldPassword, boolean modal) {
+    public ChangePasswordWindow(java.awt.Dialog parent, String oldPassword, boolean modal) {
         super(parent, modal);
         initComponents();
         this.oldPassword=oldPassword;
@@ -99,7 +99,7 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_changeButtonActionPerformed
 
-    public static String newPassword(java.awt.Frame frame, String oldPassword){
+    public static String newPassword(java.awt.Dialog frame, String oldPassword){
         ChangePasswordWindow dialog = new ChangePasswordWindow(frame, oldPassword, true);
         return dialog.newPassword;
     }

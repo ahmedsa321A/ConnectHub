@@ -177,7 +177,7 @@ public class PostGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Can't Write Post Without text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Content post = new Content(UUID.randomUUID().toString(), userid, text, photopath, false);
+        Content post = new Content(UUID.randomUUID().toString(), "userid", text, photopath, false);
         db.addContent(post);
         db.saveContent();
         JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);
@@ -240,6 +240,10 @@ public class PostGui extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+        public static void main(String args[]) {
+           PostGui post=new PostGui();
+    }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPhoto;
     private javax.swing.JButton addphoto;
