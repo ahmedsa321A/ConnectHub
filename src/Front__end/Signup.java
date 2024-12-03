@@ -1,4 +1,8 @@
-package Front__end;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package connecthub;
 
 import Back__end.userService;
 import java.security.NoSuchAlgorithmException;
@@ -8,13 +12,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class Signup extends javax.swing.JFrame {
 
+
+public class Signup extends javax.swing.JFrame {
+    
+    
     public Signup() {
         initComponents();
         setVisible(true);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,11 +31,11 @@ public class Signup extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         emailTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -70,16 +76,12 @@ public class Signup extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(emailTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                            .addComponent(usernameTextField1)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jPasswordField2))
-                        .addGap(81, 81, 81))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(emailTextField3)
+                    .addComponent(usernameTextField1)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jPasswordField2))
+                .addGap(81, 81, 81))
             .addGroup(layout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -108,7 +110,7 @@ public class Signup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -117,44 +119,49 @@ public class Signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String username = usernameTextField1.getText();
-        char[] pass1 = jPasswordField1.getPassword();
-        String password1 = new String(pass1);
-        char[] pass2 = jPasswordField2.getPassword(); // Second password field
-        String password2 = new String(pass2);
-        String email = emailTextField3.getText();
-        Date selectedDate = jDateChooser1.getDate();
-        String date = "";
+String username = usernameTextField1.getText();
+char[] pass1 = jPasswordField1.getPassword();
+String password1 = new String(pass1);
+char[] pass2 = jPasswordField2.getPassword(); // Second password field
+String password2 = new String(pass2);
+String email = emailTextField3.getText();
+Date selectedDate = jDateChooser1.getDate();
+String date = "";
 
-        if (selectedDate != null) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            date = dateFormat.format(selectedDate);
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a date.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+if (selectedDate != null) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    date = dateFormat.format(selectedDate);
+} else {
+    JOptionPane.showMessageDialog(this, "Please select a date.", "Error", JOptionPane.ERROR_MESSAGE);
+}
 
-        if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || email.isEmpty() || date.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!password1.equals(password2)) {
-            JOptionPane.showMessageDialog(this, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!userService.isValidEmail(email)) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (userService.checkIfUserExists(email)) {
-            JOptionPane.showMessageDialog(this, "email already exists", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            try {
+if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || email.isEmpty() || date.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
+} 
+else if (!password1.equals(password2)) {
+    JOptionPane.showMessageDialog(this, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
+} 
 
-                userService.signup(email, username, password2, date);
-                JOptionPane.showMessageDialog(this, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
-                JOptionPane.showMessageDialog(this, "Error during signup. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            } catch (Exception ex) {
-                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
-                JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+else if (!userService.isValidEmail(email)) {
+    JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+} 
+else if(userService.checkIfUserExists(email)){
+JOptionPane.showMessageDialog(this, "email already exists", "Error", JOptionPane.ERROR_MESSAGE);
+}
+else {
+    try {
+        
+        userService.signup(email, username, password2, date);
+        JOptionPane.showMessageDialog(this, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    } catch (NoSuchAlgorithmException ex) {
+        Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
+        JOptionPane.showMessageDialog(this, "Error during signup. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
+        JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
