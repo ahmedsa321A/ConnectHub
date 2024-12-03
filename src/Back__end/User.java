@@ -25,9 +25,19 @@ public class User {
     @SerializedName("status")
     private String status;
     
+    @SerializedName("profilePhotoPath")
+    private String profilePhotoPath;
+    
+    @SerializedName("coverPhotoPath")
+    private String coverPhotoPath;
+    
+    @SerializedName("bio")
+    private String bio;
     
     @SerializedName("friends")
     ArrayList<String> friends=new ArrayList<>();
+    
+    
     public User(String userId, String email, String username, String password, String dateOfBirth, String status) {
         this.userId = userId;
         this.email = email;
@@ -84,5 +94,34 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    public void setProfilePhotoPath(String profilePhotoPath){
+        this.profilePhotoPath=profilePhotoPath;
+    }
+    
+    public void setCoverPhotoPath(String coverPhotoPath){
+        this.coverPhotoPath=coverPhotoPath;
+    }
+    
+    public void setBio(String bio){
+        this.bio=bio;
+    }
+    
+    public String getProfilePhotoPath(){
+        return this.profilePhotoPath;
+    }
+    
+    public String getCoverPhotoPath(){
+        return this.coverPhotoPath;
+    }
+    
+    public String getBio(){
+        return this.bio;    
+    }
+    
+    public void addFriend(String name){
+        this.friends.add(name);
+    }
+    
 }
 
