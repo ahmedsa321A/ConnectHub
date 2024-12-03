@@ -44,22 +44,22 @@ public class newfeed {
             JButton postButton = new JButton();
             // Add action listeners for buttons
             refreshButton.setBackground(new java.awt.Color(242, 242, 242));
-            refreshButton.setIcon(new javax.swing.ImageIcon("refresh.png")); // NOI18N
+            refreshButton.setIcon(new javax.swing.ImageIcon("refresh.png")); 
             refreshButton.setBorder(null);
             profileButton.setBackground(new java.awt.Color(242, 242, 242));
-            profileButton.setIcon(new javax.swing.ImageIcon("profile.png")); // NOI18N
+            profileButton.setIcon(new javax.swing.ImageIcon("profile.png")); 
             profileButton.setBorder(null);
             friendsButton.setBackground(new java.awt.Color(242, 242, 242));
-            friendsButton.setIcon(new javax.swing.ImageIcon("friends.png")); // NOI18N
+            friendsButton.setIcon(new javax.swing.ImageIcon("friends.png")); 
             friendsButton.setBorder(null);
             homeButton.setBackground(new java.awt.Color(242, 242, 242));
-            homeButton.setIcon(new javax.swing.ImageIcon("home.png")); // NOI18N
+            homeButton.setIcon(new javax.swing.ImageIcon("home.png")); 
             homeButton.setBorder(null);
             storyButton.setBackground(new java.awt.Color(242, 242, 242));
-            storyButton.setIcon(new javax.swing.ImageIcon("story.png")); // NOI18N
+            storyButton.setIcon(new javax.swing.ImageIcon("story.png")); 
             storyButton.setBorder(null);
             postButton.setBackground(new java.awt.Color(242, 242, 242));
-            postButton.setIcon(new javax.swing.ImageIcon("post.png")); // NOI18N
+            postButton.setIcon(new javax.swing.ImageIcon("post.png")); 
             postButton.setBorder(null);
             refreshButton.addActionListener(e -> {
               JOptionPane.showMessageDialog(frame, "Refreshing content..."); 

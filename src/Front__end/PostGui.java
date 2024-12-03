@@ -6,6 +6,7 @@ package Front__end;
 
 import Back__end.Content;
 import Back__end.ContentDatabase;
+import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import java.util.UUID;
@@ -25,6 +26,9 @@ public class PostGui extends javax.swing.JFrame {
      * Creates new form PostGui
      */
     public PostGui() {
+        addphoto.setBackground(new java.awt.Color(242, 242, 242));
+        addphoto.setIcon(new javax.swing.ImageIcon("addphoto.png")); 
+        addphoto.setBorder(null);
         initComponents();
     }
 
