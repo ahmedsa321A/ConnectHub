@@ -1,4 +1,4 @@
-package connecthub;
+package Front__end;
 
 import Back__end.Photo;
 import Back__end.User;
@@ -203,7 +203,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
     private void changePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordButtonActionPerformed
         try {
-            String newPassword = connecthub.ChangePasswordWindow.newPassword(this, profile.getPassword());
+            String newPassword = ChangePasswordWindow.newPassword(this, profile.getPassword());
             if (!newPassword.equals(null)) {
                 this.newPassword = newPassword;
             }

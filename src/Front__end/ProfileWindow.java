@@ -1,4 +1,4 @@
-package connecthub;
+package Front__end;
 
 import Back__end.Photo;
 import Back__end.User;
