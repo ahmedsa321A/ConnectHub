@@ -3,44 +3,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Back__end;
+
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class User {
+
     @SerializedName("userId")
     private String userId;
-    
+
     @SerializedName("email")
     private String email;
-    
+
     @SerializedName("username")
     private String username;
-    
+
     @SerializedName("password")
     private String password; // hashed password
-    
+
     @SerializedName("dateOfBirth")
     private String dateOfBirth;
-    
+
     @SerializedName("status")
     private String status;
-    
+
     @SerializedName("profilePhotoPath")
     private String profilePhotoPath;
-    
+
     @SerializedName("coverPhotoPath")
     private String coverPhotoPath;
-    
+
     @SerializedName("bio")
     private String bio;
-    
+
     @SerializedName("friends")
-    ArrayList<String> friends=new ArrayList<>();
-    
+    ArrayList<String> friends = new ArrayList<>();
+
     @SerializedName("contentId")
-    ArrayList<String> contentId=new ArrayList<>();
-    
-    
+    ArrayList<String> contentId = new ArrayList<>();
+
     public User(String userId, String email, String username, String password, String dateOfBirth, String status) {
         this.userId = userId;
         this.email = email;
@@ -48,6 +49,11 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.status = status;
+
+        this.bio = "";
+        this.coverPhotoPath = "";
+        this.profilePhotoPath = "";
+
     }
 
     public String getUserId() {
@@ -97,38 +103,37 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    public void setProfilePhotoPath(String profilePhotoPath){
-        this.profilePhotoPath=profilePhotoPath;
+
+    public void setProfilePhotoPath(String profilePhotoPath) {
+        this.profilePhotoPath = profilePhotoPath;
     }
-    
-    public void setCoverPhotoPath(String coverPhotoPath){
-        this.coverPhotoPath=coverPhotoPath;
+
+    public void setCoverPhotoPath(String coverPhotoPath) {
+        this.coverPhotoPath = coverPhotoPath;
     }
-    
-    public void setBio(String bio){
-        this.bio=bio;
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
-    
-    public String getProfilePhotoPath(){
+
+    public String getProfilePhotoPath() {
         return this.profilePhotoPath;
     }
-    
-    public String getCoverPhotoPath(){
+
+    public String getCoverPhotoPath() {
         return this.coverPhotoPath;
     }
-    
-    public String getBio(){
-        return this.bio;    
+
+    public String getBio() {
+        return this.bio;
     }
-    
-    public void addFriend(String name){
+
+    public void addFriend(String name) {
         this.friends.add(name);
     }
-    
-    public void addContentId(String id){
+
+    public void addContentId(String id) {
         this.contentId.add(id);
     }
-    
-}
 
+}
