@@ -31,6 +31,17 @@ public class userService {
         }
         return false;  
     }
+        
+    public static String getStatusofUser(String name){
+        loadUsersFromJson();
+        String state="online";
+          for (User user : userList) {
+            if (user.getUsername().equals(name)) {
+                state= user.getStatus(); 
+            }
+          } 
+          return state;
+    }
 
 
 private static void loadUsersFromJson() {
