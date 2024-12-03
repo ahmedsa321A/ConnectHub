@@ -4,20 +4,22 @@
  */
 package Front_End;
 
+import Back_end.FriendLoader;
+import Back_end.FriendSaver;
 import Back_end.FriendUser;
-import Back_end.FriendsHandler;
 import com.google.gson.reflect.TypeToken;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class FriendsCenter extends javax.swing.JFrame {
 
 private FriendUser you;
-   
-    public FriendsCenter(FriendUser user) {
+private HashMap<String,FriendUser>allUsersMap;
+    public FriendsCenter(FriendUser user,HashMap<String, FriendUser> allUsersMap) {
         initComponents();
         you=user;
+        this.allUsersMap=allUsersMap;
     }
 
     
@@ -110,35 +112,35 @@ private FriendUser you;
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void FriendsListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriendsListButtonActionPerformed
-       FriendsListGUI friends=new FriendsListGUI(you,"Friends");
+       FriendsListGUI friends=new FriendsListGUI(you,"Friends",allUsersMap);
        friends.setVisible(true);
     }//GEN-LAST:event_FriendsListButtonActionPerformed
 
     private void RequestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestsButtonActionPerformed
-       FriendRequestsGUI requests=new FriendRequestsGUI(you,"Requests");
+       FriendRequestsGUI requests=new FriendRequestsGUI(you,"Requests",allUsersMap);
        requests.setVisible(true);
     }//GEN-LAST:event_RequestsButtonActionPerformed
 
     private void SuggestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuggestionButtonActionPerformed
-        FriendSuggestionGUI suggestions=new FriendSuggestionGUI(you,"Suggestions");
+        FriendSuggestionGUI suggestions=new FriendSuggestionGUI(you,"Suggestions",allUsersMap);
        suggestions.setVisible(true);
     }//GEN-LAST:event_SuggestionButtonActionPerformed
 public static void main(String[] args) {
     FriendUser user = new FriendUser("1", "john@example.com", "JohnDoe", "123456", "01/01/1992", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
-    FriendUser currentUser = new FriendUser("2", "Hazem@example.com", "Hazem", "7891011", "01/01/1990", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\a3452e2f5910a0e59fbee3762c65061a.jpg");
-    user.addFriend(currentUser);
-    List<FriendUser> friendList = new ArrayList<>();
-    friendList.add(user);
-    friendList.add(currentUser);
-    
-    java.lang.reflect.Type friendListType = new TypeToken<List<FriendUser>>() {}.getType();
-    FriendsHandler<List<FriendUser>> handler = new FriendsHandler<>(friendListType);
+    FriendUser user2 = new FriendUser("2", "Hitler@example.com", "Hazem", "78911", "01/01/1990", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
+    HashMap<String, FriendUser> allUsersMap = new HashMap<>();
+    allUsersMap.put(user.getUserId(), user);
+    allUsersMap.put(user2.getUserId(), user2);
+    java.lang.reflect.Type friendUserListType = new TypeToken<List<FriendUser>>() {}.getType();
     String filePath = "FriendUser.json";
-    handler.save(friendList, filePath);
+    user.receivedRequest(user2.getUserId());
+    FriendLoader loader = new FriendLoader();
+    FriendSaver saver = new FriendSaver();
+    saver.saveToFile(user, filePath);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
  
-                new FriendsCenter(user).setVisible(true);
+                new FriendsCenter(user,allUsersMap).setVisible(true);
             }
         });
     }

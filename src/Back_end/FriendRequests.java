@@ -8,19 +8,19 @@ public class FriendRequests {
 
     public void sendRequest(FriendUser user1,FriendUser user2){
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.PENDING);
-        user2.receivedRequest(user2);
+        user2.receivedRequest(user2.getUserId());
     }
     public void acceptRequest(FriendUser user1,FriendUser user2)
     {
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.FRIENDS);
-        user1.addFriend(user2);
-        user2.addFriend(user1);
-        user1.removeReceivedRequest(user2);
+        user1.addFriend(user2.getUserId());
+        user2.addFriend(user1.getUserId());
+        user1.removeReceivedRequest(user2.getUserId());
     }
     public void declineRequest(FriendUser user1,FriendUser user2)
     {
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.NOT_FRIENDS);
-        user2.removeReceivedRequest(user1);
+        user2.removeReceivedRequest(user1.getUserId());
     }
 
 }

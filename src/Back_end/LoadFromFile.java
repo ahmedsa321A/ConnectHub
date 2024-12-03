@@ -7,6 +7,6 @@ package Back_end;
 import java.lang.reflect.Type;
 
 //Load from file interface
-public interface LoadFromFile<T> {
-    T loadFromFile(String filePath, Type typeOfT);
+public interface LoadFromFile {
+    public void loadFromFile(FriendUser currentUser,String filePath, Type typeOfT);
 }

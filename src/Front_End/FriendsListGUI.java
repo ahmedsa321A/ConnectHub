@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,15 +16,16 @@ import javax.swing.JPanel;
 
 public class FriendsListGUI extends FriendsParentGUI {
     
-    public FriendsListGUI(FriendUser user,String title) {
-        super(user, "Friends");
+    public FriendsListGUI(FriendUser user,String title,HashMap<String,FriendUser>users) {
+        super(user, "Friends",users);
     }
    
    @Override
     protected void populateUserList() {
-        List<FriendUser> friends = currentUser.getFriends(); 
+        List<String> friends = currentUser.getFriends(); 
 
-        for (FriendUser friend : friends) {
+        for (String friendId : friends) {
+            FriendUser friend=userSearch.getUserById(friendId);
             userPanel.add(createUserPanel(friend)); 
         }
     }
@@ -89,6 +91,6 @@ public class FriendsListGUI extends FriendsParentGUI {
     protected void refreshUI() {
         
         this.dispose();
-        new FriendsListGUI(currentUser,"Friends").setVisible(true); 
+        new FriendsListGUI(currentUser,"Friends",users).setVisible(true); 
     }
 }

@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,15 +17,15 @@ import javax.swing.JPanel;
 
 public class FriendRequestsGUI extends FriendsParentGUI {
     
-    public FriendRequestsGUI(FriendUser user, String title) {
-        super(user, "Requests");
+    public FriendRequestsGUI(FriendUser user, String title,HashMap<String,FriendUser>users) {
+        super(user, "Requests",users);
     }
     @Override
     protected void populateUserList() {
-        List<FriendUser> requests = currentUser.getReceivedRequests();  // Get friend requests list
-
-        for (FriendUser request : requests) {
-            userPanel.add(createUserPanel(request));  // Create and add panel for each request
+        List<String> requests = currentUser.getReceivedRequests();  // Get friend requests list
+        for (String request : requests) {
+            FriendUser requestUser = userSearch.getUserById(request);
+            userPanel.add(createUserPanel(requestUser));  // Create and add panel for each request
         }
     }
 
@@ -72,6 +73,6 @@ public class FriendRequestsGUI extends FriendsParentGUI {
     @Override
     protected void refreshUI() {
         this.dispose();
-        new FriendRequestsGUI(currentUser,"Requests").setVisible(true); 
+        new FriendRequestsGUI(currentUser,"Requests",users).setVisible(true); 
     }
 }

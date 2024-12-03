@@ -14,7 +14,7 @@ public class User {
     private String username;
     
     @SerializedName("password")
-    private String password; // hashed password
+    private String password; 
     
     @SerializedName("dateOfBirth")
     private String dateOfBirth;

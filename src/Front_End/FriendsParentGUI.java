@@ -1,10 +1,12 @@
 
 package Front_End;
 import Back_end.FriendUser;
+import Back_end.UserSearch;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.HashMap;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,10 +19,13 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
     protected JPanel userPanel;
     protected JScrollPane scrollPane;
     protected String title;
-    
-    public FriendsParentGUI(FriendUser user, String title) {
+    protected UserSearch userSearch;
+    HashMap<String,FriendUser>users;
+    public FriendsParentGUI(FriendUser user, String title,HashMap<String,FriendUser>users) {
         this.currentUser = user;
         this.title = title;
+        userSearch=new UserSearch();
+        userSearch.setUserMap(users);
         initComponents();
     }
     @SuppressWarnings("unchecked")

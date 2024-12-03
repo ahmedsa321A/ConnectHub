@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,15 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class FriendSuggestionGUI extends FriendsParentGUI{
-    public FriendSuggestionGUI(FriendUser user, String title) {
-        super(user, "Suggestions");
+    public FriendSuggestionGUI(FriendUser user, String title,HashMap<String,FriendUser>users) {
+        super(user, "Suggestions",users);
     }
     @Override
     protected void populateUserList() {
-        List<FriendUser> suggestions = currentUser.getSuggestions();  
-
-        for (FriendUser suggest : suggestions) {
-            userPanel.add(createUserPanel(suggest)); 
+        List<String> suggestions = currentUser.getSuggestions();  
+        for (String suggest : suggestions) {
+            FriendUser suggestedUser = userSearch.getUserById(suggest);
+            userPanel.add(createUserPanel(suggestedUser)); 
         }
     }
     @Override
@@ -68,6 +69,6 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
     @Override
     protected void refreshUI() {
         this.dispose();
-        new FriendSuggestionGUI(currentUser,"Suggestions").setVisible(true); 
+        new FriendSuggestionGUI(currentUser,"Suggestions",users).setVisible(true); 
     }
 }

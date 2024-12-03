@@ -7,16 +7,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 //save to file implementation 
-public class FriendSaver<T> implements SaveToFile<T> {
+public class FriendSaver implements SaveToFile {
     
 private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    @Override
-    public void saveToFile(T data, String filePath) {
-       try (FileWriter writer = new FileWriter(filePath)) {
+   @Override
+    public void saveToFile(FriendUser data, String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
             gson.toJson(data, writer);
         } catch (IOException e) {
             throw new RuntimeException("Error saving to file: " + filePath, e);
         }
     }
-    
 }

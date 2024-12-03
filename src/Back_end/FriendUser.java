@@ -5,64 +5,65 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FriendUser extends User {
-   
-    
- private List<FriendUser>friends=new ArrayList<>();
- private List<FriendUser> requestsReceived = new ArrayList<>();
- private List<FriendUser>suggestions=new ArrayList<>();
+     
+ private List<String>friends;
+ private List<String> requestsReceived;
+ private List<String>suggestions;
 
     public FriendUser(String userId, String email, String username, String password, String dateOfBirth, String status,String photoPath) {
        super(userId, email, username, password, dateOfBirth, status,photoPath);
+       friends = new ArrayList<>();
+       requestsReceived = new ArrayList<>();
+       suggestions =new ArrayList<>();
     }
 
-    public void addFriend(FriendUser user) {
-         friends.add(user);
+    public void addFriend(String friendId) {
+         friends.add(friendId);
     }
-    public void removeFriend(FriendUser user) {
-        friends.remove(user);
+    public void removeFriend(String userId) {
+        friends.remove(userId);
     }
-    public List<FriendUser> getFriends() {
+    public List<String> getFriends() {
         return friends;
     }
-     public void receivedRequest(FriendUser user){
-        requestsReceived.add(user);
+     public void receivedRequest(String friendId){
+        requestsReceived.add(friendId);
     }
      
-     public void removeReceivedRequest(FriendUser user) {
-        requestsReceived.remove(user);
+     public void removeReceivedRequest(String userId) {
+        requestsReceived.remove(userId);
     }
      
-     public List<FriendUser> getReceivedRequests(){
+     public List<String> getReceivedRequests(){
         return requestsReceived;
     }
-     public void addSuggestion(FriendUser user) {
-        suggestions.add(user);
+     public void addSuggestion(String friendId) {
+        suggestions.add(friendId);
     }
 
-    public void removeSuggestion(FriendUser user) {
-        suggestions.remove(user);
+    public void removeSuggestion(String userId) {
+        suggestions.remove(userId);
     }
 
-    public List<FriendUser> getSuggestions() {
+    public List<String> getSuggestions() {
         return suggestions;
     }
    @Override
     public String toString() {
-        //  list of userIds for each list (friends, suggestions, requestsReceived)
-        String friendsIds = friends.stream()
-                                   .map(friend -> friend.getUserId())
-                                   .collect(Collectors.joining(", "));
-        String suggestionsIds = suggestions.stream()
-                                           .map(suggestion -> suggestion.getUserId())
-                                           .collect(Collectors.joining(", "));
-        String receivedRequestsIds = requestsReceived.stream()
-                                                     .map(request -> request.getUserId())
-                                                     .collect(Collectors.joining(", "));
+      String friendsIds = friends.stream()
+                               .collect(Collectors.joining(", "));
 
-        return super.toString() +
-               ", friendsIds=[" + friendsIds + "]" +
-               ", suggestionsIds=[" + suggestionsIds + "]" +
-               ", receivedRequestsIds=[" + receivedRequestsIds + "]";
-    }
+    String suggestionsIds = suggestions.stream()
+                                       .collect(Collectors.joining(", "));
+
+    String receivedRequestsIds = requestsReceived.stream()
+                                                 .collect(Collectors.joining(", "));
+
+    // Build the string representation
+    return super.toString() + 
+           ", friends IDs=[" + friendsIds + "]" +
+           ", suggestions IDs=[" + suggestionsIds + "]" +
+           ", receivedRequests IDs=[" + receivedRequestsIds + "]";
+}
 }
 
