@@ -1,9 +1,10 @@
-
 package Back__end;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Content {
+
     private String contentId;
     private String authorId;
     private String contentText;

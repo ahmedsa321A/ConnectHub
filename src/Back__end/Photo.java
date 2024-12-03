@@ -14,32 +14,32 @@ public class Photo {
         int response = fileChooser.showOpenDialog(frame);
         if (response == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-        String filePath = file.getAbsolutePath().toLowerCase();
-        if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
-          JOptionPane.showMessageDialog(frame, "Invalid Extension", "Invalid File", JOptionPane.ERROR_MESSAGE);
-            return null;
-        }
+            String filePath = file.getAbsolutePath().toLowerCase();
+            if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
+                JOptionPane.showMessageDialog(frame, "Invalid Extension", "Invalid File", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
             return file.getAbsolutePath();
         }
         return null;
     }
-        public static String selectPhoto(JLabel Label, JFrame frame) {
+
+    public static String selectPhoto(JLabel Label, JFrame frame) {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files (JPG, PNG, JPEG)", "jpg", "jpeg", "png");
         fileChooser.setFileFilter(filter);
         int response = fileChooser.showOpenDialog(frame);
         if (response == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-        String filePath = file.getAbsolutePath().toLowerCase();
-        if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
-          JOptionPane.showMessageDialog(frame, "Invalid Extension", "Invalid File", JOptionPane.ERROR_MESSAGE);
-            return null;
-        }
+            String filePath = file.getAbsolutePath().toLowerCase();
+            if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
+                JOptionPane.showMessageDialog(frame, "Invalid Extension", "Invalid File", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
             return file.getAbsolutePath();
         }
         return null;
     }
-
 
     public static void setPhoto(JLabel Label, String imagePath) {
         ImageIcon imgIcon = new ImageIcon(imagePath);

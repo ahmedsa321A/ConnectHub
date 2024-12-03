@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Back__end;
 
 import com.google.gson.annotations.SerializedName;
@@ -132,11 +128,11 @@ public class User {
         this.friends.add(name);
     }
 
-    public ArrayList<String> getFriendsArray(){
+    public ArrayList<String> getFriendsArray() {
         return this.friends;
     }
-    
-    public void addContentId(String id){
+
+    public void addContentId(String id) {
         this.contentId.add(id);
     }
 

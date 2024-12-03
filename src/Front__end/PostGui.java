@@ -1,37 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Front__end;
 
 import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
-import java.awt.Image;
-import java.io.File;
 import java.util.UUID;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author hazembarakat
- */
 public class PostGui extends javax.swing.JFrame {
 
     private static String photopath = "";
     private static String userid;
-    /**
-     * Creates new form PostGui
-     */
+
     public PostGui() {
         initComponents();
         setVisible(true);
         removeButton1.setVisible(false);
     }
-
 
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -172,9 +156,7 @@ public class PostGui extends javax.swing.JFrame {
         if (text.equals("Write Here...")) {
             JOptionPane.showMessageDialog(this, "Please Write Post text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
-        }
-        else if(text.equals(""))
-        {
+        } else if (text.equals("")) {
             JOptionPane.showMessageDialog(this, "Can't Write Post Without text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -194,12 +176,12 @@ public class PostGui extends javax.swing.JFrame {
 
     private void addPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoActionPerformed
 
-        photopath =Photo.selectPhoto(pic,this);
+        photopath = Photo.selectPhoto(pic, this);
         Photo.setPhoto(pic, photopath);
-        if(!photopath.equals(null)){
-         removeButton1.setVisible(true);
-        }   
- 
+        if (!photopath.equals(null)) {
+            removeButton1.setVisible(true);
+        }
+
     }//GEN-LAST:event_addPhotoActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -208,20 +190,16 @@ public class PostGui extends javax.swing.JFrame {
 
     private void removeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButton1ActionPerformed
         if (evt.getSource() == removeButton1) {
-        pic.setIcon(null); 
-        photopath = ""; 
-        removeButton1.setVisible(false); 
-    }
+            pic.setIcon(null);
+            photopath = "";
+            removeButton1.setVisible(false);
+        }
     }//GEN-LAST:event_removeButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-
-        public static void main(String args[]) {
-           PostGui post=new PostGui();
+    public static void main(String args[]) {
+        PostGui post = new PostGui();
     }
-        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPhoto;
     private javax.swing.JButton addphoto;

@@ -4,8 +4,6 @@ import Back__end.Photo;
 import Back__end.User;
 import Back__end.userService;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProfileEditorWindow extends javax.swing.JDialog {
 
@@ -21,11 +19,11 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
         this.newPhotoPath = this.profile.getProfilePhotoPath();
         this.newCoverPath = this.profile.getCoverPhotoPath();
         this.newPassword = this.profile.getPassword();
-        if(!profile.getProfilePhotoPath().equals("")){
-        Photo.setPhoto(profilePictureLabel, profile.getProfilePhotoPath());
+        if (!profile.getProfilePhotoPath().equals("")) {
+            Photo.setPhoto(profilePictureLabel, profile.getProfilePhotoPath());
         }
-        if(!profile.getCoverPhotoPath().equals("")){
-        Photo.setPhoto(coverPhotoLabel, profile.getCoverPhotoPath());
+        if (!profile.getCoverPhotoPath().equals("")) {
+            Photo.setPhoto(coverPhotoLabel, profile.getCoverPhotoPath());
         }
         bioTextArea.setText(profile.getBio());
         this.setVisible(modal);
@@ -168,7 +166,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
     private void changePictureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePictureButtonActionPerformed
         try {
-            String newPhotoPath = Photo.selectPhoto(profilePictureLabel, this);            
+            String newPhotoPath = Photo.selectPhoto(profilePictureLabel, this);
             if (!newPhotoPath.equals(null)) {
                 Photo.setPhoto(profilePictureLabel, newPhotoPath);
                 this.newPhotoPath = newPhotoPath;
