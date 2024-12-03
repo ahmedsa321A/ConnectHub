@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -24,6 +25,9 @@ public class StoryGui extends javax.swing.JFrame {
      */
     public StoryGui() {
         initComponents();
+        setVisible(true);
+        removeButton1.setVisible(false);
+        
     }
 
     /**
@@ -44,6 +48,7 @@ public class StoryGui extends javax.swing.JFrame {
         addPhoto = new javax.swing.JButton();
         back = new javax.swing.JButton();
         pic = new javax.swing.JLabel();
+        removeButton1 = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
 
@@ -80,7 +85,6 @@ public class StoryGui extends javax.swing.JFrame {
         });
 
         addPhoto.setBackground(new java.awt.Color(242, 242, 242));
-        addPhoto.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/addphoto.png")); // NOI18N
         addPhoto.setBorder(null);
         addPhoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +93,6 @@ public class StoryGui extends javax.swing.JFrame {
         });
 
         back.setBackground(new java.awt.Color(242, 242, 242));
-        back.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/1103738-200-2.png")); // NOI18N
         back.setBorder(null);
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +102,13 @@ public class StoryGui extends javax.swing.JFrame {
 
         pic.setRequestFocusEnabled(false);
 
+        removeButton1.setText("Remove photo");
+        removeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,20 +117,25 @@ public class StoryGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cancel)
-                        .addGap(18, 18, 18)
-                        .addComponent(publish)
-                        .addGap(52, 52, 52))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
-                        .addGap(53, 53, 53)))
+                        .addGap(53, 53, 53))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cancel)
+                                .addGap(18, 18, 18)
+                                .addComponent(publish)
+                                .addGap(52, 52, 52))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(removeButton1)
+                                .addGap(84, 84, 84)))))
                 .addComponent(addphoto))
         );
         layout.setVerticalGroup(
@@ -137,7 +152,9 @@ public class StoryGui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cancel)
                             .addComponent(publish))
-                        .addGap(36, 36, 36))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeButton1)
+                        .addGap(7, 7, 7))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addphoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
@@ -178,65 +195,55 @@ public class StoryGui extends javax.swing.JFrame {
     }//GEN-LAST:event_addphotoActionPerformed
 
     private void addPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPhotoActionPerformed
-         if (evt.getSource() == addPhoto) {
+        if (evt.getSource() == addPhoto) {
             JFileChooser filechooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files (JPG, PNG, JPEG)", "jpg", "jpeg", "png");
+            filechooser.setFileFilter(filter);
             int response = filechooser.showOpenDialog(null);
-            File f=filechooser.getSelectedFile();
-            if(f!=null)
-            {
-            if(f.getAbsolutePath()!=null)
-            if (!f.getAbsolutePath().endsWith(".png")) {
-                JOptionPane.showMessageDialog(this, "Extension Should be .png", "Invalid File", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (response == JFileChooser.APPROVE_OPTION) {
-                photopath = filechooser.getSelectedFile().getAbsolutePath();
-                ImageIcon image=new ImageIcon(photopath);
-                Image scaledImage = image.getImage().getScaledInstance(352, 190, Image.SCALE_SMOOTH);
-                ImageIcon scaledimage =  new ImageIcon(scaledImage);
-                pic.setIcon( scaledimage);
-            }  
-         }
-         }
+
+    if (response == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = filechooser.getSelectedFile();
+
+        String filePath = selectedFile.getAbsolutePath().toLowerCase();
+        if (!filePath.endsWith(".jpg") && !filePath.endsWith(".jpeg") && !filePath.endsWith(".png")) {
+            JOptionPane.showMessageDialog(
+                this, 
+                "Please select a valid image file (JPG, JPEG, or PNG).", 
+                "Invalid File", 
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        photopath = filePath;
+        ImageIcon image = new ImageIcon(photopath);
+
+        Image scaledImage = image.getImage().getScaledInstance(352, 190, Image.SCALE_SMOOTH);
+        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+
+        pic.setIcon(scaledImageIcon);
+         removeButton1.setVisible(true);
+    }
+    }
     }//GEN-LAST:event_addPhotoActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backActionPerformed
 
+    private void removeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButton1ActionPerformed
+      if (evt.getSource() == removeButton1) {
+        pic.setIcon(null); 
+        photopath = ""; 
+        removeButton1.setVisible(false); 
+    }
+    }//GEN-LAST:event_removeButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PostGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PostGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PostGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PostGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StoryGui().setVisible(true);
-            }
-        });
+        public static void main(String args[]) {
+           StoryGui post=new StoryGui();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -249,5 +256,6 @@ public class StoryGui extends javax.swing.JFrame {
     private javax.swing.JLabel pic;
     private javax.swing.JTextArea posttext;
     private javax.swing.JButton publish;
+    private javax.swing.JButton removeButton1;
     // End of variables declaration//GEN-END:variables
 }
