@@ -2,15 +2,24 @@ package Front__end;
 
 import Back__end.User;
 import Back__end.userService;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class NewsFeedWindow extends javax.swing.JFrame {
 
+    private static User user;
 
     public NewsFeedWindow(User user) {
         initComponents();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - this.getWidth()) / 2;
+        int y = (screenSize.height - this.getHeight()) / 2;
+        this.setLocation(x, y);
+        this.setVisible(true);
+        this.user = user;
         showPosts(user);
     }
 
@@ -38,29 +47,51 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         refreshButton.setBackground(new java.awt.Color(242, 242, 242));
-        refreshButton.setIcon(new javax.swing.ImageIcon("refresh.png"));
         refreshButton.setBorder(null);
         refreshButton.setBackground(new java.awt.Color(242, 242, 242));
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh.png"))); // NOI18N
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
 
         profileButton.setBackground(new java.awt.Color(242, 242, 242));
-        profileButton.setIcon(new javax.swing.ImageIcon("profile.png"));
+
         profileButton.setBorder(null);
+        profileButton.setBackground(new java.awt.Color(242, 242, 242));
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/profile.png"))); // NOI18N
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileButtonActionPerformed(evt);
+            }
+        });
 
         friendsButton.setBackground(new java.awt.Color(242, 242, 242));
         friendsButton.setIcon(new javax.swing.ImageIcon("friends.png"));
         friendsButton.setBorder(null);
+        friendsButton.setBackground(new java.awt.Color(242, 242, 242));
+        friendsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/friends.png"))); // NOI18N
 
         homeButton.setBackground(new java.awt.Color(242, 242, 242));
         homeButton.setIcon(new javax.swing.ImageIcon("home.png"));
         homeButton.setBorder(null);
+        homeButton.setBackground(new java.awt.Color(242, 242, 242));
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
+        homeButton.setToolTipText("");
 
         storyButton.setBackground(new java.awt.Color(242, 242, 242));
         storyButton.setIcon(new javax.swing.ImageIcon("story.png"));
         storyButton.setBorder(null);
+        storyButton.setBackground(new java.awt.Color(242, 242, 242));
+        storyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/story.png"))); // NOI18N
 
         postButton.setBackground(new java.awt.Color(242, 242, 242));
         postButton.setIcon(new javax.swing.ImageIcon("post.png"));
         postButton.setBorder(null);
+        postButton.setBackground(new java.awt.Color(242, 242, 242));
+        postButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/post.png"))); // NOI18N
+        postButton.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,7 +114,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(profileButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(friendsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(homeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -127,13 +158,22 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(574, Short.MAX_VALUE)
+                    .addContainerGap(572, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_profileButtonActionPerformed
+
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+        this.dispose();
+    }//GEN-LAST:event_refreshButtonActionPerformed
 
     public static void main(String args[]) {
 

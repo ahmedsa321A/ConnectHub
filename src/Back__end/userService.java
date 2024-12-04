@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 
 public class userService {
 
-    private static final String DATABASE_FILE = "signup_data.json";
+    private static final String DATABASE_FILE = "user_db.json";
 
     public static ArrayList<User> userList = new ArrayList<>();
     static ContentDatabase content = new ContentDatabase();
