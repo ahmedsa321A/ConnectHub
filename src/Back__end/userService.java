@@ -179,17 +179,17 @@ public class userService {
         return true;
     }
 
-    public static boolean login(String email, String password) throws NoSuchAlgorithmException {
+    public static User login(String email, String password) throws NoSuchAlgorithmException {
         loadUsersFromJson();
 
         String hashedPassword = hashPassword(password);
 
         for (User user : userList) {
             if (user.getEmail().equals(email) && user.getPassword().equals(hashedPassword)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
 }

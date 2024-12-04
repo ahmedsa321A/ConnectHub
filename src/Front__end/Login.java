@@ -112,11 +112,12 @@ public class Login extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
     }
       else try {
-          if(userService.login(email, password)){
+          if(userService.login(email, password)!=null){
               JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+              
               this.dispose();
           }else{
-          JOptionPane.showMessageDialog(this, "incorrect email or password", "incorrect", JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(this, "incorrect email or password", "incorrect", JOptionPane.ERROR_MESSAGE);
           }
       } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
