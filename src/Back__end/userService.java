@@ -45,7 +45,7 @@ public class userService {
         content.loadContent();
         ArrayList<JPanel> posts = new ArrayList<>();
         for (Content c : content.getContents()) {
-            if (c.getAuthorId().equals("userid") && !c.isStory()) { //change userid
+            if (c.getAuthorId().equals(user.getUserId()) && !c.isStory()) { //change userid
                 posts.add(createContentPanel(c));
 
             }
@@ -58,13 +58,12 @@ public class userService {
         content.loadContent();
         loadUsersFromJson();
         for (String id : user.getFriendsIdArray()) {
-            for (User u : userList) {
-                if (u.getUserId().equals(id)) {
                     for (Content c : content.getContents()) {
+                        if(c.getAuthorId().equals(id))
                         posts.add(createContentPanel(c));
                     }
-                }
-            }
+                
+            
         }
         return posts;
     }
@@ -150,9 +149,9 @@ public class userService {
         return hexString.toString();
     }
 
-    public static void saveSignupDataToJson(User user) {
+    public static void saveDataToJson(User user) {
         loadUsersFromJson(); // Load existing users
-
+        if(!checkIfUserExists(user.getEmail()))
         userList.add(user); // Add the new user to the list
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
@@ -174,7 +173,7 @@ public class userService {
 
         User user = new User(userId, email, username, hashedPassword, dateOfBirth, "offline");
 
-        saveSignupDataToJson(user);
+        saveDataToJson(user);
 
         return true;
     }

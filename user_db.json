@@ -1,15 +1,16 @@
 [
   {
-    "userId": "55d7984a-7abd-4162-b39f-220cd46522e0",
-    "email": "hazembarakat012@gmail.com",
-    "username": "hazem",
-    "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
-    "dateOfBirth": "2004-10-14",
+    "userId": "dc5f902a-03b1-4033-a3a1-c69c0f783681",
+    "email": "zika@gmail.com",
+    "username": "zika",
+    "password": "94a7b12c04ab6a514e0c8ddb6882c4a6160f5b2f",
+    "dateOfBirth": "2024-12-01",
     "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": "",
-    "FriendsId": [],
-    "contentId": []
+    "FriendsId": [
+      "userid"
+    ]
   }
 ]

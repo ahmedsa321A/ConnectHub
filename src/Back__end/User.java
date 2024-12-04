@@ -35,9 +35,6 @@ public class User {
     @SerializedName("FriendsId")
     ArrayList<String> FriendsId = new ArrayList<>();
 
-    @SerializedName("contentId")
-    ArrayList<String> contentId = new ArrayList<>();
-
     public User(String userId, String email, String username, String password, String dateOfBirth, String status) {
         this.userId = userId;
         this.email = email;
@@ -132,8 +129,5 @@ public class User {
         return this.FriendsId;
     }
 
-    public void addContentId(String id) {
-        this.contentId.add(id);
-    }
 
 }

@@ -6,10 +6,12 @@ package Front__end;
 
 import Back__end.User;
 import Back__end.userService;
+import static Back__end.userService.saveDataToJson;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +23,7 @@ import javax.swing.JTextField;
  * @author ahmed
  */
 public class Login extends javax.swing.JFrame {
-    
+
     public Login() {
         initComponents();
         addPlaceholderStyle(emailtext);
@@ -33,23 +35,23 @@ public class Login extends javax.swing.JFrame {
         this.setVisible(true);
         setVisible(true);
     }
-    
+
     public void addPlaceholderStyle(JTextField textfield) {
         Font font = textfield.getFont();
         font = font.deriveFont(Font.ITALIC);
         textfield.setFont(font);
         textfield.setForeground(Color.GRAY);
-        
+
     }
-    
+
     public void removePlaceholderStyle(JTextField textfield) {
         Font font = textfield.getFont();
         font = font.deriveFont(Font.PLAIN | Font.PLAIN);
         textfield.setFont(font);
         textfield.setForeground(Color.BLACK);
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,6 +109,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/login.png"))); // NOI18N
+        login.setColor(new java.awt.Color(153, 0, 255));
         login.setRedius(50);
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,8 +117,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        signup.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/blue-sign-up-button-png-7-2-2.png")); // NOI18N
-        signup.setRedius(50);
+        signup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/signup.png"))); // NOI18N
+        signup.setColor(new java.awt.Color(255, 255, 255));
+        signup.setRedius(40);
         signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signupActionPerformed(evt);
@@ -139,12 +143,12 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(emailtext, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(119, Short.MAX_VALUE)
-                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
@@ -161,8 +165,8 @@ public class Login extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -184,7 +188,7 @@ public class Login extends javax.swing.JFrame {
         if (emailtext.getText().length() == 0) {
             addPlaceholderStyle(emailtext);
             emailtext.setText("Email");
-            
+
         }
     }//GEN-LAST:event_emailtextFocusLost
 
@@ -202,7 +206,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordFocusGained
 
     private void PasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFocusLost
-  if (Password.getText().length() == 0) {
+        if (Password.getText().length() == 0) {
             addPlaceholderStyle(Password);
             Password.setText("Password");
             Password.setEchoChar('\u0000');
@@ -217,9 +221,13 @@ public class Login extends javax.swing.JFrame {
         } else try {
             User user = userService.login(email, password);
             if (user != null) {
+                user.setStatus("online");
+                userService.saveDataToJson(user);
                 JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                for (Window window : Window.getWindows()) {
+                    window.dispose();
+                }
                 NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
-                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "incorrect email or password", "incorrect", JOptionPane.ERROR_MESSAGE);
             }
