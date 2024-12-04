@@ -61,8 +61,6 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
             icon = new ImageIcon(resizedImage);
         } catch (Exception e) {
             e.printStackTrace();
-            
-            icon = new ImageIcon("default_Profile_Picture.jpg"); 
         }
         return icon;
     }

@@ -1,9 +1,12 @@
 {
   "friends": [],
-  "requestsReceived": [
-    "2"
+  "requestsReceived": [],
+  "suggestions": [
+    "2",
+    "3",
+    "4"
   ],
-  "suggestions": [],
+  "blocked": [],
   "userId": "1",
   "email": "john@example.com",
   "username": "JohnDoe",

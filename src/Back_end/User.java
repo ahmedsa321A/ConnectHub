@@ -32,7 +32,7 @@ public class User {
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.status = status;
-        this.photoPath=photoPath;
+        setPhotoPath(photoPath);
     }
      public String getUserId() {
         return userId;
@@ -84,7 +84,13 @@ public class User {
     }
 
     public void setPhotoPath(String photoPath) {
+        if(photoPath==null)
+        {
+           this.photoPath="C:\\Users\\ghane\\OneDrive\\Pictures\\default_Profile_Picture.png";
+        }
+        else{
         this.photoPath = photoPath;
+        }
     }
     public String toString() {
         return "User{" +
