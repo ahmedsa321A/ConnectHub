@@ -8,7 +8,7 @@ public class Content {
     private String contentId;
     private String authorId;
     private String contentText;
-    private String imagePath; // Path to the image
+    private String imagePath; // Path of image
     private String timestamp; // Stored as a string
     private boolean isStory;
 
