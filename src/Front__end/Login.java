@@ -6,7 +6,6 @@ package Front__end;
 
 import Back__end.User;
 import Back__end.userService;
-import static Back__end.userService.saveDataToJson;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -222,7 +221,7 @@ public class Login extends javax.swing.JFrame {
             User user = userService.login(email, password);
             if (user != null) {
                 user.setStatus("online");
-                userService.saveDataToJson(user);
+                userService.saveUserdata();
                 JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 for (Window window : Window.getWindows()) {
                     window.dispose();

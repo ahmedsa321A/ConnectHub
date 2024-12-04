@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.Window;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class NewsFeedWindow extends javax.swing.JFrame {
@@ -220,14 +221,16 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
     StoryGui post = new StoryGui(user);      
-        this.dispose();    }//GEN-LAST:event_storiesActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
     user.setStatus("offline");
-    userService.saveDataToJson(user);
+    userService.saveUserdata();
         for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
+    JOptionPane.showMessageDialog(this, "logout Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 Login login = new Login();
     }//GEN-LAST:event_logoutActionPerformed
 
