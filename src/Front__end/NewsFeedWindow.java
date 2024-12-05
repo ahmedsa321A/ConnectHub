@@ -8,11 +8,12 @@ import Back__end.RelationshipStatus;
 import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.UserSearch;
-import Back__end.userService;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,14 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     public NewsFeedWindow(User user) {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    user.setStatus("offline");
+                    UserRepository.saveData();
+                    Login login = new Login();
+            }
+        });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         int y = (screenSize.height - this.getHeight()) / 2;

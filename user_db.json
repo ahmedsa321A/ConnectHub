@@ -1,13 +1,12 @@
 [
   {
-    "FriendsId": [
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
-    ],
+    "FriendsId": [],
     "requestsReceived": [
       "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3"
     ],
     "suggestions": [
-      "40cd6494-0e25-4d5e-849f-3501397bf10c"
+      "40cd6494-0e25-4d5e-849f-3501397bf10c",
+      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
     ],
     "blocked": [],
     "userId": "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e",
@@ -22,13 +21,12 @@
   },
   {
     "FriendsId": [
-      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
+      "f040f042-3e3d-4736-aa6c-8da1890aef41"
     ],
     "requestsReceived": [],
     "suggestions": [
       "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
-      "40cd6494-0e25-4d5e-849f-3501397bf10c",
-      "f040f042-3e3d-4736-aa6c-8da1890aef41"
+      "40cd6494-0e25-4d5e-849f-3501397bf10c"
     ],
     "blocked": [
       "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
@@ -76,7 +74,9 @@
     "bio": ""
   },
   {
-    "FriendsId": [],
+    "FriendsId": [
+      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
+    ],
     "requestsReceived": [],
     "suggestions": [
       "40cd6494-0e25-4d5e-849f-3501397bf10c",
@@ -89,7 +89,7 @@
     "username": "hazem",
     "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
     "dateOfBirth": "2024-12-01",
-    "status": "online",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
