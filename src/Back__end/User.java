@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.swing.JOptionPane;
 
 public class User extends UserParent {
     @SerializedName("FriendsId")
