@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,8 +20,10 @@ import java.util.UUID;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class userService {
 
@@ -57,42 +60,84 @@ public class userService {
         ArrayList<JPanel> posts = new ArrayList<>();
         content.loadContent();
         for (String id : user.getFriendsIdArray()) {
-                    for (Content c : content.getContents()) {
-                        if(c.getAuthorId().equals(id)&&!c.isStory())
-                        posts.add(createContentPanel(c));
-                    }
-                
-            
+            for (Content c : content.getContents()) {
+                if (c.getAuthorId().equals(id) && !c.isStory()) {
+                    posts.add(createContentPanel(c));
+                }
+            }
+
         }
         return posts;
     }
+
     public static ArrayList<JPanel> getStoriesOfFriends(User user) {
         ArrayList<JPanel> stories = new ArrayList<>();
         content.loadContent();
         for (String id : user.getFriendsIdArray()) {
-                    for (Content c : content.getContents()) {
-                        if(c.getAuthorId().equals(id)&&c.isStory())
-                        stories.add(createContentPanel(c));
-                    }
-                
-            
+            for (Content c : content.getContents()) {
+                if (c.getAuthorId().equals(id) && c.isStory()) {
+                    stories.add(createContentPanel(c));
+                }
+            }
+
         }
         return stories;
     }
+
+    protected ImageIcon loadImageIcon(String photoPath) {
+        ImageIcon icon = null;
+        try {
+            icon = new ImageIcon(photoPath);
+            Image image = icon.getImage();
+            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
+            icon = new ImageIcon(resizedImage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return icon;
+    }
+    
 
     public static JPanel createContentPanel(Content content) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        String nophotopath="/icons/noprofile.png";
+        String nophotopath = "D:\\Studying\\Term 5\\Programming 2\\Labs\\Lab 9\\ConnectHub\\src\\icons\\noprofile.png";
         // Text content
-        ArrayList<String> userandpath=getPathAndName(content.getAuthorId());
-        JLabel name = new JLabel(userandpath.get(0));
-        JLabel image= new JLabel();
-        if(!userandpath.get(1).equals(""))
-        Photo.setPhoto(image, userandpath.get(1));
-        else 
-        Photo.setPhoto(image, nophotopath);   
+        ArrayList<String> userandpath = getPathAndName(content.getAuthorId());
+        
+        String name = userandpath.get(0);
+        
+        String photoPath = null;
+        if(!userandpath.get(1).equals("")){
+        photoPath = userandpath.get(1);
+        }else{
+            photoPath=nophotopath;
+        }
+
+        JPanel authorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        // Load the image and create a JLabel for it
+        ImageIcon imgicon = null;
+        try {
+            imgicon = new ImageIcon(photoPath);
+            Image image = imgicon.getImage();
+            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
+            imgicon = new ImageIcon(resizedImage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } // Replace with your image path
+        JLabel imageLabell = new JLabel(imgicon);
+        
+
+        // Create a JLabel for the text
+        JLabel textLabel = new JLabel(name);
+
+        // Add the image label and text label to the panel
+        authorPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        authorPanel.add(imageLabell);
+        authorPanel.add(textLabel);
+
         JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
         String[] date = content.getTimestamp().split("T");
         String Date = date[0];
@@ -100,12 +145,10 @@ public class userService {
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         String formattedDate = D.format(outputFormatter);
         JLabel timestamp = new JLabel(formattedDate);
-        
+
         // Arrange text in a vertical panel 
         JPanel textPanel = new JPanel();
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
-        textPanel.add(name);
-        //textPanel.add(image);
         textPanel.add(contentText);
         textPanel.add(timestamp);
         // Image content
@@ -113,13 +156,14 @@ public class userService {
         Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
         ImageIcon scaledimage = new ImageIcon(scaledImage);
         JLabel imageLabel = new JLabel(scaledimage);
-        
+
         // Combine text and image in a single panel
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
-        contentPanel.add(textPanel, BorderLayout.NORTH);
-        contentPanel.add(imageLabel, BorderLayout.CENTER);
-        
+        contentPanel.add(authorPanel, BorderLayout.NORTH);
+        contentPanel.add(textPanel, BorderLayout.CENTER);
+        contentPanel.add(imageLabel, BorderLayout.SOUTH);
+
         // Add combined panel to the main panel
         panel.add(contentPanel, BorderLayout.CENTER);
 
@@ -128,7 +172,7 @@ public class userService {
 
     public static String getStatusofUser(String name) {
         loadUsersFromJson();
-        
+
         for (User user : userList) {
             if (user.getUsername().equals(name)) {
                 String state = user.getStatus();
@@ -136,13 +180,13 @@ public class userService {
             }
         }
         return null;
-        
+
     }
-    
+
     public static ArrayList<String> getPathAndName(String id) {
         ArrayList<String> data = new ArrayList<>();
-        for(User u:userList){
-            if(u.getUserId().equals(id)){
+        for (User u : userList) {
+            if (u.getUserId().equals(id)) {
                 data.add(u.getUsername());
                 data.add(u.getProfilePhotoPath());
             }
@@ -182,9 +226,9 @@ public class userService {
 
     public static void saveSignup(User user) {
         loadUsersFromJson(); // Load existing users
-        if(!checkIfUserExists(user.getEmail()))
-        userList.add(user); // Add the new user to the list
-
+        if (!checkIfUserExists(user.getEmail())) {
+            userList.add(user); // Add the new user to the list
+        }
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
 
         String json = gson.toJson(userList); // Convert the list to JSON
@@ -195,6 +239,7 @@ public class userService {
             e.printStackTrace();
         }
     }
+
     public static void saveData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
         String json = gson.toJson(userList); // Convert the list to JSON
