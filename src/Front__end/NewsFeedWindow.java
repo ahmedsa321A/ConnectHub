@@ -1,11 +1,12 @@
 package Front__end;
 
 import Back__end.ContentDatabase;
+import Back__end.ContentService;
 import Back__end.FriendLoader;
 import Back__end.RelationshipManager;
 import Back__end.RelationshipStatus;
 import Back__end.User;
-import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.UserSearch;
 import Back__end.userService;
 import com.google.gson.reflect.TypeToken;
@@ -22,6 +23,7 @@ import javax.swing.JPanel;
 public class NewsFeedWindow extends javax.swing.JFrame {
 
     private User user;
+   ContentDatabase db=ContentDatabase.getInstance();
 
     public NewsFeedWindow(User user) {
         initComponents();
@@ -35,7 +37,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     private void showPosts(User user) {
-        ArrayList<JPanel> posts = userService.getPostOfFriends(user);
+        ArrayList<JPanel> posts = ContentService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
         }
@@ -217,7 +219,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-    ContentDatabase db=new ContentDatabase();
+        db.loadContent();
+        db.deleteExpiredStories();
         for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
@@ -225,7 +228,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        ContentDatabase db=new ContentDatabase();
+        db.loadContent();
+        db.deleteExpiredStories();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
@@ -240,6 +244,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
     user.setStatus("offline");
+    UserRepository.saveData();
         for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
@@ -268,7 +273,7 @@ StoryGui story = new StoryGui(user);
 
     // Set up a UserSearch map
     UserSearch search = new UserSearch();
-    search.setAllMap(userService.userList);
+    search.setAllMap(UserRepository.userList);
 
     // Iterate through the user map to find suggestions
     for (Map.Entry<String, User> entry : search.getMap().entrySet()) {

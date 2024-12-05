@@ -1,7 +1,9 @@
 package Front__end;
 
+import Back__end.ContentService;
 import Back__end.Photo;
 import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -41,7 +43,7 @@ public class ProfileWindow extends javax.swing.JFrame {
     private void viewFriends() {
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) friendsTable.getModel();
         for (int i = 0; i < profile.getFriendsIdArray().size(); i++) {
-            for (User u : userService.userList) {
+            for (User u : UserRepository.userList) {
                 if (u.getUserId().equals(profile.getFriendsIdArray().get(i))) {
                     model.addRow(new Object[]{u.getUsername(), u.getStatus()});
                 }
@@ -50,7 +52,7 @@ public class ProfileWindow extends javax.swing.JFrame {
     }
 
     private void viewPosts() {
-        ArrayList<JPanel> posts = userService.getPosts(this.profile);
+        ArrayList<JPanel> posts = ContentService.getPosts(this.profile);
         for (JPanel post : posts) {
             this.postsPanel.add(post);
         }

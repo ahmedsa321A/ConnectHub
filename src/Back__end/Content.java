@@ -2,70 +2,82 @@ package Back__end;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 public class Content {
 
-    private String contentId;
-    private String authorId;
-    private String contentText;
-    private String imagePath; // Path of image
-    private String timestamp; // Stored as a string
-    private boolean isStory;
+    private final String contentId;
+    private final String authorId;
+    private final String contentText;
+    private final String imagePath;
+    private final String timestamp;
+    private final boolean isStory;
 
-    public Content(String contentId, String authorId, String contentText, String imagePath, boolean isStory) {
-        this.contentId = contentId;
-        this.authorId = authorId;
-        this.contentText = contentText;
-        this.imagePath = imagePath;
-        this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
-        this.isStory = isStory;
+    // Private constructor to enforce object creation through the builder
+    private Content(ContentBuilder builder) {
+        this.contentId = builder.contentId;
+        this.authorId = builder.authorId;
+        this.contentText = builder.contentText;
+        this.imagePath = builder.imagePath;
+        this.timestamp = builder.timestamp;
+        this.isStory = builder.isStory;
     }
 
+    // Getters
     public String getContentId() {
         return contentId;
-    }
-
-    public void setContentId(String contentId) {
-        this.contentId = contentId;
-    }
-
-    public String getContentText() {
-        return contentText;
-    }
-
-    public void setContentText(String contentText) {
-        this.contentText = contentText;
     }
 
     public String getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(String authorId) {
-        this.authorId = authorId;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public String getContentText() {
+        return contentText;
     }
 
     public String getImagePath() {
         return imagePath;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public String getTimestamp() {
+        return timestamp;
     }
 
     public boolean isStory() {
         return isStory;
     }
 
-    public void setStory(boolean stutes) {
-        isStory = stutes;
+    // Builder Class
+    public static class ContentBuilder {
+        private String contentId;
+        private String authorId;
+        private String contentText;
+        private String imagePath;
+        private String timestamp;
+        private boolean isStory;
+
+        public ContentBuilder(String contentId, String authorId) {
+            this.contentId = contentId;
+            this.authorId = authorId;
+            this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
+        }
+
+        public ContentBuilder setContentText(String contentText) {
+            this.contentText = contentText;
+            return this;
+        }
+
+        public ContentBuilder setImagePath(String imagePath) {
+            this.imagePath = imagePath;
+            return this;
+        }
+
+        public ContentBuilder setIsStory(boolean isStory) {
+            this.isStory = isStory;
+            return this;
+        }
+
+        public Content build() {
+            return new Content(this);
+        }
     }
 }

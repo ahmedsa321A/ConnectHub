@@ -1,6 +1,7 @@
 
 package Front__end;
 import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.UserSearch;
 import Back__end.userService;
 import java.awt.BorderLayout;
@@ -56,7 +57,7 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
          addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                userService.saveData();
+                UserRepository.saveData();
                 dispose(); 
             }
         });
