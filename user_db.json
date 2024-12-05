@@ -12,5 +12,17 @@
     "FriendsId": [
       "userid"
     ]
+  },
+  {
+    "userId": "0b0ac3a4-d874-45ee-be56-1d249ba79700",
+    "email": "hazem@gmail.com",
+    "username": "hazem",
+    "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
+    "dateOfBirth": "2024-12-04",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": "",
+    "FriendsId": ["userid"]
   }
 ]
