@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 public class FriendUser extends User {
-     
+ //updated version of user where it adds these 4 lists    
  private List<String>friends;
  private List<String> requestsReceived;
  private List<String>suggestions;
@@ -19,12 +19,12 @@ public class FriendUser extends User {
        suggestions =new ArrayList<>();
        blocked=new ArrayList<>();
     }
-
+    
     public void addFriend(String friendId) {
-        if(!friends.contains(friendId))
+        if(!friends.contains(friendId)) //checks if user already friend or not
         {
-            friends.add(friendId);
-           removeReceivedRequest(friendId);
+            friends.add(friendId); //add friend
+           removeReceivedRequest(friendId); //remove request from user2
         }
         else
         {
@@ -40,8 +40,10 @@ public class FriendUser extends User {
     public List<String> getFriends() {
         return friends;
     }
+    
      public void receivedRequest(String friendId){
-         if (requestsReceived.contains(friendId)) {
+         if (requestsReceived.contains(friendId)) //checks if user already in requests
+         {
             JOptionPane.showMessageDialog(null, "Friend request already received from this user.", "Validation Error", JOptionPane.ERROR_MESSAGE);
             return;
         }

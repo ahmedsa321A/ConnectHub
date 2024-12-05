@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class UserSearch {
     private HashMap<String, FriendUser> userMap;
 
-    
     public void setUserMap(HashMap<String, FriendUser> userMap) {
         this.userMap = userMap;
     }

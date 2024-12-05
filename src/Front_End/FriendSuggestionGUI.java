@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 public class FriendSuggestionGUI extends FriendsParentGUI{
     public FriendSuggestionGUI(FriendUser user, String title,HashMap<String,FriendUser>users) {
-        super(user, "Suggestions",users);
+        super(user,"Suggestions",users);
     }
     @Override
     protected void populateUserList() {

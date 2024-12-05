@@ -52,7 +52,7 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null); 
         setVisible(true);
     }
-     protected ImageIcon loadImageIcon(String photoPath) {
+    protected ImageIcon loadImageIcon(String photoPath) {
         ImageIcon icon = null;
         try {
             icon = new ImageIcon(photoPath);
