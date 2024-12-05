@@ -1,11 +1,12 @@
 package Front__end;
 
 import Back__end.ContentDatabase;
+import Back__end.ContentService;
 import Back__end.FriendLoader;
 import Back__end.RelationshipManager;
 import Back__end.RelationshipStatus;
 import Back__end.User;
-import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.UserSearch;
 import Back__end.userService;
 import com.google.gson.reflect.TypeToken;
@@ -35,7 +36,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     private void showPosts(User user) {
-        ArrayList<JPanel> posts = userService.getPostOfFriends(user);
+        ArrayList<JPanel> posts = ContentService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
         }
@@ -268,7 +269,7 @@ StoryGui story = new StoryGui(user);
 
     // Set up a UserSearch map
     UserSearch search = new UserSearch();
-    search.setAllMap(userService.userList);
+    search.setAllMap(UserRepository.userList);
 
     // Iterate through the user map to find suggestions
     for (Map.Entry<String, User> entry : search.getMap().entrySet()) {

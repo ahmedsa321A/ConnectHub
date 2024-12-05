@@ -4,6 +4,7 @@
  */
 package Front__end;
 
+import Back__end.ContentService;
 import Back__end.User;
 import Back__end.userService;
 import java.awt.Dimension;
@@ -92,7 +93,7 @@ public class StoriesGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
  private void showstories(User user) {
-        ArrayList<JPanel> stories = userService.getStoriesOfFriends(user);
+        ArrayList<JPanel> stories = ContentService.getStoriesOfFriends(user);
         for (JPanel story : stories) {
             this.StoriesPanel.add(story);
         }

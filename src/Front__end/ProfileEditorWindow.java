@@ -2,6 +2,7 @@ package Front__end;
 
 import Back__end.Photo;
 import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.userService;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
@@ -236,7 +237,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
             }
         } catch (NoSuchAlgorithmException ex) {
         }
-         userService.saveData();
+         UserRepository.saveData();
          JOptionPane.showMessageDialog(this, "all changes have changed Successfully ","Successful", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }//GEN-LAST:event_saveButtonActionPerformed
