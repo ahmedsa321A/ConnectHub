@@ -1,36 +1,36 @@
 [
   {
-    "friends": [],
+    "FriendsId": [
+      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
+    ],
     "requestsReceived": [],
     "suggestions": [],
     "blocked": [],
-    "userId": "7d940baf-5e0b-4d70-b29c-b2df4a4e555e",
+    "userId": "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e",
     "email": "ahmed@gmail.com",
-    "username": "ahmedsa321",
+    "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-06",
-    "status": "online",
-    "profilePhotoPath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
-    "coverPhotoPath": "",
-    "bio": "",
-    "FriendsId": []
-  },
-  {
-    "friends": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "7d940baf-5e0b-4d70-b29c-b2df4a4e555e"
-    ],
-    "blocked": [],
-    "userId": "37dc3412-7c44-414b-ba3f-8b25db68ffcb",
-    "email": "omar@gmail.com",
-    "username": "omar",
-    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-20",
+    "dateOfBirth": "2024-12-03",
     "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
-    "bio": "",
-    "FriendsId": []
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "3a832fdb-387c-4d91-b510-7ed24f444ab0",
+    "email": "omar@gmail.com",
+    "username": "omar",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-25",
+    "status": "online",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
   }
 ]

@@ -1,5 +1,6 @@
 
 package Back__end;
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +8,8 @@ import javax.swing.JOptionPane;
 
 public class User extends UserParent {
  //updated version of user where it adds these 4 lists    
- private List<String>friends;
+  @SerializedName("FriendsId")
+  ArrayList<String> friends = new ArrayList<>();
  private List<String> requestsReceived;
  private List<String>suggestions;
  private List<String>blocked;
@@ -37,7 +39,7 @@ public class User extends UserParent {
         friends.remove(userId);
         addSuggestion(userId);
     }
-    public List<String> getFriends() {
+    public List<String> getFriendsIdArray() {
         return friends;
     }
     

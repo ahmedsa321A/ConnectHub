@@ -32,8 +32,6 @@ public class UserParent {
     @SerializedName("bio")
     private String bio;
 
-    @SerializedName("FriendsId")
-    ArrayList<String> FriendsId = new ArrayList<>();
 
     public UserParent(String userId, String email, String username, String password, String dateOfBirth, String status) {
         this.userId = userId;
@@ -121,13 +119,7 @@ public class UserParent {
         return this.bio;
     }
 
-    public void addFriend(String name) {
-        this.FriendsId.add(name);
-    }
 
-    public ArrayList<String> getFriendsIdArray() {
-        return this.FriendsId;
-    }
 
 
 }

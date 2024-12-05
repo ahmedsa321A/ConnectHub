@@ -22,7 +22,7 @@ public class FriendsListGUI extends FriendsParentGUI {
    
    @Override
     protected void populateUserList() {
-        List<String> friends = currentUser.getFriends(); 
+        List<String> friends = currentUser.getFriendsIdArray(); 
 
         for (String friendId : friends) {
             User friend=userSearch.getUserById(friendId);
