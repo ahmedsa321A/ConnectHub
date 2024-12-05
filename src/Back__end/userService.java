@@ -68,6 +68,7 @@ public class userService {
         return posts;
     }
 
+
     public static JPanel createContentPanel(Content content) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());

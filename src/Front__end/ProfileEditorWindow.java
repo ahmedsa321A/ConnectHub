@@ -19,7 +19,6 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
     public ProfileEditorWindow(java.awt.Frame parent, User profile, boolean modal) {
         super(parent, modal);
         initComponents();
-        addPlaceholderStyle(bioTextArea2);
         this.profile = profile;
         this.newPhotoPath = this.profile.getProfilePhotoPath();
         this.newCoverPath = this.profile.getCoverPhotoPath();
@@ -33,21 +32,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
         bioTextArea2.setText(profile.getBio());
         this.setVisible(modal);
     }
-  public void addPlaceholderStyle(JTextArea areafield) {
-        Font font = areafield.getFont();
-        font = font.deriveFont(Font.ITALIC);
-        areafield.setFont(font);
-        areafield.setForeground(Color.GRAY);
-
-    }
-
-    public void removePlaceholderStyle(JTextArea areafield) {
-        Font font = areafield.getFont();
-        font = font.deriveFont(Font.PLAIN | Font.PLAIN);
-        areafield.setFont(font);
-        areafield.setForeground(Color.BLACK);
-
-    }
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +52,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Profile change");
+        setBackground(new java.awt.Color(51, 153, 255));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -112,16 +98,16 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Profile picture ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setText("Cover photo ");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Bio");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Password");
 
         coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noimage.png"))); // NOI18N
@@ -130,7 +116,6 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
 
         bioTextArea2.setColumns(20);
         bioTextArea2.setRows(5);
-        bioTextArea2.setText("Write Bio...");
         bioTextArea2.setPrefixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bio.png"))); // NOI18N
         bioTextArea2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -149,48 +134,51 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel4)))
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(changePasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(changePhotoButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addComponent(jLabel2)))
-                        .addGap(73, 73, 73)
-                        .addComponent(coverPhotoLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel4)
-                        .addGap(43, 43, 43)
-                        .addComponent(changePasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel3)
-                        .addGap(88, 88, 88)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel1)
-                        .addGap(68, 68, 68)
-                        .addComponent(profilePictureLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(changePictureButton)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(changePictureButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(coverPhotoLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(profilePictureLabel)))))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(profilePictureLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(profilePictureLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(changePictureButton)))
                 .addGap(52, 52, 52)
@@ -209,7 +197,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
                         .addComponent(coverPhotoLabel)
                         .addGap(69, 69, 69)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addGap(19, 19, 19))
         );
@@ -242,10 +230,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         this.profile.setProfilePhotoPath(newPhotoPath);
         this.profile.setCoverPhotoPath(newCoverPath);
-        if(!bioTextArea2.getText().equals("Write Bio...")) 
         this.profile.setBio(bioTextArea2.getText());
-        else
-        this.profile.setBio("");   
         String hashedPassword;
         try {
             if (!this.newPassword.equals(this.profile.getPassword())) {
@@ -268,19 +253,11 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_changePasswordButtonActionPerformed
 
     private void bioTextArea2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bioTextArea2FocusGained
-       if (bioTextArea2.getText().equals("Write Bio...")) {
-            bioTextArea2.setText(null);
-            bioTextArea2.requestFocus();
-            removePlaceholderStyle(bioTextArea2);
-        }
+
     }//GEN-LAST:event_bioTextArea2FocusGained
 
     private void bioTextArea2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bioTextArea2FocusLost
-       if (bioTextArea2.getText().length() == 0) {
-            addPlaceholderStyle(bioTextArea2);
-            bioTextArea2.setText("Write Bio...");
-
-        }
+ 
     }//GEN-LAST:event_bioTextArea2FocusLost
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
