@@ -56,7 +56,6 @@ public class userService {
     public static ArrayList<JPanel> getPostsOfFriends(User user) {
         ArrayList<JPanel> posts = new ArrayList<>();
         content.loadContent();
-        loadUsersFromJson();
         for (String id : user.getFriendsIdArray()) {
                     for (Content c : content.getContents()) {
                         if(c.getAuthorId().equals(id))

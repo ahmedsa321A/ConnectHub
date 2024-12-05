@@ -40,7 +40,6 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void viewFriends() {
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) friendsTable.getModel();
-        userService.loadUsersFromJson();
         for (int i = 0; i < profile.getFriendsIdArray().size(); i++) {
             for (User u : userService.userList) {
                 if (u.getUserId().equals(profile.getFriendsIdArray().get(i))) {
@@ -85,7 +84,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         friendsLabel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         friendsLabel.setText("Friends");
 
-        profilePictureLabel.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/noimage.png")); // NOI18N
+        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noimage.png"))); // NOI18N
 
         javax.swing.GroupLayout postsPanelLayout = new javax.swing.GroupLayout(postsPanel);
         postsPanel.setLayout(postsPanelLayout);
@@ -112,7 +111,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setText("Bio");
 
-        coverPhotoLabel.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/noprofile.png")); // NOI18N
+        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"))); // NOI18N
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
@@ -212,7 +211,7 @@ public class ProfileWindow extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(126, 126, 126)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +252,6 @@ public class ProfileWindow extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(153, 153, 153))))
         );
