@@ -18,14 +18,16 @@
   {
     "friends": [],
     "requestsReceived": [],
-    "suggestions": [],
+    "suggestions": [
+      "7d940baf-5e0b-4d70-b29c-b2df4a4e555e"
+    ],
     "blocked": [],
     "userId": "37dc3412-7c44-414b-ba3f-8b25db68ffcb",
     "email": "omar@gmail.com",
     "username": "omar",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-20",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": "",

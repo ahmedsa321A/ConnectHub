@@ -1,16 +1,8 @@
 
 package Front__end;
 
-import Back__end.FriendLoader;
-import Back__end.FriendSaver;
 import Back__end.User;
-import Back__end.RelationshipManager;
-import Back__end.RelationshipStatus;
-import Back__end.UserSearch;
-import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class FriendsCenter extends javax.swing.JFrame {
@@ -48,6 +40,7 @@ private HashMap<String,User>allUsersMap;
         });
 
         FriendsListButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        FriendsListButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/FriendsList.png"))); // NOI18N
         FriendsListButton.setText(" My Friends");
         FriendsListButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255)));
         FriendsListButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +50,7 @@ private HashMap<String,User>allUsersMap;
         });
 
         RequestsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        RequestsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/FriendRequests.png"))); // NOI18N
         RequestsButton.setText("Friend Requests");
         RequestsButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255)));
         RequestsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +60,7 @@ private HashMap<String,User>allUsersMap;
         });
 
         SuggestionButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        SuggestionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/FriendSuggestions.png"))); // NOI18N
         SuggestionButton.setText("Friend Suggestions");
         SuggestionButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255)));
         SuggestionButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +70,7 @@ private HashMap<String,User>allUsersMap;
         });
 
         BlockedButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        BlockedButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/BlockedFriends.png"))); // NOI18N
         BlockedButton.setText("  Blocked Users");
         BlockedButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255), new java.awt.Color(204, 204, 255)));
         BlockedButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,18 +84,18 @@ private HashMap<String,User>allUsersMap;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(RequestsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(FriendsListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SuggestionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BlockedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))))
+                        .addGap(85, 85, 85))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SuggestionButton)
+                            .addComponent(BlockedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RequestsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FriendsListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
