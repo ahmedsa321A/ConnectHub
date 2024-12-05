@@ -53,19 +53,31 @@ public class userService {
         return posts;
     }
 
-    public static ArrayList<JPanel> getPostsOfFriends(User user) {
+    public static ArrayList<JPanel> getPostOfFriends(User user) {
         ArrayList<JPanel> posts = new ArrayList<>();
         content.loadContent();
-        loadUsersFromJson();
         for (String id : user.getFriendsIdArray()) {
                     for (Content c : content.getContents()) {
-                        if(c.getAuthorId().equals(id))
+                        if(c.getAuthorId().equals(id)&&!c.isStory())
                         posts.add(createContentPanel(c));
                     }
                 
             
         }
         return posts;
+    }
+    public static ArrayList<JPanel> getStoriesOfFriends(User user) {
+        ArrayList<JPanel> stories = new ArrayList<>();
+        content.loadContent();
+        for (String id : user.getFriendsIdArray()) {
+                    for (Content c : content.getContents()) {
+                        if(c.getAuthorId().equals(id)&&c.isStory())
+                        stories.add(createContentPanel(c));
+                    }
+                
+            
+        }
+        return stories;
     }
 
     public static JPanel createContentPanel(Content content) {
@@ -118,6 +130,17 @@ public class userService {
         }
         return state;
     }
+    
+    public static ArrayList<String> getPathAndName(String id) {
+        ArrayList<String> data = new ArrayList<>();
+        for(User u:userList){
+            if(u.getUserId().equals(id)){
+                data.add(u.getUsername());
+                data.add(u.getUsername());
+            }
+        }
+        return data;
+    }
 
     public static void loadUsersFromJson() {
         Gson gson = new Gson();
@@ -149,7 +172,7 @@ public class userService {
         return hexString.toString();
     }
 
-    public static void saveDataToJson(User user) {
+    public static void saveSignup(User user) {
         loadUsersFromJson(); // Load existing users
         if(!checkIfUserExists(user.getEmail()))
         userList.add(user); // Add the new user to the list
@@ -158,6 +181,15 @@ public class userService {
 
         String json = gson.toJson(userList); // Convert the list to JSON
 
+        try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
+            writer.write(json); // Save the JSON to the file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveData() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
+        String json = gson.toJson(userList); // Convert the list to JSON
         try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
             writer.write(json); // Save the JSON to the file
         } catch (IOException e) {
@@ -173,7 +205,7 @@ public class userService {
 
         User user = new User(userId, email, username, hashedPassword, dateOfBirth, "offline");
 
-        saveDataToJson(user);
+        saveSignup(user);
 
         return true;
     }
