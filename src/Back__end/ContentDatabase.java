@@ -17,9 +17,18 @@ public class ContentDatabase {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static ArrayList<Content> contents;
 
-    public ContentDatabase() {
+    private static ContentDatabase instance;
+    
+    private  ContentDatabase() {
         loadContent(); // Load content from JSON file
         deleteExpiredStories(); // auto delete expire stories
+    }
+     public static ContentDatabase getInstance() {
+        if (instance == null) {
+           
+               instance = new ContentDatabase();
+            }
+        return instance;
     }
 
     public void loadContent() {

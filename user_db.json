@@ -6,7 +6,9 @@
     "requestsReceived": [
       "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3"
     ],
-    "suggestions": [],
+    "suggestions": [
+      "40cd6494-0e25-4d5e-849f-3501397bf10c"
+    ],
     "blocked": [],
     "userId": "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e",
     "email": "ahmed@gmail.com",
@@ -24,15 +26,18 @@
     ],
     "requestsReceived": [],
     "suggestions": [
-      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3"
+      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
+      "40cd6494-0e25-4d5e-849f-3501397bf10c"
     ],
-    "blocked": [],
+    "blocked": [
+      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
+    ],
     "userId": "3a832fdb-387c-4d91-b510-7ed24f444ab0",
     "email": "omar@gmail.com",
     "username": "omar",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-25",
-    "status": "online",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
@@ -50,6 +55,21 @@
     "password": "c1c93f88d273660be5358cd4ee2df2c2f3f0e8e7",
     "dateOfBirth": "2024-12-19",
     "status": "online",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "40cd6494-0e25-4d5e-849f-3501397bf10c",
+    "email": "ahmed1@gmail.com",
+    "username": "aa",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-03",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""

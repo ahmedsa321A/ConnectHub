@@ -23,7 +23,7 @@ import javax.swing.JPanel;
  * @author ahmed
  */
 public class ContentService {
-    static ContentDatabase content = new ContentDatabase();
+    static ContentDatabase content = ContentDatabase.getInstance();
         public static ArrayList<JPanel> getPosts(User user) {
         content.loadContent();
         ArrayList<JPanel> posts = new ArrayList<>();

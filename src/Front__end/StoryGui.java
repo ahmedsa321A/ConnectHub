@@ -1,5 +1,6 @@
 package Front__end;
 
+import Back__end.ConcreteFactory;
 import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
@@ -19,7 +20,7 @@ public class StoryGui extends javax.swing.JFrame {
     private static String photopath;
     private static String userid;
     private static User user;
-
+    ContentDatabase db =ContentDatabase.getInstance();
     public StoryGui(User user) {
         initComponents();
         this.user = user;
@@ -185,13 +186,17 @@ public class StoryGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void publishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publishActionPerformed
-        ContentDatabase db = new ContentDatabase();
+        db.loadContent();
+        db.deleteExpiredStories();
         String text = storytext.getText();
         if (text.equals("Write Here.....")) {
             JOptionPane.showMessageDialog(this, "Can't Write Post Without text", "Invalid Text", JOptionPane.ERROR_MESSAGE);
             return;
         } else {
-            Content post = new Content(UUID.randomUUID().toString(), user.getUserId(), text, photopath, true);
+    ConcreteFactory contentFactory = new ConcreteFactory();
+    
+    // Use the factory to create a Content object with isStory set to true
+    Content post = contentFactory.createContent(user.getUserId(), text, photopath, true);
             db.addContent(post);
             db.saveContent();
             JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);

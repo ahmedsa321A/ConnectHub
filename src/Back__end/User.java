@@ -3,7 +3,6 @@ package Back__end;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 public class User extends UserParent {
@@ -22,10 +21,10 @@ public class User extends UserParent {
         this.blocked = builder.blocked;
     }
     public void addFriend(String friendId) {
-        if(!friends.contains(friendId)) //checks if user already friend or not
+        if(!friends.contains(friendId)) 
         {
-            friends.add(friendId); //add friend
-           removeReceivedRequest(friendId); //remove request from user2
+            friends.add(friendId); 
+           removeReceivedRequest(friendId); 
         }
         else
         {

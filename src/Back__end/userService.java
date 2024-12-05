@@ -103,24 +103,18 @@ public class userService {
 
 
 
-    public static boolean signup(String email, String username, String password, String dateOfBirth) throws NoSuchAlgorithmException {
+public static boolean signup(String email, String username, String password, String dateOfBirth) throws NoSuchAlgorithmException {
+    // Create a factory instance
+    ConcreteFactory userFactory = new ConcreteFactory();
+    
+    // Use the factory to create the User object
+    User user = userFactory.createUser(email, username, password, dateOfBirth);
 
-        String hashedPassword = hashPassword(password);
+    // Save the user (assuming saveSignup is defined to handle saving the user data)
+    saveSignup(user);
 
-        String userId = UUID.randomUUID().toString();
-
-        User user = new User.Builder(userId, email)
-                .setUsername(username)
-                .setPassword(hashedPassword)
-                .setDateOfBirth(dateOfBirth)
-                .setStatus("offline")
-                .build();
-
-
-        saveSignup(user);
-
-        return true;
-    }
+    return true;
+}
 
     public static User login(String email, String password) throws NoSuchAlgorithmException {
         UserRepository.loadUsersFromJson();

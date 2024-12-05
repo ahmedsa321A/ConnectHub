@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 public class NewsFeedWindow extends javax.swing.JFrame {
 
     private User user;
+   ContentDatabase db=ContentDatabase.getInstance();
 
     public NewsFeedWindow(User user) {
         initComponents();
@@ -218,7 +219,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-    ContentDatabase db=new ContentDatabase();
+        db.loadContent();
+        db.deleteExpiredStories();
         for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
@@ -226,7 +228,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        ContentDatabase db=new ContentDatabase();
+        db.loadContent();
+        db.deleteExpiredStories();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
