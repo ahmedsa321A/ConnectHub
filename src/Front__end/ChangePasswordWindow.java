@@ -2,13 +2,10 @@
 package Front__end;
 
 import Back__end.userService;
-import java.awt.Color;
-import java.awt.Font;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 
 public class ChangePasswordWindow extends javax.swing.JDialog {

@@ -29,14 +29,6 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     public NewsFeedWindow(User user) {
         initComponents();
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                    user.setStatus("offline");
-                    UserRepository.saveData();
-                    Login login = new Login();
-            }
-        });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         int y = (screenSize.height - this.getHeight()) / 2;
