@@ -1,16 +1,18 @@
 [
   {
-    "userId": "dc5f902a-03b1-4033-a3a1-c69c0f783681",
-    "email": "zika@gmail.com",
-    "username": "zika",
-    "password": "94a7b12c04ab6a514e0c8ddb6882c4a6160f5b2f",
-    "dateOfBirth": "2024-12-01",
-    "status": "online",
+    "friends": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "7d940baf-5e0b-4d70-b29c-b2df4a4e555e",
+    "email": "ahmed@gmail.com",
+    "username": "ahmedsa321",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-06",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": "",
-    "FriendsId": [
-      "userid"
-    ]
+    "FriendsId": []
   }
 ]

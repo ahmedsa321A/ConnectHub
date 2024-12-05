@@ -2,6 +2,8 @@ package Front__end;
 
 import Back__end.ContentDatabase;
 import Back__end.User;
+import Back__end.User;
+import Back__end.UserSearch;
 import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -112,6 +114,11 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         friends.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/friends.png"))); // NOI18N
         friends.setColorover(new java.awt.Color(153, 204, 255));
         friends.setRedius(100);
+        friends.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                friendsActionPerformed(evt);
+            }
+        });
 
         refresh.setForeground(new java.awt.Color(51, 153, 255));
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh.png"))); // NOI18N
@@ -242,12 +249,18 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 StoryGui story = new StoryGui(user);      
         this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
+    private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
+       UserSearch search=new UserSearch();
+       search.setAllMap(userService.userList);
+        FriendsCenter friends=new FriendsCenter(user,search.getMap());
+        setVisible(false);
+    }//GEN-LAST:event_friendsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Back__end.MyButton friends;
     private Back__end.MyButton home;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private Back__end.MyButton logout;
     private javax.swing.JPanel newsFeedPanel;
