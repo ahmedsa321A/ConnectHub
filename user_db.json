@@ -1,8 +1,6 @@
 [
   {
-    "FriendsId": [
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
-    ],
+    "FriendsId": ["6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"],
     "requestsReceived": [],
     "suggestions": [],
     "blocked": [],
@@ -17,9 +15,7 @@
     "bio": ""
   },
   {
-    "FriendsId": [
-      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
-    ],
+    "FriendsId": ["3a832fdb-387c-4d91-b510-7ed24f444ab0"],
     "requestsReceived": [],
     "suggestions": [],
     "blocked": [],

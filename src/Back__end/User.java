@@ -1,15 +1,13 @@
 
 package Back__end;
-import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.swing.JOptionPane;
 
 public class User extends UserParent {
  //updated version of user where it adds these 4 lists    
-  @SerializedName("FriendsId")
-  ArrayList<String> friends = new ArrayList<>();
+
+ private ArrayList<String> friends;
  private List<String> requestsReceived;
  private List<String>suggestions;
  private List<String>blocked;
@@ -28,31 +26,21 @@ public class User extends UserParent {
             friends.add(friendId); //add friend
            removeReceivedRequest(friendId); //remove request from user2
         }
-        else
-        {
-        JOptionPane.showMessageDialog(null, "User is already a friend.", "Validation Error", JOptionPane.ERROR_MESSAGE);    
-        return;
-        }
     }
     public void removeFriend(String userId) {
-       
+       if(friends.contains(userId))
+       {     
         friends.remove(userId);
         addSuggestion(userId);
+       }
     }
     public List<String> getFriendsIdArray() {
         return friends;
     }
     
      public void receivedRequest(String friendId){
-         if (requestsReceived.contains(friendId)) //checks if user already in requests
-         {
-            JOptionPane.showMessageDialog(null, "Friend request already received from this user.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (friends.contains(friendId)) {
-            JOptionPane.showMessageDialog(null, "User is already a friend.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+       
+        if(!requestsReceived.contains(friendId))
         requestsReceived.add(friendId);
         if(suggestions.contains(friendId))
         removeSuggestion(friendId);
@@ -60,8 +48,11 @@ public class User extends UserParent {
     }
      
      public void removeReceivedRequest(String userId) {
-        requestsReceived.remove(userId);
-        addSuggestion(userId);
+      if(requestsReceived.contains(userId))   
+      {
+          requestsReceived.remove(userId);
+          addSuggestion(userId);
+      }
     }
      
      public List<String> getReceivedRequests(){
@@ -73,6 +64,7 @@ public class User extends UserParent {
     }
 
     public void removeSuggestion(String userId) {
+        if(suggestions.contains(userId))
         suggestions.remove(userId);
     }
 
@@ -80,19 +72,11 @@ public class User extends UserParent {
         return suggestions;
     }
     public void addBlock(String userId){
-        if(blocked.contains(userId))
-        {
-          JOptionPane.showMessageDialog(null, "User already bolcked.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;  
-        }
+        if(!blocked.contains(userId))
         blocked.add(userId);
     }
     public void removeBlock(String userId){
-        if(!blocked.contains(userId))
-        {
-            JOptionPane.showMessageDialog(null, "User is not even bolcked.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return; 
-        }
+        if(blocked.contains(userId))
         blocked.remove(userId);
     }
     public List<String> getBlocked() {
