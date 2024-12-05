@@ -221,6 +221,7 @@ public class Login extends javax.swing.JFrame {
             User user = userService.login(email, password);
             if (user != null) {
                 user.setStatus("online");
+                userService.saveData();
                 JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 for (Window window : Window.getWindows()) {
                     window.dispose();
