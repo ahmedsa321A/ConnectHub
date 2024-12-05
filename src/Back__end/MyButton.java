@@ -1,9 +1,13 @@
 package Back__end;
 
+import Front__end.NewsFeedWindow;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.geom.Ellipse2D;
 
 public class MyButton extends JButton {
@@ -42,6 +46,7 @@ public class MyButton extends JButton {
 
         });
     }
+  
 
     private boolean over;
     private Color color;

@@ -31,8 +31,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-             user.setStatus("offline");
-             UserRepository.saveData();
+                    user.setStatus("offline");
+                    UserRepository.saveData();
+                    Login login = new Login();
             }
         });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

@@ -2,6 +2,8 @@
 package Front__end;
 
 import Back__end.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 
 
@@ -11,6 +13,12 @@ private User you;
 private HashMap<String,User>allUsersMap;
     public FriendsCenter(User user,HashMap<String, User> allUsersMap) {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(you);
+            }
+        });
         you=user;
         this.allUsersMap=allUsersMap;
         setVisible(true);
