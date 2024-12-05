@@ -1,6 +1,8 @@
 [
   {
-    "FriendsId": [],
+    "FriendsId": [
+      "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
+    ],
     "requestsReceived": [],
     "suggestions": [
       "c0ccd154-da22-4c1f-b962-1387415fb022"
@@ -11,7 +13,7 @@
     "username": "adham",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-02",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
@@ -28,6 +30,21 @@
     "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-02",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "00e38f9f-8445-46e3-9b34-3768c5f6eaf3",
+    "email": "hazem@gmail.com",
+    "username": "hazem",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-04",
     "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",

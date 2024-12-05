@@ -33,16 +33,16 @@ import javax.swing.JPanel;
 public class NewsFeedWindow extends javax.swing.JFrame {
 
     private User user;
-   ContentDatabase db=ContentDatabase.getInstance();
+    ContentDatabase db = ContentDatabase.getInstance();
 
     public NewsFeedWindow(User user) {
         initComponents();
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                    user.setStatus("offline");
-                    UserRepository.saveData();
-                    Login login = new Login();
+                user.setStatus("offline");
+                UserRepository.saveData();
+                Login login = new Login();
             }
         });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -51,12 +51,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         this.setLocation(x, y);
         this.setVisible(true);
         this.user = user;
-
+        reloadSuggestionsStatus();
         showPosts(user);
         showFriendsList();
-       showSuggestions();
+        showSuggestions();
     }
-private void showFriendsList() {
+
+    private void showFriendsList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
         for (String friendId : friendsIdList) {
             ArrayList<String> friendData = userService.getPathAndName(friendId);
@@ -172,6 +173,32 @@ private void showFriendsList() {
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
         }
+    }
+    
+    private UserSearch reloadSuggestionsStatus(){
+        FriendLoader load = new FriendLoader();
+
+        java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {
+        }.getType();
+
+        load.loadFromFile(user, "user_db.json", typeOfT);
+
+        UserSearch search = new UserSearch();
+        search.setAllMap(UserRepository.userList);
+
+        for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
+            User otherUser = entry.getValue();
+
+            if (!user.getUserId().equals(otherUser.getUserId())) {
+                RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
+
+                if (status == RelationshipStatus.NOT_FRIENDS) {
+                    user.addSuggestion(otherUser.getUserId());
+                }
+            }
+        }
+        UserRepository.saveData();
+        return search;
     }
 
     @SuppressWarnings("unchecked")
@@ -399,88 +426,60 @@ private void showFriendsList() {
         db.loadContent();
         db.deleteExpiredStories();
         for (Window window : Window.getWindows()) {
-                    window.dispose();
-                }
-                NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);        
+            window.dispose();
+        }
+        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         db.loadContent();
         db.deleteExpiredStories();
         UserRepository.loadUsersFromJson();
-    
-        this.user=userService.getUser(user.getUserId());
-        newsFeedPanel.removeAll(); 
+
+        this.user = userService.getUser(user.getUserId());
+        newsFeedPanel.removeAll();
         showPosts(user);
         newsFeedPanel.revalidate();
         newsFeedPanel.repaint();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
-  
-    UserRepository.loadUsersFromJson();
-    
-   this.user=userService.getUser(user.getUserId());
-    
-    ProfileWindow profile=new ProfileWindow(this.user);
-    this.dispose();
+
+        UserRepository.loadUsersFromJson();
+
+        this.user = userService.getUser(user.getUserId());
+
+        ProfileWindow profile = new ProfileWindow(this.user);
+        this.dispose();
     }//GEN-LAST:event_profileActionPerformed
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
-    StoriesGui post = new StoriesGui(user);      
+        StoriesGui post = new StoriesGui(user);
         this.dispose();
     }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-    user.setStatus("offline");
-    UserRepository.saveData();
+        user.setStatus("offline");
+        UserRepository.saveData();
         for (Window window : Window.getWindows()) {
-                    window.dispose();
-                }
-    JOptionPane.showMessageDialog(this, "logout Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                Login login = new Login();
+            window.dispose();
+        }
+        JOptionPane.showMessageDialog(this, "logout Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        Login login = new Login();
     }//GEN-LAST:event_logoutActionPerformed
 
     private void postActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postActionPerformed
-        PostGui post = new PostGui(user);      
+        PostGui post = new PostGui(user);
         this.dispose();
     }//GEN-LAST:event_postActionPerformed
 
     private void storyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storyActionPerformed
-StoryGui story = new StoryGui(user);      
+        StoryGui story = new StoryGui(user);
         this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
     private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
-    
-    FriendLoader load = new FriendLoader();
-
-
-        java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {}.getType();
-
-
-    load.loadFromFile(user, "user_db.json", typeOfT);
-
-
-    UserSearch search = new UserSearch();
-    search.setAllMap(UserRepository.userList);
-
-
-    for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
-        User otherUser = entry.getValue();
-
-
-        if (!user.getUserId().equals(otherUser.getUserId())) {
-            RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
-
-            if (status == RelationshipStatus.NOT_FRIENDS) {
-                user.addSuggestion(otherUser.getUserId());
-            }
-        }
-    }
-    UserRepository.saveData();
-
-    FriendsCenter friends = new FriendsCenter(user, search.getMap());
-    setVisible(false);
+        FriendsCenter friends = new FriendsCenter(user, reloadSuggestionsStatus().getMap());
+        setVisible(false);
     }//GEN-LAST:event_friendsActionPerformed
 
 
