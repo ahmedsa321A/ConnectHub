@@ -315,6 +315,7 @@ public class Signup extends javax.swing.JFrame {
                 Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
                 JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+            instance=null;
             this.dispose();
         }    }//GEN-LAST:event_signupActionPerformed
 
