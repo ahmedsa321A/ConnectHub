@@ -1,0 +1,19 @@
+
+package Back_end;
+public class FriendSuggestion {
+    //send friend request to the suggestion
+     public void acceptSuggestion(FriendUser user1,FriendUser user2) 
+     {//set relationship to pending, remove suggestion user1 and user2 and user2 receive request
+        RelationshipManager.setRelationship(user1, user2, RelationshipStatus.PENDING);
+        user1.removeSuggestion(user2.getUserId());
+        user2.removeSuggestion(user1.getUserId());
+        user2.receivedRequest(user1.getUserId());
+        
+    }
+    //turn the suggestion down 
+    public void RemoveSuggestion(FriendUser user1,FriendUser user2) 
+    {//remove user2 from user1 suggestions
+       user1.removeSuggestion(user2.getUserId());
+    }
+   
+}

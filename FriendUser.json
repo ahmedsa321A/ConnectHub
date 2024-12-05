@@ -1,0 +1,17 @@
+{
+  "friends": [],
+  "requestsReceived": [],
+  "suggestions": [
+    "2",
+    "3",
+    "4"
+  ],
+  "blocked": [],
+  "userId": "1",
+  "email": "john@example.com",
+  "username": "JohnDoe",
+  "password": "123456",
+  "dateOfBirth": "01/01/1992",
+  "status": "active",
+  "photoPath": "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png"
+}
