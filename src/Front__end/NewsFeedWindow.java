@@ -49,7 +49,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         this.setLocation(x, y);
         this.setVisible(true);
         this.user = user;
-        showPosts();
+        showPosts(user);
         showFriendsList();
 
     }
@@ -84,7 +84,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         }
     }
 
-    private void showPosts() {
+    private void showPosts(User user1) {
         ArrayList<JPanel> posts = ContentService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
@@ -341,15 +341,6 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         showFriendsList();
     }//GEN-LAST:event_refreshActionPerformed
 
-    private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
-        ProfileWindow profile = new ProfileWindow(user);
-        this.dispose();
-
-        newsFeedPanel.removeAll();
-        showPosts(user);
-        newsFeedPanel.revalidate();
-        newsFeedPanel.repaint();
-    }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
 
