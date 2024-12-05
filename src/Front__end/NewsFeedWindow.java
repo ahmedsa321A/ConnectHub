@@ -1,19 +1,24 @@
 package Front__end;
 
 import Back__end.ContentDatabase;
+import Back__end.RelationshipManager;
+import Back__end.RelationshipStatus;
 import Back__end.User;
+import Back__end.User;
+import Back__end.UserSearch;
 import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.util.ArrayList;
+import java.util.Map;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class NewsFeedWindow extends javax.swing.JFrame {
 
-    private static User user;
+    private User user;
 
     public NewsFeedWindow(User user) {
         initComponents();
@@ -27,7 +32,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     private void showPosts(User user) {
-        ArrayList<JPanel> posts = userService.getPostsOfFriends(user);
+        ArrayList<JPanel> posts = userService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
         }
@@ -112,6 +117,11 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         friends.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/friends.png"))); // NOI18N
         friends.setColorover(new java.awt.Color(153, 204, 255));
         friends.setRedius(100);
+        friends.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                friendsActionPerformed(evt);
+            }
+        });
 
         refresh.setForeground(new java.awt.Color(51, 153, 255));
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh.png"))); // NOI18N
@@ -220,7 +230,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_profileActionPerformed
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
-    StoryGui post = new StoryGui(user);      
+    StoriesGui post = new StoriesGui(user);      
         this.dispose();
     }//GEN-LAST:event_storiesActionPerformed
 
@@ -242,12 +252,29 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 StoryGui story = new StoryGui(user);      
         this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
+    private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
+       UserSearch search=new UserSearch();
+       search.setAllMap(userService.userList);
+       for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
+        User otherUser = entry.getValue();
+        
+        if (!user.getUserId().equals(otherUser.getUserId())) {
+            RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
+            
+            if (status == RelationshipStatus.NOT_FRIENDS) {
+                user.addSuggestion(otherUser.getUserId()); 
+            }
+        }
+    }
+        FriendsCenter friends=new FriendsCenter(user,search.getMap());
+        setVisible(false);
+    }//GEN-LAST:event_friendsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Back__end.MyButton friends;
     private Back__end.MyButton home;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private Back__end.MyButton logout;
     private javax.swing.JPanel newsFeedPanel;

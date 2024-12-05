@@ -24,14 +24,6 @@
     "isStory": false
   },
   {
-    "contentId": "7852f6b3-cd05-4810-89d4-134f9edcf867",
-    "authorId": "userid",
-    "contentText": "Ana 3rs",
-    "imagePath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
-    "timestamp": "2024-12-03T21:19:22.6737532",
-    "isStory": false
-  },
-  {
     "contentId": "244bb16a-8ddd-4d15-ae66-41d1023488b6",
     "authorId": "userid",
     "contentText": "Ana 3rs",
@@ -163,6 +155,29 @@
     "contentText": "i love hitlar 3amy w 3am 3ialy",
     "imagePath": "C:\\Users\\adham\\Desktop\\noimage.png",
     "timestamp": "2024-12-04T21:46:56.0894241",
+    "isStory": false
+  },
+  {
+    "contentId": "7d7ed07c-39e5-4d85-b160-5d52909c585e",
+    "authorId": "c962ee42-06a1-4018-954e-fa4a2904caff",
+    "contentText": "i love brca",
+    "imagePath": "/Users/hazembarakat/Downloads/880594.png",
+    "timestamp": "2024-12-05T05:47:56.029667",
+    "isStory": false
+  },
+  {
+    "contentId": "f4c1c008-6b4c-42e7-a795-84f658d52b9b",
+    "authorId": "dc5f902a-03b1-4033-a3a1-c69c0f783681",
+    "contentText": "i love hitlar 3amy w 3am 3ialy",
+    "imagePath": "C:\\Users\\adham\\Desktop\\noimage.png",
+    "timestamp": "2024-12-04T21:46:56.0894241",
+    "isStory": true
+  },
+  {
+    "contentId": "bef08a66-5e2e-42ec-8a38-0c571bda0c0c",
+    "authorId": "7d940baf-5e0b-4d70-b29c-b2df4a4e555e",
+    "contentText": "hi",
+    "timestamp": "2024-12-05T06:29:00.792497",
     "isStory": false
   }
 ]
