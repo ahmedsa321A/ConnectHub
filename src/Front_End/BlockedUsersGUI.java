@@ -70,12 +70,5 @@ public class BlockedUsersGUI extends FriendsParentGUI {
         return blockedPanel;
     }
     
-   
 
-    @Override
-    protected void refreshUI() {
-        
-        this.dispose();
-        new BlockedUsersGUI(currentUser,"Blocked",users).setVisible(true); 
-    }
 }

@@ -85,12 +85,4 @@ public class FriendsListGUI extends FriendsParentGUI {
         return friendPanel;
     }
     
-   
-
-    @Override
-    protected void refreshUI() {
-        
-        this.dispose();
-        new FriendsListGUI(currentUser,"Friends",users).setVisible(true); 
-    }
 }

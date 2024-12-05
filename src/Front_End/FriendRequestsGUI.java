@@ -70,9 +70,5 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         return requestPanel;
     }
 
-    @Override
-    protected void refreshUI() {
-        this.dispose();
-        new FriendRequestsGUI(currentUser,"Requests",users).setVisible(true); 
-    }
+
 }

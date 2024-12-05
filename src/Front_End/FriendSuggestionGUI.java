@@ -66,9 +66,4 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
         return suggestPanel;
     }
 
-    @Override
-    protected void refreshUI() {
-        this.dispose();
-        new FriendSuggestionGUI(currentUser,"Suggestions",users).setVisible(true); 
-    }
 }

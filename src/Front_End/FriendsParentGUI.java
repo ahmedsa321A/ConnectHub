@@ -66,5 +66,10 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
     }
      protected abstract void populateUserList();
      protected abstract JPanel createUserPanel(FriendUser user);
-     protected abstract  void refreshUI();
+     protected void refreshUI(){
+        userPanel.removeAll(); 
+        populateUserList(); 
+        userPanel.revalidate();
+        userPanel.repaint();
+     }
 }

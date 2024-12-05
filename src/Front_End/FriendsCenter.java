@@ -6,6 +6,7 @@ import Back_end.FriendSaver;
 import Back_end.FriendUser;
 import Back_end.RelationshipManager;
 import Back_end.RelationshipStatus;
+import Back_end.UserSearch;
 import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
 import java.util.List;
@@ -149,13 +150,12 @@ public static void main(String[] args) {
     FriendUser user = new FriendUser("1", "john@example.com", "JohnDoe", "123456", "01/01/1992", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
     FriendUser user2 = new FriendUser("2", "Hitler@example.com", "Hazem", "78911", "01/01/1990", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\PP.png");
     FriendUser user3 = new FriendUser("3", "Bigm@example.com", "Begad", "8584", "01/01/1998", "active", "C:\\Users\\ghane\\OneDrive\\Pictures\\happy-young-cute-illustration-face-profile-png.png");
-    FriendUser user4 = new FriendUser("4", "Ahmed@example.com", "A7ma Saied", "8574", "01/01/1998", "active", null);
+    
 
     HashMap<String, FriendUser> allUsersMap = new HashMap<>();
     allUsersMap.put(user.getUserId(), user);
     allUsersMap.put(user2.getUserId(), user2);
     allUsersMap.put(user3.getUserId(), user3);
-    allUsersMap.put(user4.getUserId(), user4);
     java.lang.reflect.Type friendUserListType = new TypeToken<List<FriendUser>>(){}.getType();
     String filePath = "FriendUser.json";
     for (Map.Entry<String, FriendUser> entry : allUsersMap.entrySet()) {

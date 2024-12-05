@@ -52,6 +52,7 @@ public class FriendUser extends User {
             return;
         }
         requestsReceived.add(friendId);
+        if(suggestions.contains(friendId))
         removeSuggestion(friendId);
         
     }
