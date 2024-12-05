@@ -24,7 +24,19 @@
     "coverPhotoPath": "",
     "bio": "",
     "FriendsId": [
-        "userid"
+      "zika"
     ]
+  },
+  {
+    "userId": "1cf3c3b7-9fb6-4af1-8fa6-f79f6e3b6950",
+    "email": "user@gmail.com",
+    "username": "userid",
+    "password": "8cb2237d0679ca88db6464eac60da96345513964",
+    "dateOfBirth": "2024-12-01",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": "",
+    "FriendsId": []
   }
 ]
