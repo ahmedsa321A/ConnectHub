@@ -3,48 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/userService.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/UserRepository.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/ProfileWindow.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/BlockedFriends.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/FriendsParentGUI.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/NewsFeedWindow.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/Login.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/FriendSuggestion.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/ProfileEditorWindow.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/FriendRequestsGUI.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/FriendsCenter.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/User.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/FriendLoader.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/UserSearch.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/UserParent.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/ContentService.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/ConnectHub.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/RelationshipStatus.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/StoryGui.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Front__end/StoriesGui.java</file>
-            <file>file:/C:/Users/ahmed/OneDrive/Documents/NetBeansProjects/New%20folder/ConnectHub/src/Back__end/Content.java</file>
-=======
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendsCenter.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/FriendLoader.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/FriendsList.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/Signup.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/user_db.json</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/userService.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/FriendRequests.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/ProfileEditorWindow.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendsListGUI.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendsParentGUI.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/NewsFeedWindow.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/User.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/ConcreteFactory.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/Login.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/BlockedFriends.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendSuggestionGUI.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/ConnectHub.java</file>
-            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/content_db.json</file>
->>>>>>> Stashed changes
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/AbstractFactory.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ProfileEditorWindow.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ConnectHub.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/userService.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Photo.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/Login.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/ConcreteFactory.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ProfileWindow.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/Signup.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/NewsFeedWindow.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/UserSearch.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/BlockedFriends.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Content.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/User.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ChangePasswordWindow.java</file>
         </group>
     </open-files>
 </project-private>

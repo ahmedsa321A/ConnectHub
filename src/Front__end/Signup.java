@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 
 public class Signup extends javax.swing.JFrame {
 
+    private static Signup instance;
+
     public Signup() {
         initComponents();
         addPlaceholderStyle(emailtext);
@@ -21,7 +23,15 @@ public class Signup extends javax.swing.JFrame {
         addPlaceholderStyle(usernametext);
         setVisible(true);
     }
-public void addPlaceholderStyle(JTextField textfield) {
+
+    public static Signup getInstance() {
+        if (instance == null) {
+            instance = new Signup();
+        }
+        return instance;
+    }
+
+    public void addPlaceholderStyle(JTextField textfield) {
         Font font = textfield.getFont();
         font = font.deriveFont(Font.ITALIC);
         textfield.setFont(font);
@@ -36,6 +46,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         textfield.setForeground(Color.BLACK);
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -220,7 +231,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_password2FocusGained
 
     private void emailtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailtextFocusGained
-       if (emailtext.getText().equals("Email")) {
+        if (emailtext.getText().equals("Email")) {
             emailtext.setText(null);
             emailtext.requestFocus();
             removePlaceholderStyle(emailtext);
@@ -228,14 +239,14 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_emailtextFocusGained
 
     private void usernametextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernametextFocusLost
-         if (usernametext.getText().length() == 0) {
+        if (usernametext.getText().length() == 0) {
             addPlaceholderStyle(usernametext);
             usernametext.setText("Username");
         }
     }//GEN-LAST:event_usernametextFocusLost
 
     private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
-         if (password.getText().length() == 0) {
+        if (password.getText().length() == 0) {
             addPlaceholderStyle(password);
             password.setText("Password");
             password.setEchoChar('\u0000');
@@ -243,7 +254,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_passwordFocusLost
 
     private void password2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_password2FocusLost
-         if (password2.getText().length() == 0) {
+        if (password2.getText().length() == 0) {
             addPlaceholderStyle(password2);
             password2.setText("Confirm Password");
             password2.setEchoChar('\u0000');
@@ -251,7 +262,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_password2FocusLost
 
     private void emailtextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailtextFocusLost
-         if (emailtext.getText().length() == 0) {
+        if (emailtext.getText().length() == 0) {
             addPlaceholderStyle(emailtext);
             emailtext.setText("Email");
 
@@ -259,15 +270,15 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_emailtextFocusLost
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        
+
     }//GEN-LAST:event_formFocusGained
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-    this.requestFocusInWindow();
+        this.requestFocusInWindow();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-String username = usernametext.getText();
+        String username = usernametext.getText();
         char[] pass1 = password.getPassword();
         String password1 = new String(pass1);
         char[] pass2 = password2.getPassword(); // Second password field
@@ -296,7 +307,7 @@ String username = usernametext.getText();
 
                 userService.signup(email, username, password2, date);
                 JOptionPane.showMessageDialog(this, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-          
+
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
                 JOptionPane.showMessageDialog(this, "Error during signup. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -304,9 +315,8 @@ String username = usernametext.getText();
                 Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
                 JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        
+            this.dispose();
         }    }//GEN-LAST:event_signupActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

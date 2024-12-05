@@ -238,7 +238,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-        Signup signup = new Signup();
+        Signup signup = Signup.getInstance();
     }//GEN-LAST:event_signupActionPerformed
 
 
