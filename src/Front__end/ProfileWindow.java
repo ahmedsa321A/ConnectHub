@@ -40,7 +40,6 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void viewFriends() {
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) friendsTable.getModel();
-        userService.loadUsersFromJson();
         for (int i = 0; i < profile.getFriendsIdArray().size(); i++) {
             for (User u : userService.userList) {
                 if (u.getUserId().equals(profile.getFriendsIdArray().get(i))) {
@@ -249,7 +248,7 @@ public class ProfileWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
-   
+  
         NewsFeedWindow newsfeedwindow = new NewsFeedWindow(profile);
         this.dispose();
     }//GEN-LAST:event_myButton1ActionPerformed

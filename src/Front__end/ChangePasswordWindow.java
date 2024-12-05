@@ -15,27 +15,13 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
     public ChangePasswordWindow(java.awt.Dialog parent, String oldPassword, boolean modal) {
         super(parent, modal);
         initComponents();
-        addPlaceholderStyle(oldPasswordField);
-        addPlaceholderStyle(newPasswordField);
+
         this.oldPassword=oldPassword;
         this.setVisible(modal);
         
     }
-public void addPlaceholderStyle(JTextField textfield) {
-        Font font = textfield.getFont();
-        font = font.deriveFont(Font.ITALIC);
-        textfield.setFont(font);
-        textfield.setForeground(Color.GRAY);
 
-    }
 
-    public void removePlaceholderStyle(JTextField textfield) {
-        Font font = textfield.getFont();
-        font = font.deriveFont(Font.PLAIN | Font.PLAIN);
-        textfield.setFont(font);
-        textfield.setForeground(Color.BLACK);
-
-    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,8 +58,6 @@ public void addPlaceholderStyle(JTextField textfield) {
             }
         });
 
-        newPasswordField.setText("Confirm Password ");
-        newPasswordField.setEchoChar('\u0000');
         newPasswordField.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new password.png"))); // NOI18N
         newPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -84,8 +68,6 @@ public void addPlaceholderStyle(JTextField textfield) {
             }
         });
 
-        oldPasswordField.setText("Password");
-        oldPasswordField.setEchoChar('\u0000');
         oldPasswordField.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/currentpassword.png"))); // NOI18N
         oldPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -100,20 +82,20 @@ public void addPlaceholderStyle(JTextField textfield) {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(newPasswordLabel)
-                    .addComponent(oldPasswordLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(newPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(oldPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(changeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newPasswordLabel)
+                    .addComponent(oldPasswordLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(oldPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,37 +131,19 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_changeButtonActionPerformed
 
     private void oldPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldPasswordFieldFocusGained
-         if (oldPasswordField.getText().equals("Password")) {
-            oldPasswordField.setText(null);
-            oldPasswordField.requestFocus();
-            oldPasswordField.setEchoChar('*');
-            removePlaceholderStyle(oldPasswordField);
-        }
+  
     }//GEN-LAST:event_oldPasswordFieldFocusGained
 
     private void newPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordFieldFocusGained
-          if (newPasswordField.getText().equals("Confirm Password")) {
-            newPasswordField.setText(null);
-            newPasswordField.requestFocus();
-            newPasswordField.setEchoChar('*');
-            removePlaceholderStyle(newPasswordField);
-        }
+
     }//GEN-LAST:event_newPasswordFieldFocusGained
 
     private void oldPasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldPasswordFieldFocusLost
-         if (oldPasswordField.getText().length() == 0) {
-            addPlaceholderStyle(oldPasswordField);
-            oldPasswordField.setText("Password");
-            oldPasswordField.setEchoChar('\u0000');
-        }
+         
     }//GEN-LAST:event_oldPasswordFieldFocusLost
 
     private void newPasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordFieldFocusLost
-        if (newPasswordField.getText().length() == 0) {
-            addPlaceholderStyle(newPasswordField);
-            newPasswordField.setText("Confirm Password");
-            newPasswordField.setEchoChar('\u0000');
-        }
+    
     }//GEN-LAST:event_newPasswordFieldFocusLost
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
