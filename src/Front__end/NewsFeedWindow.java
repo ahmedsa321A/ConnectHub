@@ -477,6 +477,7 @@ StoryGui story = new StoryGui(user);
             }
         }
     }
+    UserRepository.saveData();
 
     FriendsCenter friends = new FriendsCenter(user, search.getMap());
     setVisible(false);

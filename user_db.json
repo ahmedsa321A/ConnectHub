@@ -1,98 +1,34 @@
 [
   {
-    "FriendsId": [
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
-    ],
-    "requestsReceived": [
-      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3"
-    ],
+    "FriendsId": [],
+    "requestsReceived": [],
     "suggestions": [
-      "40cd6494-0e25-4d5e-849f-3501397bf10c",
-      "f040f042-3e3d-4736-aa6c-8da1890aef41"
+      "c0ccd154-da22-4c1f-b962-1387415fb022"
     ],
     "blocked": [],
-    "userId": "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e",
+    "userId": "5c94be86-845d-4ead-9ec2-e6857f299e88",
+    "email": "adham@gmail.com",
+    "username": "adham",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-02",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [
+      "5c94be86-845d-4ead-9ec2-e6857f299e88"
+    ],
+    "blocked": [],
+    "userId": "c0ccd154-da22-4c1f-b962-1387415fb022",
     "email": "ahmed@gmail.com",
     "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-03",
+    "dateOfBirth": "2024-12-02",
     "status": "offline",
-    "profilePhotoPath": "C:\\Users\\ahmed\\OneDrive\\Desktop\\Paint\\premium_photo-1673448391005-d65e815bd026.jpg",
-    "coverPhotoPath": "C:\\Users\\ahmed\\OneDrive\\Desktop\\Paint\\premium_photo-1664474619075-644dd191935f.jpg",
-    "bio": ""
-  },
-  {
-    "FriendsId": [
-      "f040f042-3e3d-4736-aa6c-8da1890aef41",
-      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
-    ],
-    "requestsReceived": [],
-    "suggestions": [
-      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
-      "40cd6494-0e25-4d5e-849f-3501397bf10c"
-    ],
-    "blocked": [
-      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
-    ],
-    "userId": "3a832fdb-387c-4d91-b510-7ed24f444ab0",
-    "email": "omar@gmail.com",
-    "username": "omar",
-    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-25",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
-    ],
-    "blocked": [],
-    "userId": "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
-    "email": "mo@gmail.com",
-    "username": "ss",
-    "password": "c1c93f88d273660be5358cd4ee2df2c2f3f0e8e7",
-    "dateOfBirth": "2024-12-19",
-    "status": "online",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [],
-    "blocked": [],
-    "userId": "40cd6494-0e25-4d5e-849f-3501397bf10c",
-    "email": "ahmed1@gmail.com",
-    "username": "aa",
-    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-03",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
-    ],
-    "requestsReceived": [],
-    "suggestions": [
-      "40cd6494-0e25-4d5e-849f-3501397bf10c",
-      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
-      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
-    ],
-    "blocked": [],
-    "userId": "f040f042-3e3d-4736-aa6c-8da1890aef41",
-    "email": "hazem@gmail.com",
-    "username": "hazem",
-    "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
-    "dateOfBirth": "2024-12-01",
-    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""

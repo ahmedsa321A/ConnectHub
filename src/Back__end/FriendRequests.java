@@ -15,11 +15,13 @@ public class FriendRequests {
         user1.addFriend(user2.getUserId());
         user2.addFriend(user1.getUserId());
         user1.removeReceivedRequest(user2.getUserId());
+        user1.removeSuggestion(user2.getUserId());
+        user2.removeSuggestion(user1.getUserId());
     }
     public void declineRequest(User user1,User user2)
     {//set relationship from pending back to not friends, remove request from user2 and add both to suggestions
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.NOT_FRIENDS);
-        user2.removeReceivedRequest(user1.getUserId());
+        user1.removeReceivedRequest(user2.getUserId());
         user1.addSuggestion(user2.getUserId());
         user2.addSuggestion(user1.getUserId());
     }

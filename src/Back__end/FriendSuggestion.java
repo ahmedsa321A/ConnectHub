@@ -13,6 +13,7 @@ public class FriendSuggestion {
     //turn the suggestion down 
     public void RemoveSuggestion(User user1,User user2) 
     {//remove user2 from user1 suggestions
+       RelationshipManager.setRelationship(user1, user2, RelationshipStatus.BLOCKED);
        user1.removeSuggestion(user2.getUserId());
     }
    
