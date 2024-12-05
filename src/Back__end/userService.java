@@ -130,6 +130,17 @@ public class userService {
         }
         return state;
     }
+    
+    public static ArrayList<String> getPathAndName(String id) {
+        ArrayList<String> data = new ArrayList<>();
+        for(User u:userList){
+            if(u.getUserId().equals(id)){
+                data.add(u.getUsername());
+                data.add(u.getUsername());
+            }
+        }
+        return data;
+    }
 
     public static void loadUsersFromJson() {
         Gson gson = new Gson();
