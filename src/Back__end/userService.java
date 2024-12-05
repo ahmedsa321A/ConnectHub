@@ -149,7 +149,7 @@ public class userService {
         return hexString.toString();
     }
 
-    public static void saveDataToJson(User user) {
+    public static void saveSignup(User user) {
         loadUsersFromJson(); // Load existing users
         if(!checkIfUserExists(user.getEmail()))
         userList.add(user); // Add the new user to the list
@@ -158,6 +158,19 @@ public class userService {
 
         String json = gson.toJson(userList); // Convert the list to JSON
 
+        try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
+            writer.write(json); // Save the JSON to the file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveData() {
+        for(User user:userList) 
+        {
+            System.out.println(user.getCoverPhotoPath());
+        }
+        Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
+        String json = gson.toJson(userList); // Convert the list to JSON
         try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
             writer.write(json); // Save the JSON to the file
         } catch (IOException e) {
@@ -173,7 +186,7 @@ public class userService {
 
         User user = new User(userId, email, username, hashedPassword, dateOfBirth, "offline");
 
-        saveDataToJson(user);
+        saveSignup(user);
 
         return true;
     }

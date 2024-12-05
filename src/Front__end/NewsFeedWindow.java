@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class NewsFeedWindow extends javax.swing.JFrame {
 
-    private static User user;
+    private User user;
 
     public NewsFeedWindow(User user) {
         initComponents();

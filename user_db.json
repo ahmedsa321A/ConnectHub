@@ -23,6 +23,8 @@
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": "",
-    "FriendsId": ["userid"]
+    "FriendsId": [
+      "userid"
+    ]
   }
 ]
