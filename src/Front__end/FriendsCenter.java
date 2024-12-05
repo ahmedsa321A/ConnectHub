@@ -2,6 +2,8 @@
 package Front__end;
 
 import Back__end.User;
+import Back__end.UserRepository;
+import Back__end.userService;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
@@ -16,7 +18,8 @@ private HashMap<String,User>allUsersMap;
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(you);
+                    UserRepository.loadUsersFromJson();
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(userService.getUser(you.getUserId()));
             }
         });
         you=user;
@@ -128,7 +131,8 @@ private HashMap<String,User>allUsersMap;
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-       NewsFeedWindow newsfeedwindow = new NewsFeedWindow(you);
+        UserRepository.loadUsersFromJson();
+        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(userService.getUser(you.getUserId()));
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 

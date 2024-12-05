@@ -226,8 +226,8 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_changePhotoButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        this.profile.setProfilePhotoPath(newCoverPath);
-        this.profile.setCoverPhotoPath( newPhotoPath);
+        this.profile.setProfilePhotoPath(newPhotoPath);
+        this.profile.setCoverPhotoPath(  newCoverPath);
         this.profile.setBio(bioTextArea2.getText());
         String hashedPassword;
         try {

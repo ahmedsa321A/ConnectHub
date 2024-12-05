@@ -40,8 +40,9 @@ public class User extends UserParent {
     
      public void receivedRequest(String friendId){
        
-        if(!requestsReceived.contains(friendId))
+        if(!requestsReceived.contains(friendId)&& !friends.contains(friendId))
         {
+           
         requestsReceived.add(friendId);
         removeSuggestion(friendId);
         }
@@ -59,7 +60,7 @@ public class User extends UserParent {
         return requestsReceived;
     }
      public void addSuggestion(String friendId) {
-    if(!suggestions.contains(friendId) && !friends.contains(friendId) && !blocked.contains(friendId)&&!requestsReceived.contains(friendId))
+    if(! userService.getUser(friendId).getBlocked().contains(this.getUserId()) &&!suggestions.contains(friendId) && !friends.contains(friendId) && !blocked.contains(friendId)&&!requestsReceived.contains(friendId))
         suggestions.add(friendId);
     }
 

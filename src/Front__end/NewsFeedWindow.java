@@ -3,6 +3,7 @@ package Front__end;
 import Back__end.ContentDatabase;
 import Back__end.ContentService;
 import Back__end.FriendLoader;
+import Back__end.FriendSuggestion;
 import Back__end.RelationshipManager;
 import Back__end.RelationshipStatus;
 import Back__end.User;
@@ -15,6 +16,8 @@ import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,32 +33,30 @@ import javax.swing.JPanel;
 public class NewsFeedWindow extends javax.swing.JFrame {
 
     private User user;
-    ContentDatabase db = ContentDatabase.getInstance();
+   ContentDatabase db=ContentDatabase.getInstance();
 
     public NewsFeedWindow(User user) {
         initComponents();
-
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                user.setStatus("offline");
-                UserRepository.saveData();
-                Login login = new Login();
+                    user.setStatus("offline");
+                    UserRepository.saveData();
+                    Login login = new Login();
             }
         });
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         int y = (screenSize.height - this.getHeight()) / 2;
         this.setLocation(x, y);
         this.setVisible(true);
         this.user = user;
-        showPosts();
+
+        showPosts(user);
         showFriendsList();
-
+       showSuggestions();
     }
-
-    private void showFriendsList() {
+private void showFriendsList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
         for (String friendId : friendsIdList) {
             ArrayList<String> friendData = userService.getPathAndName(friendId);
@@ -68,23 +70,104 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             try {
                 imgicon = new ImageIcon(photoPath);
                 Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
+                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
                 imgicon = new ImageIcon(resizedImage);
             } catch (Exception e) {
-                e.printStackTrace();
             }
             JLabel imageLabell = new JLabel(imgicon);
             JLabel nameLabel = new JLabel(name);
+            JLabel statusLabel = new JLabel(userService.getStatusofUser(friendId));
 
             friendPanel.add(imageLabell);
             friendPanel.add(nameLabel);
+            friendPanel.add(statusLabel);
 
             friendListPanel.add(friendPanel);
 
         }
     }
 
-    private void showPosts() {
+    private void refreshUI() {
+        // Remove all existing components from the panel
+        friendSuggestionPanel.removeAll();
+
+        // Refresh the suggestions by calling the method again
+        showSuggestions();
+
+        // Revalidate and repaint the panel to reflect changes
+        friendSuggestionPanel.revalidate();
+        friendSuggestionPanel.repaint();
+    }
+
+    public void showSuggestions() {
+        UserSearch search = new UserSearch();
+        search.setAllMap(UserRepository.userList);
+        for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
+            User otherUser = entry.getValue();
+
+            if (!user.getUserId().equals(otherUser.getUserId())) {
+                RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
+
+                if (status == RelationshipStatus.NOT_FRIENDS) {
+                    user.addSuggestion(otherUser.getUserId());
+                }
+            }
+        }
+        ArrayList<String> friendsSuggestionIdList = (ArrayList<String>) user.getSuggestions();
+        for (String id : friendsSuggestionIdList) {
+            ArrayList<String> data = userService.getPathAndName(id);
+
+            String name = data.get(0);
+            String photoPath = data.get(1);
+
+            JPanel Panel = new JPanel();
+            Panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+            ImageIcon imgicon = null;
+            try {
+                imgicon = new ImageIcon(photoPath);
+                Image image = imgicon.getImage();
+                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
+                imgicon = new ImageIcon(resizedImage);
+            } catch (Exception e) {
+            }
+            JLabel imageLabell = new JLabel(imgicon);
+            JLabel nameLabel = new JLabel(name);
+
+            Panel.add(imageLabell);
+            Panel.add(nameLabel);
+
+            JButton addButton = new JButton("Add Friend");
+            JButton removeButton = new JButton("Remove");
+
+            addButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println(userService.getUser(id).getReceivedRequests());
+                    new FriendSuggestion().acceptSuggestion(user, userService.getUser(id));
+                    UserRepository.saveData();
+
+                    refreshUI();
+                }
+            });
+
+            removeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new FriendSuggestion().RemoveSuggestion(user, userService.getUser(id));
+                    UserRepository.saveData();
+                    refreshUI();
+                }
+            });
+            Panel.add(addButton);
+            Panel.add(removeButton);
+
+            friendSuggestionPanel.add(Panel);
+
+        }
+
+    }
+
+    private void showPosts(User user) {
         ArrayList<JPanel> posts = ContentService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
@@ -107,21 +190,19 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         stories = new Back__end.MyButton();
         logout = new Back__end.MyButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         friendListPanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        friendSuggestionPanel = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 408, Short.MAX_VALUE)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 408, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 68, Short.MAX_VALUE)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 68, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,12 +212,12 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         javax.swing.GroupLayout newsFeedPanelLayout = new javax.swing.GroupLayout(newsFeedPanel);
         newsFeedPanel.setLayout(newsFeedPanelLayout);
         newsFeedPanelLayout.setHorizontalGroup(
-                newsFeedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 601, Short.MAX_VALUE)
+            newsFeedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
         newsFeedPanelLayout.setVerticalGroup(
-                newsFeedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 607, Short.MAX_VALUE)
+            newsFeedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(newsFeedPanel);
@@ -222,105 +303,93 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 194, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 231, Short.MAX_VALUE)
-        );
-
-        jScrollPane2.setViewportView(jPanel2);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Friend Suggestion");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Freinds List");
-
         javax.swing.GroupLayout friendListPanelLayout = new javax.swing.GroupLayout(friendListPanel);
         friendListPanel.setLayout(friendListPanelLayout);
         friendListPanelLayout.setHorizontalGroup(
-                friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 194, Short.MAX_VALUE)
+            friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
         );
         friendListPanelLayout.setVerticalGroup(
-                friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 202, Short.MAX_VALUE)
+            friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 272, Short.MAX_VALUE)
         );
 
-        jScrollPane3.setViewportView(friendListPanel);
+        jScrollPane2.setViewportView(friendListPanel);
         friendListPanel.setLayout(new BoxLayout(friendListPanel, BoxLayout.Y_AXIS));
+
+        javax.swing.GroupLayout friendSuggestionPanelLayout = new javax.swing.GroupLayout(friendSuggestionPanel);
+        friendSuggestionPanel.setLayout(friendSuggestionPanelLayout);
+        friendSuggestionPanelLayout.setHorizontalGroup(
+            friendSuggestionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 313, Short.MAX_VALUE)
+        );
+        friendSuggestionPanelLayout.setVerticalGroup(
+            friendSuggestionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 312, Short.MAX_VALUE)
+        );
+
+        jScrollPane3.setViewportView(friendSuggestionPanel);
+        friendSuggestionPanel.setLayout(new BoxLayout(friendSuggestionPanel, BoxLayout.Y_AXIS));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(37, 37, 37)
-                                                .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(43, 43, 43)
-                                                .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(34, 34, 34)
-                                                .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(45, 45, 45)
-                                                                .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(45, 45, 45)
-                                                                .addComponent(stories, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(52, 52, 52)
-                                                                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jScrollPane2)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(jScrollPane3))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(stories, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(stories, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jScrollPane2)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel2)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(15, 15, 15))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(friends, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                                .addContainerGap())))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stories, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 570, Short.MAX_VALUE)
+                        .addComponent(friends, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)))
+                .addGap(15, 15, 15))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -330,99 +399,96 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         db.loadContent();
         db.deleteExpiredStories();
         for (Window window : Window.getWindows()) {
-            window.dispose();
-        }
-        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+                    window.dispose();
+                }
+                NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);        
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         db.loadContent();
         db.deleteExpiredStories();
-        showFriendsList();
-    }//GEN-LAST:event_refreshActionPerformed
-
-    private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
-        ProfileWindow profile = new ProfileWindow(user);
-        this.dispose();
-
-        newsFeedPanel.removeAll();
+        UserRepository.loadUsersFromJson();
+    
+        this.user=userService.getUser(user.getUserId());
+        newsFeedPanel.removeAll(); 
         showPosts(user);
         newsFeedPanel.revalidate();
         newsFeedPanel.repaint();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
-
-        UserRepository.loadUsersFromJson();
-
-        this.user = userService.getUser(user.getUserId());
-
-        ProfileWindow profile = new ProfileWindow(this.user);
-        this.dispose();
-
+  
+    UserRepository.loadUsersFromJson();
+    
+   this.user=userService.getUser(user.getUserId());
+    
+    ProfileWindow profile=new ProfileWindow(this.user);
+    this.dispose();
     }//GEN-LAST:event_profileActionPerformed
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
-        StoriesGui post = new StoriesGui(user);
+    StoriesGui post = new StoriesGui(user);      
         this.dispose();
     }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        user.setStatus("offline");
-        UserRepository.saveData();
+    user.setStatus("offline");
+    UserRepository.saveData();
         for (Window window : Window.getWindows()) {
-            window.dispose();
-        }
-        JOptionPane.showMessageDialog(this, "logout Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        Login login = new Login();
+                    window.dispose();
+                }
+    JOptionPane.showMessageDialog(this, "logout Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                Login login = new Login();
     }//GEN-LAST:event_logoutActionPerformed
 
     private void postActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postActionPerformed
-        PostGui post = new PostGui(user);
+        PostGui post = new PostGui(user);      
         this.dispose();
     }//GEN-LAST:event_postActionPerformed
 
     private void storyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storyActionPerformed
-        StoryGui story = new StoryGui(user);
-        this.dispose();
-    }//GEN-LAST:event_storyActionPerformed
+StoryGui story = new StoryGui(user);      
+        this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
     private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
+    
+    FriendLoader load = new FriendLoader();
 
-        FriendLoader load = new FriendLoader();
 
-        java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {
-        }.getType();
+        java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {}.getType();
 
-        load.loadFromFile(user, "user_db.json", typeOfT);
 
-        UserSearch search = new UserSearch();
-        search.setAllMap(UserRepository.userList);
+    load.loadFromFile(user, "user_db.json", typeOfT);
 
-        for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
-            User otherUser = entry.getValue();
 
-            if (!user.getUserId().equals(otherUser.getUserId())) {
-                RelationshipStatus status = RelationshipManager.getInstance().getRelationshipStatus(user, otherUser);
+    UserSearch search = new UserSearch();
+    search.setAllMap(UserRepository.userList);
 
-                if (status == RelationshipStatus.NOT_FRIENDS) {
-                    user.addSuggestion(otherUser.getUserId());
-                }
+
+    for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
+        User otherUser = entry.getValue();
+
+
+        if (!user.getUserId().equals(otherUser.getUserId())) {
+            RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
+
+            if (status == RelationshipStatus.NOT_FRIENDS) {
+                user.addSuggestion(otherUser.getUserId());
             }
         }
+    }
 
-        FriendsCenter friends = new FriendsCenter(user, search.getMap());
-        setVisible(false);
+    FriendsCenter friends = new FriendsCenter(user, search.getMap());
+    setVisible(false);
     }//GEN-LAST:event_friendsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel friendListPanel;
+    private javax.swing.JPanel friendSuggestionPanel;
     private Back__end.MyButton friends;
     private Back__end.MyButton home;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

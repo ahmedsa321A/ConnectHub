@@ -1,8 +1,8 @@
+
 package Front__end;
 
 import Back__end.BlockedFriends;
 import Back__end.User;
-import Back__end.FriendsList;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -15,46 +15,45 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
 public class BlockedUsersGUI extends FriendsParentGUI {
-
-    public BlockedUsersGUI(User user, String title, HashMap<String, User> users) {
-        super(user, "Blocked", users);
-    }
-
     
-    //to add the panels of each user that have been created in the window
-    @Override
+    public BlockedUsersGUI(User user,String title,HashMap<String,User>users) {
+        super(user, "Blocked",users);
+    }
+@Override
     protected void populateUserList() {
-        List<String> blockedUsers = currentUser.getBlocked();
+        List<String> blockedUsers = currentUser.getBlocked(); 
 
         for (String blockedId : blockedUsers) {
-            User blocked = userSearch.getUserById(blockedId);
-            userPanel.add(createUserPanel(blocked));
+            User blocked=userSearch.getUserById(blockedId);
+            userPanel.add(createUserPanel(blocked)); 
         }
     }
-
-    //to create panel for each user to be ready to be set in the main block panel 
+    
     @Override
     protected JPanel createUserPanel(User blocked) {
         JPanel blockedPanel = new JPanel();
-        blockedPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-
+        blockedPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); 
+        
         JLabel photoLabel = new JLabel();
         ImageIcon photoIcon = loadImageIcon(blocked.getProfilePhotoPath());
         photoLabel.setIcon(photoIcon);
-        photoLabel.setPreferredSize(new Dimension(50, 50));
+        photoLabel.setPreferredSize(new Dimension(50, 50)); 
 
+        
         JLabel nameLabel = new JLabel(blocked.getUsername());
-
+        
         JButton UnblockButton = new JButton("Unblock");
 
+        
         UnblockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int response = JOptionPane.showConfirmDialog(null,
-                        "Are you sure you want to Unblock " + blocked.getUsername() + "?",
-                        "Confirm UnBlock", JOptionPane.YES_NO_OPTION);
-
+                    "Are you sure you want to Unblock " + blocked.getUsername() + "?",
+                    "Confirm UnBlock", JOptionPane.YES_NO_OPTION);
+                
                 if (response == JOptionPane.YES_OPTION) {
                     new BlockedFriends().unBlockFriend(currentUser, blocked);
                     JOptionPane.showMessageDialog(null, blocked.getUsername() + " has been Unblocked.");
@@ -69,5 +68,6 @@ public class BlockedUsersGUI extends FriendsParentGUI {
 
         return blockedPanel;
     }
+    
 
 }
