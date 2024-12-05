@@ -84,9 +84,15 @@ public class userService {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
+        String nophotopath="/icons/noprofile.png";
         // Text content
-        JLabel authorId = new JLabel("Author: " + content.getAuthorId());
+        ArrayList<String> userandpath=getPathAndName(content.getAuthorId());
+        JLabel name = new JLabel(userandpath.get(0));
+        JLabel image= new JLabel();
+        if(!userandpath.get(1).equals(""))
+        Photo.setPhoto(image, userandpath.get(1));
+        else 
+        Photo.setPhoto(image, nophotopath);   
         JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
         String[] date = content.getTimestamp().split("T");
         String Date = date[0];
@@ -94,26 +100,26 @@ public class userService {
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         String formattedDate = D.format(outputFormatter);
         JLabel timestamp = new JLabel(formattedDate);
-
-        // Arrange text in a vertical panel
+        
+        // Arrange text in a vertical panel 
         JPanel textPanel = new JPanel();
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
-        textPanel.add(authorId);
+        textPanel.add(name);
+        //textPanel.add(image);
         textPanel.add(contentText);
         textPanel.add(timestamp);
-
         // Image content
         ImageIcon icon = new ImageIcon(content.getImagePath());
         Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
         ImageIcon scaledimage = new ImageIcon(scaledImage);
         JLabel imageLabel = new JLabel(scaledimage);
-
+        
         // Combine text and image in a single panel
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(textPanel, BorderLayout.NORTH);
         contentPanel.add(imageLabel, BorderLayout.CENTER);
-
+        
         // Add combined panel to the main panel
         panel.add(contentPanel, BorderLayout.CENTER);
 
@@ -122,13 +128,15 @@ public class userService {
 
     public static String getStatusofUser(String name) {
         loadUsersFromJson();
-        String state = "online";
+        
         for (User user : userList) {
             if (user.getUsername().equals(name)) {
-                state = user.getStatus();
+                String state = user.getStatus();
+                return state;
             }
         }
-        return state;
+        return null;
+        
     }
     
     public static ArrayList<String> getPathAndName(String id) {
@@ -136,7 +144,7 @@ public class userService {
         for(User u:userList){
             if(u.getUserId().equals(id)){
                 data.add(u.getUsername());
-                data.add(u.getUsername());
+                data.add(u.getProfilePhotoPath());
             }
         }
         return data;
