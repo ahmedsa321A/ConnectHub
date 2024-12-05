@@ -5,6 +5,7 @@
 package Front__end;
 
 import Back__end.User;
+import Back__end.UserRepository;
 import Back__end.userService;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -221,7 +222,7 @@ public class Login extends javax.swing.JFrame {
             User user = userService.login(email, password);
             if (user != null) {
                 user.setStatus("online");
-                userService.saveData();
+                UserRepository.saveData();
                 JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 for (Window window : Window.getWindows()) {
                     window.dispose();
