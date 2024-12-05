@@ -9,9 +9,7 @@
     "profilePhotoPath": "/Users/hazembarakat/Downloads/25694.png",
     "coverPhotoPath": "/Users/hazembarakat/Downloads/signup email.png",
     "bio": "ana zoma elgen",
-    "FriendsId": [
-      "userid"
-    ]
+    "FriendsId": ["1cf3c3b7-9fb6-4af1-8fa6-f79f6e3b6950"]
   },
   {
     "userId": "c962ee42-06a1-4018-954e-fa4a2904caff",
@@ -23,9 +21,7 @@
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": "",
-    "FriendsId": [
-      "zika"
-    ]
+    "FriendsId": ["zika"]
   },
   {
     "userId": "1cf3c3b7-9fb6-4af1-8fa6-f79f6e3b6950",

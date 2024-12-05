@@ -247,7 +247,6 @@ StoryGui story = new StoryGui(user);
     private Back__end.MyButton friends;
     private Back__end.MyButton home;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private Back__end.MyButton logout;
     private javax.swing.JPanel newsFeedPanel;
