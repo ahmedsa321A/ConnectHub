@@ -41,10 +41,10 @@ public class User extends UserParent {
      public void receivedRequest(String friendId){
        
         if(!requestsReceived.contains(friendId))
+        {
         requestsReceived.add(friendId);
-        if(suggestions.contains(friendId))
         removeSuggestion(friendId);
-        
+        }
     }
      
      public void removeReceivedRequest(String userId) {
