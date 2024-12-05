@@ -23,7 +23,7 @@ public void loadFromFile(User currentUser, String filePath, Type typeOfT) {
             for (User user : users) {
                 if (user.getUserId().equals(currentUser.getUserId())) {
                     
-                    for (String friendID : user.getFriends()) {
+                    for (String friendID : user.getFriendsIdArray()) {
                         currentUser.addFriend(friendID);
                     }
 
