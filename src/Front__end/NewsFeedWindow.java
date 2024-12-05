@@ -27,7 +27,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     private void showPosts(User user) {
-        ArrayList<JPanel> posts = userService.getPostsOfFriends(user);
+        ArrayList<JPanel> posts = userService.getPostOfFriends(user);
         for (JPanel post : posts) {
             this.newsFeedPanel.add(post);
         }
@@ -220,7 +220,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_profileActionPerformed
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
-    StoryGui post = new StoryGui(user);      
+    StoriesGui post = new StoriesGui(user);      
         this.dispose();
     }//GEN-LAST:event_storiesActionPerformed
 

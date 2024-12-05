@@ -53,12 +53,12 @@ public class userService {
         return posts;
     }
 
-    public static ArrayList<JPanel> getPostsOfFriends(User user) {
+    public static ArrayList<JPanel> getPostOfFriends(User user) {
         ArrayList<JPanel> posts = new ArrayList<>();
         content.loadContent();
         for (String id : user.getFriendsIdArray()) {
                     for (Content c : content.getContents()) {
-                        if(c.getAuthorId().equals(id))
+                        if(c.getAuthorId().equals(id)&&!c.isStory())
                         posts.add(createContentPanel(c));
                     }
                 
@@ -66,7 +66,19 @@ public class userService {
         }
         return posts;
     }
-
+    public static ArrayList<JPanel> getStoriesOfFriends(User user) {
+        ArrayList<JPanel> stories = new ArrayList<>();
+        content.loadContent();
+        for (String id : user.getFriendsIdArray()) {
+                    for (Content c : content.getContents()) {
+                        if(c.getAuthorId().equals(id)&&c.isStory())
+                        stories.add(createContentPanel(c));
+                    }
+                
+            
+        }
+        return stories;
+    }
 
     public static JPanel createContentPanel(Content content) {
         JPanel panel = new JPanel();
