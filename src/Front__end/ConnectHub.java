@@ -4,10 +4,6 @@
  */
 package Front__end;
 
-/**
- *
- * @author ahmed
- */
 public class ConnectHub {
 
     /**

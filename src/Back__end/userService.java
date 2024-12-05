@@ -128,5 +128,14 @@ public static boolean signup(String email, String username, String password, Str
         }
         return null;
     }
+    public static User getUser(String id){
+    
+        for(User u: UserRepository.userList){
+        if(u.getUserId().equals(id))
+            return u;
+    }
+        return null;
+     
+    }
 
 }

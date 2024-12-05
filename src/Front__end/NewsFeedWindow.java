@@ -8,6 +8,7 @@ import Back__end.RelationshipStatus;
 import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.UserSearch;
+import Back__end.userService;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -42,6 +43,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         this.setLocation(x, y);
         this.setVisible(true);
         this.user = user;
+
         showPosts(user);
     }
 
@@ -237,12 +239,20 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        db.loadContent();
-        db.deleteExpiredStories();
+
+        newsFeedPanel.removeAll(); 
+        showPosts(user);
+        newsFeedPanel.revalidate();
+        newsFeedPanel.repaint();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
-    ProfileWindow profile=new ProfileWindow(user);
+  
+    UserRepository.loadUsersFromJson();
+    
+   this.user=userService.getUser(user.getUserId());
+    
+    ProfileWindow profile=new ProfileWindow(this.user);
     this.dispose();
     }//GEN-LAST:event_profileActionPerformed
 
@@ -271,7 +281,7 @@ StoryGui story = new StoryGui(user);
         this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
     private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
-
+    
     FriendLoader load = new FriendLoader();
 
 
