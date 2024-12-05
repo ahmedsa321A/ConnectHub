@@ -1,12 +1,14 @@
 [
   {
-    "FriendsId": [],
+    "FriendsId": [
+      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
+    ],
     "requestsReceived": [
       "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3"
     ],
     "suggestions": [
       "40cd6494-0e25-4d5e-849f-3501397bf10c",
-      "3a832fdb-387c-4d91-b510-7ed24f444ab0"
+      "f040f042-3e3d-4736-aa6c-8da1890aef41"
     ],
     "blocked": [],
     "userId": "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e",
@@ -14,14 +16,15 @@
     "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-03",
-    "status": "online",
-    "profilePhotoPath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
-    "coverPhotoPath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
+    "status": "offline",
+    "profilePhotoPath": "C:\\Users\\ahmed\\OneDrive\\Desktop\\Paint\\premium_photo-1673448391005-d65e815bd026.jpg",
+    "coverPhotoPath": "C:\\Users\\ahmed\\OneDrive\\Desktop\\Paint\\premium_photo-1664474619075-644dd191935f.jpg",
     "bio": ""
   },
   {
     "FriendsId": [
-      "f040f042-3e3d-4736-aa6c-8da1890aef41"
+      "f040f042-3e3d-4736-aa6c-8da1890aef41",
+      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
     ],
     "requestsReceived": [],
     "suggestions": [
@@ -36,7 +39,7 @@
     "username": "omar",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-25",
-    "status": "online",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
@@ -89,7 +92,7 @@
     "username": "hazem",
     "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
     "dateOfBirth": "2024-12-01",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""

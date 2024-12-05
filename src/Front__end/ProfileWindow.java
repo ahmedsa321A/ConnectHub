@@ -4,8 +4,6 @@ import Back__end.ContentService;
 import Back__end.Photo;
 import Back__end.User;
 import Back__end.UserRepository;
-import Back__end.userService;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
@@ -20,7 +18,9 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     public ProfileWindow(User profile) {
         this.profile = profile;
+
         initComponents();
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -40,11 +40,11 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void refresh() {
         if (!profile.getProfilePhotoPath().equals("")) {
-            Photo.setPhoto(profilePictureLabel, profile.getProfilePhotoPath());
+            Photo.setPhoto(profilePictureLabel,profile.getCoverPhotoPath() );
 
         }
         if (!profile.getCoverPhotoPath().equals("")) {
-            Photo.setPhoto(coverPhotoLabel, profile.getCoverPhotoPath());
+            Photo.setPhoto(coverPhotoLabel,  profile.getProfilePhotoPath());
         }
         bioTextArea.setText(profile.getBio());
     }
@@ -228,12 +228,11 @@ public class ProfileWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(coverPhotoLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                                 .addComponent(profilePictureLabel)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,6 +255,7 @@ public class ProfileWindow extends javax.swing.JFrame {
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         ProfileEditorWindow profileEditor = new ProfileEditorWindow(this, this.profile, true);
         refresh();
+        UserRepository.saveData();
         
     }//GEN-LAST:event_editButtonActionPerformed
 
