@@ -6,23 +6,9 @@
     "password": "94a7b12c04ab6a514e0c8ddb6882c4a6160f5b2f",
     "dateOfBirth": "2024-12-01",
     "status": "online",
-    "profilePhotoPath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
-    "coverPhotoPath": "C:\\Users\\ahmed\\Downloads\\WhatsApp Image 2024-02-16 at 19.51.13_1730c1cc.jpg",
-    "bio": "",
-    "FriendsId": [
-      "userid"
-    ]
-  },
-  {
-    "userId": "0b0ac3a4-d874-45ee-be56-1d249ba79700",
-    "email": "hazem@gmail.com",
-    "username": "hazem",
-    "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
-    "dateOfBirth": "2024-12-04",
-    "status": "online",
-    "profilePhotoPath": "/Users/hazembarakat/Downloads/214735-200.png",
-    "coverPhotoPath": "/Users/hazembarakat/Downloads/2929273.png",
-    "bio": "",
+    "profilePhotoPath": "/Users/hazembarakat/Downloads/25694.png",
+    "coverPhotoPath": "/Users/hazembarakat/Downloads/signup email.png",
+    "bio": "ana zoma elgen",
     "FriendsId": [
       "userid"
     ]

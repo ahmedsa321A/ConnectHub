@@ -165,10 +165,6 @@ public class userService {
         }
     }
     public static void saveData() {
-        for(User user:userList) 
-        {
-            System.out.println(user.getCoverPhotoPath());
-        }
         Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
         String json = gson.toJson(userList); // Convert the list to JSON
         try (FileWriter writer = new FileWriter(DATABASE_FILE)) {

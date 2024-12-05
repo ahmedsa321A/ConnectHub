@@ -1,8 +1,12 @@
 
 package Front__end;
 
+import Back__end.userService;
 import java.awt.Color;
 import java.awt.Font;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -20,7 +24,6 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
         this.setVisible(modal);
         
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -117,17 +120,25 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
-        if(oldPasswordField.getText().isEmpty() || newPasswordField.getText().isEmpty()){
+
+        try {
+            String oldhashed=userService.hashPassword(oldPasswordField.getText());
+            if(oldPasswordField.getText().isEmpty() || newPasswordField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "There is empty field!","ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        else if (!oldPasswordField.getText().equals(this.oldPassword)){
+        else if (!oldhashed.equals(this.oldPassword)){
             JOptionPane.showMessageDialog(this, "Wrong Password!","ERROR", JOptionPane.ERROR_MESSAGE);
-        } else if (newPasswordField.getText().equals(this.oldPassword)){
+        } else if (newPasswordField.getText().equals(oldPasswordField.getText())&&oldhashed.equals(this.oldPassword)){
             JOptionPane.showMessageDialog(this, "Cannot Change Password To The Old One!","ERROR", JOptionPane.ERROR_MESSAGE);
         } else{
             this.newPassword=this.newPasswordField.getText();
+            JOptionPane.showMessageDialog(this, "Password has changed Successfully ","Successful", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(ChangePasswordWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_changeButtonActionPerformed
 
     private void oldPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_oldPasswordFieldFocusGained

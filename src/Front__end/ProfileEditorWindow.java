@@ -4,6 +4,7 @@ import Back__end.Photo;
 import Back__end.User;
 import Back__end.userService;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.JOptionPane;
 
 public class ProfileEditorWindow extends javax.swing.JDialog {
 
@@ -235,6 +236,8 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
             }
         } catch (NoSuchAlgorithmException ex) {
         }
+         userService.saveData();
+         JOptionPane.showMessageDialog(this, "all changes have changed Successfully ","Successful", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }//GEN-LAST:event_saveButtonActionPerformed
 
