@@ -5,8 +5,11 @@ import Back__end.Photo;
 import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.userService;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -18,6 +21,12 @@ public class ProfileWindow extends javax.swing.JFrame {
     public ProfileWindow(User profile) {
         this.profile = profile;
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(profile);
+            }
+        });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         int y = (screenSize.height - this.getHeight()) / 2;
