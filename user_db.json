@@ -27,7 +27,8 @@
     "requestsReceived": [],
     "suggestions": [
       "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
-      "40cd6494-0e25-4d5e-849f-3501397bf10c"
+      "40cd6494-0e25-4d5e-849f-3501397bf10c",
+      "f040f042-3e3d-4736-aa6c-8da1890aef41"
     ],
     "blocked": [
       "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
@@ -37,7 +38,7 @@
     "username": "omar",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-25",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
@@ -70,6 +71,25 @@
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-03",
     "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [
+      "40cd6494-0e25-4d5e-849f-3501397bf10c",
+      "3a237fe4-c72f-4d0a-a7ad-a2fe9a474ae3",
+      "6b6fbc17-51e4-4ad3-98fe-7f751fb9591e"
+    ],
+    "blocked": [],
+    "userId": "f040f042-3e3d-4736-aa6c-8da1890aef41",
+    "email": "hazem@gmail.com",
+    "username": "hazem",
+    "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
+    "dateOfBirth": "2024-12-01",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""

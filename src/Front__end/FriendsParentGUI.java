@@ -3,7 +3,6 @@ package Front__end;
 import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.UserSearch;
-import Back__end.userService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -24,7 +23,6 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
     protected JScrollPane scrollPane;
     protected String title;
     protected UserSearch userSearch;
-    HashMap<String,User>users;
     public FriendsParentGUI(User user, String title,HashMap<String,User>users) {
         this.currentUser = user;
         this.title = title;

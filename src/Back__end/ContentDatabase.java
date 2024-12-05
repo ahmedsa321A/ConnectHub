@@ -25,7 +25,6 @@ public class ContentDatabase {
     }
      public static ContentDatabase getInstance() {
         if (instance == null) {
-           
                instance = new ContentDatabase();
             }
         return instance;
