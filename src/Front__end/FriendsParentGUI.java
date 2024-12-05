@@ -2,10 +2,13 @@
 package Front__end;
 import Back__end.User;
 import Back__end.UserSearch;
+import Back__end.userService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -50,6 +53,13 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
 
         pack(); 
         setLocationRelativeTo(null); 
+         addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                userService.saveData();
+                dispose(); 
+            }
+        });
         setVisible(true);
     }
     protected ImageIcon loadImageIcon(String photoPath) {
