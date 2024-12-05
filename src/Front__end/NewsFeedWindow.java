@@ -241,6 +241,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
     user.setStatus("offline");
+    userService.saveData();
         for (Window window : Window.getWindows()) {
                     window.dispose();
                 }
