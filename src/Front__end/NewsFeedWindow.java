@@ -290,7 +290,7 @@ StoryGui story = new StoryGui(user);
 
 
         if (!user.getUserId().equals(otherUser.getUserId())) {
-            RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
+            RelationshipStatus status = RelationshipManager.getInstance().getRelationshipStatus(user, otherUser);
 
             if (status == RelationshipStatus.NOT_FRIENDS) {
                 user.addSuggestion(otherUser.getUserId());
