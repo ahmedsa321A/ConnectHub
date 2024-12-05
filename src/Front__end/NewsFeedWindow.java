@@ -263,35 +263,33 @@ StoryGui story = new StoryGui(user);
         this.dispose();    }//GEN-LAST:event_storyActionPerformed
 
     private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
-    // Initialize a loader for friends
+
     FriendLoader load = new FriendLoader();
 
-    // Specify the type for deserialization (List<User>)
+
         java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {}.getType();
 
-    // Load friends and relationship data
+
     load.loadFromFile(user, "user_db.json", typeOfT);
 
-    // Set up a UserSearch map
+
     UserSearch search = new UserSearch();
     search.setAllMap(UserRepository.userList);
 
-    // Iterate through the user map to find suggestions
+
     for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
         User otherUser = entry.getValue();
 
-        // Skip the current user
-        if (!user.getUserId().equals(otherUser.getUserId())) {
-            RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
 
-            // Add to suggestions if not friends
+        if (!user.getUserId().equals(otherUser.getUserId())) {
+            RelationshipStatus status = RelationshipManager.getInstance().getRelationshipStatus(user, otherUser);
+
             if (status == RelationshipStatus.NOT_FRIENDS) {
                 user.addSuggestion(otherUser.getUserId());
             }
         }
     }
 
-    // Pass the updated user map to the FriendsCenter
     FriendsCenter friends = new FriendsCenter(user, search.getMap());
     setVisible(false);
     }//GEN-LAST:event_friendsActionPerformed
