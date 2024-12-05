@@ -3,6 +3,7 @@ package Back__end;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 public class User extends UserParent {
@@ -21,45 +22,38 @@ public class User extends UserParent {
         this.blocked = builder.blocked;
     }
     public void addFriend(String friendId) {
-        if(!friends.contains(friendId)) 
+        if(!friends.contains(friendId)) //checks if user already friend or not
         {
-            friends.add(friendId); 
-           removeReceivedRequest(friendId); 
-        }
-        else
-        {
-        JOptionPane.showMessageDialog(null, "User is already a friend.", "Validation Error", JOptionPane.ERROR_MESSAGE);    
-        return;
+            friends.add(friendId); //add friend
+           removeReceivedRequest(friendId); //remove request from user2
         }
     }
     public void removeFriend(String userId) {
-       
+       if(friends.contains(userId))
+       {     
         friends.remove(userId);
         addSuggestion(userId);
+       }
     }
     public List<String> getFriendsIdArray() {
         return friends;
     }
     
      public void receivedRequest(String friendId){
-         if (requestsReceived.contains(friendId)) //checks if user already in requests
-         {
-            JOptionPane.showMessageDialog(null, "Friend request already received from this user.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (friends.contains(friendId)) {
-            JOptionPane.showMessageDialog(null, "User is already a friend.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+       
+        if(!requestsReceived.contains(friendId))
+        {
         requestsReceived.add(friendId);
-        if(suggestions.contains(friendId))
         removeSuggestion(friendId);
-        
+        }
     }
      
      public void removeReceivedRequest(String userId) {
-        requestsReceived.remove(userId);
-        addSuggestion(userId);
+      if(requestsReceived.contains(userId))   
+      {
+          requestsReceived.remove(userId);
+          addSuggestion(userId);
+      }
     }
      
      public List<String> getReceivedRequests(){
@@ -71,6 +65,7 @@ public class User extends UserParent {
     }
 
     public void removeSuggestion(String userId) {
+        if(suggestions.contains(userId))
         suggestions.remove(userId);
     }
 
@@ -78,38 +73,29 @@ public class User extends UserParent {
         return suggestions;
     }
     public void addBlock(String userId){
-        if(blocked.contains(userId))
-        {
-          JOptionPane.showMessageDialog(null, "User already bolcked.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;  
-        }
+        if(!blocked.contains(userId))
         blocked.add(userId);
     }
     public void removeBlock(String userId){
-        if(!blocked.contains(userId))
-        {
-            JOptionPane.showMessageDialog(null, "User is not even bolcked.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return; 
-        }
+        if(blocked.contains(userId))
         blocked.remove(userId);
     }
     public List<String> getBlocked() {
         return blocked;
     }
-
-    @Override
+   @Override
     public String toString() {
-        String friendsIds = String.join(", ", friends);
-        String suggestionsIds = String.join(", ", suggestions);
-        String receivedRequestsIds = String.join(", ", requestsReceived);
-        String blockedIds = String.join(", ", blocked);
-        return super.toString() +
-               ", friends IDs=[" + friendsIds + "]" +
-               ", suggestions IDs=[" + suggestionsIds + "]" +
-               ", receivedRequests IDs=[" + receivedRequestsIds + "]" +
-               ", blocked IDs=[" + blockedIds + "]";
-    }
-
+    String friendsIds = friends.stream().collect(Collectors.joining(", "));
+    String suggestionsIds = suggestions.stream().collect(Collectors.joining(", "));
+    String receivedRequestsIds = requestsReceived.stream().collect(Collectors.joining(", "));
+    String blockedIds = blocked.stream().collect(Collectors.joining(", "));
+    return super.toString() + 
+           ", friends IDs=[" + friendsIds + "]" +
+           ", suggestions IDs=[" + suggestionsIds + "]" +
+           ", receivedRequests IDs=[" + receivedRequestsIds + "]"+
+           ", Blocked IDs=[" + blockedIds + "]" ;
+    
+}
  
     public static class Builder {
         private final String userId;
