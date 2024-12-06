@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Back__end;
 
 import java.awt.Color;
@@ -12,10 +9,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author hazembarakat
- */
+//prefix and suffix for text by having scroll
 public class MyTextArea extends JTextArea{
         public Icon getPrefixIcon() {
         return prefixIcon;

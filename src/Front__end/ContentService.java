@@ -2,10 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Back__end;
+package Front__end;
 
 
-//import static Back__end.userService.getPathAndName;
+import Back__end.Content;
+import Back__end.ContentDatabase;
+import Back__end.User;
+import Back__end.userService;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Image;

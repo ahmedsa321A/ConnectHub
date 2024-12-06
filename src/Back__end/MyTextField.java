@@ -8,6 +8,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
+//prefix and suffix for text without having scroll
 public class MyTextField extends JTextField {
 
     public Icon getPrefixIcon() {

@@ -1,7 +1,7 @@
 
 package Back__end;
 
-
+//enum for relationships status
 public enum RelationshipStatus {
     FRIENDS,
     PENDING,

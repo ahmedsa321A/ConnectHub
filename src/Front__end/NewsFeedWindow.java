@@ -1,7 +1,6 @@
 package Front__end;
 
 import Back__end.ContentDatabase;
-import Back__end.ContentService;
 import Back__end.FriendLoader;
 import Back__end.RelationshipManager;
 import Back__end.RelationshipStatus;
@@ -394,7 +393,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             User otherUser = entry.getValue();
 
             if (!user.getUserId().equals(otherUser.getUserId())) {
-                RelationshipStatus status = RelationshipManager.getInstance().getRelationshipStatus(user, otherUser);
+                RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
 
                 if (status == RelationshipStatus.NOT_FRIENDS) {
                     user.addSuggestion(otherUser.getUserId());

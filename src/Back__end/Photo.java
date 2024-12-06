@@ -4,9 +4,9 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
+//for handling photos
 public class Photo {
-
+ //select photo overloading for dialog 
     public static String selectPhoto(JLabel Label, JDialog frame) {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files (JPG, PNG, JPEG)", "jpg", "jpeg", "png");
@@ -23,7 +23,7 @@ public class Photo {
         }
         return null;
     }
-
+//select photo overloading for frame 
     public static String selectPhoto(JLabel Label, JFrame frame) {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files (JPG, PNG, JPEG)", "jpg", "jpeg", "png");

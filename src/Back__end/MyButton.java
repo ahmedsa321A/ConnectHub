@@ -1,22 +1,18 @@
 package Back__end;
 
-import Front__end.NewsFeedWindow;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.geom.Ellipse2D;
-
+//customize buttons making it circular
 public class MyButton extends JButton {
-
+   
     public MyButton() {
         setColor(new Color(242,242,242));
         colorover = new Color(242,242,242);
         bordercolor = new Color(242,242,242);
-        setContentAreaFilled(false); // Make the button transparent
+        setContentAreaFilled(false); 
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent me) {
