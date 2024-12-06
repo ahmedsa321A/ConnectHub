@@ -220,9 +220,10 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
         } else try {
             User user = userService.login(email, password);
- 
-            
+
             if (user != null) {
+                UserRepository.loadUsersFromJson();
+                user = userService.getUser(user.getUserId());
                 user.setStatus("online");
                 UserRepository.saveData();
                 JOptionPane.showMessageDialog(this, "login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);

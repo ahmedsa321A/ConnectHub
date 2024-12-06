@@ -2,6 +2,7 @@
 package Front__end;
 import Back__end.FriendSuggestion;
 import Back__end.User;
+import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -56,7 +57,7 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    new FriendSuggestion().acceptSuggestion(currentUser, suggest);
+                    new FriendSuggestion().acceptSuggestion(currentUser, userService.getUser(suggest.getUserId()));
                     refreshUI(); 
             }
         });
@@ -65,7 +66,7 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    new FriendSuggestion().RemoveSuggestion(currentUser, suggest);
+                    new FriendSuggestion().RemoveSuggestion(currentUser, userService.getUser(suggest.getUserId()));
                     refreshUI();
             }
         });

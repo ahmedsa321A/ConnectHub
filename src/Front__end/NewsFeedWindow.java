@@ -40,6 +40,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
+                UserRepository.loadUsersFromJson();
                 User currentuser = userService.getUser(user.getUserId());
                 currentuser.setStatus("offline");
                 UserRepository.saveData();
@@ -51,7 +52,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         int y = (screenSize.height - this.getHeight()) / 2;
         this.setLocation(x, y);
         this.setVisible(true);
-        this.user = user;
+        UserRepository.loadUsersFromJson();
+        this.user = userService.getUser(user.getUserId());
+        UserRepository.saveData();
         reloadSuggestionsStatus();
         showPosts(user);
         showFriendsList();
@@ -123,6 +126,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     public void showSuggestions() {
+        UserRepository.loadUsersFromJson();
+        user = userService.getUser(user.getUserId());
         UserSearch search = new UserSearch();
         search.setAllMap(UserRepository.userList);
         for (Map.Entry<String, User> entry : search.getMap().entrySet()) {
@@ -208,6 +213,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }
 
     private UserSearch reloadSuggestionsStatus() {
+        UserRepository.loadUsersFromJson();
+        user = userService.getUser(user.getUserId());
         FriendLoader load = new FriendLoader();
 
         java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {
@@ -480,6 +487,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
         db.loadContent();
         db.deleteExpiredStories();
+        UserRepository.loadUsersFromJson();
+        UserRepository.saveData();
         for (Window window : Window.getWindows()) {
             window.dispose();
         }
@@ -490,8 +499,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         db.loadContent();
         db.deleteExpiredStories();
         UserRepository.loadUsersFromJson();
-
         this.user = userService.getUser(user.getUserId());
+        UserRepository.saveData();
         newsFeedPanel.removeAll();
         showPosts(user);
         newsFeedPanel.revalidate();
@@ -517,6 +526,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        UserRepository.loadUsersFromJson();
         user = userService.getUser(user.getUserId());
         user.setStatus("offline");
         UserRepository.saveData();

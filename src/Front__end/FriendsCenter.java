@@ -1,4 +1,3 @@
-
 package Front__end;
 
 import Back__end.User;
@@ -8,27 +7,27 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
 
-
 public class FriendsCenter extends javax.swing.JFrame {
 
-private User you;
-private HashMap<String,User>allUsersMap;
-    public FriendsCenter(User user,HashMap<String, User> allUsersMap) {
+    private User you;
+    private HashMap<String, User> allUsersMap;
+
+    public FriendsCenter(User user, HashMap<String, User> allUsersMap) {
+
         initComponents();
+        UserRepository.loadUsersFromJson();
+        you = userService.getUser(user.getUserId());
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                    UserRepository.saveData();
-                    UserRepository.loadUsersFromJson();
-                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(userService.getUser(you.getUserId()));
+                UserRepository.saveData();
+                NewsFeedWindow newsfeedwindow = new NewsFeedWindow(userService.getUser(you.getUserId()));
             }
         });
-        you=user;
-        this.allUsersMap=allUsersMap;
+        this.allUsersMap = allUsersMap;
         setVisible(true);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -132,28 +131,27 @@ private HashMap<String,User>allUsersMap;
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         UserRepository.saveData();
-        UserRepository.loadUsersFromJson();
         NewsFeedWindow newsfeedwindow = new NewsFeedWindow(userService.getUser(you.getUserId()));
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void FriendsListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriendsListButtonActionPerformed
-       FriendsListGUI friends=new FriendsListGUI(you,"Friends",allUsersMap);
-       friends.setVisible(true);
+        FriendsListGUI friends = new FriendsListGUI(you, "Friends", allUsersMap);
+        friends.setVisible(true);
     }//GEN-LAST:event_FriendsListButtonActionPerformed
 
     private void RequestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestsButtonActionPerformed
-       FriendRequestsGUI requests=new FriendRequestsGUI(you,"Requests",allUsersMap);
-       requests.setVisible(true);
+        FriendRequestsGUI requests = new FriendRequestsGUI(you, "Requests", allUsersMap);
+        requests.setVisible(true);
     }//GEN-LAST:event_RequestsButtonActionPerformed
 
     private void SuggestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuggestionButtonActionPerformed
-        FriendSuggestionGUI suggestions=new FriendSuggestionGUI(you,"Suggestions",allUsersMap);
-       suggestions.setVisible(true);
+        FriendSuggestionGUI suggestions = new FriendSuggestionGUI(you, "Suggestions", allUsersMap);
+        suggestions.setVisible(true);
     }//GEN-LAST:event_SuggestionButtonActionPerformed
 
     private void BlockedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlockedButtonActionPerformed
-        BlockedUsersGUI blocked= new BlockedUsersGUI(you,"Blocked",allUsersMap);
+        BlockedUsersGUI blocked = new BlockedUsersGUI(you, "Blocked", allUsersMap);
         blocked.setVisible(true);
     }//GEN-LAST:event_BlockedButtonActionPerformed
 

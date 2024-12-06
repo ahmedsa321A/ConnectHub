@@ -16,7 +16,6 @@ public class userService {
 
     //public static ArrayList<User> userList = new ArrayList<>();
     //static ContentDatabase content = new ContentDatabase();
-
     public static boolean checkIfUserExists(String email) {
 
         UserRepository.loadUsersFromJson();
@@ -28,7 +27,6 @@ public class userService {
         }
         return false;
     }
-
 
     protected ImageIcon loadImageIcon(String photoPath) {
         ImageIcon icon = null;
@@ -42,7 +40,6 @@ public class userService {
         }
         return icon;
     }
-    
 
     public static String getStatusofUser(String name) {
         UserRepository.loadUsersFromJson();
@@ -67,8 +64,6 @@ public class userService {
         }
         return data;
     }
-
-
 
     public static boolean isValidEmail(String email) {
         return email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
@@ -100,41 +95,45 @@ public class userService {
         }
     }
 
+    public static boolean signup(String email, String username, String password, String dateOfBirth) throws NoSuchAlgorithmException {
+        // Create a factory instance
+        ConcreteFactory userFactory = new ConcreteFactory();
 
+        // Use the factory to create the User object
+        User user = userFactory.createUser(email, username, password, dateOfBirth);
 
-public static boolean signup(String email, String username, String password, String dateOfBirth) throws NoSuchAlgorithmException {
-    // Create a factory instance
-    ConcreteFactory userFactory = new ConcreteFactory();
-    
-    // Use the factory to create the User object
-    User user = userFactory.createUser(email, username, password, dateOfBirth);
+        // Save the user (assuming saveSignup is defined to handle saving the user data)
+        saveSignup(user);
 
-    // Save the user (assuming saveSignup is defined to handle saving the user data)
-    saveSignup(user);
-
-    return true;
-}
+        return true;
+    }
 
     public static User login(String email, String password) throws NoSuchAlgorithmException {
         UserRepository.loadUsersFromJson();
 
         String hashedPassword = hashPassword(password);
 
-        for (User user :  UserRepository.userList) {
+        for (User user : UserRepository.userList) {
             if (user.getEmail().equals(email) && user.getPassword().equals(hashedPassword)) {
+                UserRepository.loadUsersFromJson();
+                user = userService.getUser(user.getUserId());
+                user.setStatus("online"); 
+                UserRepository.saveData();
                 return user;
             }
         }
         return null;
     }
-    public static User getUser(String id){
-    
-        for(User u: UserRepository.userList){
-        if(u.getUserId().equals(id))
-            return u;
-    }
+
+    public static User getUser(String id) {
+
+        for (User u : UserRepository.userList) {
+            if (u.getUserId().equals(id)) {
+                return u;
+            }
+        }
         return null;
-     
+
     }
 
 }

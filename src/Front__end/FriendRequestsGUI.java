@@ -2,6 +2,7 @@ package Front__end;
 
 import Back__end.FriendRequests;
 import Back__end.User;
+import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -61,7 +62,7 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         acceptButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new FriendRequests().acceptRequest(currentUser, request);
+                new FriendRequests().acceptRequest(currentUser, userService.getUser(request.getUserId()));
                 refreshUI();
             }
         });
@@ -69,7 +70,7 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         declineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new FriendRequests().declineRequest(currentUser, request);
+                new FriendRequests().declineRequest(currentUser, userService.getUser(request.getUserId()));
                 refreshUI();
             }
         });

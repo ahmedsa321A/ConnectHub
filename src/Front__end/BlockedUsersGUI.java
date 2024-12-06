@@ -3,6 +3,7 @@ package Front__end;
 
 import Back__end.BlockedFriends;
 import Back__end.User;
+import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -62,7 +63,7 @@ public class BlockedUsersGUI extends FriendsParentGUI {
                     "Confirm UnBlock", JOptionPane.YES_NO_OPTION);
                 
                 if (response == JOptionPane.YES_OPTION) {
-                    new BlockedFriends().unBlockFriend(currentUser, blocked);
+                    new BlockedFriends().unBlockFriend(currentUser, userService.getUser(blocked.getUserId()));
                     JOptionPane.showMessageDialog(null, blocked.getUsername() + " has been Unblocked.");
                     refreshUI();
                 }

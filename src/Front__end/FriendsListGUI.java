@@ -67,7 +67,7 @@ public class FriendsListGUI extends FriendsParentGUI {
                     "Confirm Removal", JOptionPane.YES_NO_OPTION);
                 
                 if (response == JOptionPane.YES_OPTION) {
-                    new FriendsList().removeFriend(currentUser, friend);
+                    new FriendsList().removeFriend(currentUser, userService.getUser(friend.getUserId()));
                     JOptionPane.showMessageDialog(null, friend.getUsername() + " has been removed.");
                     refreshUI(); 
                 }
@@ -83,7 +83,7 @@ public class FriendsListGUI extends FriendsParentGUI {
                     "Confirm Block", JOptionPane.YES_NO_OPTION);
                 
                 if (response == JOptionPane.YES_OPTION) {
-                    new FriendsList().blockFriend(currentUser, friend);
+                    new FriendsList().blockFriend(currentUser, userService.getUser(friend.getUserId()));
                     JOptionPane.showMessageDialog(null, friend.getUsername() + " has been blocked.");
                     refreshUI();
                 }
