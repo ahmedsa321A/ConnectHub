@@ -15,7 +15,10 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-//load and save from/to json file
+/**
+ *
+ * @author ahmed
+ */
 public class UserRepository {
     private static final String DATABASE_FILE = "user_db.json";
 
