@@ -68,21 +68,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             boolean nopath = false;
             JPanel friendPanel = new JPanel();
             friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            ImageIcon imgicon = null;
-            if (photoPath.equals("")) {
-                nopath = true;
-            }
-            try {
-                if (nopath) {
-                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-                } else {
-                    imgicon = new ImageIcon(photoPath);
-                }
-                Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-                imgicon = new ImageIcon(resizedImage);
-            } catch (Exception e) {
-            }
+            ImageIcon imgicon = new userService().saveImageIconProfile(photoPath);
             JLabel imageLabell = new JLabel(imgicon);
             JLabel nameLabel = new JLabel(name);
 
