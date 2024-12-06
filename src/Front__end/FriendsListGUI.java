@@ -2,6 +2,7 @@ package Front__end;
 
 import Back__end.User;
 import Back__end.FriendsList;
+import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,7 @@ public class FriendsListGUI extends FriendsParentGUI {
     
     public FriendsListGUI(User user,String title,HashMap<String,User>users) {
         super(user, "Friends",users);
+        currentUser = userService.getUser(currentUser.getUserId());
     }
    
    @Override

@@ -1,16 +1,33 @@
 [
   {
     "FriendsId": [
-      "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
-    ],
-    "requestsReceived": [],
-    "suggestions": [
       "c0ccd154-da22-4c1f-b962-1387415fb022"
     ],
+    "requestsReceived": [],
+    "suggestions": [],
     "blocked": [],
     "userId": "5c94be86-845d-4ead-9ec2-e6857f299e88",
     "email": "adham@gmail.com",
     "username": "adham",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-02",
+    "status": "offline",
+    "profilePhotoPath": "C:\\Users\\adham\\Desktop\\noprofile.png",
+    "coverPhotoPath": "C:\\Users\\adham\\Desktop\\noimage.png",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "5c94be86-845d-4ead-9ec2-e6857f299e88"
+    ],
+    "requestsReceived": [],
+    "suggestions": [
+      "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
+    ],
+    "blocked": [],
+    "userId": "c0ccd154-da22-4c1f-b962-1387415fb022",
+    "email": "ahmed@gmail.com",
+    "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-02",
     "status": "online",
@@ -22,24 +39,11 @@
     "FriendsId": [],
     "requestsReceived": [],
     "suggestions": [
+      "c0ccd154-da22-4c1f-b962-1387415fb022"
+    ],
+    "blocked": [
       "5c94be86-845d-4ead-9ec2-e6857f299e88"
     ],
-    "blocked": [],
-    "userId": "c0ccd154-da22-4c1f-b962-1387415fb022",
-    "email": "ahmed@gmail.com",
-    "username": "ahmed",
-    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
-    "dateOfBirth": "2024-12-02",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [],
-    "blocked": [],
     "userId": "00e38f9f-8445-46e3-9b34-3768c5f6eaf3",
     "email": "hazem@gmail.com",
     "username": "hazem",

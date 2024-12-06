@@ -67,7 +67,7 @@ public class ContentService {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        String nophotopath = "/Users/hazembarakat/Documents/GitHub/prog/src/icons/noprofile.png";
+        String nophotopath = "D:\\Studying\\Term 5\\Programming 2\\Labs\\Lab 9\\ConnectHub\\src\\icons\\noprofile.png";
         // Text content
         ArrayList<String> userandpath = userService.getPathAndName(content.getAuthorId());
         
