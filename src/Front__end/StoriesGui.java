@@ -4,6 +4,8 @@ package Front__end;
 import Back__end.User;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -17,6 +19,12 @@ public class StoriesGui extends javax.swing.JFrame {
     private User user;
     public StoriesGui(User user) {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+            }
+        });
         this.user=user;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;

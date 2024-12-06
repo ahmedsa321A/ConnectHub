@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ContentDatabase {
@@ -15,8 +16,7 @@ public class ContentDatabase {
     private static final String DATABASE_FILE = "content_db.json";
     private static final long STORY_EXPIRY_HOURS = 24;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static ArrayList<Content> contents;
-
+    private static ArrayList<Content> contents=new ArrayList<>();
     private static ContentDatabase instance;
     
     private  ContentDatabase() {
@@ -35,6 +35,7 @@ public class ContentDatabase {
             Type listType = new TypeToken<List<Content>>() {
             }.getType();
             this.contents = gson.fromJson(reader, listType);
+            Collections.reverse(this.contents);
             if (this.contents == null) {
                 this.contents = new ArrayList<>();
             }

@@ -26,7 +26,6 @@ public class UserRepository {
             Type userListType = new TypeToken<List<User>>() {
             }.getType();
             userList = gson.fromJson(reader, userListType);
-
             if (userList == null) {
                 userList = new ArrayList<>();
             }

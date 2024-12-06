@@ -12,7 +12,6 @@ public class FriendsList {
 
     public void blockFriend(User user1, User user2) {// second parameter going to be the user wants to block
         RelationshipManager.setRelationship(user1, user2, RelationshipStatus.BLOCKED);
-
         user1.addBlock(user2.getUserId());
         user1.removeFriend(user2.getUserId());
         user2.removeFriend(user1.getUserId());

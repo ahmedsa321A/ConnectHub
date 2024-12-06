@@ -38,8 +38,12 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
         
         JLabel nameLabel = new JLabel(suggest.getUsername());
         
-        JButton addButton = new JButton("Add Friend");
-        JButton removeButton = new JButton("Remove");
+            JButton addButton = new JButton("Add Friend");
+            addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend.png")));
+            addButton.setText("Add Friend");
+            JButton removeButton = new JButton("Remove");
+            removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/trash.png")));
+            removeButton.setText("Remove");
 
         addButton.addActionListener(new ActionListener() {
             @Override

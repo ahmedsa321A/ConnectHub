@@ -3,8 +3,6 @@ package Front__end;
 import Back__end.Photo;
 import Back__end.User;
 import Back__end.UserRepository;
-import Back__end.userService;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;

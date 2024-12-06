@@ -44,8 +44,9 @@ public class BlockedUsersGUI extends FriendsParentGUI {
         
         JLabel nameLabel = new JLabel(blocked.getUsername());
         
-        JButton UnblockButton = new JButton("Unblock");
-
+        JButton UnblockButton = new JButton("Unblock"); 
+            UnblockButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/unblock.png"))); 
+            UnblockButton.setText("Unblock");
         
         UnblockButton.addActionListener(new ActionListener() {
             @Override
