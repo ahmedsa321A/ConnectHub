@@ -36,18 +36,22 @@
     "bio": ""
   },
   {
-    "FriendsId": [],
+    "FriendsId": [
+      "5c94be86-845d-4ead-9ec2-e6857f299e88"
+    ],
     "requestsReceived": [],
-    "suggestions": [],
+    "suggestions": [
+      "c0ccd154-da22-4c1f-b962-1387415fb022"
+    ],
     "blocked": [],
     "userId": "00e38f9f-8445-46e3-9b34-3768c5f6eaf3",
     "email": "hazem@gmail.com",
     "username": "hazem",
-    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "password": "0ec8868506739fbb26c28621369e25a5cdca1dc2",
     "dateOfBirth": "2024-12-04",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
+    "status": "online",
+    "profilePhotoPath": "/Users/hazembarakat/Downloads/facebook+pencil+write+post+icon-1320166641210096755-2.png",
+    "coverPhotoPath": "/Users/hazembarakat/Downloads/552486.png",
+    "bio": "ana zoma"
   }
 ]
