@@ -58,9 +58,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="refresh" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="profile" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="stories" min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="376" max="-2" attributes="0"/>

@@ -5,6 +5,7 @@ import Back__end.BlockedFriends;
 import Back__end.User;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -35,10 +36,15 @@ public class BlockedUsersGUI extends FriendsParentGUI {
     protected JPanel createUserPanel(User blocked) {
         JPanel blockedPanel = new JPanel();
         blockedPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); 
-        
         JLabel photoLabel = new JLabel();
-        ImageIcon photoIcon = loadImageIcon(blocked.getProfilePhotoPath());
-        photoLabel.setIcon(photoIcon);
+         String path=blocked.getProfilePhotoPath();
+        ImageIcon imageicon;
+        if(path.equals("")) imageicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+        else imageicon = loadImageIcon(path);
+                Image image = imageicon.getImage();
+                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
+        ImageIcon imgicon = new ImageIcon(resizedImage);
+        photoLabel.setIcon(imgicon);
         photoLabel.setPreferredSize(new Dimension(50, 50)); 
 
         

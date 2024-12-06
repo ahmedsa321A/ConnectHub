@@ -1,8 +1,10 @@
+package Back__end;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Back__end;
+
 
 //import static Back__end.userService.getPathAndName;
 import java.awt.BorderLayout;
@@ -107,23 +109,29 @@ public class ContentService {
         JLabel imageLabell = new JLabel(imgicon);
 
         // Create a JLabel for the text
-        JLabel textLabel = new JLabel(name);
-
+        JLabel textLabel=new JLabel();
+        textLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 20));
+        textLabel.setText("<html><b>" + name + "</b></html>");
+        
         // Add the image label and text label to the panel
         authorPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         authorPanel.add(imageLabell);
         authorPanel.add(textLabel);
 
-        JLabel contentText = new JLabel("<html><b>" + content.getContentText() + "</b></html>");
+        JLabel contentText = new JLabel();
+        contentText.setFont(new java.awt.Font("Plain", 0, 18));
+        contentText.setText(content.getContentText());
         String[] date = content.getTimestamp().split("T");
         String Date = date[0];
         LocalDate D = LocalDate.parse(Date, DateTimeFormatter.ISO_DATE);
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         String formattedDate = D.format(outputFormatter);
-        JLabel timestamp = new JLabel(formattedDate);
-
+        JLabel timestamp = new JLabel();
+        timestamp.setFont(new java.awt.Font("Plain", 0, 16));
+        timestamp.setText(formattedDate);
         // Arrange text in a vertical panel 
         JPanel textPanel = new JPanel();
+        
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
         textPanel.add(contentText);
         textPanel.add(timestamp);
@@ -139,7 +147,7 @@ public class ContentService {
         contentPanel.add(authorPanel, BorderLayout.NORTH);
         contentPanel.add(textPanel, BorderLayout.CENTER);
         contentPanel.add(imageLabel, BorderLayout.SOUTH);
-        panel.add(contentPanel, BorderLayout.CENTER);
+        panel.add(contentPanel, BorderLayout.NORTH);
 
         return panel;
     }

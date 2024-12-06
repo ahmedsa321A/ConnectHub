@@ -1,7 +1,7 @@
 package Front__end;
 
-import Back__end.ContentDatabase;
 import Back__end.ContentService;
+import Back__end.ContentDatabase;
 import Back__end.FriendLoader;
 import Back__end.FriendSuggestion;
 import Back__end.RelationshipManager;
@@ -176,7 +176,6 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             addButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(userService.getUser(id).getReceivedRequests());
                     new FriendSuggestion().acceptSuggestion(user, userService.getUser(id));
                     UserRepository.saveData();
 
@@ -418,9 +417,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                         .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(65, 65, 65)
                         .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(65, 65, 65)
                         .addComponent(stories, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,7 +509,10 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_profileActionPerformed
 
     private void storiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storiesActionPerformed
-        StoriesGui post = new StoriesGui(user);
+        db.loadContent();
+        db.deleteExpiredStories();
+        db.saveContent();
+        StoriesGui stories = new StoriesGui(user);
         this.dispose();
     }//GEN-LAST:event_storiesActionPerformed
 

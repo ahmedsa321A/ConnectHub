@@ -1,5 +1,6 @@
 package Front__end;
 
+import Back__end.ContentService;
 import Back__end.Photo;
 import Back__end.User;
 import Back__end.UserRepository;
@@ -39,12 +40,12 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void refresh() {
         if (!profile.getProfilePhotoPath().equals("")) {
-            Photo.setPhoto(profilePictureLabel,profile.getCoverPhotoPath() );
+            Photo.setPhoto(profilePhotoLabel,profile.getProfilePhotoPath() );
 
         }
         if (!profile.getCoverPhotoPath().equals("")) {
-            Photo.setPhoto(coverPhotoLabel,  profile.getProfilePhotoPath());
-        }
+            Photo.setPhoto(coverPictureLabel, profile.getCoverPhotoPath() );
+        } 
         bioTextArea.setText(profile.getBio());
     }
 
@@ -71,14 +72,14 @@ public class ProfileWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         friendsLabel = new javax.swing.JLabel();
-        profilePictureLabel = new javax.swing.JLabel();
+        coverPictureLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         postsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        coverPhotoLabel = new javax.swing.JLabel();
+        profilePhotoLabel = new javax.swing.JLabel();
         editButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         friendsTable = new javax.swing.JTable();
@@ -93,7 +94,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         friendsLabel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         friendsLabel.setText("Friends");
 
-        profilePictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noimage.png"))); // NOI18N
+        coverPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noimage.png"))); // NOI18N
 
         javax.swing.GroupLayout postsPanelLayout = new javax.swing.GroupLayout(postsPanel);
         postsPanel.setLayout(postsPanelLayout);
@@ -120,7 +121,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setText("Bio");
 
-        coverPhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"))); // NOI18N
+        profilePhotoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"))); // NOI18N
 
         editButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
@@ -180,11 +181,11 @@ public class ProfileWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(67, 67, 67)
-                        .addComponent(profilePictureLabel))
+                        .addComponent(coverPictureLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(71, 71, 71)
-                        .addComponent(coverPhotoLabel))
+                        .addComponent(profilePhotoLabel))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(friendsLabel)
@@ -226,9 +227,9 @@ public class ProfileWindow extends javax.swing.JFrame {
                                 .addGap(118, 118, 118)
                                 .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(coverPhotoLabel)
+                                .addComponent(profilePhotoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(profilePictureLabel)))))
+                                .addComponent(coverPictureLabel)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
@@ -268,7 +269,7 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Back__end.MyTextArea bioTextArea;
-    private javax.swing.JLabel coverPhotoLabel;
+    private javax.swing.JLabel coverPictureLabel;
     private javax.swing.JButton editButton;
     private javax.swing.JLabel friendsLabel;
     private javax.swing.JTable friendsTable;
@@ -281,6 +282,6 @@ public class ProfileWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private Back__end.MyButton myButton1;
     private javax.swing.JPanel postsPanel;
-    private javax.swing.JLabel profilePictureLabel;
+    private javax.swing.JLabel profilePhotoLabel;
     // End of variables declaration//GEN-END:variables
 }

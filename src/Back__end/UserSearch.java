@@ -9,7 +9,7 @@ public class UserSearch {
     public void setAllMap(ArrayList<User> userList) {
         if (userList != null) {
             for (User user : userList) {
-                //System.out.println(user.getUserId());
+              
                 userMap.put(user.getUserId(), user);
             }
         }

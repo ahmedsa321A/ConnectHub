@@ -226,14 +226,15 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_changePhotoButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        this.profile.setProfilePhotoPath(newPhotoPath);
-        this.profile.setCoverPhotoPath(  newCoverPath);
-        this.profile.setBio(bioTextArea2.getText());
+        User user=userService.getUser(this.profile.getUserId());
+        user.setProfilePhotoPath(newPhotoPath);
+        user.setCoverPhotoPath( newCoverPath);
+        user.setBio(bioTextArea2.getText());
         String hashedPassword;
         try {
             if (!this.newPassword.equals(this.profile.getPassword())) {
                 hashedPassword = userService.hashPassword(newPassword);
-                this.profile.setPassword(hashedPassword);
+                user.setPassword(hashedPassword);
             }
         } catch (NoSuchAlgorithmException ex) {
         }

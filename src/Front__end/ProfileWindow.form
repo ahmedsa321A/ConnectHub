@@ -33,12 +33,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="profilePictureLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="coverPictureLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Component id="coverPhotoLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="profilePhotoLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
@@ -92,9 +92,9 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="coverPhotoLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="profilePhotoLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="72" max="32767" attributes="0"/>
-                              <Component id="profilePictureLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="coverPictureLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -132,7 +132,7 @@
         <Property name="text" type="java.lang.String" value="Friends"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="profilePictureLabel">
+    <Component class="javax.swing.JLabel" name="coverPictureLabel">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/noimage.png"/>
@@ -192,7 +192,7 @@
         <Property name="text" type="java.lang.String" value="Bio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="coverPhotoLabel">
+    <Component class="javax.swing.JLabel" name="profilePhotoLabel">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/noprofile.png"/>
