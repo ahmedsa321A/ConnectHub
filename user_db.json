@@ -2,11 +2,14 @@
   {
     "FriendsId": [
       "77af362c-6043-4927-9fa5-34778369f903",
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
+    ],
+    "requestsReceived": [
+      "f8c5f5c7-1b2e-4757-9acf-0275bafed88f"
+    ],
+    "suggestions": [
       "40ece127-272c-4111-a8a8-bbd21950f861"
     ],
-    "requestsReceived": [],
-    "suggestions": [],
     "blocked": [],
     "userId": "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
     "email": "hazem@gmail.com",
@@ -22,7 +25,8 @@
     "FriendsId": [
       "77af362c-6043-4927-9fa5-34778369f903",
       "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
-      "40ece127-272c-4111-a8a8-bbd21950f861"
+      "40ece127-272c-4111-a8a8-bbd21950f861",
+      "f8c5f5c7-1b2e-4757-9acf-0275bafed88f"
     ],
     "requestsReceived": [],
     "suggestions": [],
@@ -59,11 +63,12 @@
   {
     "FriendsId": [
       "77af362c-6043-4927-9fa5-34778369f903",
-      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
       "f97b89b5-7a57-4b14-b128-072c4d643f0c"
     ],
     "requestsReceived": [],
-    "suggestions": [],
+    "suggestions": [
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9"
+    ],
     "blocked": [],
     "userId": "40ece127-272c-4111-a8a8-bbd21950f861",
     "email": "adham@gmail.com",
@@ -72,6 +77,27 @@
     "dateOfBirth": "2004-08-17",
     "status": "offline",
     "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/ziko.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
+    ],
+    "requestsReceived": [],
+    "suggestions": [
+      "77af362c-6043-4927-9fa5-34778369f903",
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "blocked": [],
+    "userId": "f8c5f5c7-1b2e-4757-9acf-0275bafed88f",
+    "email": "a@gmail.com",
+    "username": "a",
+    "password": "7c222fb2927d828af22f592134e8932480637c0d",
+    "dateOfBirth": "2000-12-02",
+    "status": "offline",
+    "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
   }

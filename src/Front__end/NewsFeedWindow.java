@@ -146,25 +146,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                 nopath = true;
             }
             JPanel Panel = new JPanel();
+            Panel.setLayout(null);
             Panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            ImageIcon imgicon = null;
-            try {
-                if (nopath) {
-                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-                } else {
-                    imgicon = new ImageIcon(photoPath);
-                }
-                Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-                imgicon = new ImageIcon(resizedImage);
-            } catch (Exception e) {
-            }
-            JLabel imageLabell = new JLabel(imgicon);
+            ImageIcon imgicon = new userService().saveImageIconProfile(data.get(1));
+            JLabel imageLabel = new JLabel(imgicon);
             JLabel nameLabel = new JLabel(name);
-
-            Panel.add(imageLabell);
+            Panel.add(imageLabel);
             Panel.add(nameLabel);
-
             JButton addButton = new JButton("Add Friend");
             addButton = new javax.swing.JButton();
             addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend.png"))); // NOI18N
@@ -368,7 +356,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         friendListPanel.setLayout(friendListPanelLayout);
         friendListPanelLayout.setHorizontalGroup(
             friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
+            .addGap(0, 317, Short.MAX_VALUE)
         );
         friendListPanelLayout.setVerticalGroup(
             friendListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,14 +420,14 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 10, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(25, 25, 25)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );

@@ -91,21 +91,7 @@ public class ContentService {
         JPanel authorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         // Load the image and create a JLabel for it
-        ImageIcon imgicon = null;
-        try {
-
-            if (nopath) {
-                imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-            } else {
-                imgicon = new ImageIcon(photoPath);
-            }
-            Image image = imgicon.getImage();
-            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
-            imgicon = new ImageIcon(resizedImage);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } // Replace with your image path
+        ImageIcon imgicon = new userService().saveImageIconProfile(userandpath.get(1));
         JLabel imageLabell = new JLabel(imgicon);
 
         // Create a JLabel for the text

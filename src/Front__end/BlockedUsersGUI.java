@@ -3,6 +3,7 @@ package Front__end;
 
 import Back__end.BlockedFriends;
 import Back__end.User;
+import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -38,13 +39,8 @@ public class BlockedUsersGUI extends FriendsParentGUI {
         blockedPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); 
         JLabel photoLabel = new JLabel();
          String path=blocked.getProfilePhotoPath();
-        ImageIcon imageicon;
-        if(path.equals("")) imageicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-        else imageicon = loadImageIcon(path);
-                Image image = imageicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-        ImageIcon imgicon = new ImageIcon(resizedImage);
-        photoLabel.setIcon(imgicon);
+        ImageIcon imageicon=new userService().saveImageIconProfile(path);
+        photoLabel.setIcon(imageicon);
         photoLabel.setPreferredSize(new Dimension(50, 50)); 
 
         

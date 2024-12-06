@@ -42,7 +42,21 @@ public class userService {
         }
         return icon;
     }
-    
+    public ImageIcon saveImageIconProfile(String photoPath)
+    {
+        ImageIcon imgicon;
+        if (photoPath.equals("")) {
+                imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png")); 
+            }
+        else
+        {
+             imgicon = new ImageIcon(photoPath);
+        }
+        Image image = imgicon.getImage();
+        Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
+        imgicon = new ImageIcon(resizedImage);
+        return imgicon;
+    }
 
     public static String getStatusofUser(String name) {
         UserRepository.loadUsersFromJson();
