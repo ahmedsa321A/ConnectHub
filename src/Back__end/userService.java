@@ -12,10 +12,9 @@ import javax.swing.ImageIcon;
 
 public class userService {
 
-    private static final String DATABASE_FILE = "user_db.json";
-
-    //public static ArrayList<User> userList = new ArrayList<>();
-    //static ContentDatabase content = new ContentDatabase();
+//manages user operations and validations     
+    
+  private static final String DATABASE_FILE = "user_db.json";
 
     public static boolean checkIfUserExists(String email) {
 
@@ -35,7 +34,7 @@ public class userService {
         try {
             icon = new ImageIcon(photoPath);
             Image image = icon.getImage();
-            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
+            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); 
             icon = new ImageIcon(resizedImage);
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,12 +88,12 @@ public class userService {
         if (!checkIfUserExists(user.getEmail())) {
             UserRepository.userList.add(user); // Add the new user to the list
         }
-        Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Enable pretty printing
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         String json = gson.toJson(UserRepository.userList); // Convert the list to JSON
 
         try (FileWriter writer = new FileWriter(DATABASE_FILE)) {
-            writer.write(json); // Save the JSON to the file
+            writer.write(json); // Save the json to the file
         } catch (IOException e) {
             e.printStackTrace();
         }

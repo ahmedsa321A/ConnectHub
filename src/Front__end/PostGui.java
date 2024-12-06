@@ -10,8 +10,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -23,12 +21,6 @@ public class PostGui extends javax.swing.JFrame {
     ContentDatabase db = ContentDatabase.getInstance();
     public PostGui(User user) {
         initComponents();
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
-            }
-        });
         this.user=user;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
@@ -234,7 +226,7 @@ public class PostGui extends javax.swing.JFrame {
     }//GEN-LAST:event_addphotoActionPerformed
 
     private void posttextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_posttextFocusGained
-        if (posttext.getText().equals("Write Here.....")) {
+        if (posttext.getText().equals("Write Here.....")) { //when focus gained
             posttext.setText(null);
             posttext.requestFocus();
             removePlaceholderStyle(posttext);
@@ -242,7 +234,7 @@ public class PostGui extends javax.swing.JFrame {
     }//GEN-LAST:event_posttextFocusGained
 
     private void posttextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_posttextFocusLost
-        if (posttext.getText().length() == 0) {
+        if (posttext.getText().length() == 0) { //focus lost
             addPlaceholderStyle(posttext);
             posttext.setText("Write Here.....");
 
