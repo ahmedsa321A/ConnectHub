@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.UUID;
 import javax.swing.ImageIcon;
 
 public class userService {
