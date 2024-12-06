@@ -204,7 +204,7 @@ public class StoryGui extends javax.swing.JFrame {
     Content post = contentFactory.createContent(user.getUserId(), text, photopath, true);
             db.addContent(post);
             db.saveContent();
-            JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Story Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_publishActionPerformed
 

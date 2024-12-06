@@ -58,16 +58,14 @@ public class ContentService {
         return posts;
     }
 
-    public static ArrayList<JPanel> getStoriesOfFriends(User user) {
+    public static ArrayList<JPanel> getStoriesOfFriend(String freindid) {
         ArrayList<JPanel> stories = new ArrayList<>();
         content.loadContent();
-        for (String id : user.getFriendsIdArray()) {
+        
             for (Content c : content.getContents()) {
-                if (c.getAuthorId().equals(id) && c.isStory()) {
+                if (c.getAuthorId().equals(freindid) && c.isStory()) {
                     stories.add(new ContentService().createContentPanel(c));
                 }
-            }
-
         }
         return stories;
     }
@@ -150,5 +148,16 @@ public class ContentService {
         panel.add(contentPanel, BorderLayout.NORTH);
 
         return panel;
+    }
+     public static boolean haveStories(String id)
+    {
+         content.loadContent();
+        
+            for (Content c : content.getContents()) {
+                if (c.getAuthorId().equals(id) && c.isStory()) {
+                    return true;
+                    }
+                }
+        return false;
     }
 }

@@ -1,5 +1,13 @@
 [
   {
+    "contentId": "cea83463-f660-490d-bcab-f286a4470483",
+    "authorId": "77af362c-6043-4927-9fa5-34778369f903",
+    "contentText": "ana bigooo",
+    "imagePath": "/Users/hazembarakat/Downloads/214735-200.png",
+    "timestamp": "2024-12-06T22:50:26.489387",
+    "isStory": true
+  },
+  {
     "contentId": "5d74c3bf-faa1-426c-a4b3-5659a29410c1",
     "authorId": "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
     "contentText": "hey from story",
@@ -50,5 +58,13 @@
     "contentText": "i love banans",
     "timestamp": "2024-12-06T16:16:25.6035363",
     "isStory": false
+  },
+  {
+    "contentId": "d77e99f8-c74e-4dc7-bc7d-3441943f31c2",
+    "authorId": "77af362c-6043-4927-9fa5-34778369f903",
+    "contentText": "ana bigooo",
+    "imagePath": "/Users/hazembarakat/Downloads/214735-200.png",
+    "timestamp": "2024-12-06T22:50:29.790072",
+    "isStory": true
   }
 ]
