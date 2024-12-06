@@ -55,6 +55,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         this.setVisible(true);
         UserRepository.loadUsersFromJson();
         this.user = userService.getUser(user.getUserId());
+        db.loadContent();
+        db.deleteExpiredStories();
+        ContentDatabase.getInstance().saveContent();
         UserRepository.saveData();
         reloadSuggestionsStatus();
         showPosts(user);
@@ -210,7 +213,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         UserRepository.loadUsersFromJson();
         user = userService.getUser(user.getUserId());
         FriendLoader load = new FriendLoader();
-
+        
         java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {
         }.getType();
 
@@ -509,6 +512,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         db.loadContent();
         db.deleteExpiredStories();
+        ContentDatabase.getInstance().saveContent();
         UserRepository.loadUsersFromJson();
         this.user = userService.getUser(user.getUserId());
         UserRepository.saveData();
