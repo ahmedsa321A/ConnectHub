@@ -36,10 +36,13 @@
   },
   {
     "FriendsId": [
-      "c0ccd154-da22-4c1f-b962-1387415fb022"
+      "c0ccd154-da22-4c1f-b962-1387415fb022",
+      "46fa76ce-d644-4a7a-a912-77a0769a4da5"
     ],
     "requestsReceived": [],
-    "suggestions": [],
+    "suggestions": [
+      "79f9eab3-d6fb-4035-8b8b-73d38087e0ed"
+    ],
     "blocked": [
       "5c94be86-845d-4ead-9ec2-e6857f299e88"
     ],
@@ -52,5 +55,41 @@
     "profilePhotoPath": "/Users/hazembarakat/Downloads/1828270.png",
     "coverPhotoPath": "/Users/hazembarakat/Downloads/250130-200.png",
     "bio": "zoma"
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "79f9eab3-d6fb-4035-8b8b-73d38087e0ed",
+    "email": "ah@gmail,com",
+    "username": "ana8reb",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-01",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
+    ],
+    "requestsReceived": [],
+    "suggestions": [
+      "c0ccd154-da22-4c1f-b962-1387415fb022",
+      "79f9eab3-d6fb-4035-8b8b-73d38087e0ed",
+      "5c94be86-845d-4ead-9ec2-e6857f299e88"
+    ],
+    "blocked": [],
+    "userId": "46fa76ce-d644-4a7a-a912-77a0769a4da5",
+    "email": "ah@gmail.com",
+    "username": "ana8ree2",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-01",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
   }
 ]

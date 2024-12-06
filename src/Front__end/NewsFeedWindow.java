@@ -69,11 +69,15 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             JPanel friendPanel = new JPanel();
             friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
             ImageIcon imgicon = null;
-            if(photoPath.equals("")) nopath=true;
+            if (photoPath.equals("")) {
+                nopath = true;
+            }
             try {
-                if(nopath) imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-                else
-                imgicon = new ImageIcon(photoPath);
+                if (nopath) {
+                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+                } else {
+                    imgicon = new ImageIcon(photoPath);
+                }
                 Image image = imgicon.getImage();
                 Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
                 imgicon = new ImageIcon(resizedImage);
@@ -86,7 +90,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             try {
                 User user = userService.getUser(friendId);
                 if (user.getStatus().equals("online")) {
-                    status =  new javax.swing.ImageIcon(getClass().getResource("/icons/online.png"));
+                    status = new javax.swing.ImageIcon(getClass().getResource("/icons/online.png"));
                 } else {
                     status = new javax.swing.ImageIcon(getClass().getResource("/icons/offline.png"));
                 }
@@ -135,15 +139,21 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         ArrayList<String> friendsSuggestionIdList = (ArrayList<String>) user.getSuggestions();
         for (String id : friendsSuggestionIdList) {
             ArrayList<String> data = userService.getPathAndName(id);
-
+            boolean nopath = false;
             String name = data.get(0);
             String photoPath = data.get(1);
-
+            if (photoPath.equals("")) {
+                nopath = true;
+            }
             JPanel Panel = new JPanel();
             Panel.setLayout(new FlowLayout(FlowLayout.LEFT));
             ImageIcon imgicon = null;
             try {
-                imgicon = new ImageIcon(photoPath);
+                if (nopath) {
+                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+                } else {
+                    imgicon = new ImageIcon(photoPath);
+                }
                 Image image = imgicon.getImage();
                 Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
                 imgicon = new ImageIcon(resizedImage);
@@ -156,8 +166,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             Panel.add(nameLabel);
 
             JButton addButton = new JButton("Add Friend");
+            addButton = new javax.swing.JButton();
+            addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend.png"))); // NOI18N
+            addButton.setText("Add Friend");
             JButton removeButton = new JButton("Remove");
-
+            removeButton = new javax.swing.JButton();
+            removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/removefriend.png"))); // NOI18N
+            removeButton.setText("Remove");
             addButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -493,7 +508,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        user=userService.getUser(user.getUserId());
+        user = userService.getUser(user.getUserId());
         user.setStatus("offline");
         UserRepository.saveData();
         for (Window window : Window.getWindows()) {
