@@ -26,7 +26,6 @@ public class FriendsListGUI extends FriendsParentGUI {
    @Override
     protected void populateUserList() {
         List<String> friends = currentUser.getFriendsIdArray(); 
-
         for (String friendId : friends) {
             User friend=userSearch.getUserById(friendId);
             userPanel.add(createUserPanel(friend)); 
@@ -39,18 +38,10 @@ public class FriendsListGUI extends FriendsParentGUI {
         friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); 
         JLabel photoLabel = new JLabel();
         String path=friend.getProfilePhotoPath();
-        ImageIcon imageicon;
-        if(path.equals("")) imageicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-        else imageicon = loadImageIcon(path);
-                Image image = imageicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-        ImageIcon imgicon = new ImageIcon(resizedImage);
-        photoLabel.setIcon(imgicon);
-        photoLabel.setPreferredSize(new Dimension(50, 50)); 
-
-        
-        JLabel nameLabel = new JLabel(friend.getUsername());
-        
+        ImageIcon imageicon=new userService().saveImageIconProfile(path);
+        photoLabel.setIcon(imageicon);
+        photoLabel.setPreferredSize(new Dimension(50, 50));
+        JLabel nameLabel = new JLabel(friend.getUsername());  
         JButton removeButton = new JButton("Remove");
         removeButton = new javax.swing.JButton();
             removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancel.png"))); // NOI18N

@@ -31,19 +31,11 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
     protected JPanel createUserPanel(User suggest) {
       JPanel suggestPanel = new JPanel();
         suggestPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); 
-        
         JLabel photoLabel = new JLabel();
-        
          String path=suggest.getProfilePhotoPath();
-        ImageIcon imageicon;
-        if(path.equals("")) imageicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-        else imageicon = loadImageIcon(path);
-                Image image = imageicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-        ImageIcon imgicon = new ImageIcon(resizedImage);
-        photoLabel.setIcon(imgicon);
-        photoLabel.setPreferredSize(new Dimension(50, 50)); 
-        
+        ImageIcon imageicon=new userService().saveImageIconProfile(path);
+        photoLabel.setIcon(imageicon);
+        photoLabel.setPreferredSize(new Dimension(50, 50));
         
         JLabel nameLabel = new JLabel(suggest.getUsername());
         

@@ -68,27 +68,11 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
             String name = friendData.get(0);
             String photoPath = friendData.get(1);
-            boolean nopath = false;
             JPanel friendPanel = new JPanel();
             friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            ImageIcon imgicon = null;
-            if (photoPath.equals("")) {
-                nopath = true;
-            }
-            try {
-                if (nopath) {
-                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-                } else {
-                    imgicon = new ImageIcon(photoPath);
-                }
-                Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-                imgicon = new ImageIcon(resizedImage);
-            } catch (Exception e) {
-            }
+            ImageIcon imgicon = new userService().saveImageIconProfile(photoPath);
             JLabel imageLabell = new JLabel(imgicon);
             JLabel nameLabel = new JLabel(name);
-
             ImageIcon status = null;
             try {
                 User user = userService.getUser(friendId);
@@ -103,11 +87,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             } catch (Exception e) {
             }
             JLabel statusLabel = new JLabel(status);
-
             friendPanel.add(imageLabell);
             friendPanel.add(nameLabel);
             friendPanel.add(statusLabel);
-
             friendListPanel.add(friendPanel);
 
         }
@@ -147,29 +129,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             boolean nopath = false;
             String name = data.get(0);
             String photoPath = data.get(1);
-            if (photoPath.equals("")) {
-                nopath = true;
-            }
             JPanel Panel = new JPanel();
             Panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            ImageIcon imgicon = null;
-            try {
-                if (nopath) {
-                    imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
-                } else {
-                    imgicon = new ImageIcon(photoPath);
-                }
-                Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
-                imgicon = new ImageIcon(resizedImage);
-            } catch (Exception e) {
-            }
+           ImageIcon imgicon = new userService().saveImageIconProfile(photoPath);
             JLabel imageLabell = new JLabel(imgicon);
             JLabel nameLabel = new JLabel(name);
-
             Panel.add(imageLabell);
             Panel.add(nameLabel);
-
             JButton addButton = new JButton("Add Friend");
             addButton = new javax.swing.JButton();
             addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend.png"))); // NOI18N
@@ -510,9 +476,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
 
         UserRepository.loadUsersFromJson();
-
         this.user = userService.getUser(user.getUserId());
-
         ProfileWindow profile = new ProfileWindow(this.user);
         this.dispose();
     }//GEN-LAST:event_profileActionPerformed
