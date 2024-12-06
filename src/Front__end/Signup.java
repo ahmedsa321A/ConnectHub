@@ -1,8 +1,11 @@
 package Front__end;
 
+import Back__end.UserRepository;
 import Back__end.userService;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +20,12 @@ public class Signup extends javax.swing.JFrame {
 
     public Signup() {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                   instance=null;
+            }
+        });
         addPlaceholderStyle(emailtext);
         addPlaceholderStyle(password);
         addPlaceholderStyle(password2);

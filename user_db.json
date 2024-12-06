@@ -39,7 +39,9 @@
       "c0ccd154-da22-4c1f-b962-1387415fb022",
       "46fa76ce-d644-4a7a-a912-77a0769a4da5"
     ],
-    "requestsReceived": [],
+    "requestsReceived": [
+      "be0b7b61-1b09-4f2f-b524-127150a95e60"
+    ],
     "suggestions": [
       "79f9eab3-d6fb-4035-8b8b-73d38087e0ed"
     ],
@@ -58,7 +60,9 @@
   },
   {
     "FriendsId": [],
-    "requestsReceived": [],
+    "requestsReceived": [
+      "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
+    ],
     "suggestions": [],
     "blocked": [],
     "userId": "79f9eab3-d6fb-4035-8b8b-73d38087e0ed",
@@ -85,6 +89,26 @@
     "userId": "46fa76ce-d644-4a7a-a912-77a0769a4da5",
     "email": "ah@gmail.com",
     "username": "ana8ree2",
+    "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+    "dateOfBirth": "2024-12-01",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [
+      "46fa76ce-d644-4a7a-a912-77a0769a4da5",
+      "c0ccd154-da22-4c1f-b962-1387415fb022",
+      "79f9eab3-d6fb-4035-8b8b-73d38087e0ed",
+      "5c94be86-845d-4ead-9ec2-e6857f299e88"
+    ],
+    "blocked": [],
+    "userId": "be0b7b61-1b09-4f2f-b524-127150a95e60",
+    "email": "b@gmail.com",
+    "username": "bigadel3rs",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-01",
     "status": "offline",

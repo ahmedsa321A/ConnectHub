@@ -46,8 +46,13 @@ public class FriendsListGUI extends FriendsParentGUI {
         JLabel nameLabel = new JLabel(friend.getUsername());
         
         JButton removeButton = new JButton("Remove");
+        removeButton = new javax.swing.JButton();
+            removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancel.png"))); // NOI18N
+            removeButton.setText("Remove");
         JButton blockButton = new JButton("Block");
-
+        blockButton = new javax.swing.JButton();
+            blockButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/removefriend.png"))); // NOI18N
+            blockButton.setText("Block");
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

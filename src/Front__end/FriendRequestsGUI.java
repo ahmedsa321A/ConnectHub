@@ -43,8 +43,14 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         JLabel nameLabel = new JLabel(request.getUsername());
         
         JButton acceptButton = new JButton("Accept");
+       
+            acceptButton = new javax.swing.JButton();
+            acceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/accept.png"))); // NOI18N
+            acceptButton.setText("Accept");
+            
         JButton declineButton = new JButton("Decline");
-
+            declineButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancel.png"))); // NOI18N
+            declineButton.setText("Decline");
         acceptButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
