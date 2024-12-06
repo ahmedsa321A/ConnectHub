@@ -127,6 +127,8 @@ public class ChangePasswordWindow extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Wrong Password!","ERROR", JOptionPane.ERROR_MESSAGE);
         } else if (newPasswordField.getText().equals(oldPasswordField.getText())&&oldhashed.equals(this.oldPassword)){
             JOptionPane.showMessageDialog(this, "Cannot Change Password To The Old One!","ERROR", JOptionPane.ERROR_MESSAGE);
+        } else if (newPasswordField.getText().length() < 8) {
+        JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long!", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else{
             this.newPassword=this.newPasswordField.getText();
             JOptionPane.showMessageDialog(this, "Password has changed Successfully ","Successful", JOptionPane.INFORMATION_MESSAGE);
