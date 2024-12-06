@@ -9,14 +9,11 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ahmed
- */
+//concrete factory to implement abstract factory
 public class ConcreteFactory implements AbstractFactory {
         public User createUser(String email, String username, String password, String dateOfBirth){
         String userId = UUID.randomUUID().toString();
-            try {
+            try {//using builder design pattern to build easier than complex constructor
                 return new User.Builder(userId, email)
                         .setUsername(username)
                         .setPassword(userService.hashPassword(password))
@@ -30,7 +27,8 @@ public class ConcreteFactory implements AbstractFactory {
     }
 
     @Override
-    public Content createContent(String userId, String text, String photoPath, boolean isStory) {
+    public Content createContent(String userId, String text, String photoPath, boolean isStory) 
+    {//for different type of contents
         String contentId = UUID.randomUUID().toString();
 
         return new Content.ContentBuilder(contentId, userId)

@@ -1,7 +1,6 @@
 
 package Front__end;
 
-import Back__end.ContentService;
 import Back__end.User;
 import java.awt.Dimension;
 import java.awt.Toolkit;

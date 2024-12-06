@@ -20,10 +20,10 @@ public class ContentDatabase {
     private static ContentDatabase instance;
     
     private  ContentDatabase() {
-        loadContent(); // Load content from JSON file
-        deleteExpiredStories(); // auto delete expire stories
+        loadContent(); // Load content from json file
+        deleteExpiredStories(); // delete expire stories
     }
-     public static ContentDatabase getInstance() {
+     public static ContentDatabase getInstance() {//using singelton for accesing database globally
         if (instance == null) {
                instance = new ContentDatabase();
             }
@@ -40,7 +40,7 @@ public class ContentDatabase {
                 this.contents = new ArrayList<>();
             }
         } catch (FileNotFoundException e) {
-            this.contents = new ArrayList<>(); // Return an empty list if the file doesn't exist
+            this.contents = new ArrayList<>(); //return an empty list if the file doesn't exist
         } catch (IOException e) {
             e.printStackTrace();
             this.contents = new ArrayList<>();
@@ -60,7 +60,7 @@ public class ContentDatabase {
         this.contents.add(content);
     }
 
-    public void deleteExpiredStories() {
+    public void deleteExpiredStories() {//delete story if 24 hrs passed
         LocalDateTime now = LocalDateTime.now();
         this.contents.removeIf(content -> content.isStory()
                 && LocalDateTime.parse(content.getTimestamp(), DateTimeFormatter.ISO_DATE_TIME)

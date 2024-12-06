@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RelationshipManager {
+    //manages relationships between users and eachothers
     private static RelationshipManager instance;
     private static Map<String, Relationship> relationships = new HashMap<>();
 
@@ -21,6 +22,7 @@ public class RelationshipManager {
     }
 
     private static String generateKey(User user1, User user2) {
+        //generates unique key for each relationship
         return user1.getUserId().compareTo(user2.getUserId()) < 0
             ? user1.getUserId() + "-" + user2.getUserId()
             : user2.getUserId() + "-" + user1.getUserId();

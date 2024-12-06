@@ -17,7 +17,7 @@ import javax.swing.JPasswordField;
  * @author hazembarakat
  */
 public class MyPasswordField extends JPasswordField{
-    
+    //for prefix and suffix for password
     public Icon getPrefixIcon() {
         return prefixIcon;
     }
