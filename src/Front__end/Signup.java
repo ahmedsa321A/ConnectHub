@@ -278,7 +278,7 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-        String username = usernametext.getText();
+        String username = usernametext.getText();  //sign up with validations
         char[] pass1 = password.getPassword();
         String password1 = new String(pass1);
         char[] pass2 = password2.getPassword(); // Second password field

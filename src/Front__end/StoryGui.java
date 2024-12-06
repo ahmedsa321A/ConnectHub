@@ -5,15 +5,12 @@ import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
 import Back__end.User;
-import Back__end.userService;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class StoryGui extends javax.swing.JFrame {
 
@@ -33,7 +30,7 @@ public class StoryGui extends javax.swing.JFrame {
         removeButton1.setVisible(false);
     }
 
-    public void addPlaceholderStyle(JTextArea areafield) {
+    public void addPlaceholderStyle(JTextArea areafield) { //enter text...
         Font font = areafield.getFont();
         font = font.deriveFont(Font.ITALIC);
         areafield.setFont(font);

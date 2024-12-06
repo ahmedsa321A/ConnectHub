@@ -6,15 +6,12 @@ import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
 import Back__end.User;
-import Back__end.userService;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class PostGui extends javax.swing.JFrame {
 
@@ -229,7 +226,7 @@ public class PostGui extends javax.swing.JFrame {
     }//GEN-LAST:event_addphotoActionPerformed
 
     private void posttextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_posttextFocusGained
-        if (posttext.getText().equals("Write Here.....")) {
+        if (posttext.getText().equals("Write Here.....")) { //when focus gained
             posttext.setText(null);
             posttext.requestFocus();
             removePlaceholderStyle(posttext);
@@ -237,7 +234,7 @@ public class PostGui extends javax.swing.JFrame {
     }//GEN-LAST:event_posttextFocusGained
 
     private void posttextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_posttextFocusLost
-        if (posttext.getText().length() == 0) {
+        if (posttext.getText().length() == 0) { //focus lost
             addPlaceholderStyle(posttext);
             posttext.setText("Write Here.....");
 

@@ -37,7 +37,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 user.setStatus("offline");
-                UserRepository.saveData();
+                UserRepository.saveData();//save on close
                 Login login = new Login();
             }
         });
@@ -56,6 +56,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void showFriendsList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
         for (String friendId : friendsIdList) {
+            //make panel for every friends
             ArrayList<String> friendData = userService.getPathAndName(friendId);
 
             String name = friendData.get(0);
@@ -67,7 +68,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             try {
                 imgicon = new ImageIcon(photoPath);
                 Image image = imgicon.getImage();
-                Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
+                Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 imgicon = new ImageIcon(resizedImage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -326,8 +327,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-        db.loadContent();
-        db.deleteExpiredStories();
+        db.loadContent(); //reload content
+        db.deleteExpiredStories(); //delete expired stories
         for (Window window : Window.getWindows()) {
             window.dispose();
         }
@@ -335,7 +336,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_homeActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        db.loadContent();
+        db.loadContent();       //refresh
         db.deleteExpiredStories();
         showFriendsList();
     }//GEN-LAST:event_refreshActionPerformed
@@ -378,7 +379,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_storyActionPerformed
 
     private void friendsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendsActionPerformed
-
+        //load friends
         FriendLoader load = new FriendLoader();
 
         java.lang.reflect.Type typeOfT = new TypeToken<List<User>>() {
@@ -395,7 +396,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             if (!user.getUserId().equals(otherUser.getUserId())) {
                 RelationshipStatus status = RelationshipManager.getRelationshipStatus(user, otherUser);
 
-                if (status == RelationshipStatus.NOT_FRIENDS) {
+                if (status == RelationshipStatus.NOT_FRIENDS) { //if user not friend, suggest
                     user.addSuggestion(otherUser.getUserId());
                 }
             }

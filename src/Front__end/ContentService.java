@@ -85,7 +85,7 @@ public class ContentService {
 
         JPanel authorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-        // Load the image and create a JLabel for it
+        // Load the image and create a label for it
         ImageIcon imgicon = null;
         try {
             imgicon = new ImageIcon(photoPath);
@@ -98,7 +98,7 @@ public class ContentService {
         JLabel imageLabell = new JLabel(imgicon);
         
 
-        // Create a JLabel for the text
+        // Create a label for the text
         JLabel textLabel = new JLabel(name);
 
         // Add the image label and text label to the panel
@@ -119,6 +119,7 @@ public class ContentService {
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
         textPanel.add(contentText);
         textPanel.add(timestamp);
+        
         // Image content
         ImageIcon icon = new ImageIcon(content.getImagePath());
         Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
