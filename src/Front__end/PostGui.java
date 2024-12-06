@@ -6,15 +6,14 @@ import Back__end.Content;
 import Back__end.ContentDatabase;
 import Back__end.Photo;
 import Back__end.User;
-import Back__end.userService;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.util.UUID;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class PostGui extends javax.swing.JFrame {
 
@@ -24,6 +23,12 @@ public class PostGui extends javax.swing.JFrame {
     ContentDatabase db = ContentDatabase.getInstance();
     public PostGui(User user) {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+            }
+        });
         this.user=user;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;

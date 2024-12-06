@@ -12,35 +12,34 @@
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-02",
     "status": "offline",
-    "profilePhotoPath": "C:\\Users\\adham\\Desktop\\noprofile.png",
-    "coverPhotoPath": "C:\\Users\\adham\\Desktop\\noimage.png",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
     "bio": ""
   },
   {
     "FriendsId": [
-      "5c94be86-845d-4ead-9ec2-e6857f299e88"
-    ],
-    "requestsReceived": [],
-    "suggestions": [
+      "5c94be86-845d-4ead-9ec2-e6857f299e88",
       "00e38f9f-8445-46e3-9b34-3768c5f6eaf3"
     ],
+    "requestsReceived": [],
+    "suggestions": [],
     "blocked": [],
     "userId": "c0ccd154-da22-4c1f-b962-1387415fb022",
     "email": "ahmed@gmail.com",
     "username": "ahmed",
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-02",
-    "status": "online",
+    "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
   },
   {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
+    "FriendsId": [
       "c0ccd154-da22-4c1f-b962-1387415fb022"
     ],
+    "requestsReceived": [],
+    "suggestions": [],
     "blocked": [
       "5c94be86-845d-4ead-9ec2-e6857f299e88"
     ],
@@ -50,8 +49,8 @@
     "password": "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
     "dateOfBirth": "2024-12-04",
     "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
+    "profilePhotoPath": "/Users/hazembarakat/Downloads/1828270.png",
+    "coverPhotoPath": "/Users/hazembarakat/Downloads/250130-200.png",
+    "bio": "zoma"
   }
 ]

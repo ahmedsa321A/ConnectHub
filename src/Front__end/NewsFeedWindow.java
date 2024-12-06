@@ -64,11 +64,14 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
             String name = friendData.get(0);
             String photoPath = friendData.get(1);
-
+            boolean nopath = false;
             JPanel friendPanel = new JPanel();
             friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
             ImageIcon imgicon = null;
+            if(photoPath.equals("")) nopath=true;
             try {
+                if(nopath) imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+                else
                 imgicon = new ImageIcon(photoPath);
                 Image image = imgicon.getImage();
                 Image resizedImage = image.getScaledInstance(35, 35, Image.SCALE_SMOOTH); // Resize to fit
@@ -82,9 +85,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             try {
                 User user = userService.getUser(friendId);
                 if (user.getStatus().equals("online")) {
-                    status = new ImageIcon("D:\\Studying\\Term 5\\Programming 2\\Labs\\Lab 9\\ConnectHub\\src\\icons\\online.png");
+                    status =  new javax.swing.ImageIcon(getClass().getResource("/icons/online.png"));
                 } else {
-                    status = new ImageIcon("D:\\Studying\\Term 5\\Programming 2\\Labs\\Lab 9\\ConnectHub\\src\\icons\\offline.png");
+                    status = new javax.swing.ImageIcon(getClass().getResource("/icons/offline.png"));
                 }
                 Image image = status.getImage();
                 Image resizedImage = image.getScaledInstance(7, 7, Image.SCALE_SMOOTH); // Resize to fit
@@ -489,6 +492,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_storiesActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        user=userService.getUser(user.getUserId());
         user.setStatus("offline");
         UserRepository.saveData();
         for (Window window : Window.getWindows()) {

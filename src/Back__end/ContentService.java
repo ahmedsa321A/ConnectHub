@@ -4,7 +4,6 @@
  */
 package Back__end;
 
-
 //import static Back__end.userService.getPathAndName;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -23,18 +22,25 @@ import javax.swing.JPanel;
  * @author ahmed
  */
 public class ContentService {
+
     static ContentDatabase content = ContentDatabase.getInstance();
-        public static ArrayList<JPanel> getPosts(User user) {
+
+    public ContentService() {
+    }
+    
+    public static ArrayList<JPanel> getPosts(User user) {
         content.loadContent();
         ArrayList<JPanel> posts = new ArrayList<>();
         for (Content c : content.getContents()) {
-            if (c.getAuthorId().equals(user.getUserId()) && !c.isStory()) { //change userid
-                posts.add(createContentPanel(c));
+            if (c.getAuthorId().equals(user.getUserId()) && !c.isStory()) {
+                posts.add(new ContentService().createContentPanel(c));
 
             }
         }
         return posts;
     }
+
+    
 
     public static ArrayList<JPanel> getPostOfFriends(User user) {
         ArrayList<JPanel> posts = new ArrayList<>();
@@ -42,7 +48,7 @@ public class ContentService {
         for (String id : user.getFriendsIdArray()) {
             for (Content c : content.getContents()) {
                 if (c.getAuthorId().equals(id) && !c.isStory()) {
-                    posts.add(createContentPanel(c));
+                    posts.add(new ContentService().createContentPanel(c));
                 }
             }
 
@@ -56,28 +62,28 @@ public class ContentService {
         for (String id : user.getFriendsIdArray()) {
             for (Content c : content.getContents()) {
                 if (c.getAuthorId().equals(id) && c.isStory()) {
-                    stories.add(createContentPanel(c));
+                    stories.add(new ContentService().createContentPanel(c));
                 }
             }
 
         }
         return stories;
     }
-        public static JPanel createContentPanel(Content content) {
+
+    private  JPanel createContentPanel(Content content) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        String nophotopath = "D:\\Studying\\Term 5\\Programming 2\\Labs\\Lab 9\\ConnectHub\\src\\icons\\noprofile.png";
+        boolean nopath = false;
         // Text content
         ArrayList<String> userandpath = userService.getPathAndName(content.getAuthorId());
-        
+
         String name = userandpath.get(0);
-        
         String photoPath = null;
-        if(!userandpath.get(1).equals("")){
-        photoPath = userandpath.get(1);
-        }else{
-            photoPath=nophotopath;
+        if (!userandpath.get(1).equals("")) {
+            photoPath = userandpath.get(1);
+        } else {
+            nopath = true;
         }
 
         JPanel authorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -85,15 +91,20 @@ public class ContentService {
         // Load the image and create a JLabel for it
         ImageIcon imgicon = null;
         try {
-            imgicon = new ImageIcon(photoPath);
+
+            if (nopath) {
+                imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+            } else {
+                imgicon = new ImageIcon(photoPath);
+            }
             Image image = imgicon.getImage();
             Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
             imgicon = new ImageIcon(resizedImage);
+
         } catch (Exception e) {
             e.printStackTrace();
         } // Replace with your image path
         JLabel imageLabell = new JLabel(imgicon);
-        
 
         // Create a JLabel for the text
         JLabel textLabel = new JLabel(name);
@@ -128,8 +139,6 @@ public class ContentService {
         contentPanel.add(authorPanel, BorderLayout.NORTH);
         contentPanel.add(textPanel, BorderLayout.CENTER);
         contentPanel.add(imageLabel, BorderLayout.SOUTH);
-
-        // Add combined panel to the main panel
         panel.add(contentPanel, BorderLayout.CENTER);
 
         return panel;

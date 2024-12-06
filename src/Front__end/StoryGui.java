@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -20,6 +22,12 @@ public class StoryGui extends javax.swing.JFrame {
     ContentDatabase db =ContentDatabase.getInstance();
     public StoryGui(User user) {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+            }
+        });
         this.user = user;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
