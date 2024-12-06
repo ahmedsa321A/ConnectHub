@@ -4,8 +4,6 @@ package Back__end;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 //import static Back__end.userService.getPathAndName;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -29,7 +27,7 @@ public class ContentService {
 
     public ContentService() {
     }
-    
+
     public static ArrayList<JPanel> getPosts(User user) {
         content.loadContent();
         ArrayList<JPanel> posts = new ArrayList<>();
@@ -41,8 +39,6 @@ public class ContentService {
         }
         return posts;
     }
-
-    
 
     public static ArrayList<JPanel> getPostOfFriends(User user) {
         ArrayList<JPanel> posts = new ArrayList<>();
@@ -61,16 +57,16 @@ public class ContentService {
     public static ArrayList<JPanel> getStoriesOfFriend(String freindid) {
         ArrayList<JPanel> stories = new ArrayList<>();
         content.loadContent();
-        
-            for (Content c : content.getContents()) {
-                if (c.getAuthorId().equals(freindid) && c.isStory()) {
-                    stories.add(new ContentService().createContentPanel(c));
-                }
+
+        for (Content c : content.getContents()) {
+            if (c.getAuthorId().equals(freindid) && c.isStory()) {
+                stories.add(new ContentService().createContentPanel(c));
+            }
         }
         return stories;
     }
 
-    private  JPanel createContentPanel(Content content) {
+    private JPanel createContentPanel(Content content) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -107,10 +103,10 @@ public class ContentService {
         JLabel imageLabell = new JLabel(imgicon);
 
         // Create a JLabel for the text
-        JLabel textLabel=new JLabel();
+        JLabel textLabel = new JLabel();
         textLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 20));
         textLabel.setText("<html><b>" + name + "</b></html>");
-        
+
         // Add the image label and text label to the panel
         authorPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         authorPanel.add(imageLabell);
@@ -129,7 +125,7 @@ public class ContentService {
         timestamp.setText(formattedDate);
         // Arrange text in a vertical panel 
         JPanel textPanel = new JPanel();
-        
+
         textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
         textPanel.add(contentText);
         textPanel.add(timestamp);
@@ -149,15 +145,15 @@ public class ContentService {
 
         return panel;
     }
-     public static boolean haveStories(String id)
-    {
-         content.loadContent();
-        
-            for (Content c : content.getContents()) {
-                if (c.getAuthorId().equals(id) && c.isStory()) {
-                    return true;
-                    }
-                }
+
+    public static boolean haveStories(String id) {
+        content.loadContent();
+
+        for (Content c : content.getContents()) {
+            if (c.getAuthorId().equals(id) && c.isStory()) {
+                return true;
+            }
+        }
         return false;
     }
 }

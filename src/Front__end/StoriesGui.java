@@ -1,4 +1,3 @@
-
 package Front__end;
 
 import Back__end.ContentService;
@@ -18,9 +17,10 @@ import javax.swing.JPanel;
 public class StoriesGui extends javax.swing.JFrame {
 
     private String id;
-    public StoriesGui(String  id) {
+
+    public StoriesGui(String id) {
         initComponents();
-        this.id=id;
+        this.id = id;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         int y = (screenSize.height - this.getHeight()) / 2;
@@ -47,12 +47,12 @@ public class StoriesGui extends javax.swing.JFrame {
         javax.swing.GroupLayout StoriesPanelLayout = new javax.swing.GroupLayout(StoriesPanel);
         StoriesPanel.setLayout(StoriesPanelLayout);
         StoriesPanelLayout.setHorizontalGroup(
-            StoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+                StoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 471, Short.MAX_VALUE)
         );
         StoriesPanelLayout.setVerticalGroup(
-            StoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+                StoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 607, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(StoriesPanel);
@@ -61,24 +61,25 @@ public class StoriesGui extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- private void showstories(String  id) {
-        ArrayList<JPanel> stories =  ContentService.getStoriesOfFriend(id);
+
+    private void showstories(String id) {
+        ArrayList<JPanel> stories = ContentService.getStoriesOfFriend(id);
         for (JPanel story : stories) {
             this.StoriesPanel.add(story);
         }
