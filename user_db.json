@@ -1,0 +1,78 @@
+[
+  {
+    "FriendsId": [
+      "77af362c-6043-4927-9fa5-34778369f903",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
+    "email": "hazem@gmail.com",
+    "username": "HazemBarakat",
+    "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
+    "dateOfBirth": "2004-10-14",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/hazem.jpg",
+    "coverPhotoPath": "",
+    "bio": "ana zoma"
+  },
+  {
+    "FriendsId": [
+      "77af362c-6043-4927-9fa5-34778369f903",
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+    "email": "ahmed@gmail.com",
+    "username": "AhmedSaied",
+    "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
+    "dateOfBirth": "2003-10-11",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/ahmed.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "77af362c-6043-4927-9fa5-34778369f903",
+    "email": "bigad@gmail.com",
+    "username": "BigadMohamed",
+    "password": "3fb6e47871331fa4340268e62b19ec42488bb451",
+    "dateOfBirth": "2004-08-04",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/bigad.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "77af362c-6043-4927-9fa5-34778369f903",
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "userId": "40ece127-272c-4111-a8a8-bbd21950f861",
+    "email": "adham@gmail.com",
+    "username": "AdhamZakaria",
+    "password": "8a2900e97760a6148f785356fe009102357b64f1",
+    "dateOfBirth": "2004-08-17",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/ziko.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  }
+]
