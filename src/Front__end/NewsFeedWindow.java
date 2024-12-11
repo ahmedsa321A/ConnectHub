@@ -3,8 +3,12 @@ package Front__end;
 import Back__end.ContentService;
 import Back__end.ContentDatabase;
 import Back__end.FriendLoader;
+import Back__end.FriendRequests;
 import Back__end.FriendSuggestion;
 import Back__end.MyButton;
+import Back__end.Notification;
+import Back__end.NotificationDatabase;
+import Back__end.NotificationService;
 import Back__end.RelationshipManager;
 import Back__end.RelationshipStatus;
 import Back__end.User;
@@ -14,6 +18,7 @@ import Back__end.userService;
 import com.google.gson.reflect.TypeToken;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Window;
@@ -21,6 +26,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +46,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     private User user;
     ContentDatabase db = ContentDatabase.getInstance();
-
+    NotificationDatabase ndb= NotificationDatabase.getInstance();
+    NotificationService ns=new NotificationService();
     public NewsFeedWindow(User user) {
         initComponents();
         addWindowListener(new WindowAdapter() {
@@ -45,23 +57,23 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                 User currentuser = userService.getUser(user.getUserId());
                 currentuser.setStatus("offline");
                 UserRepository.saveData();
+                ndb.savenotifications();
                 Login login = new Login();
             }
         });
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (screenSize.width - this.getWidth()) / 2;
-        int y = (screenSize.height - this.getHeight()) / 2;
-        this.setLocation(x, y);
+        
         this.setVisible(true);
         UserRepository.loadUsersFromJson();
         this.user = userService.getUser(user.getUserId());
         db.loadContent();
+        ndb.loadnotification();
         db.deleteExpiredStories();
         ContentDatabase.getInstance().saveContent();
         UserRepository.saveData();
         reloadSuggestionsStatus();
         showPosts(user);
         showFriendsList();
+        shownotification();
         showstoryList();
         showSuggestions();
         
@@ -98,6 +110,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             friendListPanel.add(friendPanel);
         }
     }
+   private void shownotification() {
+       
+       notificationcounter.setText(""+ndb.getnumberofnotification(user.getUserId()));
+       ns.creatfriendrequestnotification(notificationPanel, user.getUserId());
+        
+}
+
     private void showstoryList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
         for (String friendId : friendsIdList) {
@@ -135,9 +154,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         friendSuggestionPanel.revalidate();
         friendSuggestionPanel.repaint();
     }
-  
-       
-    
+
     public void showSuggestions() {
         UserRepository.loadUsersFromJson();
         user = userService.getUser(user.getUserId());
@@ -179,8 +196,10 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     new FriendSuggestion().acceptSuggestion(user, userService.getUser(id));
+                    Notification notification = new Notification(user.getUserId(),id);
+                    ndb.addnotification(notification);
+                    ndb.savenotifications();
                     UserRepository.saveData();
-
                     refreshUI();
                 }
             });
@@ -195,7 +214,6 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             });
             Panel.add(addButton);
             Panel.add(removeButton);
-
             friendSuggestionPanel.add(Panel);
 
         }
@@ -262,6 +280,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         storiesPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         notificationPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        notificationcounter = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -404,6 +424,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jLabel2.setText("My Friends");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/stories.png"))); // NOI18N
         jLabel3.setText("Stories");
 
         javax.swing.GroupLayout storiesPanelLayout = new javax.swing.GroupLayout(storiesPanel);
@@ -420,11 +441,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jScrollPane4.setViewportView(storiesPanel);
         storiesPanel.setLayout(new BoxLayout(storiesPanel, BoxLayout.X_AXIS));
 
+        notificationPanel.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+
         javax.swing.GroupLayout notificationPanelLayout = new javax.swing.GroupLayout(notificationPanel);
         notificationPanel.setLayout(notificationPanelLayout);
         notificationPanelLayout.setHorizontalGroup(
             notificationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 399, Short.MAX_VALUE)
         );
         notificationPanelLayout.setVerticalGroup(
             notificationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,20 +457,50 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jScrollPane5.setViewportView(notificationPanel);
         notificationPanel.setLayout(new BoxLayout(notificationPanel, BoxLayout.Y_AXIS));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/WhatsApp Image 2024-12-11 at 20.57.17-2.png")); // NOI18N
+        jLabel4.add(notificationcounter);
+        jLabel4.setText("Notifications");
+
+        notificationcounter.setBackground(new java.awt.Color(255, 255, 255));
+        notificationcounter.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        notificationcounter.setLabelFor(jLabel4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(455, 455, 455)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notificationcounter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(336, 336, 336))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(88, 88, 88))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,18 +510,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                         .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
                         .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(96, 96, 96))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)))))
+                        .addGap(51, 51, 51)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,6 +533,20 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -501,24 +557,17 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(profile, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(friends, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(post, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(91, 91, 91)
+                                        .addComponent(jLabel4))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(notificationcounter, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)))
+                                .addGap(25, 25, 25)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -538,14 +587,23 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         db.loadContent();
         db.deleteExpiredStories();
+        ndb.loadnotification();
         ContentDatabase.getInstance().saveContent();
         UserRepository.loadUsersFromJson();
         this.user = userService.getUser(user.getUserId());
         UserRepository.saveData();
         newsFeedPanel.removeAll();
+        notificationPanel.removeAll();
+        friendListPanel.removeAll();
         showPosts(user);
+        shownotification();
+        showFriendsList();
         newsFeedPanel.revalidate();
+        notificationPanel.revalidate();
+        friendListPanel.revalidate();
+        friendListPanel.repaint();
         newsFeedPanel.repaint();
+        notificationPanel.repaint();
     }//GEN-LAST:event_refreshActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
@@ -561,6 +619,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         user = userService.getUser(user.getUserId());
         user.setStatus("offline");
         UserRepository.saveData();
+        ndb.savenotifications();
         for (Window window : Window.getWindows()) {
             window.dispose();
         }
@@ -595,6 +654,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -604,6 +664,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private Back__end.MyButton logout;
     private javax.swing.JPanel newsFeedPanel;
     private javax.swing.JPanel notificationPanel;
+    private javax.swing.JLabel notificationcounter;
     private Back__end.MyButton post;
     private Back__end.MyButton profile;
     private Back__end.MyButton refresh;

@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,7 @@ public class NotificationDatabase {
     }
      public void loadnotification() {
         try (Reader reader = new FileReader(DATABASE_FILE)) {
-            Type listType = new TypeToken<List<Content>>() {
+            Type listType = new TypeToken<List<Notification>>() {
             }.getType();
             this.notifications = gson.fromJson(reader, listType);
             if (this.notifications  == null) {
@@ -47,11 +49,47 @@ public class NotificationDatabase {
             this.notifications = new ArrayList<>();
         }
     }
-    public void savenotification() {
+     public void addnotification(Notification notification) {
+        for(Notification f: this.notifications )
+        {
+            if(containnotifications(notification)){
+            f.setDate(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+            }
+        }
+        if(!containnotifications(notification))
+        this.notifications.add(notification);
+    }
+     public void removenotification(Notification notification) {
+        this.notifications.remove(notification);
+    }
+    public static ArrayList<Notification> getNotifications(String id) {
+        ArrayList<Notification> personnotifications =new ArrayList<>();
+        for(Notification n:NotificationDatabase.notifications)
+            if(n.getReceiveruserid().equals(id)) 
+                personnotifications.add(n);
+        return personnotifications;
+    }
+
+    public static void setNotifications(ArrayList<Notification> notifications) {
+        NotificationDatabase.notifications = notifications;
+    }
+    public void savenotifications() {
         try (Writer writer = new FileWriter(DATABASE_FILE)) {
             gson.toJson(this.notifications, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public int getnumberofnotification(String id) {
+        ArrayList<Notification> personnotifications =getNotifications(id);
+        return personnotifications.size();
+    }
+    public boolean containnotifications(Notification notification) {
+        for(Notification f: this.notifications)
+        {
+            if(f.getSenderuserid().equals(notification.getSenderuserid())&&f.getReceiveruserid().equals(notification.getReceiveruserid())) 
+                return true;
+        }
+        return false;
     }
 }

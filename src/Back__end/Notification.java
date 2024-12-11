@@ -4,15 +4,9 @@
  */
 package Back__end;
 
-import com.google.gson.reflect.TypeToken;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -21,11 +15,11 @@ import java.util.List;
 public class Notification {
     private String senderuserid;
     private String receiveruserid;
-    private String date;
-    public Notification(String senderuserid, String receiveruserid, String date) {
+    private String timestamp;
+    public Notification(String senderuserid, String receiveruserid) {
         this.senderuserid = senderuserid;
         this.receiveruserid = receiveruserid;
-        this.date = date;
+        this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public String getSenderuserid() {
@@ -45,11 +39,11 @@ public class Notification {
     }
 
     public String getDate() {
-        return date;
+        return this.timestamp;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.timestamp = date;
     }
     
     

@@ -44,7 +44,6 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         acceptButton = new javax.swing.JButton();
         acceptButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/accept.png"))); // NOI18N
         acceptButton.setText("Accept");
-
         JButton declineButton = new JButton("Decline");
         declineButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancel.png"))); // NOI18N
         declineButton.setText("Decline");
@@ -52,7 +51,7 @@ public class FriendRequestsGUI extends FriendsParentGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new FriendRequests().acceptRequest(currentUser, userService.getUser(request.getUserId()));
-                refreshUI();
+                refreshUI(); 
             }
         });
 
@@ -60,7 +59,7 @@ public class FriendRequestsGUI extends FriendsParentGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new FriendRequests().declineRequest(currentUser, userService.getUser(request.getUserId()));
-                refreshUI();
+                refreshUI(); 
             }
         });
 
@@ -68,7 +67,6 @@ public class FriendRequestsGUI extends FriendsParentGUI {
         requestPanel.add(nameLabel);
         requestPanel.add(acceptButton);
         requestPanel.add(declineButton);
-
         return requestPanel;
     }
 
