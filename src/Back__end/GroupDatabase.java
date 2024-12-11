@@ -1,5 +1,5 @@
-
 package Back__end;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -47,5 +47,15 @@ public class GroupDatabase {
     // Get all groups
     public static List<Group> getGroups() {
         return groupList;
+    }
+
+    // Get a group by ID
+    public static Group getGroupById(String id) {
+        for (Group group : groupList) {
+            if (group.getId().equals(id)) {
+                return group;
+            }
+        }
+        return null; // Return null if no group is found with the given ID
     }
 }

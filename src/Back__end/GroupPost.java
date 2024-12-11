@@ -1,13 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Back__end;
 
-/**
- *
- * @author ahmed
- */
-public class GroupPost {
-    
+
+public class GroupPost extends Content {
+
+    private final String groupId;
+
+    public GroupPost(GroupPostBuilder builder) {
+        super(builder);
+        this.groupId = builder.groupId;
+    }
+
+    // Getter for groupId
+    public String getGroupId() {
+        return groupId;
+    }
+
+    // Builder Class
+    public static class GroupPostBuilder extends Content.ContentBuilder {
+        private String groupId;
+
+        public GroupPostBuilder(String contentId, String authorId, String groupId) {
+            super(contentId, authorId);
+            this.groupId = groupId;
+        }
+
+        @Override
+        public GroupPost build() {
+            return new GroupPost(this);
+        }
+    }
 }
