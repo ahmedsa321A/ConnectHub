@@ -92,9 +92,14 @@ viewProfileButton.setText("View Profile");
 addFriendButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        new FriendSuggestion().acceptSuggestion(currentUser, result);
+        new FriendSuggestion().acceptSuggestion(currentUser, result); 
+        if (!addFriendButton.getText().equals("Request Sent")) {
+            addFriendButton.setText("Request Sent");
             addFriendButton.setEnabled(false);
-            refreshUI();
+            
+            // Show message dialog only once
+            JOptionPane.showMessageDialog(null, "Friend request sent!");
+        }
     }
 });
    removeFriendButton.addActionListener(new ActionListener() {

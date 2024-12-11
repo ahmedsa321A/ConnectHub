@@ -1,7 +1,6 @@
 [
   {
     "FriendsId": [
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
       "40ece127-272c-4111-a8a8-bbd21950f861",
       "e4327018-53ab-4567-8230-64eb03c19737"
     ],
@@ -22,15 +21,18 @@
   },
   {
     "FriendsId": [
-      "77af362c-6043-4927-9fa5-34778369f903",
-      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
       "40ece127-272c-4111-a8a8-bbd21950f861"
     ],
-    "requestsReceived": [],
-    "suggestions": [
-      "e4327018-53ab-4567-8230-64eb03c19737"
+    "requestsReceived": [
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
     ],
-    "blocked": [],
+    "suggestions": [
+      "e4327018-53ab-4567-8230-64eb03c19737",
+      "77af362c-6043-4927-9fa5-34778369f903"
+    ],
+    "blocked": [
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9"
+    ],
     "userId": "f97b89b5-7a57-4b14-b128-072c4d643f0c",
     "email": "ahmed@gmail.com",
     "username": "AhmedSaied",
@@ -43,13 +45,13 @@
   },
   {
     "FriendsId": [
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
       "40ece127-272c-4111-a8a8-bbd21950f861"
     ],
     "requestsReceived": [],
     "suggestions": [
       "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
-      "e4327018-53ab-4567-8230-64eb03c19737"
+      "e4327018-53ab-4567-8230-64eb03c19737",
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
     ],
     "blocked": [],
     "userId": "77af362c-6043-4927-9fa5-34778369f903",
