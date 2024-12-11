@@ -7,12 +7,10 @@ import Back__end.userService;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -67,18 +65,7 @@ public abstract class FriendsParentGUI extends javax.swing.JFrame {
         setVisible(true);
     }
 
-    protected ImageIcon loadImageIcon(String photoPath) {
-        ImageIcon icon = null;
-        try {
-            icon = new ImageIcon(photoPath);
-            Image image = icon.getImage();
-            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Resize to fit
-            icon = new ImageIcon(resizedImage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return icon;
-    }
+    
 
     protected abstract void populateUserList();
 
