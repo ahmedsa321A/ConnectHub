@@ -1,17 +1,15 @@
 [
   {
-    "id": "adbf57ce-67c2-4dd6-92bf-ab33626d5716",
-    "name": "sda",
-    "description": "",
-    "groupPhoto": "",
-    "primaryAdmin": "",
+    "id": "3e1e8aee-1547-4494-8131-50dca8f63c3c",
+    "name": "das",
+    "description": "Dsad",
+    "groupPhoto": "Dsadd",
+    "primaryAdmin": "dsada",
     "admins": [
-      ""
+      "dsada"
     ],
-    "members": [
-      "dsada",
-      "dsadasd"
-    ],
-    "requests": []
+    "members": [],
+    "requests": [],
+    "postsId": []
   }
 ]

@@ -1,6 +1,7 @@
 package Back__end;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,11 +20,16 @@ public class GroupPostsDataBase {
 
     public static List<GroupPost> groupPosts = new ArrayList<>();
 
+    public  static void addPost(GroupPost p){
+    groupPosts.add(p);
+    saveToJSON();
+    }
+    
     // Static method to save the static list of GroupPost objects to JSON
     public static void saveToJSON() {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create(); // Create Gson with pretty printing
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
-            gson.toJson(groupPosts, writer);
+            gson.toJson(groupPosts, writer); // Write the groupPosts list to the file
         } catch (IOException e) {
             e.printStackTrace();
         }

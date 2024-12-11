@@ -9,6 +9,7 @@ public class GroupPost {
     private String contentText;
     private String imagePath;
     private final String timestamp;
+    private final String groupID; 
 
     // Private constructor to enforce object creation through the builder
      GroupPost(ContentPostBuilder builder) {
@@ -17,6 +18,7 @@ public class GroupPost {
         this.contentText = builder.contentText;
         this.imagePath = builder.imagePath;
         this.timestamp = builder.timestamp;
+       this.groupID=builder.groupID;
     }
 
     // Getters
@@ -55,8 +57,10 @@ public class GroupPost {
         private String contentText;
         private String imagePath;
         private String timestamp;
+         private final String groupID;
 
-        public ContentPostBuilder(String contentId, String authorId) {
+        public ContentPostBuilder(String contentId, String authorId,String groupID) {
+            this.groupID=groupID;
             this.contentId = contentId;
             this.authorId = authorId;
             this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);

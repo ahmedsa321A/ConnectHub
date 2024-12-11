@@ -25,6 +25,7 @@ public class Group {
         this.admins = new ArrayList<>();
         this.members = new ArrayList<>();
         this.requests=new ArrayList<>();
+        this.postsId=new ArrayList<>();
         this.admins.add(primaryAdmin); // Primary admin is automatically an admin
     }
 
@@ -74,7 +75,8 @@ public class Group {
     }
     
     public void removePost(String postId){
-        postsId.remove(id);
+        postsId.remove(postId);
+        //GroupMemberDatabase
         GroupPostsDataBase.removeGroupPostById(postId);
     }
 }

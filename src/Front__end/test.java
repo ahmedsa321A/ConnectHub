@@ -7,6 +7,9 @@ package Front__end;
 import Back__end.Group;
 import Back__end.GroupDatabase;
 import Back__end.GroupMemberManger;
+import Back__end.GroupPost;
+import Back__end.GroupPostManger;
+import Back__end.GroupPostsDataBase;
 
 /**
  *
@@ -14,11 +17,14 @@ import Back__end.GroupMemberManger;
  */
 public class test {
       public static void main(String[] args) {
+        //  Group p= new Group("das","Dsad","Dsadd","dsada");  
+        //                  GroupDatabase.addGroup(p);
+        //                  GroupDatabase.saveGroupsToJson();
         GroupDatabase.loadGroupsFromJson();
-        
-        Group g= GroupDatabase.getGroups().get(0);
-        GroupMemberManger.approveRequest("dsadasd", g.getId());
-        GroupDatabase.saveGroupsToJson();
+        GroupPostsDataBase.loadFromJSON();
+        Group g=GroupDatabase.getGroups().get(0);
+        GroupPost p =GroupPostsDataBase.groupPosts.get(0);
+       GroupPostManger.deletePost(g.getId(),p.getContentId());
          //GroupMemberManger.approveRequest(,g.getId());
         
           

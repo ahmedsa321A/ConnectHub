@@ -58,4 +58,18 @@ public class GroupDatabase {
         }
         return null; // Return null if no group is found with the given ID
     }
+    public static void deleteGroupById(String id) {
+    Group groupToDelete = null;
+    for (Group group : groupList) {
+        if (group.getId().equals(id)) {
+            groupToDelete = group;
+            break;
+        }
+    }
+
+    if (groupToDelete != null) {
+        groupList.remove(groupToDelete);
+        saveGroupsToJson(); 
+    }
+   }
 }

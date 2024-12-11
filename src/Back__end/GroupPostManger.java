@@ -6,10 +6,11 @@ package Back__end;
 
 public class GroupPostManger {
     
-    public static void addPost(String groupPostId, String groupId){
+    public static void addPost(GroupPost p, String groupId){
+        GroupDatabase.loadGroupsFromJson();
         Group group = GroupDatabase.getGroupById(groupId);
-        group.addPost(groupPostId);
-        GroupPostsDataBase.saveToJSON();
+        GroupPostsDataBase.addPost(p);
+        group.addPost(p.getContentId());
         GroupDatabase.saveGroupsToJson();
     }
     
@@ -20,8 +21,8 @@ public class GroupPostManger {
         GroupPostsDataBase.saveToJSON();
     }
     
-    public static void deletePost(String groupId){
+    public static void deletePost(String groupId,String postID){
         Group group = GroupDatabase.getGroupById(groupId);
-        group.removePost(groupId);
+        group.removePost(postID);
     }
 }
