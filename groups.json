@@ -1,0 +1,24 @@
+[
+  {
+    "id": "55720586-de6b-449e-bc12-f2f9300cfc58",
+    "name": "wow",
+    "description": "235",
+    "groupPhoto": "",
+    "primaryAdmin": "123",
+    "admins": [
+      "123"
+    ],
+    "members": []
+  },
+  {
+    "id": "863664de-0b0c-4f55-bd30-fdf4236a64d2",
+    "name": "asd",
+    "description": "sdadasd",
+    "groupPhoto": "",
+    "primaryAdmin": "123",
+    "admins": [
+      "123"
+    ],
+    "members": []
+  }
+]
