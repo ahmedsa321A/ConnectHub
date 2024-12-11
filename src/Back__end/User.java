@@ -63,7 +63,7 @@ public class User extends UserParent {
     }
      public void addSuggestion(String friendId) {
          //check first if he doesnt exist in all of these lists
-    if(! userService.getUser(friendId).isBlocked(this.getUserId()) &&!suggestions.contains(friendId) && !isFriend(friendId) && !isBlocked(friendId)&&!requestsReceived.contains(friendId))
+    if(!userService.getUser(friendId).isBlocked(this.getUserId()) &&!suggestions.contains(friendId) && !isFriend(friendId) && !isBlocked(friendId)&&!requestsReceived.contains(friendId))
         //if true add him to suggestions
         suggestions.add(friendId);
     }

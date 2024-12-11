@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class UserSearchResults implements SearchResults<User> {
     //manages search results
     private ArrayList<User> searchResults = new ArrayList<>();
-
     @Override
     public void addSearchResult(User result) {
        searchResults.add(result);

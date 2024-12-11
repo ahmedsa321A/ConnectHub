@@ -3,8 +3,6 @@ package Front__end;
 
 import Back__end.FriendSuggestion;
 import Back__end.FriendsList;
-import Back__end.RelationshipManager;
-import Back__end.RelationshipStatus;
 import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.userService;
@@ -34,6 +32,7 @@ public class UserSearchGUI extends javax.swing.JFrame{
   private JPanel resultsPanel;
   protected JScrollPane scrollPane;
   public UserSearchGUI(User user,ArrayList<User> results){
+      UserRepository.loadUsersFromJson();
       this.currentUser = userService.getUser(user.getUserId());
       this.results=results;
       initComponents();
@@ -49,11 +48,12 @@ public class UserSearchGUI extends javax.swing.JFrame{
     populateUserList();
     
     scrollPane = new JScrollPane(resultsPanel);
-    scrollPane.setPreferredSize(new Dimension(400, 300));
+    scrollPane.setPreferredSize(new Dimension(600, 400));
     
     getContentPane().setLayout(new BorderLayout());
     getContentPane().add(titleLabel, BorderLayout.NORTH);
     getContentPane().add(scrollPane, BorderLayout.CENTER);
+    setSize(800, 600);
      setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -92,7 +92,7 @@ viewProfileButton.setText("View Profile");
 addFriendButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        new FriendSuggestion().acceptSuggestion(currentUser, result); 
+        new FriendSuggestion().acceptSuggestion(userService.getUser(currentUser.getUserId()),userService.getUser(result.getUserId())); 
         if (!addFriendButton.getText().equals("Request Sent")) {
             addFriendButton.setText("Request Sent");
             addFriendButton.setEnabled(false);
@@ -141,7 +141,7 @@ addFriendButton.addActionListener(new ActionListener() {
        });
        resultPanel.add(photoLabel);
        resultPanel.add(nameLabel);
-       if(!currentUser.isFriend(result.getUserId())) //if they are not friends
+       if(!currentUser.isFriend(result.getUserId()) &&!result.getReceivedRequests().contains(currentUser.getUserId())) //if they are not friends
        resultPanel.add(addFriendButton); //add friend button
        if(currentUser.isFriend(result.getUserId())) //if they are friends
        resultPanel.add(removeFriendButton);  //remove friend button
@@ -164,10 +164,10 @@ addFriendButton.addActionListener(new ActionListener() {
         resultsPanel.add(noResultsLabel);
     } else {
         for (User result : results) {
-            if (RelationshipManager.getRelationshipStatus(currentUser, result) != RelationshipStatus.BLOCKED) {
+            if (!result.isBlocked(currentUser.getUserId()) && !currentUser.isBlocked(result.getUserId()) &&!currentUser.getUserId().equals(result.getUserId()) ) {
                 resultsPanel.add(createUserPanel(result));
             }
-        }
+      }
     }
-    }
+  }
 }

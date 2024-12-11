@@ -1,11 +1,9 @@
 [
   {
-    "FriendsId": [
-      "40ece127-272c-4111-a8a8-bbd21950f861",
-      "e4327018-53ab-4567-8230-64eb03c19737"
-    ],
+    "FriendsId": [],
     "requestsReceived": [],
     "suggestions": [
+      "e4327018-53ab-4567-8230-64eb03c19737",
       "77af362c-6043-4927-9fa5-34778369f903"
     ],
     "blocked": [],
@@ -15,17 +13,13 @@
     "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
     "dateOfBirth": "2004-10-14",
     "status": "offline",
-    "profilePhotoPath": "C:/users/ghane/Downloads/hazem.jpeg",
+    "profilePhotoPath": "C:/users/ghane/Downloads/hazem.jpg",
     "coverPhotoPath": "",
     "bio": "ana zoma"
   },
   {
-    "FriendsId": [
-      "40ece127-272c-4111-a8a8-bbd21950f861"
-    ],
-    "requestsReceived": [
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
-    ],
+    "FriendsId": [],
+    "requestsReceived": [],
     "suggestions": [
       "e4327018-53ab-4567-8230-64eb03c19737",
       "77af362c-6043-4927-9fa5-34778369f903"
@@ -49,9 +43,9 @@
     ],
     "requestsReceived": [],
     "suggestions": [
-      "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
       "e4327018-53ab-4567-8230-64eb03c19737",
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+      "70914fc2-1a2a-4457-a89a-0ebc2646fff9"
     ],
     "blocked": [],
     "userId": "77af362c-6043-4927-9fa5-34778369f903",
@@ -66,13 +60,15 @@
   },
   {
     "FriendsId": [
-      "77af362c-6043-4927-9fa5-34778369f903",
-      "f97b89b5-7a57-4b14-b128-072c4d643f0c",
+      "77af362c-6043-4927-9fa5-34778369f903"
+    ],
+    "requestsReceived": [
+      "f97b89b5-7a57-4b14-b128-072c4d643f0c"
+    ],
+    "suggestions": [],
+    "blocked": [
       "70914fc2-1a2a-4457-a89a-0ebc2646fff9"
     ],
-    "requestsReceived": [],
-    "suggestions": [],
-    "blocked": [],
     "userId": "40ece127-272c-4111-a8a8-bbd21950f861",
     "email": "adham@gmail.com",
     "username": "AdhamZakaria",
@@ -84,13 +80,13 @@
     "bio": ""
   },
   {
-    "FriendsId": [
+    "FriendsId": [],
+    "requestsReceived": [
+      "40ece127-272c-4111-a8a8-bbd21950f861",
       "70914fc2-1a2a-4457-a89a-0ebc2646fff9"
     ],
-    "requestsReceived": [],
     "suggestions": [
       "77af362c-6043-4927-9fa5-34778369f903",
-      "40ece127-272c-4111-a8a8-bbd21950f861",
       "f97b89b5-7a57-4b14-b128-072c4d643f0c"
     ],
     "blocked": [],

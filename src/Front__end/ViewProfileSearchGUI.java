@@ -24,7 +24,7 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                    NewsFeedWindow newsfeedwindow = new NewsFeedWindow(profile);
+                    dispose();
             }
         });
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -84,7 +84,6 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
         friendsTable = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         bioTextArea = new Back__end.MyTextArea();
-        myButton1 = new Back__end.MyButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Profile");
@@ -153,14 +152,6 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
         bioTextArea.setPrefixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bio.png"))); // NOI18N
         jScrollPane1.setViewportView(bioTextArea);
 
-        myButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
-        myButton1.setRedius(100);
-        myButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,16 +178,10 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -205,8 +190,7 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
+                        .addGap(65, 65, 65)
                         .addComponent(jLabel1)
                         .addGap(118, 118, 118)
                         .addComponent(jLabel2))
@@ -236,12 +220,6 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
-  
-        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(profile);
-        this.dispose();
-    }//GEN-LAST:event_myButton1ActionPerformed
-
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -256,7 +234,6 @@ public class ViewProfileSearchGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private Back__end.MyButton myButton1;
     private javax.swing.JPanel postsPanel;
     private javax.swing.JLabel profilePhotoLabel;
     // End of variables declaration//GEN-END:variables
