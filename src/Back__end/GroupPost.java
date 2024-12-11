@@ -8,6 +8,6 @@ package Back__end;
  *
  * @author ahmed
  */
-public class GroupManger {
+public class GroupPost {
     
 }
