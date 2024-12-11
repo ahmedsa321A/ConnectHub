@@ -53,7 +53,11 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
             @Override
             public void actionPerformed(ActionEvent e) {
                     new FriendSuggestion().acceptSuggestion(currentUser, userService.getUser(suggest.getUserId()));
-                     Notification notification = new Notification(currentUser.getUserId(),suggest.getUserId());
+                    Notification notification = new Notification.Builder().setNotificationtype("Friend")
+                .setSenderuserid(currentUser.getUserId())
+                .setReceiveruserid(suggest.getUserId())
+                .build();
+                
                     ndb.addnotification(notification);
                     ndb.savenotifications();
                     refreshUI(); 
