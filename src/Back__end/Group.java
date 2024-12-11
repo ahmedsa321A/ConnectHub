@@ -14,6 +14,7 @@ public class Group {
     private List<String> admins;
     private List<String> members;
     private List<String> requests;
+    private List<String> postsId;
 
     public Group(String name, String description, String groupPhoto, String primaryAdmin) {
         this.id = UUID.randomUUID().toString(); // Generate a unique ID for the group
@@ -45,18 +46,27 @@ public class Group {
 
     // Methods for promoting/demoting admins
     public void promoteToAdmin(String user) {
-            admins.add(user);
+        admins.add(user);
     }
 
     public void demoteAdmin(String user) {
-            admins.remove(user);
+        admins.remove(user);
     }
-    
+
     public void removeRequest(String requestId) {
         requests.remove(requestId);
     }
+
     public void addMember(String memberId) {
-            members.add(memberId);
- 
+        members.add(memberId);
+    }
+
+    public void addPost(String postId) {
+        postsId.add(postId);
+    }
+    
+    public void removePost(String postId){
+        postsId.remove(id);
+        GroupPostsDataBase.removeGroupPostById(postId);
     }
 }

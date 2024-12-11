@@ -3,46 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/BlockedUsersGUI.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/StoriesGui.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Photo.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/FriendsListGUI.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/GroupPostManger.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/GroupPost.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/CreateGroup.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/ConcreteFactory.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ProfileWindow.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/Signup.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/UserSearch.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/MyTextField.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/GroupDatabase.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/UserRepository.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/MyButton.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/RelationshipStatus.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/ContentDatabase.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/StoryGui.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/FriendsParentGUI.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ChangePasswordWindow.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/LoadFromFile.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Relationship.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/FriendsList.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/FriendRequests.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/AbstractFactory.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ProfileEditorWindow.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/FriendSuggestion.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/ConnectHub.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/userService.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/UserParent.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/Login.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/RelationshipManager.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/GroupPostsDataBase.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/NewsFeedWindow.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/BlockedFriends.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Content.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/FriendSuggestionGUI.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/GroupMemberManger.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/FriendLoader.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/PostGui.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/MyPasswordField.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/User.java</file>
+            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/Group.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/ContentService.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/FriendsCenter.java</file>
             <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Front__end/FriendRequestsGUI.java</file>
-            <file>file:/D:/Studying/Term%205/Programming%202/Labs/Lab%209/ConnectHub/src/Back__end/MyTextArea.java</file>
         </group>
     </open-files>
 </project-private>
