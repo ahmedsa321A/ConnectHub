@@ -446,14 +446,13 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jScrollPane4.setViewportView(storiesPanel);
         storiesPanel.setLayout(new BoxLayout(storiesPanel, BoxLayout.X_AXIS));
 
-        notificationPanel.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        notificationPanel.setPreferredSize(new Dimension(400, 251));
+        notificationPanel.setPreferredSize(new Dimension(438, 251));
 
         javax.swing.GroupLayout notificationPanelLayout = new javax.swing.GroupLayout(notificationPanel);
         notificationPanel.setLayout(notificationPanelLayout);
         notificationPanelLayout.setHorizontalGroup(
             notificationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 438, Short.MAX_VALUE)
         );
         notificationPanelLayout.setVerticalGroup(
             notificationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +461,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
         jScrollPane5.setViewportView(notificationPanel);
         notificationPanel.setLayout(new BoxLayout(notificationPanel, BoxLayout.Y_AXIS));
-        jScrollPane5.setPreferredSize(new Dimension(400, 251));
+        jScrollPane5.setPreferredSize(new Dimension(438, 251));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/WhatsApp Image 2024-12-11 at 20.57.17-2.png")); // NOI18N
@@ -505,9 +504,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(notificationcounter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addGap(23, 23, 23)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)

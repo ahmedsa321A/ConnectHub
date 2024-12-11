@@ -75,11 +75,11 @@
                               <Component id="notificationcounter" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jScrollPane5" min="-2" pref="440" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -430,20 +430,15 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="notificationPanel">
-          <Properties>
-            <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
-              <Rectangle value="[0, 0, 0, 0]"/>
-            </Property>
-          </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="notificationPanel.setLayout(new BoxLayout(notificationPanel, BoxLayout.Y_AXIS));&#xa;jScrollPane5.setPreferredSize(new Dimension(400, 251));"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="notificationPanel.setPreferredSize(new Dimension(400, 251));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="notificationPanel.setLayout(new BoxLayout(notificationPanel, BoxLayout.Y_AXIS));&#xa;jScrollPane5.setPreferredSize(new Dimension(438, 251));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="notificationPanel.setPreferredSize(new Dimension(438, 251));"/>
           </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="438" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

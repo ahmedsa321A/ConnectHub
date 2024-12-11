@@ -3,17 +3,17 @@
     "FriendsId": [
       "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
     ],
-    "requestsReceived": [],
-    "suggestions": [
+    "requestsReceived": [
       "3871c0e4-2111-4636-9c43-a37d199139ec"
     ],
+    "suggestions": [],
     "blocked": [],
     "userId": "8a5ff20b-2269-4666-b2a8-72fac43604be",
     "email": "hazem@gmail.com",
     "username": "hazem",
     "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
     "dateOfBirth": "2000-12-03",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/hazem.jpg",
     "coverPhotoPath": "",
     "bio": ""
@@ -41,8 +41,7 @@
     "FriendsId": [],
     "requestsReceived": [],
     "suggestions": [
-      "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
-      "8a5ff20b-2269-4666-b2a8-72fac43604be"
+      "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
     ],
     "blocked": [],
     "userId": "3871c0e4-2111-4636-9c43-a37d199139ec",
