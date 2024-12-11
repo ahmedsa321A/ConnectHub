@@ -1,21 +1,5 @@
 [
   {
-    "contentId": "805917c8-ca7a-40c5-8583-246641433d47",
-    "authorId": "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
-    "contentText": "iam hazem",
-    "imagePath": "C:\\Users\\adham\\Desktop\\WhatsApp Image 2024-10-06 at 16.51.54_7281d015.jpg",
-    "timestamp": "2024-12-06T23:07:26.5331724",
-    "isStory": true
-  },
-  {
-    "contentId": "d77e99f8-c74e-4dc7-bc7d-3441943f31c2",
-    "authorId": "77af362c-6043-4927-9fa5-34778369f903",
-    "contentText": "ana bigooo",
-    "imagePath": "/Users/hazembarakat/Downloads/214735-200.png",
-    "timestamp": "2024-12-06T22:50:29.790072",
-    "isStory": true
-  },
-  {
     "contentId": "bc280083-72fb-4e17-a651-e47f7b3dd0e2",
     "authorId": "40ece127-272c-4111-a8a8-bbd21950f861",
     "contentText": "i love banans",
@@ -58,30 +42,6 @@
     "contentText": "i am adham",
     "timestamp": "2024-12-06T16:29:33.2882579",
     "isStory": false
-  },
-  {
-    "contentId": "5d74c3bf-faa1-426c-a4b3-5659a29410c1",
-    "authorId": "70914fc2-1a2a-4457-a89a-0ebc2646fff9",
-    "contentText": "hey from story",
-    "imagePath": "/Users/hazembarakat/Downloads/214735-200.png",
-    "timestamp": "2024-12-06T17:48:57.724983",
-    "isStory": true
-  },
-  {
-    "contentId": "cea83463-f660-490d-bcab-f286a4470483",
-    "authorId": "77af362c-6043-4927-9fa5-34778369f903",
-    "contentText": "ana bigooo",
-    "imagePath": "/Users/hazembarakat/Downloads/214735-200.png",
-    "timestamp": "2024-12-06T22:50:26.489387",
-    "isStory": true
-  },
-  {
-    "contentId": "3ed30130-32f5-48f1-b5ca-495a4026b7aa",
-    "authorId": "77af362c-6043-4927-9fa5-34778369f903",
-    "contentText": "hello",
-    "imagePath": "C:\\Users\\adham\\Desktop\\WhatsApp Image 2024-10-06 at 16.51.54_7281d015.jpg",
-    "timestamp": "2024-12-06T23:06:40.4614415",
-    "isStory": true
   },
   {
     "contentId": "568e2178-f215-4917-9f77-37b8499e1991",

@@ -21,14 +21,14 @@ public class User extends UserParent {
         this.blocked = builder.blocked;
     }
     public void addFriend(String friendId) {
-        if(!friends.contains(friendId)) //checks if user already friend or not
+        if(!isFriend(friendId)) //checks if user already friend or not
         {
             friends.add(friendId); //add friend
            removeReceivedRequest(friendId); //remove request from user2
         }
     }
     public void removeFriend(String userId) {
-       if(friends.contains(userId)) //check if user in friends or not before removing
+       if(isFriend(userId)) //check if user in friends or not before removing
        {
         //remove if true   
         friends.remove(userId);
@@ -41,7 +41,7 @@ public class User extends UserParent {
     
      public void receivedRequest(String friendId){
        //check if user already sent a request before and if  user is already friend 
-        if(!requestsReceived.contains(friendId)&& !friends.contains(friendId))
+        if(!requestsReceived.contains(friendId)&& !isFriend(friendId))
         {
          //receive request from him and remove him from sussgestion if true
         requestsReceived.add(friendId);
@@ -63,7 +63,7 @@ public class User extends UserParent {
     }
      public void addSuggestion(String friendId) {
          //check first if he doesnt exist in all of these lists
-    if(! userService.getUser(friendId).getBlocked().contains(this.getUserId()) &&!suggestions.contains(friendId) && !friends.contains(friendId) && !blocked.contains(friendId)&&!requestsReceived.contains(friendId))
+    if(! userService.getUser(friendId).isBlocked(this.getUserId()) &&!suggestions.contains(friendId) && !isFriend(friendId) && !isBlocked(friendId)&&!requestsReceived.contains(friendId))
         //if true add him to suggestions
         suggestions.add(friendId);
     }
@@ -80,18 +80,25 @@ public class User extends UserParent {
     }
     public void addBlock(String userId){
         //check if he isnt blocked
-        if(!blocked.contains(userId))
+        if(!isBlocked(userId))
         //if yes block him    
         blocked.add(userId);
     }
     public void removeBlock(String userId){
         //check if already blocked
-        if(blocked.contains(userId))
+        if(isBlocked(userId))
         //remove him from block if true    
         blocked.remove(userId);
     }
     public List<String> getBlocked() {
         return blocked;
+    }
+    public boolean isFriend(String userId){
+        return friends.contains(userId);
+    }
+    public boolean isBlocked(String userId)
+    {
+        return blocked.contains(userId);
     }
    @Override
     public String toString() {

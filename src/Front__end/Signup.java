@@ -116,6 +116,11 @@ public class Signup extends javax.swing.JFrame {
                 usernametextFocusLost(evt);
             }
         });
+        usernametext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernametextActionPerformed(evt);
+            }
+        });
 
         emailtext.setText("Email");
         emailtext.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/signup email.png"))); // NOI18N
@@ -342,6 +347,10 @@ if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || email.is
     this.dispose();
 
         }    }//GEN-LAST:event_signupActionPerformed
+
+    private void usernametextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernametextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernametextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
