@@ -17,7 +17,6 @@ public class GroupPostsDataBase {
 
     private static final String FILE_PATH = "group_posts.json";
 
-    // Static attribute to hold the list of GroupPost objects
     public static List<GroupPost> groupPosts = new ArrayList<>();
 
     // Static method to save the static list of GroupPost objects to JSON

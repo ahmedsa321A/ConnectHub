@@ -23,6 +23,7 @@ public class Group {
         this.primaryAdmin = primaryAdmin;
         this.admins = new ArrayList<>();
         this.members = new ArrayList<>();
+        this.requests=new ArrayList<>();
         this.admins.add(primaryAdmin); // Primary admin is automatically an admin
     }
 
@@ -54,6 +55,13 @@ public class Group {
     
     public void removeRequest(String requestId) {
         requests.remove(requestId);
+    }
+    public void addRequest(String requestId) {
+        requests.add(requestId);
+    }
+    
+    public void removeMember(String memberId) {
+        requests.remove(memberId);
     }
     public void addMember(String memberId) {
             members.add(memberId);

@@ -18,8 +18,12 @@ public class GroupMemberManger {
     }
     public static void removeMember(String id,String groupId){
       Group g =  GroupDatabase.getGroupById(groupId);
-     g.(id);
+     g.removeMember(id);
      GroupDatabase.saveGroupsToJson();
     }
-    
+        public static void addRequest(String id,String groupId){
+     Group g =  GroupDatabase.getGroupById(groupId);
+     g.addRequest(id);
+     GroupDatabase.saveGroupsToJson();
+    }
 }

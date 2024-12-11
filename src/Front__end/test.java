@@ -5,7 +5,8 @@
 package Front__end;
 
 import Back__end.Group;
-import Back__end.GroupManager;
+import Back__end.GroupDatabase;
+import Back__end.GroupMemberManger;
 
 /**
  *
@@ -13,8 +14,13 @@ import Back__end.GroupManager;
  */
 public class test {
       public static void main(String[] args) {
-        Group g= GroupManager.getGroupByMemberOrAdminId("123");
-        GroupManager.removeAdmin("123","sddsd",g);
+        GroupDatabase.loadGroupsFromJson();
+        
+        Group g= GroupDatabase.getGroups().get(0);
+        GroupMemberManger.approveRequest("dsadasd", g.getId());
+        GroupDatabase.saveGroupsToJson();
+         //GroupMemberManger.approveRequest(,g.getId());
+        
           
     }
 }
