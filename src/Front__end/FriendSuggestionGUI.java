@@ -1,11 +1,12 @@
 
 package Front__end;
 import Back__end.FriendSuggestion;
+import Back__end.Notification;
+import Back__end.NotificationDatabase;
 import Back__end.User;
 import Back__end.userService;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -16,8 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class FriendSuggestionGUI extends FriendsParentGUI{
+    NotificationDatabase ndb= NotificationDatabase.getInstance();
     public FriendSuggestionGUI(User user, String title,HashMap<String,User>users) {
         super(user,"Suggestions",users);
+        ndb.loadnotification();
     }
     @Override
     protected void populateUserList() {
@@ -50,6 +53,9 @@ public class FriendSuggestionGUI extends FriendsParentGUI{
             @Override
             public void actionPerformed(ActionEvent e) {
                     new FriendSuggestion().acceptSuggestion(currentUser, userService.getUser(suggest.getUserId()));
+                     Notification notification = new Notification(currentUser.getUserId(),suggest.getUserId());
+                    ndb.addnotification(notification);
+                    ndb.savenotifications();
                     refreshUI(); 
             }
         });

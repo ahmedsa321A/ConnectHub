@@ -1,11 +1,12 @@
 [
   {
     "FriendsId": [
-      "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
-      "3871c0e4-2111-4636-9c43-a37d199139ec"
+      "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
     ],
     "requestsReceived": [],
-    "suggestions": [],
+    "suggestions": [
+      "3871c0e4-2111-4636-9c43-a37d199139ec"
+    ],
     "blocked": [],
     "userId": "8a5ff20b-2269-4666-b2a8-72fac43604be",
     "email": "hazem@gmail.com",
@@ -37,12 +38,11 @@
     "bio": ""
   },
   {
-    "FriendsId": [
-      "8a5ff20b-2269-4666-b2a8-72fac43604be"
-    ],
+    "FriendsId": [],
     "requestsReceived": [],
     "suggestions": [
-      "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
+      "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
+      "8a5ff20b-2269-4666-b2a8-72fac43604be"
     ],
     "blocked": [],
     "userId": "3871c0e4-2111-4636-9c43-a37d199139ec",
@@ -50,8 +50,8 @@
     "username": "ahmed",
     "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
     "dateOfBirth": "2000-12-03",
-    "status": "online",
-    "profilePhotoPath": "",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Downloads/WhatsApp Image 2024-12-06 at 05.20.38.jpeg",
     "coverPhotoPath": "",
     "bio": ""
   }
