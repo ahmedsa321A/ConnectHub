@@ -5,6 +5,8 @@ import Back__end.ContentDatabase;
 import Back__end.FriendLoader;
 import Back__end.FriendRequests;
 import Back__end.FriendSuggestion;
+import Back__end.Group;
+import Back__end.GroupDatabase;
 import Back__end.MyButton;
 import Back__end.Notification;
 import Back__end.NotificationDatabase;
@@ -100,6 +102,22 @@ public void addPlaceholderStyle(JTextField textfield) {
         textfield.setFont(font);
         textfield.setForeground(Color.BLACK);
 
+    }
+        private void showMyGroup() {
+        GroupDatabase.loadGroupsFromJson();
+        List<Group> groupList = GroupDatabase.getGroups();
+        for (Group group : groupList) {
+            if (group.getPrimaryAdmin().equals(user.getUserId()) || group.getAdmins().contains(user.getUserId()) || group.getMembers().contains(user.getUserId())) {
+                JPanel groupPanel = new JPanel();
+                groupPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+                ImageIcon imgicon = saveImageIconGroup(group.getGroupPhotoPath());
+                JLabel imageLabell = new JLabel(imgicon);
+                JLabel nameLabel = new JLabel(group.getName());
+                groupPanel.add(imageLabell);
+                groupPanel.add(nameLabel);
+                groupPanel.add(groupPanel);
+            }
+        }
     }
     private void showFriendsList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
@@ -604,7 +622,9 @@ public void addPlaceholderStyle(JTextField textfield) {
             groupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 251, Short.MAX_VALUE)
             .addGroup(groupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, groupPanelLayout.createSequentialGroup()
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -628,18 +648,19 @@ public void addPlaceholderStyle(JTextField textfield) {
                                 .addComponent(UserSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(groupPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(42, 42, 42)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(137, 137, 137)
-                            .addComponent(creategroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(creategroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
