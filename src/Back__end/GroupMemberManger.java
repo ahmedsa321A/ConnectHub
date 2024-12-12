@@ -10,10 +10,11 @@ public class GroupMemberManger {
      Group g =  GroupDatabase.getGroupById(groupId);
      g.addMember(id);   
      g.removeRequest(id);
-     Notification notification = new Notification.Builder()
-                .setSenderuserid(id)
-                .setReceiveruserid(groupId)
+     Notification notification = new Notification.Builder().setNotificationtype("Approved")
+                .setSenderuserid(groupId)
+                .setReceiveruserid(id)
                 .build();
+                ndb.loadnotification();
                 ndb.addnotification(notification);
                 ndb.savenotifications();
      GroupDatabase.saveGroupsToJson();

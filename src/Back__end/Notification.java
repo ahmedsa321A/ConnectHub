@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Notification {
+    
     private  String notificationtype;
     private  String senderuserid;
     private  String receiveruserid;
@@ -28,7 +29,6 @@ public class Notification {
         this.notificationtype = builder.notificationtype;
     }
 
- 
     public String getSenderuserid() {
         return senderuserid;
     }
@@ -65,7 +65,7 @@ public class Notification {
         private String receiveruserid;
         private String timestamp;
         private String notificationtype;
-
+        
         
         public Builder setSenderuserid(String senderuserid) {
             this.senderuserid = senderuserid;
@@ -82,13 +82,11 @@ public class Notification {
             return this; 
         }
 
-        
         public Builder setTimestamp(String timestamp) {
             this.timestamp = timestamp;
             return this; 
         }
 
-      
         public Notification build() {
             return new Notification(this);
         }
