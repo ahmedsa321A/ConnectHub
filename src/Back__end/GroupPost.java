@@ -2,23 +2,23 @@ package Back__end;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-public class Content {
+public class GroupPost {
 
     private final String contentId;
     private final String authorId;
-    private final String contentText;
-    private final String imagePath;
+    private String contentText;
+    private String imagePath;
     private final String timestamp;
-    private final boolean isStory;
+    private final String groupID; 
 
     // Private constructor to enforce object creation through the builder
-     Content(ContentBuilder builder) {
+     GroupPost(ContentPostBuilder builder) {
         this.contentId = builder.contentId;
         this.authorId = builder.authorId;
         this.contentText = builder.contentText;
         this.imagePath = builder.imagePath;
         this.timestamp = builder.timestamp;
-        this.isStory = builder.isStory;
+       this.groupID=builder.groupID;
     }
 
     // Getters
@@ -42,42 +42,42 @@ public class Content {
         return timestamp;
     }
 
-    public boolean isStory() {
-        return isStory;
+    public void setContentText(String contentText){
+        this.contentText=contentText;
+    }
+    
+    public void setImagePath(String imagePath){
+        this.imagePath=imagePath;
     }
 
     // Builder Class
-    public static class ContentBuilder {
+    public static class ContentPostBuilder {
         private String contentId;
         private String authorId;
         private String contentText;
         private String imagePath;
         private String timestamp;
-        private boolean isStory;
+         private final String groupID;
 
-        public ContentBuilder(String contentId, String authorId) {
+        public ContentPostBuilder(String contentId, String authorId,String groupID) {
+            this.groupID=groupID;
             this.contentId = contentId;
             this.authorId = authorId;
             this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
         }
 
-        public ContentBuilder setContentText(String contentText) {
+        public ContentPostBuilder setContentText(String contentText) {
             this.contentText = contentText;
             return this;
         }
 
-        public ContentBuilder setImagePath(String imagePath) {
+        public ContentPostBuilder setImagePath(String imagePath) {
             this.imagePath = imagePath;
             return this;
         }
 
-        public ContentBuilder setIsStory(boolean isStory) {
-            this.isStory = isStory;
-            return this;
-        }
-
-        public Content build() {
-            return new Content(this);
+        public GroupPost build() {
+            return new GroupPost(this);
         }
     }
 }

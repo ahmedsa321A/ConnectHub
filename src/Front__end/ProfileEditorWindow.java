@@ -167,7 +167,7 @@ public class ProfileEditorWindow extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addComponent(profilePictureLabel)))))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
