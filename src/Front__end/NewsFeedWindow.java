@@ -5,6 +5,8 @@ import Back__end.ContentDatabase;
 import Back__end.FriendLoader;
 import Back__end.FriendRequests;
 import Back__end.FriendSuggestion;
+import Back__end.Group;
+import Back__end.GroupSearchResults;
 import Back__end.MyButton;
 import Back__end.Notification;
 import Back__end.NotificationDatabase;
@@ -549,6 +551,11 @@ public void addPlaceholderStyle(JTextField textfield) {
                 GroupSearchBarFocusLost(evt);
             }
         });
+        GroupSearchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GroupSearchBarActionPerformed(evt);
+            }
+        });
 
         GroupSearch.setBackground(new java.awt.Color(51, 153, 255));
         GroupSearch.setForeground(new java.awt.Color(255, 255, 255));
@@ -817,8 +824,20 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_GroupSearchBarFocusLost
 
     private void GroupSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GroupSearchActionPerformed
-        // TODO add your handling code here:
+        String search=GroupSearchBar.getText().toLowerCase();
+        SearchResults<Group> groupSearch=new GroupSearchResults();
+        
+        groupSearch.searchObjects(search);
+        
+        ArrayList<Group> results = groupSearch.getSearchResults();
+        
+        GroupSearchGUI groupSearchWindow=new GroupSearchGUI(user,results);
+        groupSearchWindow.setVisible(true);
     }//GEN-LAST:event_GroupSearchActionPerformed
+
+    private void GroupSearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GroupSearchBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GroupSearchBarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Back__end.MyButton GroupSearch;
