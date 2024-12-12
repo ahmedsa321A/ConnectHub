@@ -5,9 +5,12 @@ package Back__end;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 //import static Back__end.userService.getPathAndName;
+import Front__end.ViewProfileSearchGUI;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -199,8 +202,17 @@ public class ContentService {
         } catch (Exception e) {
             e.printStackTrace();
         } // Replace with your image path
-        JLabel imageLabell = new JLabel(imgicon);
-
+  
+        MyButton button = new MyButton();
+            button.setIcon(imgicon);
+            button.setRedius(50);
+            button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                     ViewProfileSearchGUI viewProfile=new ViewProfileSearchGUI(userService.getUser(content.getAuthorId()));
+                     viewProfile.setVisible(true);    
+                    }
+                });
         // Create a JLabel for the text
         JLabel textLabel = new JLabel();
         textLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 20));
@@ -208,7 +220,7 @@ public class ContentService {
 
         // Add the image label and text label to the panel
         authorPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        authorPanel.add(imageLabell);
+        authorPanel.add(button);
         authorPanel.add(textLabel);
 
         JLabel contentText = new JLabel();

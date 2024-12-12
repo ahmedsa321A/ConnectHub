@@ -2,11 +2,13 @@
   {
     "FriendsId": [],
     "requestsReceived": [],
+
     "suggestions": [
       "c42e6ffd-710d-4231-8c74-e93a2000cc08",
       "0aa2aeab-eb11-4d97-885d-a71a18114da5",
       "5448ceba-9998-4c9b-8a5a-66817e9efd80"
     ],
+
     "blocked": [],
     "groupsSuggestions": [],
     "userId": "96f1beea-2f65-4b74-b180-ae206673523a",
@@ -15,18 +17,23 @@
     "password": "8a2900e97760a6148f785356fe009102357b64f1",
     "dateOfBirth": "2000-12-07",
     "status": "offline",
+
     "profilePhotoPath": "",
+
     "coverPhotoPath": "",
-    "bio": ""
+    "bio": "ana bigo elgn"
   },
   {
     "FriendsId": [],
+
     "requestsReceived": [],
     "suggestions": [
       "c42e6ffd-710d-4231-8c74-e93a2000cc08",
       "0aa2aeab-eb11-4d97-885d-a71a18114da5",
       "96f1beea-2f65-4b74-b180-ae206673523a"
+
     ],
+    "suggestions": [],
     "blocked": [],
     "groupsSuggestions": [],
     "userId": "5448ceba-9998-4c9b-8a5a-66817e9efd80",
