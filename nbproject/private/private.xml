@@ -3,38 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/NotificationDatabase.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/FriendSuggestion.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/LoadFromFile.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/PostGui.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/UserSearch.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/User.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/StoryGui.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/UserRepository.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/ContentService.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/FriendRequests.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/Content.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/NewsFeedWindow.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/userService.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/FriendSuggestionGUI.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/Relationship.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/Notification.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/ProfileEditorWindow.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/MyTextField.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/FriendsParentGUI.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/ConnectHub.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/FriendLoader.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/UserParent.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/FriendsListGUI.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/NotificationService.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/FriendsList.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/FriendsCenter.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/ConcreteFactory.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/ContentDatabase.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/FriendRequestsGUI.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/Photo.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Front__end/ChangePasswordWindow.java</file>
-            <file>file:/Users/hazembarakat/Documents/GitHub/prog/src/Back__end/RelationshipManager.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendsParentGUI.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/NewsFeedWindow.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/FriendsList.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/user_db.json</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/User.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/UserSearchResults.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/FriendsListGUI.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/ConnectHub.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Back__end/FriendSuggestion.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/ViewProfileSearchGUI.java</file>
+            <file>file:/C:/Users/ghane/OneDrive/Documents/GitHub/ConnectHub/src/Front__end/UserSearchGUI.java</file>
         </group>
     </open-files>
 </project-private>

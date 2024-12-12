@@ -1,12 +1,8 @@
 [
   {
-    "FriendsId": [
-      "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
-    ],
+    "FriendsId": [],
     "requestsReceived": [],
-    "suggestions": [
-      "3871c0e4-2111-4636-9c43-a37d199139ec"
-    ],
+    "suggestions": [],
     "blocked": [],
     "userId": "8a5ff20b-2269-4666-b2a8-72fac43604be",
     "email": "hazem@gmail.com",
@@ -19,13 +15,11 @@
     "bio": ""
   },
   {
-    "FriendsId": [
+    "FriendsId": [],
+    "requestsReceived": [
       "8a5ff20b-2269-4666-b2a8-72fac43604be"
     ],
-    "requestsReceived": [],
-    "suggestions": [
-      "3871c0e4-2111-4636-9c43-a37d199139ec"
-    ],
+    "suggestions": [],
     "blocked": [],
     "userId": "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
     "email": "bigad@gmail.com",
@@ -39,11 +33,11 @@
   },
   {
     "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
+    "requestsReceived": [
       "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
       "8a5ff20b-2269-4666-b2a8-72fac43604be"
     ],
+    "suggestions": [],
     "blocked": [],
     "userId": "3871c0e4-2111-4636-9c43-a37d199139ec",
     "email": "ahmed@gmail.com",

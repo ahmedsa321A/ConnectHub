@@ -42,6 +42,10 @@ public class Group {
         return admins;
     }
 
+    public String getName()
+    {
+        return name;
+    }
     public String getPrimaryAdmin() {
         return primaryAdmin;
     }

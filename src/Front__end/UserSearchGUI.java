@@ -59,6 +59,7 @@ public class UserSearchGUI extends javax.swing.JFrame{
             @Override
             public void windowClosing(WindowEvent e) {
                 UserRepository.saveData();
+                UserRepository.loadUsersFromJson();
                 dispose();
             }
         });
