@@ -83,4 +83,8 @@ public class Group {
         //GroupMemberDatabase
         GroupPostsDataBase.removeGroupPostById(postId);
     }
+
+    public String getPhoto() {
+        return groupPhoto;
+    }
 }
