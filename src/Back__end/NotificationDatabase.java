@@ -50,13 +50,7 @@ public class NotificationDatabase {
         }
     }
      public void addnotification(Notification notification) {
-        for(Notification f: this.notifications )
-        {
-            if(containnotifications(notification)){
-            f.setDate(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-            }
-        }
-        if(!containnotifications(notification))
+   
         this.notifications.add(notification);
     }
      public void removenotification(Notification notification) {
@@ -87,12 +81,5 @@ public class NotificationDatabase {
         for(Notification n:personnotifications) if(n.getNotificationtype().equals("Approved")||n.getNotificationtype().equals("Friend")) count++;
         return count;
     }
-    public boolean containnotifications(Notification notification) {
-        for(Notification f: this.notifications)
-        {
-            if(f.getSenderuserid().equals(notification.getSenderuserid())&&f.getReceiveruserid().equals(notification.getReceiveruserid())) 
-                return true;
-        }
-        return false;
-    }
+   
 }

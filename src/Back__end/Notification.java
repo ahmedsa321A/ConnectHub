@@ -17,6 +17,7 @@ public class Notification {
     private  String notificationtype;
     private  String senderuserid;
     private  String receiveruserid;
+    private  String targetid;
     private  String timestamp;
 
     
@@ -27,6 +28,7 @@ public class Notification {
                 ? builder.timestamp
                 : LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
         this.notificationtype = builder.notificationtype;
+        this.targetid=builder.targetid;
     }
 
     public String getSenderuserid() {
@@ -52,6 +54,14 @@ public class Notification {
         this.senderuserid = senderuserid;
     }
 
+    public String getTargetid() {
+        return targetid;
+    }
+
+    public void setTargetid(String targetid) {
+        this.targetid = targetid;
+    }
+
     public void setReceiveruserid(String receiveruserid) {
         this.receiveruserid = receiveruserid;
     }
@@ -65,6 +75,7 @@ public class Notification {
         private String receiveruserid;
         private String timestamp;
         private String notificationtype;
+        private String targetid;
         
         
         public Builder setSenderuserid(String senderuserid) {
@@ -74,6 +85,10 @@ public class Notification {
         
         public Builder setNotificationtype(String notificationtype) {
             this.notificationtype = notificationtype;
+            return this; 
+        }
+        public Builder settargetid(String targetid) {
+            this.targetid = targetid;
             return this; 
         }
        
