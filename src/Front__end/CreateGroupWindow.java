@@ -6,6 +6,7 @@ import Back__end.GroupDatabase;
 import Back__end.Photo;
 import Back__end.User;
 import Back__end.UserRepository;
+import Back__end.userService;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -152,7 +153,10 @@ public class CreateGroupWindow extends javax.swing.JDialog {
         String name = groupNameTextField.getText();
         String discreption = discreptionTextArea.getText();
         GroupDatabase.loadGroupsFromJson();
-        Group group = new Group(name, discreption, this.photoPath, id);
+        Group group = new Group.GroupBuilder(name, id)
+                .description(discreption)
+                .groupPhotoPath(this.photoPath)
+                .build();
         GroupDatabase.addGroup(group);
 
         UserRepository.loadUsersFromJson();
