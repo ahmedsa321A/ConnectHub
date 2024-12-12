@@ -39,11 +39,10 @@
   },
   {
     "FriendsId": [],
-    "requestsReceived": [
-      "8a5ff20b-2269-4666-b2a8-72fac43604be"
-    ],
+    "requestsReceived": [],
     "suggestions": [
-      "62320a2c-b1fa-4abf-8a34-771b327ba0b7"
+      "62320a2c-b1fa-4abf-8a34-771b327ba0b7",
+      "8a5ff20b-2269-4666-b2a8-72fac43604be"
     ],
     "blocked": [],
     "userId": "3871c0e4-2111-4636-9c43-a37d199139ec",
