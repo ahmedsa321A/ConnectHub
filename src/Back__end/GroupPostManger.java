@@ -7,11 +7,11 @@ package Back__end;
 public class GroupPostManger {
     
     public static void addPost(GroupPost p, String groupId){
-        GroupDatabase.loadGroupsFromJson();
-        Group group = GroupDatabase.getGroupById(groupId);
+        GroupDataBase.loadGroupsFromJson();
+        Group group = GroupDataBase.getGroupById(groupId);
         GroupPostsDataBase.addPost(p);
         group.addPost(p.getContentId());
-        GroupDatabase.saveGroupsToJson();
+        GroupDataBase.saveGroupsToJson();
     }
     
     public static void editPost(String groupPostId,String text,String photo, String groupId){
@@ -22,7 +22,7 @@ public class GroupPostManger {
     }
     
     public static void deletePost(String groupId,String postID){
-        Group group = GroupDatabase.getGroupById(groupId);
+        Group group = GroupDataBase.getGroupById(groupId);
         group.removePost(postID);
     }
 }

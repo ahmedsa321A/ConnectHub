@@ -1,8 +1,10 @@
 package Front__end;
 
 import Back__end.Group;
-import Back__end.GroupDatabase;
+import Back__end.GroupDataBase;
 import Back__end.Photo;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class CreateGroupWindow extends javax.swing.JDialog {
@@ -14,6 +16,9 @@ public class CreateGroupWindow extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.id = userId;
+        this.photoPath = "";
+        ImageIcon img = saveImageIconGroup(photoPath);
+        photoLabel.setIcon(img);
         this.setVisible(modal);
     }
 
@@ -121,9 +126,9 @@ public class CreateGroupWindow extends javax.swing.JDialog {
     private void createGroupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createGroupButtonActionPerformed
         String name = groupNameTextField.getText();
         String discreption = discreptionTextArea.getText();
-        GroupDatabase.loadGroupsFromJson();
+        GroupDataBase.loadGroupsFromJson();
         Group group = new Group(name, discreption, this.photoPath, id);
-        GroupDatabase.addGroup(group);
+        GroupDataBase.addGroup(group);
         JOptionPane.showMessageDialog(null, "Group Created Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }//GEN-LAST:event_createGroupButtonActionPerformed
@@ -134,12 +139,23 @@ public class CreateGroupWindow extends javax.swing.JDialog {
             if (!Path.equals(null)) {
                 Photo.setPhoto(photoLabel, Path);
                 this.photoPath = Path;
-            } else {
-                photoPath=getClass().getResource("/icons/nogroup.png").toString();
             }
         } catch (NullPointerException ex) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public ImageIcon saveImageIconGroup(String photoPath) {
+        ImageIcon imgicon;
+        if (photoPath.equals("")) {
+            imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/nogroup.png"));
+        } else {
+            imgicon = new ImageIcon(photoPath);
+        }
+        Image image = imgicon.getImage();
+        Image resizedImage = image.getScaledInstance(45, 45, Image.SCALE_SMOOTH); // Resize to fit
+        imgicon = new ImageIcon(resizedImage);
+        return imgicon;
+    }
 
     public static void createGroup(java.awt.Frame frame, String userId) {
         CreateGroupWindow dialog = new CreateGroupWindow(frame, userId, true);

@@ -6,24 +6,24 @@ package Back__end;
 
 public class GroupMemberManger {
     public static void approveRequest(String id,String groupId){   
-     Group g =  GroupDatabase.getGroupById(groupId);
+     Group g =  GroupDataBase.getGroupById(groupId);
      g.addMember(id);
      g.removeRequest(id);
-     GroupDatabase.saveGroupsToJson();
+     GroupDataBase.saveGroupsToJson();
     }
     public static void declineRequest(String id,String groupId){
-     Group g =  GroupDatabase.getGroupById(groupId);
+     Group g =  GroupDataBase.getGroupById(groupId);
      g.removeRequest(id);
-     GroupDatabase.saveGroupsToJson();
+     GroupDataBase.saveGroupsToJson();
     }
     public static void removeMember(String id,String groupId){
-      Group g =  GroupDatabase.getGroupById(groupId);
+      Group g =  GroupDataBase.getGroupById(groupId);
      g.removeMember(id);
-     GroupDatabase.saveGroupsToJson();
+     GroupDataBase.saveGroupsToJson();
     }
         public static void addRequest(String id,String groupId){
-     Group g =  GroupDatabase.getGroupById(groupId);
+     Group g =  GroupDataBase.getGroupById(groupId);
      g.addRequest(id);
-     GroupDatabase.saveGroupsToJson();
+     GroupDataBase.saveGroupsToJson();
     }
 }
