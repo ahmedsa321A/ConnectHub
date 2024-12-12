@@ -8,7 +8,7 @@ package Back__end;
 public class GroupMemberManger {
      private static NotificationDatabase ndb= NotificationDatabase.getInstance();
     public static void approveRequest(String id,String groupId){   
-     Group g =  GroupDataBase.getGroupById(groupId);
+     Group g =  GroupDatabase.getGroupById(groupId);
      g.addMember(id);   
      g.removeRequest(id);
      Notification notification = new Notification.Builder().setNotificationtype("Approved")
@@ -18,22 +18,22 @@ public class GroupMemberManger {
                 ndb.loadnotification();
                 ndb.addnotification(notification);
                 ndb.savenotifications();
-     GroupDataBase.saveGroupsToJson();
+     GroupDatabase.saveGroupsToJson();
     }
     public static void declineRequest(String id,String groupId){
-     Group g =  GroupDataBase.getGroupById(groupId);
+     Group g =  GroupDatabase.getGroupById(groupId);
      g.removeRequest(id);
-     GroupDataBase.saveGroupsToJson();
+     GroupDatabase.saveGroupsToJson();
     }
     public static void removeMember(String id,String groupId){
-      Group g =  GroupDataBase.getGroupById(groupId);
+      Group g =  GroupDatabase.getGroupById(groupId);
      g.removeMember(id);
-     GroupDataBase.saveGroupsToJson();
+     GroupDatabase.saveGroupsToJson();
     }
         public static void addRequest(String id,String groupId){
-     Group g =  GroupDataBase.getGroupById(groupId);
+     Group g =  GroupDatabase.getGroupById(groupId);
      g.addRequest(id);
-     GroupDataBase.saveGroupsToJson();
+     GroupDatabase.saveGroupsToJson();
     }
 }
 

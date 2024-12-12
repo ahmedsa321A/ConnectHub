@@ -63,7 +63,7 @@ public class GroupPostsDataBase {
             if (post.getContentId().equals(id)) {
                 groupPosts.remove(post);
                 saveToJSON(); // Save changes to the JSON file
-                GroupDataBase.saveGroupsToJson();
+                GroupDatabase.saveGroupsToJson();
                 return true; // Return true if the post was removed successfully
             }
         }
