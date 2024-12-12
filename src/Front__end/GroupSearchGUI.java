@@ -1,6 +1,7 @@
 package Front__end;
 
 import Back__end.Group;
+import Back__end.GroupDatabase;
 import Back__end.GroupMemberManger;
 import Back__end.User;
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
 
     public GroupSearchGUI(User currentUser, ArrayList<Group> results) {
         super(currentUser,"Group Search", results);
+       
         this.currentUser = currentUser;
     }
 
@@ -25,7 +27,7 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
 
         // Photo Label
         JLabel photoLabel = new JLabel();
-        ImageIcon groupIcon = saveImageIconGroup(group.getPhoto());
+        ImageIcon groupIcon = saveImageIconGroup(group.getGroupPhotoPath());
         photoLabel.setIcon(groupIcon);
         photoLabel.setPreferredSize(new Dimension(60, 45));
 
@@ -43,12 +45,12 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
         JButton viewGroupButton = new JButton("View Group");
         viewGroupButton.setIcon(new ImageIcon(getClass().getResource("/icons/ViewGroup.png")));
 
-        // Button Logic
-        if (group.getMembers().contains(currentUser)) {
+        if (group.getMembers().contains(currentUser.getUserId())||group.getAdmins().contains(currentUser.getUserId())) {
             resultPanel.add(leaveButton);
         } else {
             resultPanel.add(joinButton);
         }
+        if(group.getPrimaryAdmin().contains(currentUser.getUserId())) resultPanel.remove(leaveButton);
         resultPanel.add(viewGroupButton);
 
         // Button Actions
@@ -83,7 +85,7 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
         viewGroupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Placeholder for opening group details
+                GroupWindow s=new GroupWindow(group,currentUser);
                 JOptionPane.showMessageDialog(null, "Viewing group: " + group.getName());
             }
         });

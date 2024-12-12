@@ -82,7 +82,10 @@ public class NotificationDatabase {
     }
     public int getnumberofnotification(String id) {
         ArrayList<Notification> personnotifications =getNotifications(id);
-        return personnotifications.size();
+        int count=0;
+        
+        for(Notification n:personnotifications) if(n.getNotificationtype().equals("Approved")||n.getNotificationtype().equals("Friend")) count++;
+        return count;
     }
     public boolean containnotifications(Notification notification) {
         for(Notification f: this.notifications)

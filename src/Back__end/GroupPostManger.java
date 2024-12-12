@@ -6,7 +6,7 @@
 package Back__end;
 
 public class GroupPostManger {
-    
+  
     public static void addPost(GroupPost p, String groupId){
         GroupDatabase.loadGroupsFromJson();
         Group group = GroupDatabase.getGroupById(groupId);

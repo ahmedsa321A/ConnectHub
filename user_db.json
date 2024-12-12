@@ -1,88 +1,80 @@
 [
   {
-    "FriendsId": [],
-    "requestsReceived": [],
-
-    "suggestions": [
-      "c42e6ffd-710d-4231-8c74-e93a2000cc08",
-      "0aa2aeab-eb11-4d97-885d-a71a18114da5",
-      "5448ceba-9998-4c9b-8a5a-66817e9efd80"
+    "FriendsId": [
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+      "81b6e545-ad7a-429d-82f6-7f8538588d86"
     ],
-
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "96f1beea-2f65-4b74-b180-ae206673523a",
-    "email": "adham@gmail.com",
-    "username": "adham",
-    "password": "8a2900e97760a6148f785356fe009102357b64f1",
-    "dateOfBirth": "2000-12-07",
-    "status": "offline",
-
-    "profilePhotoPath": "",
-
-    "coverPhotoPath": "",
-    "bio": "ana bigo elgn"
-  },
-  {
-    "FriendsId": [],
-
     "requestsReceived": [],
     "suggestions": [
-      "c42e6ffd-710d-4231-8c74-e93a2000cc08",
-      "0aa2aeab-eb11-4d97-885d-a71a18114da5",
-      "96f1beea-2f65-4b74-b180-ae206673523a"
-
+      "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45"
     ],
-    "suggestions": [],
     "blocked": [],
     "groupsSuggestions": [],
-    "userId": "5448ceba-9998-4c9b-8a5a-66817e9efd80",
+    "userId": "c5d19e01-83b4-488e-b804-96fd899332e4",
     "email": "hazem@gmail.com",
     "username": "hazem",
     "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
-    "dateOfBirth": "2004-12-01",
+    "dateOfBirth": "2004-10-14",
     "status": "offline",
-    "profilePhotoPath": "",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/hazem.jpg",
     "coverPhotoPath": "",
     "bio": ""
   },
   {
     "FriendsId": [],
     "requestsReceived": [],
-    "suggestions": [
-      "c42e6ffd-710d-4231-8c74-e93a2000cc08",
-      "96f1beea-2f65-4b74-b180-ae206673523a",
-      "5448ceba-9998-4c9b-8a5a-66817e9efd80"
-    ],
+    "suggestions": [],
     "blocked": [],
     "groupsSuggestions": [],
-    "userId": "0aa2aeab-eb11-4d97-885d-a71a18114da5",
-    "email": "ahmed@gmail.com",
-    "username": "ahmed",
-    "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
-    "dateOfBirth": "2000-12-06",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "0aa2aeab-eb11-4d97-885d-a71a18114da5",
-      "96f1beea-2f65-4b74-b180-ae206673523a",
-      "5448ceba-9998-4c9b-8a5a-66817e9efd80"
-    ],
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "c42e6ffd-710d-4231-8c74-e93a2000cc08",
+    "userId": "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
     "email": "bigad@gmail.com",
     "username": "bigad",
     "password": "3fb6e47871331fa4340268e62b19ec42488bb451",
-    "dateOfBirth": "2000-12-05",
+    "dateOfBirth": "2004-08-16",
     "status": "offline",
-    "profilePhotoPath": "",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/bigad.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
+    ],
+    "requestsReceived": [],
+    "suggestions": [
+      "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
+      "81b6e545-ad7a-429d-82f6-7f8538588d86"
+    ],
+    "blocked": [],
+    "groupsSuggestions": [],
+    "userId": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+    "email": "ahmed@gmail.com",
+    "username": "ahmed",
+    "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
+    "dateOfBirth": "2003-10-13",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Downloads/WhatsApp Image 2024-12-06 at 05.20.38.jpeg",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
+    ],
+    "requestsReceived": [],
+    "suggestions": [
+      "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+    ],
+    "blocked": [],
+    "groupsSuggestions": [],
+    "userId": "81b6e545-ad7a-429d-82f6-7f8538588d86",
+    "email": "adham@gmail.com",
+    "username": "adham",
+    "password": "8a2900e97760a6148f785356fe009102357b64f1",
+    "dateOfBirth": "2004-08-12",
+    "status": "offline",
+    "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/ziko.jpeg",
     "coverPhotoPath": "",
     "bio": ""
   }

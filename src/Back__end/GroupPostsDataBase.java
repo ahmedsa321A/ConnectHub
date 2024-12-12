@@ -18,11 +18,18 @@ import java.util.List;
 public class GroupPostsDatabase {
 
     private static final String FILE_PATH = "group_posts.json";
-
+    private static NotificationDatabase ndb = NotificationDatabase.getInstance();
     public static List<GroupPost> groupPosts = new ArrayList<>();
 
     public  static void addPost(GroupPost p){
     groupPosts.add(p);
+      Notification notification = new Notification.Builder().setNotificationtype("Created")
+                .setSenderuserid(p.getGroupID())
+                .setReceiveruserid(p.getAuthorId())
+                .build();
+        ndb.loadnotification();
+        ndb.addnotification(notification);
+        ndb.savenotifications();
     Group group = GroupDatabase.getGroupById(p.getGroupID());
     group.addPost(p.getContentId());
     GroupDatabase.saveGroupsToJson();

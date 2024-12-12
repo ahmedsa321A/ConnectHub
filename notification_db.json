@@ -1,26 +1,14 @@
 [
   {
-    "notificationtype": "Approved",
-    "senderuserid": "59dee5e4-31fe-4111-acb5-3aace7c691fe",
-    "receiveruserid": "3871c0e4-2111-4636-9c43-a37d199139ec",
-    "timestamp": "2024-12-12T22:13:33.5123945"
+    "notificationtype": "Created",
+    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
+    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
+    "timestamp": "2024-12-13T00:44:30.620324"
   },
   {
     "notificationtype": "Approved",
-    "senderuserid": "59dee5e4-31fe-4111-acb5-3aace7c691fe",
-    "receiveruserid": "22bcfe9a-80ab-44dc-b9e6-eae1f4eeed67",
-    "timestamp": "2024-12-12T22:13:33.5123945"
-  },
-  {
-    "notificationtype": "Approved",
-    "senderuserid": "e9de1774-0855-455c-be2b-d75cc2e567a9",
-    "receiveruserid": "c42e6ffd-710d-4231-8c74-e93a2000cc08",
-    "timestamp": "2024-12-12T22:13:33.5123945"
-  },
-  {
-    "notificationtype": "Approved",
-    "senderuserid": "e9de1774-0855-455c-be2b-d75cc2e567a9",
-    "receiveruserid": "5448ceba-9998-4c9b-8a5a-66817e9efd80",
-    "timestamp": "2024-12-12T22:13:33.5123945"
+    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
+    "receiveruserid": "81b6e545-ad7a-429d-82f6-7f8538588d86",
+    "timestamp": "2024-12-13T00:44:30.620375"
   }
 ]

@@ -7,6 +7,7 @@ import Back__end.FriendRequests;
 import Back__end.FriendSuggestion;
 import Back__end.Group;
 import Back__end.GroupDatabase;
+import Back__end.GroupSearchResults;
 import Back__end.MyButton;
 import Back__end.Notification;
 import Back__end.NotificationDatabase;
@@ -59,6 +60,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     public NewsFeedWindow(User user) {
         initComponents();
         addPlaceholderStyle(UsersSearchBar);
+        addPlaceholderStyle(GroupSearchBar);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -180,8 +182,11 @@ public class NewsFeedWindow extends javax.swing.JFrame {
 
     private void shownotification() {
 
+      
         notificationcounter.setText("" + ndb.getnumberofnotification(user.getUserId()));
         ns.createfriendrequestnotification(notificationPanel, user.getUserId());
+        ns.createapprovednotification(notificationPanel, user.getUserId());
+        
 
     }
 
@@ -359,8 +364,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         UserSearch = new Back__end.MyButton();
         jLabel6 = new javax.swing.JLabel();
-        UsersSearchBar1 = new Back__end.MyTextField();
-        UserSearch1 = new Back__end.MyButton();
+        GroupSearchBar = new Back__end.MyTextField();
+        groupSearch = new Back__end.MyButton();
         creategroup = new Back__end.MyButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -554,7 +559,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         notificationcounter.setForeground(new java.awt.Color(255, 255, 255));
         notificationcounter.setLabelFor(jLabel4);
 
-        UsersSearchBar.setText("Search");
+        UsersSearchBar.setText("Search...");
         UsersSearchBar.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search2.png"))); // NOI18N
         UsersSearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -586,27 +591,27 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search.png"))); // NOI18N
         jLabel6.setText("Search Groups");
 
-        UsersSearchBar1.setText("Search");
-        UsersSearchBar1.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search2.png"))); // NOI18N
-        UsersSearchBar1.addFocusListener(new java.awt.event.FocusAdapter() {
+        GroupSearchBar.setText("Search...");
+        GroupSearchBar.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search2.png"))); // NOI18N
+        GroupSearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                UsersSearchBar1FocusGained(evt);
+                GroupSearchBarFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                UsersSearchBar1FocusLost(evt);
+                GroupSearchBarFocusLost(evt);
             }
         });
 
-        UserSearch1.setBackground(new java.awt.Color(51, 153, 255));
-        UserSearch1.setForeground(new java.awt.Color(255, 255, 255));
-        UserSearch1.setText("Search");
-        UserSearch1.setColor(new java.awt.Color(51, 153, 255));
-        UserSearch1.setColorover(new java.awt.Color(51, 102, 255));
-        UserSearch1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        UserSearch1.setRedius(50);
-        UserSearch1.addActionListener(new java.awt.event.ActionListener() {
+        groupSearch.setBackground(new java.awt.Color(51, 153, 255));
+        groupSearch.setForeground(new java.awt.Color(255, 255, 255));
+        groupSearch.setText("Search");
+        groupSearch.setColor(new java.awt.Color(51, 153, 255));
+        groupSearch.setColorover(new java.awt.Color(51, 102, 255));
+        groupSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        groupSearch.setRedius(50);
+        groupSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserSearch1ActionPerformed(evt);
+                groupSearchActionPerformed(evt);
             }
         });
 
@@ -726,9 +731,9 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(UsersSearchBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GroupSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(50, 50, 50)
-                                    .addComponent(UserSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(groupSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -805,8 +810,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(UsersSearchBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(UserSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(GroupSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(groupSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
@@ -923,7 +928,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         userSearchWindow.setVisible(true);    }//GEN-LAST:event_UserSearchActionPerformed
 
     private void UsersSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusGained
-        if (UsersSearchBar.getText().equals("Search")) {
+        if (UsersSearchBar.getText().equals("Search...")) {
             UsersSearchBar.setText(null);
             UsersSearchBar.requestFocus();
             removePlaceholderStyle(UsersSearchBar);
@@ -933,7 +938,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     private void UsersSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusLost
         if (UsersSearchBar.getText().length() == 0) {
             addPlaceholderStyle(UsersSearchBar);
-            UsersSearchBar.setText("Search");
+            UsersSearchBar.setText("Search...");
 
         }
     }//GEN-LAST:event_UsersSearchBarFocusLost
@@ -942,17 +947,33 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         this.requestFocusInWindow();
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void UsersSearchBar1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBar1FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsersSearchBar1FocusGained
+    private void GroupSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GroupSearchBarFocusGained
+          if (GroupSearchBar.getText().equals("Search...")) {
+            GroupSearchBar.setText(null);
+            GroupSearchBar.requestFocus();
+            removePlaceholderStyle(GroupSearchBar);
+        }
+    }//GEN-LAST:event_GroupSearchBarFocusGained
 
-    private void UsersSearchBar1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBar1FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsersSearchBar1FocusLost
+    private void GroupSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GroupSearchBarFocusLost
+           if (GroupSearchBar.getText().length() == 0) {
+            addPlaceholderStyle(GroupSearchBar);
+            GroupSearchBar.setText("Search...");
 
-    private void UserSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSearch1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserSearch1ActionPerformed
+        }
+    }//GEN-LAST:event_GroupSearchBarFocusLost
+
+    private void groupSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupSearchActionPerformed
+         String search=GroupSearchBar.getText().toLowerCase();
+        SearchResults<Group> groupSearch=new GroupSearchResults();
+        
+        groupSearch.searchObjects(search);
+        
+        ArrayList<Group> results = groupSearch.getSearchResults();
+        
+        GroupSearchGUI groupSearchWindow=new GroupSearchGUI(user,results);
+        groupSearchWindow.setVisible(true);
+    }//GEN-LAST:event_groupSearchActionPerformed
 
     private void creategroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creategroupActionPerformed
         CreateGroupWindow.createGroup(this, user.getUserId());
@@ -963,15 +984,15 @@ public class NewsFeedWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_groupSuggestionButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Back__end.MyTextField GroupSearchBar;
     private Back__end.MyButton UserSearch;
-    private Back__end.MyButton UserSearch1;
     private Back__end.MyTextField UsersSearchBar;
-    private Back__end.MyTextField UsersSearchBar1;
     private Back__end.MyButton creategroup;
     private javax.swing.JPanel friendListPanel;
     private javax.swing.JPanel friendSuggestionPanel;
     private Back__end.MyButton friends;
     private javax.swing.JPanel groupPanel;
+    private Back__end.MyButton groupSearch;
     private javax.swing.JButton groupSuggestionButton;
     private Back__end.MyButton home;
     private javax.swing.JLabel jLabel1;

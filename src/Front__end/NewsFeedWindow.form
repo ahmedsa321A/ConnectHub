@@ -143,9 +143,9 @@
                                       <Component id="jScrollPane3" min="-2" pref="360" max="-2" attributes="0"/>
                                       <Component id="jScrollPane2" min="-2" pref="360" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="UsersSearchBar1" min="-2" pref="175" max="-2" attributes="0"/>
+                                          <Component id="GroupSearchBar" min="-2" pref="175" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="UserSearch1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="groupSearch" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -248,8 +248,8 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                                  <Component id="UsersSearchBar1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="UserSearch1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="GroupSearchBar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="groupSearch" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabel3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -559,7 +559,7 @@
             </Component>
             <Component class="Back__end.MyTextField" name="UsersSearchBar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Search"/>
+                <Property name="text" type="java.lang.String" value="Search..."/>
                 <Property name="suffixIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/search2.png"/>
                 </Property>
@@ -615,19 +615,19 @@
                 <Property name="text" type="java.lang.String" value="Search Groups"/>
               </Properties>
             </Component>
-            <Component class="Back__end.MyTextField" name="UsersSearchBar1">
+            <Component class="Back__end.MyTextField" name="GroupSearchBar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Search"/>
+                <Property name="text" type="java.lang.String" value="Search..."/>
                 <Property name="suffixIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/search2.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="UsersSearchBar1FocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="UsersSearchBar1FocusLost"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="GroupSearchBarFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="GroupSearchBarFocusLost"/>
               </Events>
             </Component>
-            <Component class="Back__end.MyButton" name="UserSearch1">
+            <Component class="Back__end.MyButton" name="groupSearch">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -648,7 +648,7 @@
                 <Property name="redius" type="int" value="50"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserSearch1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="groupSearchActionPerformed"/>
               </Events>
             </Component>
             <Component class="Back__end.MyButton" name="creategroup">

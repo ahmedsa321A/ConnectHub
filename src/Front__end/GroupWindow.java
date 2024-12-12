@@ -48,10 +48,16 @@ public class GroupWindow extends javax.swing.JFrame {
         } else if (this.group.getAdmins().contains(user.getUserId())) {
             flag = 2;
             deleteGroupButton.setVisible(false);
-        } else {
+        } else if(this.group.getMembers().contains(user.getUserId())){
             flag = 3;
             deleteGroupButton.setVisible(false);
-        }        
+        } else
+        {
+            deleteGroupButton.setVisible(false);
+            leaveButton.setVisible(false);
+            createPostButton.setVisible(false);
+            
+        }
         creatorLabel.setText(userService.getUser(group.getPrimaryAdmin()).getUsername());
         showUsers((ArrayList<String>) this.group.getMembers(), membersPanel);
         showUsers((ArrayList<String>) this.group.getAdmins(), adminPanel);
@@ -153,13 +159,6 @@ public class GroupWindow extends javax.swing.JFrame {
                     User u = userService.getUser(id);
                     u.removeGroupFromSuggestion(group.getId());
                     UserRepository.saveData();
-                    //hitler zawd elnotification hina
-//                    Notification notification = new Notification.Builder().setNotificationtype("Friend")
-//                            .setSenderuserid(user.getUserId())
-//                            .setReceiveruserid(id)
-//                            .build();
-//                    ndb.addnotification(notification);
-//                    ndb.savenotifications();
                     GroupDatabase.saveGroupsToJson();
                     refresh();
                 }
@@ -169,13 +168,6 @@ public class GroupWindow extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     GroupMemberManger.declineRequest(id, group.getId());
-                    //hitler zawd elnotification hina
-//                    Notification notification = new Notification.Builder().setNotificationtype("Friend")
-//                            .setSenderuserid(user.getUserId())
-//                            .setReceiveruserid(id)
-//                            .build();
-//                    ndb.addnotification(notification);
-//                    ndb.savenotifications();
                     GroupDatabase.saveGroupsToJson();
                     refresh();
                 }
@@ -185,13 +177,6 @@ public class GroupWindow extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     GroupMemberManger.promote(id, group.getId());
-                    //hitler zawd elnotification hina
-//                    Notification notification = new Notification.Builder().setNotificationtype("Friend")
-//                            .setSenderuserid(user.getUserId())
-//                            .setReceiveruserid(id)
-//                            .build();
-//                    ndb.addnotification(notification);
-//                    ndb.savenotifications();
                     GroupDatabase.saveGroupsToJson();
                     refresh();
                 }
@@ -205,7 +190,7 @@ public class GroupWindow extends javax.swing.JFrame {
                     User u = userService.getUser(id);
                     u.addGroupsSuggestion(group.getId());
                     UserRepository.saveData();
-                    //hitler zawd elnotification hina
+               
 
                     GroupDatabase.saveGroupsToJson();
                     refresh();
@@ -216,13 +201,7 @@ public class GroupWindow extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     GroupMemberManger.demote(id, group.getId());
-                    //hitler zawd elnotification hina
-//                    Notification notification = new Notification.Builder().setNotificationtype("Friend")
-//                            .setSenderuserid(user.getUserId())
-//                            .setReceiveruserid(id)
-//                            .build();
-//                    ndb.addnotification(notification);
-//                    ndb.savenotifications();
+                    
                     GroupDatabase.saveGroupsToJson();
                     refresh();
                 }
