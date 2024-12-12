@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -5,20 +6,13 @@
 package Back__end;
 
 public class GroupPostManger {
-    private static NotificationDatabase ndb= NotificationDatabase.getInstance();
+    
     public static void addPost(GroupPost p, String groupId){
-        GroupDatabase.loadGroupsFromJson();
-        Group group = GroupDatabase.getGroupById(groupId);
+        GroupDataBase.loadGroupsFromJson();
+        Group group = GroupDataBase.getGroupById(groupId);
         GroupPostsDataBase.addPost(p);
         group.addPost(p.getContentId());
-        Notification notification = new Notification.Builder().setNotificationtype("Post")
-                .setSenderuserid(groupId)
-                .setReceiveruserid(p.getAuthorId())
-                .build();
-                ndb.loadnotification();
-                ndb.addnotification(notification);
-                ndb.savenotifications();
-        GroupDatabase.saveGroupsToJson();
+        GroupDataBase.saveGroupsToJson();
     }
     
     public static void editPost(String groupPostId,String text,String photo, String groupId){
@@ -29,7 +23,7 @@ public class GroupPostManger {
     }
     
     public static void deletePost(String groupId,String postID){
-        Group group = GroupDatabase.getGroupById(groupId);
+        Group group = GroupDataBase.getGroupById(groupId);
         group.removePost(postID);
     }
 }

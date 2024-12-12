@@ -1,14 +1,17 @@
+
 package Back__end;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import java.awt.Image;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 
-public class GroupDatabase {
+public class GroupDataBase {
     private static final String DATABASE_FILE = "groups.json";
     private static List<Group> groupList = new ArrayList<>(); // Static list to store groups
 
@@ -72,4 +75,5 @@ public class GroupDatabase {
         saveGroupsToJson(); 
     }
    }
+
 }

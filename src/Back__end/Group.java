@@ -1,3 +1,4 @@
+
 package Back__end;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class Group {
     private String id;
     private String name;
     private String description;
-    private String groupPhoto;
+    private String groupPhotoPath;
     private String primaryAdmin;
     private List<String> admins;
     private List<String> members;
@@ -20,7 +21,7 @@ public class Group {
         this.id = UUID.randomUUID().toString(); // Generate a unique ID for the group
         this.name = name;
         this.description = description;
-        this.groupPhoto = groupPhoto;
+        this.groupPhotoPath = groupPhoto;
         this.primaryAdmin = primaryAdmin;
         this.admins = new ArrayList<>();
         this.members = new ArrayList<>();
@@ -79,4 +80,25 @@ public class Group {
         //GroupMemberDatabase
         GroupPostsDataBase.removeGroupPostById(postId);
     }
+    
+        public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getGroupPhotoPath() {
+        return groupPhotoPath;
+    }
+
+    public List<String> getRequests() {
+        return requests;
+    }
+
+    public List<String> getPostsId() {
+        return postsId;
+    }
+    
 }

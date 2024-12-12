@@ -1,12 +1,25 @@
 [
   {
-    "id": "3e1e8aee-1547-4494-8131-50dca8f63c3c",
-    "name": "das",
-    "description": "Dsad",
-    "groupPhoto": "Dsadd",
-    "primaryAdmin": "dsada",
+    "id": "5290bd76-b895-4879-8994-faa4e4ffd0ad",
+    "name": "sdafgasdf",
+    "description": "",
+    "groupPhotoPath": "",
+    "primaryAdmin": "40ece127-272c-4111-a8a8-bbd21950f861",
     "admins": [
-      "dsada"
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "members": [],
+    "requests": [],
+    "postsId": []
+  },
+  {
+    "id": "076fd49f-989e-4146-9fb2-070e9f85532d",
+    "name": "hiwer",
+    "description": "",
+    "groupPhotoPath": "C:\\Users\\adham\\Desktop\\Screenshot_1.png",
+    "primaryAdmin": "40ece127-272c-4111-a8a8-bbd21950f861",
+    "admins": [
+      "40ece127-272c-4111-a8a8-bbd21950f861"
     ],
     "members": [],
     "requests": [],
