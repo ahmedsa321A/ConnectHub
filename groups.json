@@ -1,12 +1,51 @@
 [
   {
-    "id": "3e1e8aee-1547-4494-8131-50dca8f63c3c",
-    "name": "das",
-    "description": "Dsad",
-    "groupPhoto": "Dsadd",
-    "primaryAdmin": "dsada",
+    "id": "5290bd76-b895-4879-8994-faa4e4ffd0ad",
+    "name": "sdafgasdf",
+    "description": "",
+    "groupPhotoPath": "",
+    "primaryAdmin": "40ece127-272c-4111-a8a8-bbd21950f861",
     "admins": [
-      "dsada"
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "members": [],
+    "requests": [],
+    "postsId": []
+  },
+  {
+    "id": "076fd49f-989e-4146-9fb2-070e9f85532d",
+    "name": "hiwer",
+    "description": "",
+    "groupPhotoPath": "C:\\Users\\adham\\Desktop\\Screenshot_1.png",
+    "primaryAdmin": "40ece127-272c-4111-a8a8-bbd21950f861",
+    "admins": [
+      "40ece127-272c-4111-a8a8-bbd21950f861"
+    ],
+    "members": [],
+    "requests": [],
+    "postsId": []
+  },
+  {
+    "id": "d0550acf-3c7c-4139-a92a-51cf17898e13",
+    "name": "a7la nas",
+    "description": "",
+    "groupPhotoPath": "/Users/hazembarakat/Downloads/954591.png",
+    "primaryAdmin": "8a5ff20b-2269-4666-b2a8-72fac43604be",
+    "admins": [
+      "8a5ff20b-2269-4666-b2a8-72fac43604be"
+    ],
+    "members": [],
+    "requests": [],
+    "postsId": []
+  },
+  {
+    "id": "7814b8d8-fdc6-4d23-8b23-fd571c0019cb",
+    "name": "aa",
+    "description": "",
+    "groupPhotoPath": "",
+    "primaryAdmin": "8a5ff20b-2269-4666-b2a8-72fac43604be",
+    "admins": [
+      "8a5ff20b-2269-4666-b2a8-72fac43604be"
     ],
     "members": [],
     "requests": [],

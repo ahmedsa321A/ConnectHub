@@ -12,7 +12,7 @@ public class Content {
     private final boolean isStory;
 
     // Private constructor to enforce object creation through the builder
-    private Content(ContentBuilder builder) {
+     Content(ContentBuilder builder) {
         this.contentId = builder.contentId;
         this.authorId = builder.authorId;
         this.contentText = builder.contentText;
