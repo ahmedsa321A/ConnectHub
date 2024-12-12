@@ -38,7 +38,9 @@ public class GroupMemberManger {
 
     public static void addRequest(String id, String groupId) {
         Group g = GroupDatabase.getGroupById(groupId);
+        if(!g.getRequests().contains(id)){
         g.addRequest(id);
+        }
         GroupDatabase.saveGroupsToJson();
     }
 

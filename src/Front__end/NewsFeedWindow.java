@@ -136,7 +136,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        frame.dispose();
+                        //frame.dispose();
                         GroupWindow groupWindow = new GroupWindow(group, user);
                     }
                 });

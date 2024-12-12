@@ -31,12 +31,14 @@ public class GroupWindow extends javax.swing.JFrame {
     private int flag;
     private User user;
     
-    public GroupWindow(Group group, User user) {
+    public GroupWindow(Group group,User user) {
         initComponents();
+         java.awt.Frame frame = this;
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+                   frame.dispose();
+
             }
         });
         GroupDatabase.loadGroupsFromJson();
