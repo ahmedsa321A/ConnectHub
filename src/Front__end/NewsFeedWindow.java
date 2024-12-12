@@ -513,7 +513,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         notificationcounter.setForeground(new java.awt.Color(255, 255, 255));
         notificationcounter.setLabelFor(jLabel4);
 
-        UsersSearchBar.setText("Search");
+        UsersSearchBar.setText("Search...");
         UsersSearchBar.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search2.png"))); // NOI18N
         UsersSearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -541,7 +541,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search.png"))); // NOI18N
         jLabel5.setText("Search Users");
 
-        GroupSearchBar.setText("Search");
+        GroupSearchBar.setText("Search...");
         GroupSearchBar.setSuffixIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search2.png"))); // NOI18N
         GroupSearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -796,7 +796,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         userSearchWindow.setVisible(true);    }//GEN-LAST:event_UserSearchActionPerformed
 
     private void UsersSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusGained
-          if (UsersSearchBar.getText().equals("Search")) {
+          if (UsersSearchBar.getText().equals("Search...")) {
             UsersSearchBar.setText(null);
             UsersSearchBar.requestFocus();
             removePlaceholderStyle(UsersSearchBar);
@@ -806,7 +806,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     private void UsersSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusLost
          if (UsersSearchBar.getText().length() == 0) {
             addPlaceholderStyle(UsersSearchBar);
-            UsersSearchBar.setText("Search");
+            UsersSearchBar.setText("Search...");
 
         }
     }//GEN-LAST:event_UsersSearchBarFocusLost
@@ -816,11 +816,19 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void GroupSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GroupSearchBarFocusGained
-        // TODO add your handling code here:
+         if (GroupSearchBar.getText().equals("Search...")) {
+            GroupSearchBar.setText(null);
+            GroupSearchBar.requestFocus();
+            removePlaceholderStyle(GroupSearchBar);
+        }
     }//GEN-LAST:event_GroupSearchBarFocusGained
 
     private void GroupSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GroupSearchBarFocusLost
-        // TODO add your handling code here:
+         if (GroupSearchBar.getText().length() == 0) {
+            addPlaceholderStyle(GroupSearchBar);
+            GroupSearchBar.setText("Search...");
+
+        }
     }//GEN-LAST:event_GroupSearchBarFocusLost
 
     private void GroupSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GroupSearchActionPerformed

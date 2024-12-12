@@ -521,7 +521,7 @@
     </Component>
     <Component class="Back__end.MyTextField" name="UsersSearchBar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="Search..."/>
         <Property name="suffixIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/search2.png"/>
         </Property>
@@ -568,7 +568,7 @@
     </Component>
     <Component class="Back__end.MyTextField" name="GroupSearchBar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Search"/>
+        <Property name="text" type="java.lang.String" value="Search..."/>
         <Property name="suffixIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/search2.png"/>
         </Property>
