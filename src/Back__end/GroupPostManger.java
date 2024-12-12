@@ -10,16 +10,16 @@ public class GroupPostManger {
     public static void addPost(GroupPost p, String groupId){
         GroupDatabase.loadGroupsFromJson();
         Group group = GroupDatabase.getGroupById(groupId);
-        GroupPostsDataBase.addPost(p);
+        GroupPostsDatabase.addPost(p);
         group.addPost(p.getContentId());
         GroupDatabase.saveGroupsToJson();
     }
     
     public static void editPost(String groupPostId,String text,String photo, String groupId){
-        GroupPost groupPost = GroupPostsDataBase.getGroupPostById(groupPostId);
+        GroupPost groupPost = GroupPostsDatabase.getGroupPostById(groupPostId);
         groupPost.setContentText(text);
         groupPost.setImagePath(photo);
-        GroupPostsDataBase.saveToJSON();
+        GroupPostsDatabase.saveToJSON();
     }
     
     public static void deletePost(String groupId,String postID){

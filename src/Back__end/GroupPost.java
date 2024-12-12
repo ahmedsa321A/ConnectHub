@@ -27,6 +27,10 @@ public class GroupPost {
         return contentId;
     }
 
+    public String getGroupID() {
+        return groupID;
+    }
+
     public String getAuthorId() {
         return authorId;
     }

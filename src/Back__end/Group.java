@@ -65,7 +65,7 @@ public class Group {
     }
     
     public void removeMember(String memberId) {
-        requests.remove(memberId);
+        members.remove(memberId);
     }
     public void addMember(String memberId) {
         members.add(memberId);
@@ -78,7 +78,7 @@ public class Group {
     public void removePost(String postId){
         postsId.remove(postId);
         //GroupMemberDatabase
-        GroupPostsDataBase.removeGroupPostById(postId);
+        GroupPostsDatabase.removeGroupPostById(postId);
     }
     
         public String getName() {

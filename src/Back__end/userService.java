@@ -116,6 +116,11 @@ public class userService {
         // Use the factory to create the User object
         User user = userFactory.createUser(email, username, password, dateOfBirth);
 
+        GroupDatabase.loadGroupsFromJson();
+        for(Group g:GroupDatabase.getGroups()){
+            user.addGroupsSuggestion(g.getId());
+        }
+        
         // Save the user (assuming saveSignup is defined to handle saving the user data)
         saveSignup(user);
 

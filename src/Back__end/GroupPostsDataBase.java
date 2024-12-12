@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author ahmed
  */
-public class GroupPostsDataBase {
+public class GroupPostsDatabase {
 
     private static final String FILE_PATH = "group_posts.json";
 
@@ -23,6 +23,9 @@ public class GroupPostsDataBase {
 
     public  static void addPost(GroupPost p){
     groupPosts.add(p);
+    Group group = GroupDatabase.getGroupById(p.getGroupID());
+    group.addPost(p.getContentId());
+    GroupDatabase.saveGroupsToJson();
     saveToJSON();
     }
     

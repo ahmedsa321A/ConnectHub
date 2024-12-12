@@ -89,7 +89,8 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         showSuggestions();
 
     }
-public void addPlaceholderStyle(JTextField textfield) {
+
+    public void addPlaceholderStyle(JTextField textfield) {
         Font font = textfield.getFont();
         font = font.deriveFont(Font.ITALIC);
         textfield.setFont(font);
@@ -104,7 +105,8 @@ public void addPlaceholderStyle(JTextField textfield) {
         textfield.setForeground(Color.BLACK);
 
     }
-     public ImageIcon saveImageIconGroup(String photoPath) {
+
+    public ImageIcon saveImageIconGroup(String photoPath) {
         ImageIcon imgicon;
         if (photoPath.equals("")) {
             imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/nogroup.png"));
@@ -116,7 +118,9 @@ public void addPlaceholderStyle(JTextField textfield) {
         imgicon = new ImageIcon(resizedImage);
         return imgicon;
     }
-        private void showMyGroup() {
+
+    private void showMyGroup() {
+        java.awt.Frame frame = this;
         GroupDatabase.loadGroupsFromJson();
         List<Group> groupList = GroupDatabase.getGroups();
         for (Group group : groupList) {
@@ -130,7 +134,8 @@ public void addPlaceholderStyle(JTextField textfield) {
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
+                        frame.dispose();
+                        GroupWindow groupWindow = new GroupWindow(group, user);
                     }
                 });
                 JLabel nameLabel = new JLabel(group.getName());
@@ -140,6 +145,7 @@ public void addPlaceholderStyle(JTextField textfield) {
             }
         }
     }
+
     private void showFriendsList() {
         ArrayList<String> friendsIdList = (ArrayList<String>) user.getFriendsIdArray();
         for (String friendId : friendsIdList) {
@@ -268,7 +274,6 @@ public void addPlaceholderStyle(JTextField textfield) {
                     refreshUI();
                 }
             });
-
             removeButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -280,14 +285,16 @@ public void addPlaceholderStyle(JTextField textfield) {
             Panel.add(addButton);
             Panel.add(removeButton);
             friendSuggestionPanel.add(Panel);
-
         }
-
     }
 
     private void showPosts(User user) {
         ArrayList<JPanel> posts = ContentService.getPostOfFriends(user);
+        ArrayList<JPanel> groupPosts = ContentService.getPostsOfGroupsByUserId(user.getUserId());
         for (JPanel post : posts) {
+            this.newsFeedPanel.add(post);
+        }
+        for (JPanel post : groupPosts) {
             this.newsFeedPanel.add(post);
         }
     }
@@ -359,6 +366,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         jScrollPane7 = new javax.swing.JScrollPane();
         groupPanel = new javax.swing.JPanel();
         home = new Back__end.MyButton();
+        groupSuggestionButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -647,14 +655,28 @@ public void addPlaceholderStyle(JTextField textfield) {
             }
         });
 
+        groupSuggestionButton.setText("Group Suggestion");
+        groupSuggestionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupSuggestionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5)
+                            .addComponent(jScrollPane7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(groupSuggestionButton)
+                        .addGap(89, 89, 89)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -674,19 +696,16 @@ public void addPlaceholderStyle(JTextField textfield) {
                             .addGap(36, 36, 36)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(UsersSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(notificationcounter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(50, 50, 50)
-                                    .addComponent(UserSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(129, 129, 129))
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(25, 25, 25)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(UsersSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(notificationcounter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(50, 50, 50)
+                            .addComponent(UserSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(129, 129, 129)))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,15 +744,19 @@ public void addPlaceholderStyle(JTextField textfield) {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
+                .addContainerGap(205, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
+                .addGap(298, 298, 298)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(groupSuggestionButton)
+                .addGap(74, 74, 74))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -774,13 +797,11 @@ public void addPlaceholderStyle(JTextField textfield) {
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(28, 28, 28))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(54, 54, 54))
+                                    .addGap(298, 298, 298))
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -809,7 +830,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
         );
 
         pack();
@@ -902,7 +923,7 @@ public void addPlaceholderStyle(JTextField textfield) {
         userSearchWindow.setVisible(true);    }//GEN-LAST:event_UserSearchActionPerformed
 
     private void UsersSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusGained
-          if (UsersSearchBar.getText().equals("Search")) {
+        if (UsersSearchBar.getText().equals("Search")) {
             UsersSearchBar.setText(null);
             UsersSearchBar.requestFocus();
             removePlaceholderStyle(UsersSearchBar);
@@ -910,7 +931,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_UsersSearchBarFocusGained
 
     private void UsersSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UsersSearchBarFocusLost
-         if (UsersSearchBar.getText().length() == 0) {
+        if (UsersSearchBar.getText().length() == 0) {
             addPlaceholderStyle(UsersSearchBar);
             UsersSearchBar.setText("Search");
 
@@ -934,8 +955,12 @@ public void addPlaceholderStyle(JTextField textfield) {
     }//GEN-LAST:event_UserSearch1ActionPerformed
 
     private void creategroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creategroupActionPerformed
-       CreateGroupWindow.createGroup(this, user.getUserId());
+        CreateGroupWindow.createGroup(this, user.getUserId());
     }//GEN-LAST:event_creategroupActionPerformed
+
+    private void groupSuggestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupSuggestionButtonActionPerformed
+        GroupSuggestionWindow g = new GroupSuggestionWindow(this, user, true);
+    }//GEN-LAST:event_groupSuggestionButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Back__end.MyButton UserSearch;
@@ -947,6 +972,7 @@ public void addPlaceholderStyle(JTextField textfield) {
     private javax.swing.JPanel friendSuggestionPanel;
     private Back__end.MyButton friends;
     private javax.swing.JPanel groupPanel;
+    private javax.swing.JButton groupSuggestionButton;
     private Back__end.MyButton home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

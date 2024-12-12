@@ -1,16 +1,18 @@
-
 package Back__end;
+
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class User extends UserParent {
+
     @SerializedName("FriendsId")
     private final List<String> friends;
     private final List<String> requestsReceived;
     private final List<String> suggestions;
     private final List<String> blocked;
+    private List<String> groupsSuggestions;
 
     // Private constructor used by the Builder design pattern
     private User(Builder builder) {
@@ -19,102 +21,128 @@ public class User extends UserParent {
         this.requestsReceived = builder.requestsReceived;
         this.suggestions = builder.suggestions;
         this.blocked = builder.blocked;
+        this.groupsSuggestions = builder.groupsSuggestions;
     }
+
     public void addFriend(String friendId) {
-        if(!isFriend(friendId)) //checks if user already friend or not
+        if (!isFriend(friendId)) //checks if user already friend or not
         {
             friends.add(friendId); //add friend
-           removeReceivedRequest(friendId); //remove request from user2
+            removeReceivedRequest(friendId); //remove request from user2
         }
     }
+
     public void removeFriend(String userId) {
-       if(isFriend(userId)) //check if user in friends or not before removing
-       {
-        //remove if true   
-        friends.remove(userId);
-        addSuggestion(userId);
-       }
+        if (isFriend(userId)) //check if user in friends or not before removing
+        {
+            //remove if true   
+            friends.remove(userId);
+            addSuggestion(userId);
+        }
     }
+
     public List<String> getFriendsIdArray() {
         return friends;
     }
-    
-     public void receivedRequest(String friendId){
-       //check if user already sent a request before and if  user is already friend 
-        if(!requestsReceived.contains(friendId)&& !isFriend(friendId))
-        {
-         //receive request from him and remove him from sussgestion if true
-        requestsReceived.add(friendId);
-        removeSuggestion(friendId);
+
+    public void receivedRequest(String friendId) {
+        //check if user already sent a request before and if  user is already friend 
+        if (!requestsReceived.contains(friendId) && !isFriend(friendId)) {
+            //receive request from him and remove him from sussgestion if true
+            requestsReceived.add(friendId);
+            removeSuggestion(friendId);
         }
     }
-     
-     public void removeReceivedRequest(String userId) {
-      //check if the requests exits first 
-        if(requestsReceived.contains(userId))   
-      {//if true remove it and add him to suggestion
-          requestsReceived.remove(userId);
-          addSuggestion(userId);
-      }
+
+    public void removeReceivedRequest(String userId) {
+        //check if the requests exits first 
+        if (requestsReceived.contains(userId)) {//if true remove it and add him to suggestion
+            requestsReceived.remove(userId);
+            addSuggestion(userId);
+        }
     }
-     
-     public List<String> getReceivedRequests(){
+
+    public List<String> getReceivedRequests() {
         return requestsReceived;
     }
-     public void addSuggestion(String friendId) {
-         //check first if he doesnt exist in all of these lists
-    if(!userService.getUser(friendId).isBlocked(this.getUserId()) &&!suggestions.contains(friendId) && !isFriend(friendId) && !isBlocked(friendId)&&!requestsReceived.contains(friendId))
-        //if true add him to suggestions
-        suggestions.add(friendId);
+
+    public void addSuggestion(String friendId) {
+        //check first if he doesnt exist in all of these lists
+        if (!userService.getUser(friendId).isBlocked(this.getUserId()) && !suggestions.contains(friendId) && !isFriend(friendId) && !isBlocked(friendId) && !requestsReceived.contains(friendId)) //if true add him to suggestions
+        {
+            suggestions.add(friendId);
+        }
     }
 
     public void removeSuggestion(String userId) {
         //check if user in suggestions first
-        if(suggestions.contains(userId))
-        //if true remove him    
-        suggestions.remove(userId);
+        if (suggestions.contains(userId)) //if true remove him    
+        {
+            suggestions.remove(userId);
+        }
     }
 
     public List<String> getSuggestions() {
         return suggestions;
     }
-    public void addBlock(String userId){
+
+    public void addBlock(String userId) {
         //check if he isnt blocked
-        if(!isBlocked(userId))
-        //if yes block him    
-        blocked.add(userId);
+        if (!isBlocked(userId)) //if yes block him    
+        {
+            blocked.add(userId);
+        }
     }
-    public void removeBlock(String userId){
+
+    public void removeBlock(String userId) {
         //check if already blocked
-        if(isBlocked(userId))
-        //remove him from block if true    
-        blocked.remove(userId);
+        if (isBlocked(userId)) //remove him from block if true    
+        {
+            blocked.remove(userId);
+        }
     }
+
     public List<String> getBlocked() {
         return blocked;
     }
-    public boolean isFriend(String userId){
+
+    public boolean isFriend(String userId) {
         return friends.contains(userId);
     }
-    public boolean isBlocked(String userId)
-    {
+
+    public boolean isBlocked(String userId) {
         return blocked.contains(userId);
     }
-   @Override
+
+    @Override
     public String toString() {
-    String friendsIds = friends.stream().collect(Collectors.joining(", "));
-    String suggestionsIds = suggestions.stream().collect(Collectors.joining(", "));
-    String receivedRequestsIds = requestsReceived.stream().collect(Collectors.joining(", "));
-    String blockedIds = blocked.stream().collect(Collectors.joining(", "));
-    return super.toString() + 
-           ", friends IDs=[" + friendsIds + "]" +
-           ", suggestions IDs=[" + suggestionsIds + "]" +
-           ", receivedRequests IDs=[" + receivedRequestsIds + "]"+
-           ", Blocked IDs=[" + blockedIds + "]" ;
+        String friendsIds = friends.stream().collect(Collectors.joining(", "));
+        String suggestionsIds = suggestions.stream().collect(Collectors.joining(", "));
+        String receivedRequestsIds = requestsReceived.stream().collect(Collectors.joining(", "));
+        String blockedIds = blocked.stream().collect(Collectors.joining(", "));
+        return super.toString()
+                + ", friends IDs=[" + friendsIds + "]"
+                + ", suggestions IDs=[" + suggestionsIds + "]"
+                + ", receivedRequests IDs=[" + receivedRequestsIds + "]"
+                + ", Blocked IDs=[" + blockedIds + "]";
+
+    }
     
-}
+    public void addGroupsSuggestion(String groupId){
+        groupsSuggestions.add(groupId);
+    }
+    
+    public void removeGroupFromSuggestion(String groupId){
+        groupsSuggestions.remove(groupId);
+    }
+
+    public List<String> getGroupSuggestions(){
+        return this.groupsSuggestions;
+    }
+    
     //Builder design pattern better than complex constructor
     public static class Builder {
+
         private final String userId;
         private final String email;
         private String username;
@@ -125,6 +153,7 @@ public class User extends UserParent {
         private List<String> requestsReceived = new ArrayList<>();
         private List<String> suggestions = new ArrayList<>();
         private List<String> blocked = new ArrayList<>();
+        private List<String> groupsSuggestions = new ArrayList<>();
 
         public Builder(String userId, String email) {
             this.userId = userId;
@@ -176,5 +205,3 @@ public class User extends UserParent {
         }
     }
 }
-
-
