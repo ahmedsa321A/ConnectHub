@@ -79,7 +79,7 @@ addFriendButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons
 addFriendButton.setText("Add Friend");
 
 JButton removeFriendButton = new javax.swing.JButton();
-removeFriendButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/removefriend.png")));
+removeFriendButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/removefriend2.png")));
 removeFriendButton.setText("Remove Friend");
 
 JButton blockButton = new javax.swing.JButton();
