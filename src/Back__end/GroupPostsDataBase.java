@@ -23,14 +23,31 @@ public class GroupPostsDatabase {
 
     public  static void addPost(GroupPost p){
     groupPosts.add(p);
-      Notification notification = new Notification.Builder().setNotificationtype("Created")
+    ndb.loadnotification();
+    Group group=GroupDatabase.getGroupById(p.getGroupID());
+    for(String id:group.getMembers())
+    {
+        if(id.equals(p.getAuthorId())) continue;
+        Notification notification = new Notification.Builder().setNotificationtype("Created")
                 .setSenderuserid(p.getGroupID())
                 .setReceiveruserid(p.getAuthorId())
+                .settargetid(id)
                 .build();
-        ndb.loadnotification();
+        
         ndb.addnotification(notification);
+    }
+      for(String id:group.getAdmins())
+    {
+        if(id.equals(p.getAuthorId())) continue;
+        Notification notification = new Notification.Builder().setNotificationtype("Created")
+                .setSenderuserid(p.getGroupID())
+                .setReceiveruserid(p.getAuthorId())
+                .settargetid(id)
+                .build();
+        
+        ndb.addnotification(notification);
+    }
         ndb.savenotifications();
-    Group group = GroupDatabase.getGroupById(p.getGroupID());
     group.addPost(p.getContentId());
     GroupDatabase.saveGroupsToJson();
     saveToJSON();

@@ -1,14 +1,22 @@
 [
   {
+    "notificationtype": "Approved",
+    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
+    "receiveruserid": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+    "timestamp": "2024-12-13T01:24:00.54873"
+  },
+  {
     "notificationtype": "Created",
     "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
     "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "timestamp": "2024-12-13T00:44:30.620324"
+    "targetid": "81b6e545-ad7a-429d-82f6-7f8538588d86",
+    "timestamp": "2024-12-13T01:30:50.942357"
   },
   {
-    "notificationtype": "Approved",
+    "notificationtype": "Created",
     "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "receiveruserid": "81b6e545-ad7a-429d-82f6-7f8538588d86",
-    "timestamp": "2024-12-13T00:44:30.620375"
+    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
+    "targetid": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+    "timestamp": "2024-12-13T01:30:50.942412"
   }
 ]

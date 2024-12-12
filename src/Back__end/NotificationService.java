@@ -6,6 +6,7 @@ package Back__end;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -109,7 +110,6 @@ public class NotificationService {
         long differenceInHours = ChronoUnit.HOURS.between(parsedTime, currentTime);
         long differenceInDays = ChronoUnit.DAYS.between(parsedTime, currentTime);
         String date;
-      
         if (differenceInMinutes < 60) {
             date = differenceInMinutes + " Mins ago";
         } else if (differenceInHours < 24) {
@@ -117,20 +117,44 @@ public class NotificationService {
         } else {
             date = differenceInDays + " Days ago";
         }
-        
+        JButton removeButton = new JButton("Remove");
+        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/trash.png")));
         JPanel requestPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ImageIcon imgicon = new userService().saveImageIconProfile(photoPath);
+        ImageIcon imgicon = saveImageIconGroup(photoPath);
         JLabel imageLabell = new JLabel(imgicon);
         JLabel nameLabel = new JLabel("<html>"+content+"<br>"+name+"</html>");
         JLabel dateLabel = new JLabel(date);
+                removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ndb.removenotification(n);
+                ndb.savenotifications();
+                request.remove(requestPanel);
+                request.revalidate();
+                request.repaint();
+            }
+        });
         dateLabel.setFont(new Font("Arial", Font.BOLD, 12));
         requestPanel.add(imageLabell);
         requestPanel.add(nameLabel);
         requestPanel.add(dateLabel);
+        requestPanel.add(removeButton);
         request.add(requestPanel);
     }
     }
 }
+    public ImageIcon saveImageIconGroup(String photoPath) {
+        ImageIcon imgicon;
+        if (photoPath.equals("")) {
+            imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/nogroup.png"));
+        } else {
+            imgicon = new ImageIcon(photoPath);
+        }
+        Image image = imgicon.getImage();
+        Image resizedImage = image.getScaledInstance(45, 45, Image.SCALE_SMOOTH); // Resize to fit
+        imgicon = new ImageIcon(resizedImage);
+        return imgicon;
+    }
     public  void createpostnotification(JPanel request,String id)
     {
     /*ArrayList<Notification> notifications = ndb.getNotifications(id);
