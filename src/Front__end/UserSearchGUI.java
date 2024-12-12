@@ -75,7 +75,7 @@ public class UserSearchGUI extends javax.swing.JFrame{
        photoLabel.setPreferredSize(new Dimension(50, 50));
        JLabel nameLabel = new JLabel(result.getUsername());
        JButton addFriendButton = new javax.swing.JButton();
-addFriendButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend.png")));
+addFriendButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addfriend2.png")));
 addFriendButton.setText("Add Friend");
 
 JButton removeFriendButton = new javax.swing.JButton();

@@ -123,10 +123,18 @@ public void addPlaceholderStyle(JTextField textfield) {
             if (group.getPrimaryAdmin().equals(user.getUserId()) || group.getAdmins().contains(user.getUserId()) || group.getMembers().contains(user.getUserId())) {
                 JPanel grouppanel = new JPanel();
                 grouppanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+                MyButton button = new MyButton();
                 ImageIcon imgicon = saveImageIconGroup(group.getGroupPhotoPath());
-                JLabel imageLabell = new JLabel(imgicon);
+                button.setIcon(imgicon);
+                button.setRedius(50);
+                button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                    }
+                });
                 JLabel nameLabel = new JLabel(group.getName());
-                grouppanel.add(imageLabell);
+                grouppanel.add(button);
                 grouppanel.add(nameLabel);
                 groupPanel.add(grouppanel);
             }
@@ -866,7 +874,6 @@ public void addPlaceholderStyle(JTextField textfield) {
 
         String search = UsersSearchBar.getText().toLowerCase();
         SearchResults<User> userSearch = new UserSearchResults();
-
         userSearch.searchObjects(search);
 
         // Retrieve the search results
