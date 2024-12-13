@@ -50,9 +50,9 @@ public class NotificationDatabase {
         }
     }
      public void addnotification(Notification notification) {
-   
-        this.notifications.add(notification);
-    }
+          this.notifications.add(notification);
+
+     }
      public void removenotification(Notification notification) {
         this.notifications.remove(notification);
     }

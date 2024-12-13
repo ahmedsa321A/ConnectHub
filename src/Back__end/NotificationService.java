@@ -26,8 +26,13 @@ public class NotificationService {
     public  void createfriendrequestnotification(JPanel request,String id)
     {
     ArrayList<Notification> notifications = ndb.getNotifications(id);
+    Notification temp=null;
     request.setLayout(new BoxLayout(request, BoxLayout.Y_AXIS));
     for (Notification n : notifications) {
+        if(userService.getUser(n.getSenderuserid()).isFriend(n.getReceiveruserid())){
+         temp=n;
+         continue;
+        }
         if(n.getNotificationtype().equals("Friend"))
         {
         ArrayList<String> requestData = userService.getPathAndName(n.getSenderuserid());
@@ -91,6 +96,11 @@ public class NotificationService {
         requestPanel.add(declineButton);
         request.add(requestPanel);
          }
+    }
+    if(temp!=null){
+    notifications.remove(temp);
+    NotificationDatabase.setNotifications(notifications);
+    ndb.savenotifications();
     }
 }
     public  void createapprovednotification(JPanel request,String id)

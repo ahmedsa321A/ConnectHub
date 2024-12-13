@@ -2,6 +2,8 @@ package Front__end;
 
 import Back__end.FriendSuggestion;
 import Back__end.FriendsList;
+import Back__end.Notification;
+import Back__end.NotificationDatabase;
 import Back__end.User;
 import Back__end.userService;
 import java.awt.FlowLayout;
@@ -18,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class UserSearchGUI extends SearchParentGUI<User> {
-
+     NotificationDatabase ndb= NotificationDatabase.getInstance();
     public UserSearchGUI(User user, ArrayList<User> results) {
         super(user, "User", results);
     }
@@ -55,7 +57,16 @@ public class UserSearchGUI extends SearchParentGUI<User> {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new FriendSuggestion().acceptSuggestion(userService.getUser(currentUser.getUserId()), userService.getUser(result.getUserId()));
+                 Notification notification = new Notification.Builder().setNotificationtype("Friend")
+                .setSenderuserid(currentUser.getUserId())
+                .setReceiveruserid(result.getUserId())
+                .build();
+                
+                    ndb.addnotification(notification);
+                    ndb.savenotifications();
+                
                 if (!addFriendButton.getText().equals("Request Sent")) {
+                    
                     addFriendButton.setText("Request Sent");
                     addFriendButton.setEnabled(false);
                     JOptionPane.showMessageDialog(null, "Friend request sent!");
