@@ -151,6 +151,10 @@ public class CreateGroupWindow extends javax.swing.JDialog {
 
     private void creategroupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creategroupButtonActionPerformed
         String name = groupNameTextField.getText();
+        if (name.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Group name cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
+        return; 
+        }
         String discreption = discreptionTextArea.getText();
         GroupDatabase.loadGroupsFromJson();
         Group group = new Group.GroupBuilder(name, id)
