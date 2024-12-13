@@ -28,7 +28,8 @@
     ],
     "requestsReceived": [],
     "suggestions": [
-      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
     ],
     "blocked": [],
     "groupsSuggestions": [
@@ -39,7 +40,7 @@
     "username": "bigad",
     "password": "3fb6e47871331fa4340268e62b19ec42488bb451",
     "dateOfBirth": "2004-08-16",
-    "status": "offline",
+    "status": "online",
     "profilePhotoPath": "/Users/hazembarakat/Desktop/profilepic/bigad.jpeg",
     "coverPhotoPath": "",
     "bio": ""
