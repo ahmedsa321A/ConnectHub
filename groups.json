@@ -1,31 +1,5 @@
 [
   {
-    "id": "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e",
-    "name": "tagegaeg",
-    "description": "",
-    "groupPhotoPath": "",
-    "primaryAdmin": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
-    "admins": [
-      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
-    ],
-    "members": [],
-    "requests": [],
-    "postsId": [
-      "f212af1b-194e-48d1-b709-55dc9a13fb3b",
-      "49b6799a-9799-4c8f-8d89-638d6554f72d",
-      "ed61014d-46cd-47c7-909c-051a4da5ce5e",
-      "14aec9f0-5d63-47d8-b27a-f79186347356",
-      "65e8c6d8-3b9a-4f2e-ab4d-70e0751f5a51",
-      "22909fa0-81ab-43ab-93ba-3ee59448e898",
-      "c129ae9d-6c35-41f6-85ed-e338f3f23230",
-      "f2fec205-b051-4ace-88dc-fb5bf60d23f8",
-      "4995f808-29cf-4d63-9bef-a73d3f7f9608",
-      "7cd2349e-bcb6-4c17-8f08-a13f414cdf2e",
-      "6bde7ae9-aa2f-4e11-8196-6eb8d8e6d50d",
-      "53893fec-9060-4b8c-90b4-b0ea1bbc7628"
-    ]
-  },
-  {
     "id": "4db664f9-7f4b-4a56-96c9-170b39c0a8e8",
     "name": "G.o.a.t s",
     "description": "each member is G.o.a.t",
@@ -34,11 +8,14 @@
     "admins": [
       "c5d19e01-83b4-488e-b804-96fd899332e4"
     ],
-    "members": [],
+    "members": [
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+    ],
     "requests": [],
     "postsId": [
       "3a122477-c578-4a30-b4d7-f524850f3b6c",
-      "f5b4abf6-8f83-40d3-8a53-7822edca8641"
+      "f5b4abf6-8f83-40d3-8a53-7822edca8641",
+      "d3359a51-87f2-4151-baf9-b3ebf5dfc3f0"
     ]
   }
 ]

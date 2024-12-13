@@ -1,18 +1,15 @@
 [
   {
-    "FriendsId": [
+    "FriendsId": [],
+    "requestsReceived": [],
+    "suggestions": [
+      "c9aa1fd6-9a49-49f5-915d-19a1c7759fe6",
       "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
       "81b6e545-ad7a-429d-82f6-7f8538588d86",
       "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45"
     ],
-    "requestsReceived": [],
-    "suggestions": [
-      "c9aa1fd6-9a49-49f5-915d-19a1c7759fe6"
-    ],
     "blocked": [],
-    "groupsSuggestions": [
-      "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e"
-    ],
+    "groupsSuggestions": [],
     "userId": "c5d19e01-83b4-488e-b804-96fd899332e4",
     "email": "hazem@gmail.com",
     "username": "hazem",
@@ -25,16 +22,15 @@
   },
   {
     "FriendsId": [
-      "81b6e545-ad7a-429d-82f6-7f8538588d86",
-      "c5d19e01-83b4-488e-b804-96fd899332e4"
+      "81b6e545-ad7a-429d-82f6-7f8538588d86"
     ],
     "requestsReceived": [],
     "suggestions": [
-      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
     ],
     "blocked": [],
     "groupsSuggestions": [
-      "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e",
       "4db664f9-7f4b-4a56-96c9-170b39c0a8e8"
     ],
     "userId": "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
@@ -48,18 +44,16 @@
     "bio": ""
   },
   {
-    "FriendsId": [
-      "c5d19e01-83b4-488e-b804-96fd899332e4"
-    ],
+    "FriendsId": [],
     "requestsReceived": [],
     "suggestions": [
       "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
-      "81b6e545-ad7a-429d-82f6-7f8538588d86"
+      "81b6e545-ad7a-429d-82f6-7f8538588d86",
+      "c5d19e01-83b4-488e-b804-96fd899332e4",
+      "c9aa1fd6-9a49-49f5-915d-19a1c7759fe6"
     ],
     "blocked": [],
-    "groupsSuggestions": [
-      "4db664f9-7f4b-4a56-96c9-170b39c0a8e8"
-    ],
+    "groupsSuggestions": [],
     "userId": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
     "email": "ahmed@gmail.com",
     "username": "ahmed",
@@ -72,16 +66,15 @@
   },
   {
     "FriendsId": [
-      "c5d19e01-83b4-488e-b804-96fd899332e4",
       "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45"
     ],
     "requestsReceived": [],
     "suggestions": [
-      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
     ],
     "blocked": [],
     "groupsSuggestions": [
-      "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e",
       "4db664f9-7f4b-4a56-96c9-170b39c0a8e8"
     ],
     "userId": "81b6e545-ad7a-429d-82f6-7f8538588d86",
@@ -106,7 +99,6 @@
     "blocked": [],
     "groupsSuggestions": [
       "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-      "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e",
       "4db664f9-7f4b-4a56-96c9-170b39c0a8e8"
     ],
     "userId": "c9aa1fd6-9a49-49f5-915d-19a1c7759fe6",
