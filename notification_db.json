@@ -1,35 +1,29 @@
 [
   {
     "notificationtype": "Approved",
-    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "receiveruserid": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
-    "timestamp": "2024-12-13T01:24:00.54873"
+    "senderuserid": "c4ed9c01-4536-4af4-a31a-a66895d236cd",
+    "receiveruserid": "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
+    "timestamp": "2024-12-13T18:53:29.2964762"
   },
   {
     "notificationtype": "Created",
-    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "targetid": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
-    "timestamp": "2024-12-13T01:30:50.942412"
-  },
-  {
-    "notificationtype": "Friend",
-    "senderuserid": "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
-    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "timestamp": "2024-12-13T02:05:03.699693"
+    "senderuserid": "c4ed9c01-4536-4af4-a31a-a66895d236cd",
+    "receiveruserid": "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
+    "targetid": "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
+    "timestamp": "2024-12-13T18:53:55.8562317"
   },
   {
     "notificationtype": "Created",
-    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "targetid": "81b6e545-ad7a-429d-82f6-7f8538588d86",
-    "timestamp": "2024-12-13T02:11:18.816922"
+    "senderuserid": "c4ed9c01-4536-4af4-a31a-a66895d236cd",
+    "receiveruserid": "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
+    "targetid": "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
+    "timestamp": "2024-12-13T18:58:54.4324225"
   },
   {
     "notificationtype": "Created",
-    "senderuserid": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "targetid": "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45",
-    "timestamp": "2024-12-13T02:11:18.816988"
+    "senderuserid": "c4ed9c01-4536-4af4-a31a-a66895d236cd",
+    "receiveruserid": "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
+    "targetid": "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
+    "timestamp": "2024-12-13T18:59:25.444107"
   }
 ]
