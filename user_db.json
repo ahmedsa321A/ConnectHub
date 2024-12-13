@@ -2,101 +2,17 @@
   {
     "FriendsId": [],
     "requestsReceived": [],
-    "suggestions": [
-      "13e308bc-7f32-42c0-979d-bbdbe751e07b",
-      "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
-      "9fec0dcd-2aea-4893-974d-0117c3df911d",
-      "11bdbf42-51cc-477b-908c-3f563872d2d9"
-    ],
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
-    "email": "adham@gmail.com",
-    "username": "Adham",
-    "password": "8a2900e97760a6148f785356fe009102357b64f1",
-    "dateOfBirth": "2004-08-17",
-    "status": "offline",
-    "profilePhotoPath": "",
-    "coverPhotoPath": "",
-    "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
     "suggestions": [],
     "blocked": [],
     "groupsSuggestions": [],
-    "userId": "11bdbf42-51cc-477b-908c-3f563872d2d9",
-    "email": "ahmed@gmail.com",
-    "username": "Ahmed",
-    "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
-    "dateOfBirth": "2003-10-11",
-    "status": "offline",
+    "userId": "cdcc63c9-9b54-45c1-87f3-c5d179cb68f9",
+    "email": "adham@gmail.com",
+    "username": "adham",
+    "password": "8a2900e97760a6148f785356fe009102357b64f1",
+    "dateOfBirth": "2004-08-17",
+    "status": "online",
     "profilePhotoPath": "",
     "coverPhotoPath": "",
     "bio": ""
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "13e308bc-7f32-42c0-979d-bbdbe751e07b",
-      "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
-      "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
-      "11bdbf42-51cc-477b-908c-3f563872d2d9"
-    ],
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "9fec0dcd-2aea-4893-974d-0117c3df911d",
-    "email": "bigad@gmail.com",
-    "username": "Bigad",
-    "password": "3fb6e47871331fa4340268e62b19ec42488bb451",
-    "dateOfBirth": "2004-08-04",
-    "status": "offline",
-    "profilePhotoPath": "C:\\Users\\adham\\Downloads\\bigad.jpeg",
-    "coverPhotoPath": "C:\\Users\\adham\\Downloads\\faculty_of_engineering_alexandria_university_egypt_cover.jpg",
-    "bio": "Working at KFC\n#Bright_Future"
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "13e308bc-7f32-42c0-979d-bbdbe751e07b",
-      "9fec0dcd-2aea-4893-974d-0117c3df911d",
-      "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
-      "11bdbf42-51cc-477b-908c-3f563872d2d9"
-    ],
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
-    "email": "hazem@gmail.com",
-    "username": "Hazem",
-    "password": "ce6608b0c32c188fa24a33fb7c696d36ada21b42",
-    "dateOfBirth": "2004-10-14",
-    "status": "offline",
-    "profilePhotoPath": "C:\\Users\\adham\\Downloads\\hitlar.jpg",
-    "coverPhotoPath": "C:\\Users\\adham\\Downloads\\faculty_of_engineering_alexandria_university_egypt_cover.jpg",
-    "bio": "#Front_End_LOVER"
-  },
-  {
-    "FriendsId": [],
-    "requestsReceived": [],
-    "suggestions": [
-      "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
-      "9fec0dcd-2aea-4893-974d-0117c3df911d",
-      "21fd0cbc-3e23-4ea5-a8ec-399a91202c31",
-      "11bdbf42-51cc-477b-908c-3f563872d2d9"
-    ],
-    "blocked": [],
-    "groupsSuggestions": [],
-    "userId": "13e308bc-7f32-42c0-979d-bbdbe751e07b",
-    "email": "aboeleid@gmail.com",
-    "username": "Aboeleid",
-    "password": "e0bec0d7cdfdf0f46d372c2c2224e1d4f9c40f4a",
-    "dateOfBirth": "2001-01-01",
-    "status": "offline",
-    "profilePhotoPath": "C:\\Users\\adham\\Downloads\\aboeleid.jpeg",
-    "coverPhotoPath": "C:\\Users\\adham\\Downloads\\faculty_of_engineering_alexandria_university_egypt_cover.jpg",
-    "bio": "i\u0027m teaching assistant \nat faculty of engineering"
   }
 ]
