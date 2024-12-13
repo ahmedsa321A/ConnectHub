@@ -9,10 +9,12 @@ import Back__end.User;
 import Back__end.UserRepository;
 import Back__end.userService;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -35,10 +37,9 @@ public class GroupSuggestionWindow extends javax.swing.JDialog {
             Group group = GroupDatabase.getGroupById(groupId);
             JPanel grouppanel = new JPanel();
             grouppanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            MyButton button = new MyButton();
-//            JLabel imgLabel = new JLabel();
-//            Photo.setPhoto(imgLabel, group.getGroupPhotoPath());
-            button.addActionListener(new ActionListener() {
+            MyButton request = new MyButton();
+            request.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/minirequest.png")));
+            request.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     user.removeGroupFromSuggestion(groupId);
@@ -54,15 +55,31 @@ public class GroupSuggestionWindow extends javax.swing.JDialog {
                     groupSuggestionPanel.repaint();
                 }
             });
+           ImageIcon imgicon = saveImageIconGroup(group.getGroupPhotoPath());
+           JLabel imageLabel = new JLabel();
+          
+           imageLabel.setIcon(imgicon);
+    
             JLabel nameLabel = new JLabel(group.getName());
-            button.setText("Request");
-//            grouppanel.add(imgLabel);
+            request.setText("Request");
+            grouppanel.add(imageLabel);
             grouppanel.add(nameLabel);
-            grouppanel.add(button);
+            grouppanel.add(request);
             groupSuggestionPanel.add(grouppanel);
         }
     }
-
+public ImageIcon saveImageIconGroup(String photoPath) {
+        ImageIcon imgicon;
+        if (photoPath.equals("")) {
+            imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/nogroup.png"));
+        } else {
+            imgicon = new ImageIcon(photoPath);
+        }
+        Image image = imgicon.getImage();
+        Image resizedImage = image.getScaledInstance(45, 45, Image.SCALE_SMOOTH); // Resize to fit
+        imgicon = new ImageIcon(resizedImage);
+        return imgicon;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -88,6 +105,7 @@ public class GroupSuggestionWindow extends javax.swing.JDialog {
         groupSuggestionPanel.setLayout(new BoxLayout(groupSuggestionPanel, BoxLayout.Y_AXIS));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/hazembarakat/Downloads/pngtree-suggestion-png-image_8704036-2.png")); // NOI18N
         jLabel1.setText("Group Suggestion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,7 +124,7 @@ public class GroupSuggestionWindow extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
         );
 
         pack();

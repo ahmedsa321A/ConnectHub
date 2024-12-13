@@ -54,8 +54,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane6" min="-2" pref="1040" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jScrollPane6" min="-2" pref="946" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,12 +75,42 @@
                       <Component id="UsersSearchBar" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="UserSearch" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="logout" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" min="-2" pref="418" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="532" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane4" min="-2" pref="418" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane1" min="-2" pref="532" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                              <Component id="GroupSearchBar" min="-2" pref="175" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                              <Component id="groupSearch" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel7" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane2" alignment="0" pref="420" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="home" min="-2" pref="70" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -90,35 +120,10 @@
                                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="friends" min="-2" pref="70" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="profile" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="profile" min="-2" pref="186" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="GroupSearchBar" min="-2" pref="175" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                      <Component id="groupSearch" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel7" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" alignment="0" pref="420" max="32767" attributes="0"/>
-                                          <Component id="jScrollPane3" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="logout" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -164,40 +169,38 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="logout" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="groupSearch" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="GroupSearchBar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="notificationcounter" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="logout" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="groupSearch" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="GroupSearchBar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="notificationcounter" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="394" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane2" min="-2" pref="274" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="jLabel7" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="jLabel2" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" pref="274" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane3" min="-2" pref="262" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="profile" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jScrollPane4" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="jScrollPane1" min="-2" pref="627" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -205,33 +208,31 @@
                                           <Component id="story" min="-2" pref="70" max="-2" attributes="0"/>
                                           <Component id="post" min="-2" pref="70" max="-2" attributes="0"/>
                                           <Component id="friends" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <Component id="profile" min="-2" pref="70" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="UsersSearchBar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="UserSearch" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane7" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="creategroup" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="groupSuggestion" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="UsersSearchBar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="UserSearch" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" min="-2" pref="250" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="creategroup" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="groupSuggestion" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -346,14 +347,17 @@
             </Component>
             <Component class="Back__end.MyButton" name="profile">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="33" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/profile.png"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="99" red="33" type="rgb"/>
                 </Property>
                 <Property name="colorover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="99" type="rgb"/>
+                  <Color blue="ff" green="66" red="33" type="rgb"/>
                 </Property>
                 <Property name="redius" type="int" value="100"/>
               </Properties>
