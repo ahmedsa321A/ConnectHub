@@ -57,10 +57,12 @@ public class GroupWindow extends javax.swing.JFrame {
             deleteGroupButton.setVisible(false);
         } else
         {
+            jLabel3.setVisible(false);
+            requestPanel.setVisible(false);
+            jScrollPane4.setVisible(false);
             deleteGroupButton.setVisible(false);
             leaveButton.setVisible(false);
             createPostButton.setVisible(false);
-            
         }
         creatorLabel.setText(userService.getUser(group.getPrimaryAdmin()).getUsername());
         Font customFont = new Font("SansSerif", Font.BOLD | Font.ITALIC, 22);
