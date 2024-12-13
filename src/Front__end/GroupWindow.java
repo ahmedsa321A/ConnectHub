@@ -241,7 +241,6 @@ public class GroupWindow extends javax.swing.JFrame {
                 Panel.add(demoteButton);
             }
             if (flag == 2 && Panell == this.membersPanel) {
-                Panel.add(promoteButton);
                 Panel.add(removeButton);
             }
             if ((flag == 1 || flag == 2) && Panell == this.requestPanel) {
