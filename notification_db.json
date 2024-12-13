@@ -11,5 +11,11 @@
     "receiveruserid": "c5d19e01-83b4-488e-b804-96fd899332e4",
     "targetid": "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f",
     "timestamp": "2024-12-13T18:11:23.657017"
+  },
+  {
+    "notificationtype": "Approved",
+    "senderuserid": "4db664f9-7f4b-4a56-96c9-170b39c0a8e8",
+    "receiveruserid": "81b6e545-ad7a-429d-82f6-7f8538588d86",
+    "timestamp": "2024-12-13T18:14:54.2196731"
   }
 ]

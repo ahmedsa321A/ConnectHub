@@ -76,9 +76,7 @@ public class GroupWindow extends javax.swing.JFrame {
     private void refresh() {
         GroupDatabase.loadGroupsFromJson();
         Group group = GroupDatabase.getGroupById(this.group.getId());
-        for (Window window : Window.getWindows()) {
-            window.dispose();
-        }
+        this.dispose();
         GroupWindow groupWindow = new GroupWindow(group, this.user);
     }
     
