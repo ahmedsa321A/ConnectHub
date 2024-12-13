@@ -186,6 +186,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
         notificationcounter.setText("" + ndb.getnumberofnotification(user.getUserId()));
         ns.createfriendrequestnotification(notificationPanel, user.getUserId());
         ns.createapprovednotification(notificationPanel, user.getUserId());
+        ns.createpostnotification(notificationPanel, user.getUserId());
         
 
     }

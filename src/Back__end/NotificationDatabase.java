@@ -59,8 +59,11 @@ public class NotificationDatabase {
     public static ArrayList<Notification> getNotifications(String id) {
         ArrayList<Notification> personnotifications =new ArrayList<>();
         for(Notification n:NotificationDatabase.notifications)
-            if(n.getReceiveruserid().equals(id)) 
+        { if(n.getReceiveruserid().equals(id)&&!n.getNotificationtype().equals("Created")) 
                 personnotifications.add(n);
+           if(n.getTargetid()!=null)
+               if(n.getTargetid().equals(id)) personnotifications.add(n);
+        }
         return personnotifications;
     }
 
@@ -78,7 +81,7 @@ public class NotificationDatabase {
         ArrayList<Notification> personnotifications =getNotifications(id);
         int count=0;
         
-        for(Notification n:personnotifications) if(n.getNotificationtype().equals("Approved")||n.getNotificationtype().equals("Friend")) count++;
+        for(Notification n:personnotifications)  count++;
         return count;
     }
    
