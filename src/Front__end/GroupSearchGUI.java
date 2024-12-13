@@ -44,8 +44,12 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
         
         JButton viewGroupButton = new JButton("View Group");
         viewGroupButton.setIcon(new ImageIcon(getClass().getResource("/icons/ViewGroup.png")));
-
-        if (group.getMembers().contains(currentUser.getUserId())||group.getAdmins().contains(currentUser.getUserId())) {
+        if(group.getRequests().contains(currentUser.getUserId())){
+        joinButton.setText("Request Sent");
+        joinButton.setEnabled(false);
+        
+        }
+        else if (group.getMembers().contains(currentUser.getUserId())||group.getAdmins().contains(currentUser.getUserId())) {
             resultPanel.add(leaveButton);
         } else {
             resultPanel.add(joinButton);
@@ -86,7 +90,6 @@ public class GroupSearchGUI extends SearchParentGUI<Group> {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GroupWindow s=new GroupWindow(group,currentUser);
-                JOptionPane.showMessageDialog(null, "Viewing group: " + group.getName());
             }
         });
 
