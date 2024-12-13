@@ -1,15 +1,35 @@
 [
   {
-    "FriendsId": [],
+    "FriendsId": [
+      "f0699172-a020-43a8-8c53-34f3950166d8"
+    ],
     "requestsReceived": [],
     "suggestions": [],
     "blocked": [],
     "groupsSuggestions": [],
-    "userId": "cdcc63c9-9b54-45c1-87f3-c5d179cb68f9",
-    "email": "adham@gmail.com",
-    "username": "adham",
-    "password": "8a2900e97760a6148f785356fe009102357b64f1",
-    "dateOfBirth": "2004-08-17",
+    "userId": "162a559a-65e2-4c8c-98a6-c6319a1b669e",
+    "email": "a@gmail.com",
+    "username": "a",
+    "password": "7c222fb2927d828af22f592134e8932480637c0d",
+    "dateOfBirth": "1994-12-01",
+    "status": "offline",
+    "profilePhotoPath": "",
+    "coverPhotoPath": "",
+    "bio": ""
+  },
+  {
+    "FriendsId": [
+      "162a559a-65e2-4c8c-98a6-c6319a1b669e"
+    ],
+    "requestsReceived": [],
+    "suggestions": [],
+    "blocked": [],
+    "groupsSuggestions": [],
+    "userId": "f0699172-a020-43a8-8c53-34f3950166d8",
+    "email": "c@gmail.com",
+    "username": "c",
+    "password": "7c222fb2927d828af22f592134e8932480637c0d",
+    "dateOfBirth": "1999-12-10",
     "status": "offline",
     "profilePhotoPath": "",
     "coverPhotoPath": "",

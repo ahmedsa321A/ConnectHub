@@ -29,12 +29,14 @@ public class NotificationService {
     Notification temp=null;
     request.setLayout(new BoxLayout(request, BoxLayout.Y_AXIS));
     for (Notification n : notifications) {
+
+        if(n.getNotificationtype().equals("Friend"))
+        {
+                    
         if(userService.getUser(n.getSenderuserid()).isFriend(n.getReceiveruserid())){
          temp=n;
          continue;
         }
-        if(n.getNotificationtype().equals("Friend"))
-        {
         ArrayList<String> requestData = userService.getPathAndName(n.getSenderuserid());
         String name = requestData.get(0);
         String photoPath = requestData.get(1);
