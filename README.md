@@ -1,5 +1,6 @@
 # **ConnectHub**
-![Alt text]("C:\Users\ahmed\OneDrive\Pictures\Screenshots\connect.png")
+![connect](https://github.com/user-attachments/assets/991f6b06-0c4c-4a3e-8a8d-4fdcd31877b2)
+
 
 **ConnectHub** is a collaborative social media platform designed to bring people together, enabling users to share posts, connect with friends, and build meaningful relationships. Developed by a dedicated team of four, the platform emphasizes an intuitive and feature-rich user experience.
 
