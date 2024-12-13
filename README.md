@@ -1,34 +1,47 @@
-# ConnectHub  
+# **ConnectHub**
 
-ConnectHub is a social media platform designed to connect users, share posts, and build friendships. The project was collaboratively developed by a team of four, focusing on providing an intuitive and feature-rich user experience.  
+**ConnectHub** is a collaborative social media platform designed to bring people together, enabling users to share posts, connect with friends, and build meaningful relationships. Developed by a dedicated team of four, the platform emphasizes an intuitive and feature-rich user experience.
 
-## Features  
+## **Features**
 
-### User Authentication  
-- **Sign Up**: Create a new account with your email and password.  
-- **Sign In**: Log in to access your personalized news feed and features.  
+### **User Authentication**
+- **Sign Up**: Register a new account securely using your email and password.
+- **Sign In**: Log in to access your personalized news feed and platform features.
 
-### News Feed  
-- View a dynamic feed of posts and stories from your friends.  
-- Stay updated with your friends' statuses and activities.  
+### **News Feed**
+- View a dynamic feed of posts and stories from your friends.
+- Stay updated with your friends' statuses and activities.
 
-### Friends and Friend Suggestions  
-- **Friend Center**:  
-  - Accept or reject incoming friend requests.  
-  - Remove or block friends from your list.  
-- View and manage blocked friends.  
-- Discover new connections with friend suggestions.  
+### **Friends and Friend Suggestions**
+- **Friend Center**:
+  - Accept or reject incoming friend requests.
+  - Remove or block friends from your list.
+- View and manage blocked friends.
+- Discover new connections with friend suggestions.
 
-### Posts and Stories  
-- **Add Post**: Share your thoughts, images, or updates with your friends.  
-- **Add Story**: Post stories to be visible to your connections for a limited time.  
-- **View Stories**: Explore stories shared by your friends.  
+### **Posts and Stories**
+- **Add Post**: Share your thoughts, images, or updates with your friends.
+- **Add Story**: Post stories visible to your connections for a limited time.
+- **View Stories**: Explore stories shared by your friends.
 
-## Team Members  
+### **Group Management, Search, and Notifications**
+- **Group Management**:
+  - Create and manage groups with ease.
+  - Collaborate and interact with members through group features.
+- **Search**:
+  - Find users and groups quickly using an advanced search function.
+- **Notifications**:
+  - Stay informed with real-time notifications for friend requests, posts, and updates.
 
-- **Ahmed Saied**: Developed user login, sign-up, and authentication functionalities.  
-- **Hazem Barakat**: Managed posts, content database, and frontend icons.  
-- **Adham Zakria**: Worked on the profile editor ,profile management and some front end features with Hazem. 
-- **Begad Mohamed**: Implemented the Friend Center, including friend requests, blocking and unblocking features.  
- 
-- **Team Contribution**: All team members collaborated on the news feed feature front end and resolved errors caused by merging conflicts.  
+## **Team Members**
+
+- **Ahmed Saied**: Developed user login, sign-up, and authentication functionalities.
+- **Hazem Barakat**: Managed posts, content database, and frontend icons.
+- **Adham Zakria**: Worked on the profile editor, profile management, and frontend features with Hazem.
+- **Begad Mohamed**: Implemented the Friend Center, including friend requests, blocking, and unblocking features.
+
+### **Collaborative Contributions**
+- **News Feed**: All team members collaborated on the frontend and resolved merge conflicts.
+- **Group Management**: Ahmed and Adham handled group management with frontend integration.
+- **Notifications**: Hazem developed the notification system with frontend enhancements.
+- **Search**: Begad implemented the user and group search functionality with frontend integration.
