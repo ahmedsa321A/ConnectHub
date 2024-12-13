@@ -1,21 +1,20 @@
 [
   {
-    "id": "4db664f9-7f4b-4a56-96c9-170b39c0a8e8",
-    "name": "G.o.a.t s",
-    "description": "each member is G.o.a.t",
-    "groupPhotoPath": "/Users/hazembarakat/Desktop/posts photo/hq720.png",
-    "primaryAdmin": "c5d19e01-83b4-488e-b804-96fd899332e4",
+    "id": "c4ed9c01-4536-4af4-a31a-a66895d236cd",
+    "name": "dsfa",
+    "description": "",
+    "groupPhotoPath": "",
+    "primaryAdmin": "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d",
     "admins": [
-      "c5d19e01-83b4-488e-b804-96fd899332e4"
+      "b9e2c020-1c4a-4a23-bc6e-7bfffe570b7d"
     ],
     "members": [
-      "c0bfd094-5e39-47bc-b9b3-0a7f0be68c6f"
+      "21fd0cbc-3e23-4ea5-a8ec-399a91202c31"
     ],
     "requests": [],
     "postsId": [
-      "3a122477-c578-4a30-b4d7-f524850f3b6c",
-      "f5b4abf6-8f83-40d3-8a53-7822edca8641",
-      "d3359a51-87f2-4151-baf9-b3ebf5dfc3f0"
+      "2ffab328-90e5-4a3e-b99b-6fae3882bb53",
+      "3a02b352-62ff-4637-a5fb-cefadc5eed65"
     ]
   }
 ]
