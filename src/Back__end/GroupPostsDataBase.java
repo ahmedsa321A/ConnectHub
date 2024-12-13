@@ -1,3 +1,4 @@
+
 package Back__end;
 
 import com.google.gson.Gson;
@@ -14,14 +15,41 @@ import java.util.List;
  *
  * @author ahmed
  */
-public class GroupPostsDataBase {
+public class GroupPostsDatabase {
 
     private static final String FILE_PATH = "group_posts.json";
-
+    private static NotificationDatabase ndb = NotificationDatabase.getInstance();
     public static List<GroupPost> groupPosts = new ArrayList<>();
 
     public  static void addPost(GroupPost p){
     groupPosts.add(p);
+    ndb.loadnotification();
+    Group group=GroupDatabase.getGroupById(p.getGroupID());
+    for(String id:group.getMembers())
+    {
+        if(id.equals(p.getAuthorId())) continue;
+        Notification notification = new Notification.Builder().setNotificationtype("Created")
+                .setSenderuserid(p.getGroupID())
+                .setReceiveruserid(p.getAuthorId())
+                .settargetid(id)
+                .build();
+        
+        ndb.addnotification(notification);
+    }
+      for(String id:group.getAdmins())
+    {
+        if(id.equals(p.getAuthorId())) continue;
+        Notification notification = new Notification.Builder().setNotificationtype("Created")
+                .setSenderuserid(p.getGroupID())
+                .setReceiveruserid(p.getAuthorId())
+                .settargetid(id)
+                .build();
+        
+        ndb.addnotification(notification);
+    }
+        ndb.savenotifications();
+    group.addPost(p.getContentId());
+    GroupDatabase.saveGroupsToJson();
     saveToJSON();
     }
     
@@ -62,7 +90,7 @@ public class GroupPostsDataBase {
             if (post.getContentId().equals(id)) {
                 groupPosts.remove(post);
                 saveToJSON(); // Save changes to the JSON file
-                GroupDataBase.saveGroupsToJson();
+                GroupDatabase.saveGroupsToJson();
                 return true; // Return true if the post was removed successfully
             }
         }
@@ -70,3 +98,4 @@ public class GroupPostsDataBase {
     }
 
 }
+

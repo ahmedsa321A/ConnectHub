@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+
 public class Signup extends javax.swing.JFrame {
 
     private static Signup instance;
@@ -26,7 +27,7 @@ public class Signup extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                   instance=null;
+                instance = null;
             }
         });
         addPlaceholderStyle(emailtext);
@@ -114,6 +115,11 @@ public class Signup extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 usernametextFocusLost(evt);
+            }
+        });
+        usernametext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernametextActionPerformed(evt);
             }
         });
 
@@ -290,58 +296,62 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-      String username = usernametext.getText();
-char[] pass1 = password.getPassword();
-String password1 = new String(pass1);
-char[] pass2 = password2.getPassword(); // Second password field
-String password2 = new String(pass2);
-String email = emailtext.getText();
-Date selectedDate = jDateChooser1.getDate();
-String date = "";
+        String username = usernametext.getText();
+        char[] pass1 = password.getPassword();
+        String password1 = new String(pass1);
+        char[] pass2 = password2.getPassword(); // Second password field
+        String password2 = new String(pass2);
+        String email = emailtext.getText();
+        Date selectedDate = jDateChooser1.getDate();
+        String date = "";
 
-if (selectedDate != null) {
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    date = dateFormat.format(selectedDate);
+        if (selectedDate != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            date = dateFormat.format(selectedDate);
 
-    // Validate date for at least 14 years old
-    LocalDate currentDate = LocalDate.now();
-    LocalDate minimumDate = currentDate.minusYears(14);
-    LocalDate birthDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            // Validate date for at least 14 years old
+            LocalDate currentDate = LocalDate.now();
+            LocalDate minimumDate = currentDate.minusYears(14);
+            LocalDate birthDate = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-    if (birthDate.isAfter(minimumDate)) {
-        JOptionPane.showMessageDialog(this, "You must be at least 14 years old.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-} else {
-    JOptionPane.showMessageDialog(this, "Please select a date.", "Error", JOptionPane.ERROR_MESSAGE);
-    return;
-}
+            if (birthDate.isAfter(minimumDate)) {
+                JOptionPane.showMessageDialog(this, "You must be at least 14 years old.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a date.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || email.isEmpty() || date.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
-} else if (!password1.equals(password2)) {
-    JOptionPane.showMessageDialog(this, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
-} else if (password1.length() < 8) {
-    JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long.", "Error", JOptionPane.ERROR_MESSAGE);
-} else if (!userService.isValidEmail(email)) {
-    JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-} else if (userService.checkIfUserExists(email)) {
-    JOptionPane.showMessageDialog(this, "Email already exists.", "Error", JOptionPane.ERROR_MESSAGE);
-} else {
-    try {
-        userService.signup(email, username, password2, date);
-        JOptionPane.showMessageDialog(this, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-    } catch (NoSuchAlgorithmException ex) {
-        Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
-        JOptionPane.showMessageDialog(this, "Error during signup. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception ex) {
-        Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
-        JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-    instance = null;
-    this.dispose();
+        if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || email.isEmpty() || date.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields must be filled out!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!password1.equals(password2)) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (password1.length() < 8) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!userService.isValidEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (userService.checkIfUserExists(email)) {
+            JOptionPane.showMessageDialog(this, "Email already exists.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            try {
+                userService.signup(email, username, password2, date);
+                JOptionPane.showMessageDialog(this, "Sign Up Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Error in hashing password", ex);
+                JOptionPane.showMessageDialog(this, "Error during signup. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, "Unexpected error during signup", ex);
+                JOptionPane.showMessageDialog(this, "Unexpected error. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            instance = null;
+            this.dispose();
 
         }    }//GEN-LAST:event_signupActionPerformed
+
+    private void usernametextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernametextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernametextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

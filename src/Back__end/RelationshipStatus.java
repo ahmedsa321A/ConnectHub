@@ -6,7 +6,8 @@ public enum RelationshipStatus {
     FRIENDS,
     PENDING,
     NOT_FRIENDS,
-    BLOCKED;
+    BLOCKED,
+    DONT_SUGGEST;
     
      @Override
     public String toString() {

@@ -204,7 +204,6 @@ public class PostGui extends javax.swing.JFrame {
     
     // Use the factory to create a Content object
     Content post = contentFactory.createContent(user.getUserId(), text, photopath, false);
-
             db.addContent(post);
             db.saveContent();
             JOptionPane.showMessageDialog(this, "Post Published Successfully", "Successfully", JOptionPane.INFORMATION_MESSAGE);

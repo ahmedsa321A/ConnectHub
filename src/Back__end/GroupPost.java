@@ -1,3 +1,4 @@
+
 package Back__end;
 
 import java.time.LocalDateTime;
@@ -24,6 +25,10 @@ public class GroupPost {
     // Getters
     public String getContentId() {
         return contentId;
+    }
+
+    public String getGroupID() {
+        return groupID;
     }
 
     public String getAuthorId() {
@@ -80,4 +85,5 @@ public class GroupPost {
             return new GroupPost(this);
         }
     }
+
 }

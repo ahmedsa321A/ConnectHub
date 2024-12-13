@@ -40,21 +40,20 @@ public class userService {
         }
         return icon;
     }
-    public ImageIcon saveImageIconProfile(String photoPath)
-    {
+
+    public ImageIcon saveImageIconProfile(String photoPath) {
         ImageIcon imgicon;
         if (photoPath.equals("")) {
-                imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png")); 
-            }
-        else
-        {
-             imgicon = new ImageIcon(photoPath);
+            imgicon = new javax.swing.ImageIcon(getClass().getResource("/icons/noprofile.png"));
+        } else {
+            imgicon = new ImageIcon(photoPath);
         }
         Image image = imgicon.getImage();
         Image resizedImage = image.getScaledInstance(45, 45, Image.SCALE_SMOOTH); // Resize to fit
         imgicon = new ImageIcon(resizedImage);
         return imgicon;
     }
+
     public static String getStatusofUser(String name) {
         UserRepository.loadUsersFromJson();
 
@@ -116,6 +115,11 @@ public class userService {
         // Use the factory to create the User object
         User user = userFactory.createUser(email, username, password, dateOfBirth);
 
+        GroupDatabase.loadGroupsFromJson();
+        for (Group g : GroupDatabase.getGroups()) {
+            user.addGroupsSuggestion(g.getId());
+        }
+
         // Save the user (assuming saveSignup is defined to handle saving the user data)
         saveSignup(user);
 
@@ -131,7 +135,7 @@ public class userService {
             if (user.getEmail().equals(email) && user.getPassword().equals(hashedPassword)) {
                 UserRepository.loadUsersFromJson();
                 user = userService.getUser(user.getUserId());
-                user.setStatus("online"); 
+                user.setStatus("online");
                 UserRepository.saveData();
                 return user;
             }
