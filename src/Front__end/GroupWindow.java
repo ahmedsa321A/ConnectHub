@@ -444,7 +444,7 @@ public class GroupWindow extends javax.swing.JFrame {
         this.dispose();
         UserRepository.loadUsersFromJson();
         user = userService.getUser(user.getUserId());
-        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
+        this.dispose();
     }//GEN-LAST:event_leaveButtonActionPerformed
 
     private void deleteGroupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGroupButtonActionPerformed
@@ -455,7 +455,6 @@ public class GroupWindow extends javax.swing.JFrame {
             u.removeGroupFromSuggestion(group.getId());
         }
         this.dispose();
-        NewsFeedWindow newsfeedwindow = new NewsFeedWindow(user);
     }//GEN-LAST:event_deleteGroupButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
