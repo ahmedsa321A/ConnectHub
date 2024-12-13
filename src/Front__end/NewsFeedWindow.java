@@ -166,7 +166,17 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             JPanel friendPanel = new JPanel();
             friendPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
             ImageIcon imgicon = new userService().saveImageIconProfile(photoPath);
-            JLabel imageLabell = new JLabel(imgicon);
+             MyButton button = new MyButton();
+            button.setIcon(imgicon);
+            button.setRedius(50);
+            button.setColorover(new java.awt.Color(153, 204, 255));
+            button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                     ViewProfileSearchGUI viewProfile=new ViewProfileSearchGUI(userService.getUser(friendId));
+                     viewProfile.setVisible(true);    
+                    }
+                });
             JLabel nameLabel = new JLabel(name);
             ImageIcon status = null;
             try {
@@ -182,7 +192,7 @@ public class NewsFeedWindow extends javax.swing.JFrame {
             } catch (Exception e) {
             }
             JLabel statusLabel = new JLabel(status);
-            friendPanel.add(imageLabell);
+            friendPanel.add(button);
             friendPanel.add(nameLabel);
             friendPanel.add(statusLabel);
             friendListPanel.add(friendPanel);

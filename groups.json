@@ -1,29 +1,5 @@
 [
   {
-    "id": "f2056255-dc77-4b41-b3d3-6df451d1eda5",
-    "name": "zikawiat",
-    "description": "",
-    "groupPhotoPath": "",
-    "primaryAdmin": "c5d19e01-83b4-488e-b804-96fd899332e4",
-    "admins": [
-      "c5d19e01-83b4-488e-b804-96fd899332e4"
-    ],
-    "members": [
-      "81b6e545-ad7a-429d-82f6-7f8538588d86"
-    ],
-    "requests": [
-      "1b3c4ced-1fe2-4a47-a5f6-36ba6ee53c45"
-    ],
-    "postsId": [
-      "4ac8cc4b-894a-43b3-855e-985460c9caa0",
-      "1a1fcefe-fbfd-4cdd-a66c-c9455f393a49",
-      "18c7cc10-1ec0-4233-bd35-56cc8efbbfe3",
-      "7e23cea0-b877-4761-8a56-06b8b99c9edf",
-      "456a9dd6-ba4c-4353-9e21-c1388de68381",
-      "994e8943-5433-456b-b9e9-b71b2d302419"
-    ]
-  },
-  {
     "id": "ed7b19f3-c85b-4d1b-b754-358bab5fdc2e",
     "name": "tagegaeg",
     "description": "",
@@ -47,6 +23,22 @@
       "7cd2349e-bcb6-4c17-8f08-a13f414cdf2e",
       "6bde7ae9-aa2f-4e11-8196-6eb8d8e6d50d",
       "53893fec-9060-4b8c-90b4-b0ea1bbc7628"
+    ]
+  },
+  {
+    "id": "4db664f9-7f4b-4a56-96c9-170b39c0a8e8",
+    "name": "G.o.a.t s",
+    "description": "each member is G.o.a.t",
+    "groupPhotoPath": "/Users/hazembarakat/Desktop/posts photo/hq720.png",
+    "primaryAdmin": "c5d19e01-83b4-488e-b804-96fd899332e4",
+    "admins": [
+      "c5d19e01-83b4-488e-b804-96fd899332e4"
+    ],
+    "members": [],
+    "requests": [],
+    "postsId": [
+      "3a122477-c578-4a30-b4d7-f524850f3b6c",
+      "f5b4abf6-8f83-40d3-8a53-7822edca8641"
     ]
   }
 ]

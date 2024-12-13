@@ -122,7 +122,17 @@ public class ContentService {
         String groupId = content.getGroupID();
         Group g = GroupDatabase.getGroupById(groupId);
 
-        JLabel imageLabell = new JLabel(imgicon);
+        MyButton button = new MyButton();
+            button.setIcon(imgicon);
+            button.setRedius(50);
+            button.setColorover(new java.awt.Color(153, 204, 255));
+            button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                     ViewProfileSearchGUI viewProfile=new ViewProfileSearchGUI(userService.getUser(content.getAuthorId()));
+                     viewProfile.setVisible(true);    
+                    }
+                });
 
         // Create a JLabel for the text
         JLabel textLabel = new JLabel();
@@ -131,7 +141,7 @@ public class ContentService {
 
         // Add the image label and text label to the panel
         authorPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        authorPanel.add(imageLabell);
+        authorPanel.add(button);
         authorPanel.add(textLabel);
 
         JLabel contentText = new JLabel();
@@ -206,6 +216,7 @@ public class ContentService {
         MyButton button = new MyButton();
             button.setIcon(imgicon);
             button.setRedius(50);
+            button.setColorover(new java.awt.Color(153, 204, 255));
             button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
